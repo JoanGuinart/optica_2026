@@ -1,0 +1,24 @@
+---
+import Portada from "@components/Portada.astro";
+import MainContent from "@components/MainContent.astro";
+import Layout from "@layouts/Layout.astro";
+import NavbarClient from "@/components/NavbarClient";
+import UnderConstructionPage from "@/components/UnderConstructionPage.astro";
+import { isUnderConstruction } from "@/lib/under-construction";
+// Verificar si debemos mostrar la página en construcción
+const underConstruction = isUnderConstruction();
+console.log(underConstruction);
+---
+
+{
+  underConstruction ? (
+    <Layout title="Optica Guinart - En construcción">
+      <UnderConstructionPage />
+    </Layout>
+  ) : (
+    <Layout title="Inicio - Óptica Web">
+      <Portada />
+      <MainContent />
+    </Layout>
+  )
+}
