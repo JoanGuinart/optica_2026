@@ -1,2 +1,9 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
+
+main{
+    margin-top: 80px;
+}
+button {
+    cursor: pointer;
+}

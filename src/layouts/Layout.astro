@@ -25,12 +25,17 @@ const { title = "Óptica Web" } = Astro.props;
       document.documentElement.classList.toggle(
         "dark",
         localStorage.theme === "dark" ||
-          (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
+          (!("theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
       );
     </script>
   </head>
-  <body class="bg-white dark:bg-slate-900 text-slate-900 dark:text-white transition-colors duration-300">
-    <NavbarClient client:only="react" />
-    <slot />
+  <body
+    class="bg-white dark:bg-slate-900 text-slate-900 dark:text-white transition-colors duration-300"
+  >
+    <NavbarClient client:load />
+    <main>
+      <slot />
+    </main>
   </body>
 </html>

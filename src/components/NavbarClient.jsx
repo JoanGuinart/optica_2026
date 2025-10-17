@@ -19,15 +19,9 @@ const NavbarClient = () => {
       }
     };
     
-    // Check initial theme
-    const checkInitialTheme = () => {
-      const isDarkMode = document.documentElement.classList.contains('dark');
-      setIsDark(isDarkMode);
-    };
-    
-    // Check immediately and after a short delay to ensure DOM is ready
-    checkInitialTheme();
-    setTimeout(checkInitialTheme, 100);
+    // Check initial theme - solo una vez
+    const isDarkMode = document.documentElement.classList.contains('dark');
+    setIsDark(isDarkMode);
     
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", onResize);
@@ -97,12 +91,11 @@ const NavbarClient = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex lg:items-center lg:space-x-8">
             {[
-              { href: "/about", label: "Sobre Nosaltres" },
+              { href: "/products", label: "Productes" },
               { href: "/brands", label: "Marques" },
+              { href: "/services", label: "Serveis" },
               { href: "/contact", label: "Contacte" },
               { href: "/faq", label: "FAQ" },
-              { href: "/products", label: "Productes" },
-              { href: "/services", label: "Serveis" },
             ].map(({ href, label }) => {
               const underConstruction = isUnderConstruction();
               
