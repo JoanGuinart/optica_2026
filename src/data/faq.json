@@ -1,0 +1,72 @@
+{
+  "optica": [
+    {
+      "question": "¿Con qué frecuencia debo revisar mi vista?",
+      "answer": "Se recomienda una revisión anual para adultos. Para niños y personas mayores de 60 años, es aconsejable cada 6 meses. Si tienes síntomas como dolor de cabeza, visión borrosa o fatiga ocular, consulta inmediatamente."
+    },
+    {
+      "question": "¿Cómo sé si necesito gafas?",
+      "answer": "Algunos síntomas comunes incluyen: visión borrosa de cerca o de lejos, dolor de cabeza frecuente, fatiga ocular, dificultad para ver de noche, o entrecerrar los ojos para enfocar. Una revisión visual completa confirmará si necesitas corrección."
+    },
+    {
+      "question": "¿Qué diferencia hay entre gafas progresivas y bifocales?",
+      "answer": "Las gafas bifocales tienen dos zonas definidas: una para cerca y otra para lejos. Las progresivas ofrecen una transición gradual entre todas las distancias (cerca, intermedia y lejos) sin líneas visibles, proporcionando una visión más natural."
+    },
+    {
+      "question": "¿Cuánto tiempo tarda en estar lista mi graduación?",
+      "answer": "Las gafas estándar suelen estar listas en 7-10 días laborables. Las lentes especiales (progresivas, antirreflejantes especiales, etc.) pueden requerir 10-15 días. Las lentes de contacto graduadas normalmente están disponibles en 3-5 días."
+    },
+    {
+      "question": "¿Las lentes de contacto son seguras?",
+      "answer": "Sí, son muy seguras cuando se usan correctamente. Es fundamental seguir las indicaciones de higiene, tiempo de uso y reemplazo. Ofrecemos una consulta completa para determinar si eres candidato y te enseñamos el uso y cuidado adecuado."
+    },
+    {
+      "question": "¿Qué son los tratamientos antirreflejantes?",
+      "answer": "Son recubrimientos especiales que eliminan los reflejos molestos en las lentes, mejoran la transparencia, reducen la fatiga ocular y proporcionan mejor visión nocturna. También facilitan la limpieza y protegen contra rayones."
+    }
+  ],
+  "audiometria": [
+    {
+      "question": "¿Qué es una audiometría?",
+      "answer": "Es una prueba que evalúa tu capacidad auditiva midiendo cómo percibes diferentes sonidos y frecuencias. Es indolora y dura aproximadamente 20-30 minutos. Nos permite detectar cualquier pérdida auditiva y su grado."
+    },
+    {
+      "question": "¿Cuándo debo hacerme una audiometría?",
+      "answer": "Se recomienda una revisión anual después de los 50 años, o antes si notas: dificultad para entender conversaciones, necesidad de subir el volumen de TV/radio, zumbidos en los oídos, o sensación de oídos tapados frecuentemente."
+    },
+    {
+      "question": "¿Cómo me preparo para una audiometría?",
+      "answer": "Evita exposición a ruidos fuertes 24 horas antes de la prueba. Si tienes cera en los oídos, limpia suavemente el exterior. No uses bastoncillos. Informa sobre medicamentos que tomas y cualquier síntoma auditivo reciente."
+    },
+    {
+      "question": "¿Los audífonos son muy visibles?",
+      "answer": "Los audífonos modernos son muy discretos. Tenemos modelos intrauriculares prácticamente invisibles y retroauriculares muy pequeños. La tecnología actual prioriza tanto la estética como la funcionalidad."
+    },
+    {
+      "question": "¿Cuánto duran los audífonos?",
+      "answer": "Con el cuidado adecuado, los audífonos suelen durar 5-7 años. Ofrecemos servicio de mantenimiento, limpieza profesional y garantía. También proporcionamos formación completa sobre su uso y cuidado."
+    },
+    {
+      "question": "¿Los audífonos necesitan mantenimiento?",
+      "answer": "Sí, requieren limpieza diaria básica y revisiones profesionales periódicas. Proporcionamos kit de limpieza, instrucciones detalladas y servicios de mantenimiento. Un buen cuidado garantiza mejor rendimiento y mayor durabilidad."
+    }
+  ],
+  "general": [
+    {
+      "question": "¿Aceptan seguros médicos?",
+      "answer": "Trabajamos con las principales aseguradoras médicas. Consulta con nosotros sobre tu seguro específico. También ofrecemos facilidades de pago y financiación para tratamientos y productos."
+    },
+    {
+      "question": "¿Ofrecen garantía en sus productos?",
+      "answer": "Sí, todos nuestros productos tienen garantía. Las gafas incluyen garantía de monturas por 2 años y lentes por 1 año. Los audífonos tienen garantía del fabricante de 2-3 años según el modelo."
+    },
+    {
+      "question": "¿Hacen reparaciones?",
+      "answer": "Realizamos reparaciones de gafas en el momento para ajustes, cambio de tornillos y reparaciones menores. Para reparaciones complejas o audífonos, tenemos servicio técnico especializado."
+    },
+    {
+      "question": "¿Necesito cita previa?",
+      "answer": "Para revisiones visuales y audiometrías es recomendable cita previa para garantizar atención personalizada. Para compras o consultas rápidas puedes venir sin cita, aunque podrías esperar un poco."
+    }
+  ]
+}

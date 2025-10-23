@@ -13,7 +13,8 @@
       "@pages/*": ["./src/pages/*"],
       "@lib/*": ["./src/lib/*"],
       "@utils/*": ["./src/utils/*"],
-      "@styles/*": ["./src/styles/*"]
+      "@styles/*": ["./src/styles/*"],
+      "@data/*": ["./src/data/*"]
     }
   }
 }

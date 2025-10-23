@@ -1,0 +1,128 @@
+{
+  "hero": {
+    "badge": {
+      "text": "NOVEDAD TECNOLÓGICA",
+      "icon": "star"
+    },
+    "title": {
+      "main": "Ray-Ban",
+      "highlight": "Stories"
+    },
+    "description": "Las primeras gafas inteligentes de Ray-Ban. Captura fotos y videos, escucha música y realiza llamadas, todo con el icónico estilo Ray-Ban.",
+    "buttons": [
+      {
+        "text": "DESCUBRIR MÁS",
+        "type": "primary"
+      },
+      {
+        "text": "VER DEMO",
+        "type": "secondary"
+      }
+    ],
+    "imageAlt": "Imagen Ray-Ban Stories"
+  },
+  "featuredProducts": {
+    "title": {
+      "main": "PRODUCTOS",
+      "highlight": "DESTACADOS"
+    },
+    "subtitle": "Nuestra selección de las mejores gafas y lentes para ti",
+    "products": [
+      {
+        "id": 1,
+        "name": "Ray-Ban Aviator",
+        "description": "Clásicas gafas de aviador con protección UV",
+        "price": "149€",
+        "buttonText": "Ver Detalles"
+      },
+      {
+        "id": 2,
+        "name": "Oakley Holbrook",
+        "description": "Diseño deportivo con lentes polarizados",
+        "price": "179€",
+        "buttonText": "Ver Detalles"
+      },
+      {
+        "id": 3,
+        "name": "Tom Ford",
+        "description": "Elegancia y sofisticación premium",
+        "price": "299€",
+        "buttonText": "Ver Detalles"
+      },
+      {
+        "id": 4,
+        "name": "Persol",
+        "description": "Artesanía italiana tradicional",
+        "price": "219€",
+        "buttonText": "Ver Detalles"
+      }
+    ]
+  },
+  "specialOffers": {
+    "title": {
+      "main": "OFERTAS",
+      "highlight": "ESPECIALES"
+    },
+    "subtitle": "Aprovecha nuestros descuentos limitados",
+    "offers": [
+      {
+        "id": 1,
+        "badge": "-40%",
+        "badgeColor": "red",
+        "icon": "sun",
+        "title": "Pack Gafas de Sol + Funda",
+        "description": "Gafas de sol premium con funda de regalo y pack limpieza incluida",
+        "currentPrice": "89€",
+        "originalPrice": "149€",
+        "buttonText": "APROVECHAR OFERTA",
+        "buttonColor": "red"
+      },
+      {
+        "id": 2,
+        "badge": "2x1",
+        "badgeColor": "orange",
+        "icon": "glasses",
+        "title": "Gafas Graduadas 2x1",
+        "description": "Llévate 2 pares de gafas graduadas por el precio de 1. Cristales incluidos",
+        "currentPrice": "desde 119€",
+        "originalPrice": null,
+        "buttonText": "VER CONDICIONES",
+        "buttonColor": "orange"
+      }
+    ]
+  },
+  "contact": {
+    "title": {
+      "main": "¿Buscas algo",
+      "highlight": "específico?"
+    },
+    "subtitle": "Tenemos una amplia selección de marcas y modelos en nuestra tienda física. Ven a visitarnos o contáctanos para encontrar exactamente lo que necesitas.",
+    "contactMethods": [
+      {
+        "id": 1,
+        "name": "WhatsApp",
+        "description": "Consulta rápida por mensaje",
+        "value": "+34 123 456 789",
+        "icon": "whatsapp",
+        "color": "green"
+      },
+      {
+        "id": 2,
+        "name": "Email",
+        "description": "Consultas detalladas",
+        "value": "info@opticaguinart.es",
+        "icon": "email",
+        "color": "blue"
+      },
+      {
+        "id": 3,
+        "name": "Nuestra Tienda",
+        "description": "Visítanos en persona",
+        "value": "Ver en Maps",
+        "icon": "location",
+        "color": "red"
+      }
+    ],
+    "mainButton": "VISITAR TIENDA FÍSICA"
+  }
+}

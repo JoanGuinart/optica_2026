@@ -1,0 +1,121 @@
+{
+  "hero": {
+    "title": {
+      "main": "PONTE EN",
+      "highlight": "CONTACTO"
+    },
+    "subtitle": "Estamos aquí para ayudarte con cualquier consulta sobre tu salud visual y auditiva. ¡Contáctanos!",
+    "badge": {
+      "text": "RESPUESTA RÁPIDA",
+      "icon": "message"
+    }
+  },
+  "contactInfo": {
+    "phone": {
+      "display": "+34 933 118 706",
+      "whatsapp": "34933456789",
+      "icon": "phone"
+    },
+    "email": {
+      "address": "opticaguinartsantandreu@gmail.com",
+      "icon": "mail"
+    },
+    "address": {
+      "street": "Carrer Gran de Sant Andreu, 308",
+      "city": "08030 Barcelona, San Andrés de Palomar",
+      "country": "España",
+      "icon": "location",
+      "googleMaps": "https://maps.google.com/?q=41.43713194467858,2.1896759669114636"
+    },
+    "hours": {
+      "weekdays": "Lunes a Viernes: 9:30 - 13:30, 17:00 - 20:30",
+      "saturday": "Sábado: 10:00 - 13:30",
+      "sunday": "Domingo: Cerrado",
+      "icon": "clock"
+    }
+  },
+  "socialMedia": {
+    "whatsapp": {
+      "url": "https://wa.me/34682502960",
+      "text": "Contactar por WhatsApp",
+      "icon": "whatsapp",
+      "color": "green"
+    },
+    "instagram": {
+      "url": "https://instagram.com/optica_guinart",
+      "text": "@opticaguinart",
+      "icon": "instagram",
+      "color": "pink"
+    },
+    "facebook": {
+      "url": "https://facebook.com/opticaguinart",
+      "text": "Óptica Guinart",
+      "icon": "facebook",
+      "color": "blue"
+    },
+    "google": {
+      "url": "https://g.page/opticaguinart",
+      "text": "Reseñas en Google",
+      "icon": "google",
+      "color": "red"
+    }
+  },
+  "form": {
+    "title": "Envíanos un mensaje",
+    "subtitle": "Completa el formulario y te responderemos lo antes posible",
+    "fields": {
+      "name": {
+        "label": "Nombre completo",
+        "placeholder": "Tu nombre y apellidos",
+        "required": true
+      },
+      "email": {
+        "label": "Correo electrónico",
+        "placeholder": "tu@email.com",
+        "required": true
+      },
+      "phone": {
+        "label": "Teléfono",
+        "placeholder": "+34 xxx xxx xxx",
+        "required": false
+      },
+      "subject": {
+        "label": "Asunto",
+        "placeholder": "¿En qué podemos ayudarte?",
+        "required": true
+      },
+      "message": {
+        "label": "Mensaje",
+        "placeholder": "Cuéntanos tu consulta...",
+        "required": true
+      }
+    },
+    "button": {
+      "text": "Enviar mensaje",
+      "icon": "send"
+    }
+  },
+  "features": [
+    {
+      "id": 1,
+      "title": "Respuesta Rápida",
+      "description": "Te respondemos en menos de 24 horas",
+      "icon": "clock",
+      "iconPath": "M12 6v6l4 2"
+    },
+    {
+      "id": 2,
+      "title": "Atención Personalizada",
+      "description": "Cada consulta recibe atención individual",
+      "icon": "user",
+      "iconPath": "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+    },
+    {
+      "id": 3,
+      "title": "Múltiples Canales",
+      "description": "Contáctanos por el medio que prefieras",
+      "icon": "chat",
+      "iconPath": "M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+    }
+  ]
+}

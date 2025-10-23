@@ -1,0 +1,64 @@
+{
+  "hero": {
+    "title": {
+      "main": "ÓPTICA",
+      "highlight": "GUINART"
+    },
+    "tagline": {
+      "main": "TU VISIÓN ES NUESTRA",
+      "highlight": "PASIÓN"
+    },
+    "subtitle": "Más de 25 años cuidando tu salud visual con la mejor tecnología",
+    "image": {
+      "src": "/portada/portada_compressed.png",
+      "alt": "Óptica Guinart - Gafas y lentes de calidad",
+      "width": 1526,
+      "height": 994
+    }
+  },
+  "benefits": [
+    {
+      "id": 1,
+      "title": "CALIDAD GARANTIZADA",
+      "icon": "check",
+      "iconPath": "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+    },
+    {
+      "id": 2,
+      "title": "SERVICIO RÁPIDO",
+      "icon": "clock",
+      "iconPath": "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+    },
+    {
+      "id": 3,
+      "title": "ATENCIÓN PERSONALIZADA",
+      "icon": "heart",
+      "iconPath": "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+    }
+  ],
+  "buttons": [
+    {
+      "id": 1,
+      "text": "RESERVAR CITA",
+      "type": "primary",
+      "action": "booking"
+    },
+    {
+      "id": 2,
+      "text": "VER PRODUCTOS",
+      "type": "secondary",
+      "action": "products"
+    }
+  ],
+  "contact": {
+    "location": {
+      "text": "📍 Encuentra tu óptica más cercana",
+      "icon": "📍"
+    },
+    "info": {
+      "phone": "123 456 789",
+      "email": "info@opticaguinart.com",
+      "text": "📞 Llámanos: {phone} | ✉️ {email}"
+    }
+  }
+}

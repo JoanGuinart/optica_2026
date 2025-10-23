@@ -1,5 +1,6 @@
 ---
 import Image from "astro/components/Image.astro";
+import portadaData from "@data/portada.json";
 ---
 
 <section class="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-gray-100 dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
@@ -7,11 +8,11 @@ import Image from "astro/components/Image.astro";
   <div class="absolute inset-0">
     {/* Puedes reemplazar esta URL por una imagen local en /public */}
     <Image
-      width={1526}
-      height={994}
+      width={portadaData.hero.image.width}
+      height={portadaData.hero.image.height}
       priority
-      src="/portada/portada_compressed.png"
-      alt="Óptica Guinart - Gafas y lentes de calidad"
+      src={portadaData.hero.image.src}
+      alt={portadaData.hero.image.alt}
       class="object-cover object-center opacity-40 dark:opacity-100"
       style={{
         maskImage: "linear-gradient(to bottom, black 50%, transparent 100%)",
@@ -42,11 +43,11 @@ import Image from "astro/components/Image.astro";
         >
           <span
             class="block text-slate-800 dark:text-white drop-shadow-[0_8px_32px_rgba(0,0,0,0.3)] dark:drop-shadow-[0_8px_32px_rgba(0,0,0,0.8)]"
-            >ÓPTICA</span
+            >{portadaData.hero.title.main}</span
           >
           <span
             class="block text-emerald-600 dark:text-emerald-400 drop-shadow-[0_8px_32px_rgba(0,0,0,0.3)] dark:drop-shadow-[0_8px_32px_rgba(0,0,0,0.8)] font-black tracking-tighter"
-            >GUINART</span
+            >{portadaData.hero.title.highlight}</span
           >
         </h1>
       </div>
@@ -54,114 +55,68 @@ import Image from "astro/components/Image.astro";
       <p
         class="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8 lg:mb-12 text-slate-700 dark:text-white max-w-3xl mx-auto leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.3)] dark:drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)] tracking-wide"
       >
-        TU VISIÓN ES NUESTRA <span class="text-emerald-600 dark:text-emerald-400">PASIÓN</span>
+        {portadaData.hero.tagline.main} <span class="text-emerald-600 dark:text-emerald-400">{portadaData.hero.tagline.highlight}</span>
       </p>
 
       <p
         class="text-sm sm:text-lg md:text-xl lg:text-2xl font-medium mb-8 sm:mb-12 lg:mb-16 text-slate-600 dark:text-white/95 max-w-2xl mx-auto leading-relaxed drop-shadow-lg"
       >
-        Más de 25 años cuidando tu salud visual con la mejor tecnología
+        {portadaData.hero.subtitle}
       </p>
 
       {/* Beneficios clave */}
       <div
         class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 mb-8 sm:mb-12 lg:mb-16 text-slate-700 dark:text-white"
       >
-        <div
-          class="flex flex-col items-center p-3 sm:p-6 bg-white/60 dark:bg-slate-800/40 rounded-lg sm:rounded-xl backdrop-blur-md border border-emerald-500/30 dark:border-emerald-400/20"
-        >
+        {portadaData.benefits.map((benefit) => (
           <div
-            class="w-12 h-12 sm:w-16 sm:h-16 mb-2 sm:mb-4 flex items-center justify-center bg-emerald-600 dark:bg-emerald-500 rounded-lg sm:rounded-xl shadow-lg"
+            class="flex flex-col items-center p-3 sm:p-6 bg-white/60 dark:bg-slate-800/40 rounded-lg sm:rounded-xl backdrop-blur-md border border-emerald-500/30 dark:border-emerald-400/20"
           >
-            <svg
-              class="w-6 h-6 sm:w-8 sm:h-8 text-white"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+            <div
+              class="w-12 h-12 sm:w-16 sm:h-16 mb-2 sm:mb-4 flex items-center justify-center bg-emerald-600 dark:bg-emerald-500 rounded-lg sm:rounded-xl shadow-lg"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width={2}
-                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
+              <svg
+                class="w-6 h-6 sm:w-8 sm:h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width={2}
+                  d={benefit.iconPath}></path>
+              </svg>
+            </div>
+            <p class="text-sm sm:text-lg font-bold tracking-wide text-center">
+              {benefit.title}
+            </p>
           </div>
-          <p class="text-sm sm:text-lg font-bold tracking-wide text-center">
-            CALIDAD GARANTIZADA
-          </p>
-        </div>
-        <div
-          class="flex flex-col items-center p-3 sm:p-6 bg-white/60 dark:bg-slate-800/40 rounded-lg sm:rounded-xl backdrop-blur-md border border-emerald-500/30 dark:border-emerald-400/20"
-        >
-          <div
-            class="w-12 h-12 sm:w-16 sm:h-16 mb-2 sm:mb-4 flex items-center justify-center bg-emerald-600 dark:bg-emerald-500 rounded-lg sm:rounded-xl shadow-lg"
-          >
-            <svg
-              class="w-6 h-6 sm:w-8 sm:h-8 text-white"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width={2}
-                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-          </div>
-          <p class="text-sm sm:text-lg font-bold tracking-wide text-center">
-            SERVICIO RÁPIDO
-          </p>
-        </div>
-        <div
-          class="flex flex-col items-center p-3 sm:p-6 bg-white/60 dark:bg-slate-800/40 rounded-lg sm:rounded-xl backdrop-blur-md border border-emerald-500/30 dark:border-emerald-400/20"
-        >
-          <div
-            class="w-12 h-12 sm:w-16 sm:h-16 mb-2 sm:mb-4 flex items-center justify-center bg-emerald-600 dark:bg-emerald-500 rounded-lg sm:rounded-xl shadow-lg"
-          >
-            <svg
-              class="w-6 h-6 sm:w-8 sm:h-8 text-white"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width={2}
-                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-              ></path>
-            </svg>
-          </div>
-          <p class="text-sm sm:text-lg font-bold tracking-wide text-center">
-            ATENCIÓN PERSONALIZADA
-          </p>
-        </div>
+        ))}
       </div>
 
       {/* Botones de acción */}
       <div
         class="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center items-center mb-8 sm:mb-12 lg:mb-16"
       >
-        <button
-          class="cursor-pointer border-2 sm:border-3 border-emerald-600 dark:border-emerald-400 hover:border-emerald-500 dark:hover:border-emerald-300 text-slate-800 dark:text-white hover:bg-emerald-600/20 dark:hover:bg-emerald-600/20 px-8 sm:px-12 py-3 sm:py-5 rounded-lg font-bold text-lg sm:text-xl tracking-wide transition-all duration-300 backdrop-blur-sm w-full sm:w-auto"
-        >
-          RESERVAR CITA
-        </button>
-        <button
-          class="cursor-pointer border-2 sm:border-3 border-emerald-600 dark:border-emerald-400 hover:border-emerald-500 dark:hover:border-emerald-300 text-slate-800 dark:text-white hover:bg-emerald-600/20 dark:hover:bg-emerald-600/20 px-8 sm:px-12 py-3 sm:py-5 rounded-lg font-bold text-lg sm:text-xl tracking-wide transition-all duration-300 backdrop-blur-sm w-full sm:w-auto"
-        >
-          VER PRODUCTOS
-        </button>
+        {portadaData.buttons.map((button) => (
+          <button
+            class="cursor-pointer border-2 sm:border-3 border-emerald-600 dark:border-emerald-400 hover:border-emerald-500 dark:hover:border-emerald-300 text-slate-800 dark:text-white hover:bg-emerald-600/20 dark:hover:bg-emerald-600/20 px-8 sm:px-12 py-3 sm:py-5 rounded-lg font-bold text-lg sm:text-xl tracking-wide transition-all duration-300 backdrop-blur-sm w-full sm:w-auto"
+          >
+            {button.text}
+          </button>
+        ))}
       </div>
 
       {/* Información de contacto rápido */}
       <div class="text-slate-600 dark:text-white/80 text-sm sm:text-lg">
         <p class="mb-2 sm:mb-3 font-semibold">
-          📍 Encuentra tu óptica más cercana
+          {portadaData.contact.location.text}
         </p>
         <p class="font-medium text-xs sm:text-base">
-          📞 Llámanos: 123 456 789 | ✉️ info@opticaguinart.com
+          {portadaData.contact.info.text
+            .replace('{phone}', portadaData.contact.info.phone)
+            .replace('{email}', portadaData.contact.info.email)}
         </p>
       </div>
     </div>

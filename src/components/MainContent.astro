@@ -1,156 +1,72 @@
- <section class="bg-gradient-to-b from-gray-300 via-gray-200 to-gray-300 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 min-h-screen pt-20 sm:pt-24 lg:pt-28">
+---
+import mainContentData from "@data/main-content.json";
+---
+
+<section class="bg-gradient-to-b from-gray-300 via-gray-200 to-gray-300 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 min-h-screen pt-20 sm:pt-24 lg:pt-28">
       {/* Sección de Ofertas Especiales */}
       <div class="py-16 px-4 sm:px-8 lg:px-12">
         <div class="max-w-7xl mx-auto">
           <div class="text-center mb-12">
             <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-800 dark:text-white mb-4 tracking-tight drop-shadow-lg">
-              OFERTAS <span class="text-emerald-600 dark:text-emerald-400">ESPECIALES</span>
+              {mainContentData.specialOffers.title.main} <span class="text-emerald-600 dark:text-emerald-400">{mainContentData.specialOffers.title.highlight}</span>
             </h2>
             <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto font-medium">
-              Descubre nuestras promociones exclusivas y cuida tu visión con los
-              mejores precios
+              {mainContentData.specialOffers.subtitle}
             </p>
           </div>
 
           {/* Grid de Ofertas */}
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 items-stretch">
-            {/* Oferta 1 - Gafas de Sol */}
-            <div class="relative group h-full">
-              <div class="bg-white/90 dark:bg-slate-800/80 backdrop-blur-md rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-emerald-500/40 dark:border-emerald-400/30 overflow-hidden hover:bg-white dark:hover:bg-slate-700/80 h-full flex flex-col">
-                <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">
-                  -30%
-                </div>
-                <div class="w-20 h-20 bg-emerald-600 dark:bg-emerald-500 rounded-xl flex items-center justify-center mb-6 mx-auto shadow-lg">
-                  <svg
-                    class="w-10 h-10 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width={2}
-                      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                    />
-                  </svg>
-                </div>
-                <div class="flex flex-col flex-grow">
-                  <h3 class="text-2xl font-bold text-slate-800 dark:text-white mb-3 text-center">
-                    Gafas de Sol
-                  </h3>
-                  <p class="text-slate-600 dark:text-slate-300 text-center mb-4 leading-relaxed flex-grow">
-                    Protección UV total con las mejores marcas. Estilo y calidad
-                    garantizada.
-                  </p>
-                  <div class="text-center mb-6">
-                    <span class="text-3xl font-black text-emerald-600 dark:text-emerald-400">
-                      desde 49€
-                    </span>
-                    <span class="text-lg text-slate-500 line-through ml-2">
-                      70€
-                    </span>
+            {mainContentData.specialOffers.offers.map((offer) => (
+              <div class="relative group h-full">
+                <div class="bg-white/90 dark:bg-slate-800/80 backdrop-blur-md rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-emerald-500/40 dark:border-emerald-400/30 overflow-hidden hover:bg-white dark:hover:bg-slate-700/80 h-full flex flex-col">
+                  <div class={`absolute top-4 right-4 bg-${offer.badgeColor === 'emerald' ? 'emerald-600 dark:bg-emerald-500' : offer.badgeColor + '-500'} text-white px-3 py-1 rounded-full text-sm font-bold`}>
+                    {offer.badge}
                   </div>
-                  <button class="w-full mt-auto bg-emerald-600 dark:bg-emerald-500 hover:bg-emerald-700 dark:hover:bg-emerald-400 text-white py-3 rounded-lg font-bold transition-colors duration-300 shadow-lg">
-                    VER OFERTA
-                  </button>
+                  <div class="w-20 h-20 bg-emerald-600 dark:bg-emerald-500 rounded-xl flex items-center justify-center mb-6 mx-auto shadow-lg">
+                    <svg
+                      class="w-10 h-10 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width={2}
+                        d={offer.iconPath}
+                      />
+                    </svg>
+                  </div>
+                  <div class="flex flex-col flex-grow">
+                    <h3 class="text-2xl font-bold text-slate-800 dark:text-white mb-3 text-center">
+                      {offer.title}
+                    </h3>
+                    <p class="text-slate-600 dark:text-slate-300 text-center mb-4 leading-relaxed flex-grow">
+                      {offer.description}
+                    </p>
+                    <div class="text-center mb-6">
+                      <span class="text-3xl font-black text-emerald-600 dark:text-emerald-400">
+                        {offer.currentPrice}
+                      </span>
+                      {offer.originalPrice && (
+                        <span class="text-lg text-slate-500 line-through ml-2">
+                          {offer.originalPrice}
+                        </span>
+                      )}
+                      {offer.priceNote && (
+                        <span class="text-sm text-slate-500 dark:text-slate-400 block">
+                          {offer.priceNote}
+                        </span>
+                      )}
+                    </div>
+                    <button class="w-full mt-auto bg-emerald-600 dark:bg-emerald-500 hover:bg-emerald-700 dark:hover:bg-emerald-400 text-white py-3 rounded-lg font-bold transition-colors duration-300 shadow-lg">
+                      {offer.buttonText}
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            {/* Oferta 2 - Graduadas */}
-            <div class="relative group h-full">
-              <div class="bg-white/90 dark:bg-slate-800/80 backdrop-blur-md rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-emerald-500/40 dark:border-emerald-400/30 overflow-hidden hover:bg-white dark:hover:bg-slate-700/80 h-full flex flex-col">
-                <div class="absolute top-4 right-4 bg-emerald-600 dark:bg-emerald-500 text-white px-3 py-1 rounded-full text-sm font-bold">
-                  2x1
-                </div>
-                <div class="w-20 h-20 bg-emerald-600 dark:bg-emerald-500 rounded-xl flex items-center justify-center mb-6 mx-auto shadow-lg">
-                  <svg
-                    class="w-10 h-10 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width={2}
-                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width={2}
-                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                    />
-                  </svg>
-                </div>
-                <div class="flex flex-col flex-grow">
-                  <h3 class="text-2xl font-bold text-slate-800 dark:text-white mb-3 text-center">
-                    Gafas Graduadas
-                  </h3>
-                  <p class="text-slate-600 dark:text-slate-300 text-center mb-4 leading-relaxed flex-grow">
-                    Llévate 2 pares por el precio de 1. Monta y cristales
-                    incluidos.
-                  </p>
-                  <div class="text-center mb-6">
-                    <span class="text-3xl font-black text-emerald-600 dark:text-emerald-400">
-                      desde 89€
-                    </span>
-                    <span class="text-lg text-slate-500 line-through ml-2">
-                      178€
-                    </span>
-                  </div>
-                  <button class="w-full mt-auto bg-emerald-600 dark:bg-emerald-500 hover:bg-emerald-700 dark:hover:bg-emerald-400 text-white py-3 rounded-lg font-bold transition-colors duration-300 shadow-lg">
-                    VER OFERTA
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Oferta 3 - Lentillas */}
-            <div class="relative group h-full">
-              <div class="bg-white/90 dark:bg-slate-800/80 backdrop-blur-md rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-emerald-500/40 dark:border-emerald-400/30 overflow-hidden hover:bg-white dark:hover:bg-slate-700/80 h-full flex flex-col">
-                <div class="absolute top-4 right-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-bold">
-                  NUEVO
-                </div>
-                <div class="w-20 h-20 bg-emerald-600 dark:bg-emerald-500 rounded-xl flex items-center justify-center mb-6 mx-auto shadow-lg">
-                  <svg
-                    class="w-10 h-10 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width={2}
-                      d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"
-                    />
-                  </svg>
-                </div>
-                <div class="flex flex-col flex-grow">
-                  <h3 class="text-2xl font-bold text-slate-800 dark:text-white mb-3 text-center">
-                    Lentillas
-                  </h3>
-                  <p class="text-slate-600 dark:text-slate-300 text-center mb-4 leading-relaxed flex-grow">
-                    Comodidad absoluta con las lentillas más avanzadas del
-                    mercado.
-                  </p>
-                  <div class="text-center mb-6">
-                    <span class="text-3xl font-black text-emerald-600 dark:text-emerald-400">
-                      desde 25€
-                    </span>
-                    <span class="text-sm text-slate-500 dark:text-slate-400 block">
-                      pack mensual
-                    </span>
-                  </div>
-                  <button class="w-full mt-auto bg-emerald-600 dark:bg-emerald-500 hover:bg-emerald-700 dark:hover:bg-emerald-400 text-white py-3 rounded-lg font-bold transition-colors duration-300 shadow-lg">
-                    VER OFERTA
-                  </button>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
@@ -160,97 +76,35 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
           <div class="text-center mb-12">
             <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black mb-4 tracking-tight drop-shadow-lg">
-              PRODUCTOS <span class="text-emerald-600 dark:text-emerald-400">DESTACADOS</span>
+              {mainContentData.featuredProducts.title.main} <span class="text-emerald-600 dark:text-emerald-400">{mainContentData.featuredProducts.title.highlight}</span>
             </h2>
             <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto font-medium">
-              Selección de las mejores marcas y los modelos más populares
+              {mainContentData.featuredProducts.subtitle}
             </p>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Producto 1 */}
-            <div class="flex flex-col bg-white/80 dark:bg-white/10 backdrop-blur-md rounded-2xl p-6 hover:bg-white dark:hover:bg-white/15 transition-all duration-300 border border-emerald-500/30 dark:border-emerald-400/20">
-              <div class="aspect-square bg-gray-200 dark:bg-slate-700 rounded-lg mb-4 flex items-center justify-center">
-                <span class="text-gray-500 dark:text-slate-400 text-sm">
-                  Imagen del producto
-                </span>
+            {mainContentData.featuredProducts.products.map((product) => (
+              <div class="flex flex-col bg-white/80 dark:bg-white/10 backdrop-blur-md rounded-2xl p-6 hover:bg-white dark:hover:bg-white/15 transition-all duration-300 border border-emerald-500/30 dark:border-emerald-400/20">
+                <div class="aspect-square bg-gray-200 dark:bg-slate-700 rounded-lg mb-4 flex items-center justify-center">
+                  <span class="text-gray-500 dark:text-slate-400 text-sm">
+                    {product.imagePlaceholder}
+                  </span>
+                </div>
+                <h4 class="text-xl font-bold mb-2">{product.name}</h4>
+                <p class="text-slate-600 dark:text-slate-300 text-sm mb-4">
+                  {product.description}
+                </p>
+                <div class="flex justify-between items-center mt-auto">
+                  <span class="text-2xl font-black text-emerald-600 dark:text-emerald-400">
+                    {product.price}
+                  </span>
+                  <button class="bg-emerald-600 dark:bg-emerald-500 hover:bg-emerald-700 dark:hover:bg-emerald-600 px-4 py-2 rounded-lg font-bold text-sm transition-colors text-white">
+                    {product.buttonText}
+                  </button>
+                </div>
               </div>
-              <h4 class="text-xl font-bold mb-2">Ray-Ban Aviator</h4>
-              <p class="text-slate-600 dark:text-slate-300 text-sm mb-4">
-                Clásicas gafas de sol con estilo atemporal
-              </p>
-              <div class="flex justify-between items-center mt-auto">
-                <span class="text-2xl font-black text-emerald-600 dark:text-emerald-400">
-                  159€
-                </span>
-                <button class="bg-emerald-600 dark:bg-emerald-500 hover:bg-emerald-700 dark:hover:bg-emerald-600 px-4 py-2 rounded-lg font-bold text-sm transition-colors text-white">
-                  VER
-                </button>
-              </div>
-            </div>
-
-            {/* Producto 2 */}
-            <div class="flex flex-col bg-white/80 dark:bg-white/10 backdrop-blur-md rounded-2xl p-6 hover:bg-white dark:hover:bg-white/15 transition-all duration-300 border border-emerald-500/30 dark:border-emerald-400/20">
-              <div class="aspect-square bg-gray-200 dark:bg-slate-700 rounded-lg mb-4 flex items-center justify-center">
-                <span class="text-gray-500 dark:text-slate-400 text-sm">
-                  Imagen del producto
-                </span>
-              </div>
-              <h4 class="text-xl font-bold mb-2">Oakley Sport</h4>
-              <p class="text-slate-600 dark:text-slate-300 text-sm mb-4">
-                Rendimiento y protección para deportistas
-              </p>
-              <div class="flex justify-between items-center mt-auto">
-                <span class="text-2xl font-black text-emerald-600 dark:text-emerald-400">
-                  189€
-                </span>
-                <button class="bg-emerald-600 dark:bg-emerald-500 hover:bg-emerald-700 dark:hover:bg-emerald-600 px-4 py-2 rounded-lg font-bold text-sm transition-colors text-white">
-                  VER
-                </button>
-              </div>
-            </div>
-
-            {/* Producto 3 */}
-            <div class="flex flex-col bg-white/80 dark:bg-white/10 backdrop-blur-md rounded-2xl p-6 hover:bg-white dark:hover:bg-white/15 transition-all duration-300 border border-emerald-500/30 dark:border-emerald-400/20">
-              <div class="aspect-square bg-gray-200 dark:bg-slate-700 rounded-lg mb-4 flex items-center justify-center">
-                <span class="text-gray-500 dark:text-slate-400 text-sm">
-                  Imagen del producto
-                </span>
-              </div>
-              <h4 class="text-xl font-bold mb-2">Persol Vintage</h4>
-              <p class="text-slate-600 dark:text-slate-300 text-sm mb-4">
-                Elegancia italiana en cada detalle
-              </p>
-              <div class="flex justify-between items-center mt-auto">
-                <span class="text-2xl font-black text-emerald-600 dark:text-emerald-400">
-                  225€
-                </span>
-                <button class="bg-emerald-600 dark:bg-emerald-500 hover:bg-emerald-700 dark:hover:bg-emerald-600 px-4 py-2 rounded-lg font-bold text-sm transition-colors text-white">
-                  VER
-                </button>
-              </div>
-            </div>
-
-            {/* Producto 4 */}
-            <div class="flex flex-col bg-white/80 dark:bg-white/10 backdrop-blur-md rounded-2xl p-6 hover:bg-white dark:hover:bg-white/15 transition-all duration-300 border border-emerald-500/30 dark:border-emerald-400/20">
-              <div class="aspect-square bg-gray-200 dark:bg-slate-700 rounded-lg mb-4 flex items-center justify-center">
-                <span class="text-gray-500 dark:text-slate-400 text-sm">
-                  Imagen del producto
-                </span>
-              </div>
-              <h4 class="text-xl font-bold mb-2">Guess Modern</h4>
-              <p class="text-slate-600 dark:text-slate-300 text-sm mb-4">
-                Tendencia y glamour para el día a día
-              </p>
-              <div class="flex justify-between items-center mt-auto">
-                <span class="text-2xl font-black text-emerald-600 dark:text-emerald-400">
-                  129€
-                </span>
-                <button class="bg-emerald-600 dark:bg-emerald-500 hover:bg-emerald-700 dark:hover:bg-emerald-600 px-4 py-2 rounded-lg font-bold text-sm transition-colors text-white">
-                  VER
-                </button>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -260,19 +114,20 @@
         <div class="max-w-4xl mx-auto text-center">
           <div class="bg-gradient-to-r from-emerald-600 to-emerald-700 dark:from-emerald-500 dark:to-emerald-600 rounded-3xl p-8 sm:p-12 text-white shadow-2xl border border-emerald-500/40 dark:border-emerald-400/30">
             <h2 class="text-3xl sm:text-5xl font-black mb-6 tracking-tight drop-shadow-lg">
-              ¿NECESITAS ASESORAMIENTO?
+              {mainContentData.callToAction.title}
             </h2>
             <p class="text-lg sm:text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-              Nuestros expertos te ayudarán a encontrar la solución perfecta
-              para tu visión
+              {mainContentData.callToAction.subtitle}
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-              <button class="bg-white text-emerald-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors duration-300 shadow-xl border border-gray-200">
-                PEDIR CITA GRATUITA
-              </button>
-              <button class="bg-slate-900 dark:bg-slate-900 border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-slate-800 dark:hover:bg-slate-800 transition-colors duration-300 shadow-xl">
-                LLAMAR AHORA
-              </button>
+              {mainContentData.callToAction.buttons.map((button) => (
+                <button class={`${button.style === 'white' 
+                  ? 'bg-white text-emerald-600 hover:bg-gray-100 border border-gray-200' 
+                  : 'bg-slate-900 dark:bg-slate-900 border-2 border-white text-white hover:bg-slate-800 dark:hover:bg-slate-800'} 
+                  px-8 py-4 rounded-lg font-bold text-lg transition-colors duration-300 shadow-xl`}>
+                  {button.text}
+                </button>
+              ))}
             </div>
           </div>
         </div>
