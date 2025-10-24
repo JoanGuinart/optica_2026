@@ -1,0 +1,30 @@
+/* Critical CSS para mejorar LCP */
+html {
+  font-display: swap;
+}
+
+/* Optimización de fuentes del sistema */
+* {
+  font-display: swap;
+}
+
+/* Optimización para back/forward cache */
+body {
+  scroll-behavior: smooth;
+}
+
+/* Mejora de contraste para accesibilidad */
+:focus-visible {
+  outline: 2px solid #10b981;
+  outline-offset: 2px;
+}
+
+/* Optimización de imágenes */
+img {
+  content-visibility: auto;
+}
+
+/* Reducir layout shift */
+.navbar-height {
+  height: 80px;
+}

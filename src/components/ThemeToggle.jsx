@@ -1,18 +1,27 @@
-import { useEffect, useState } from "react";
-import { toggleDarkMode } from "@/lib/theme";
+import { useEffect, useState, useCallback } from "react";
+import { toggleDarkMode, isThemeForced } from "@/lib/theme";
 
 const ThemeToggle = () => {
   const [isDark, setIsDark] = useState(false);
+  const [themeForced, setThemeForced] = useState(false);
 
   useEffect(() => {
     // Check initial theme
     setIsDark(document.documentElement.classList.contains('dark'));
+    setThemeForced(isThemeForced());
   }, []);
 
-  const handleToggle = () => {
-    toggleDarkMode();
-    setIsDark(document.documentElement.classList.contains('dark'));
-  };
+  const handleToggle = useCallback(() => {
+    if (!themeForced) {
+      toggleDarkMode();
+      setIsDark(document.documentElement.classList.contains('dark'));
+    }
+  }, [themeForced]);
+
+  // No mostrar el botón si el tema está forzado
+  if (themeForced) {
+    return null;
+  }
 
   return (
     <button

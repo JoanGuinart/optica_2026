@@ -24,6 +24,11 @@ import servicesData from "@data/services.json";
           </p>
         </div>
 
+        {/* Servicios principales */}
+        <h2 class="text-3xl font-bold text-slate-800 dark:text-white mb-8 text-center">
+          Nuestros Servicios
+        </h2>
+
         {/* Servicios Grid - Layout uniforme profesional */}
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-16">
           {servicesData.services.map((service, index) => {
@@ -133,7 +138,7 @@ import servicesData from "@data/services.json";
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
               {servicesData.cta.buttons.map((button) => (
                 <button class={`${button.type === 'primary' 
-                  ? 'bg-white text-emerald-600 hover:bg-gray-100 border border-gray-200' 
+                  ? 'bg-white text-emerald-700 hover:bg-gray-100 border border-gray-300' 
                   : 'bg-slate-900 dark:bg-slate-900 border-2 border-white text-white hover:bg-slate-800 dark:hover:bg-slate-800'} 
                   px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-xl`}>
                   {button.text}

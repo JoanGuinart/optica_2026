@@ -1,7 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback, lazy, Suspense } from "react";
 import { isUnderConstruction } from "@/lib/under-construction";
-import ThemeToggle from "./ThemeToggle";
+import { initDarkMode } from "@/lib/theme";
 import navbarData from "@data/navbar.json";
+
+// Lazy load del ThemeToggle
+const ThemeToggle = lazy(() => import("./ThemeToggle"));
 
 const NavbarClient = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,16 +23,38 @@ const NavbarClient = () => {
       }
     };
     
-    // Check initial theme - solo una vez
+    // Forzar inicialización del tema cuando React se monta
+    initDarkMode();
+    
+    // Check initial theme después de la inicialización
     const isDarkMode = document.documentElement.classList.contains('dark');
     setIsDark(isDarkMode);
     
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", onResize);
     
+    // Back/forward cache optimization
+    const handlePageShow = (event) => {
+      // Re-initialize theme when page is restored from cache
+      if (event.persisted) {
+        initDarkMode();
+        setIsDark(document.documentElement.classList.contains('dark'));
+      }
+    };
+    
+    const handlePageHide = () => {
+      // Cleanup for back/forward cache
+      document.body.style.overflow = "auto";
+    };
+    
+    window.addEventListener("pageshow", handlePageShow);
+    window.addEventListener("pagehide", handlePageHide);
+    
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", onResize);
+      window.removeEventListener("pageshow", handlePageShow);
+      window.removeEventListener("pagehide", handlePageHide);
     };
   }, []);
 
@@ -37,11 +62,16 @@ const NavbarClient = () => {
     if (window.innerWidth < 1024) {
       document.body.style.overflow = isMenuOpen ? "hidden" : "auto";
     }
+    
+    // Cleanup function para back/forward cache
+    return () => {
+      document.body.style.overflow = "auto";
+    };
   }, [isMenuOpen]);
 
-  const toggleMenu = () => setIsMenuOpen((o) => !o);
+  const toggleMenu = useCallback(() => setIsMenuOpen((o) => !o), []);
 
-  const toggleTheme = () => {
+  const toggleTheme = useCallback(() => {
     const currentTheme = localStorage.getItem('theme');
     
     if (currentTheme === 'dark') {
@@ -62,7 +92,7 @@ const NavbarClient = () => {
     // Actualizar el estado de React
     const isDarkNow = document.documentElement.classList.contains('dark');
     setIsDark(isDarkNow);
-  };
+  }, []);
 
   return (
     <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
@@ -83,9 +113,9 @@ const NavbarClient = () => {
                 </svg>
               </div>
               <span className={`text-xl font-black ${
-                isScrolled ? 'text-slate-800 dark:text-white' : 'text-slate-700 dark:text-white/90'
-              } tracking-wide group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300`}>
-                {navbarData.logo.text} <span className="text-emerald-600 dark:text-emerald-400">{navbarData.logo.highlight}</span>
+                isScrolled ? 'text-slate-900 dark:text-white' : 'text-slate-800 dark:text-white'
+              } tracking-wide group-hover:text-emerald-700 dark:group-hover:text-emerald-300 transition-colors duration-300`}>
+                {navbarData.logo.text} <span className="text-emerald-700 dark:text-emerald-300">{navbarData.logo.highlight}</span>
               </span>
             </a>
           </div>
@@ -100,8 +130,8 @@ const NavbarClient = () => {
                   {underConstruction ? (
                     <span 
                       className={`${
-                        isScrolled ? 'text-slate-600 dark:text-white/90' : 'text-slate-500 dark:text-white/70'
-                      } hover:text-emerald-600 dark:hover:text-emerald-400 font-medium tracking-wide cursor-not-allowed opacity-60 transition-all duration-300`}
+                        isScrolled ? 'text-slate-600 dark:text-white/90' : 'text-slate-500 dark:text-white/80'
+                      } hover:text-emerald-700 dark:hover:text-emerald-300 font-medium tracking-wide cursor-not-allowed opacity-70 transition-all duration-300`}
                       onClick={(e) => {
                         e.preventDefault();
                         alert(navbarData.messages.underConstruction);
@@ -113,8 +143,8 @@ const NavbarClient = () => {
                     <a 
                       href={href} 
                       className={`${
-                        isScrolled ? 'text-slate-700 dark:text-gray-200' : 'text-slate-600 dark:text-white/90'
-                      } hover:text-emerald-600 dark:hover:text-emerald-400 font-medium tracking-wide transition-all duration-300 relative`}
+                        isScrolled ? 'text-slate-800 dark:text-gray-100' : 'text-slate-700 dark:text-white'
+                      } hover:text-emerald-700 dark:hover:text-emerald-300 font-medium tracking-wide transition-all duration-300 relative`}
                     >
                       {label}
                       <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-600 dark:bg-emerald-400 group-hover:w-full transition-all duration-300"></span>
@@ -129,7 +159,9 @@ const NavbarClient = () => {
           <div className="flex items-center space-x-3">
             {/* Theme Toggle - Desktop */}
             <div className="hidden lg:block">
-              <ThemeToggle />
+              <Suspense fallback={<div className="w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-xl animate-pulse"></div>}>
+                <ThemeToggle />
+              </Suspense>
             </div>
             
             {/* Theme Toggle - Mobile */}
@@ -186,8 +218,8 @@ const NavbarClient = () => {
                       {underConstruction ? (
                         <span 
                           className={`block w-full text-left py-3 px-4 ${
-                            isScrolled ? 'text-slate-600 dark:text-white/80' : 'text-slate-500 dark:text-white/70'
-                          } font-medium tracking-wide cursor-not-allowed opacity-60 bg-slate-100 dark:bg-white/5 rounded-lg`}
+                            isScrolled ? 'text-slate-700 dark:text-white/90' : 'text-slate-600 dark:text-white/80'
+                          } font-medium tracking-wide cursor-not-allowed opacity-70 bg-slate-100 dark:bg-white/5 rounded-lg`}
                           onClick={(e) => {
                             e.preventDefault();
                             alert(navbarData.messages.underConstruction);
@@ -200,8 +232,8 @@ const NavbarClient = () => {
                           href={href} 
                           onClick={() => setIsMenuOpen(false)}
                           className={`block w-full text-left py-3 px-4 ${
-                            isScrolled ? 'text-slate-800 dark:text-white' : 'text-slate-700 dark:text-white/90'
-                          } hover:text-emerald-600 dark:hover:text-emerald-400 font-medium tracking-wide bg-slate-100 dark:bg-white/5 hover:bg-emerald-100 dark:hover:bg-emerald-500/10 rounded-lg transition-all duration-300 border border-transparent hover:border-emerald-500/40 dark:hover:border-emerald-400/30`}
+                            isScrolled ? 'text-slate-900 dark:text-white' : 'text-slate-800 dark:text-white'
+                          } hover:text-emerald-700 dark:hover:text-emerald-300 font-medium tracking-wide bg-slate-100 dark:bg-white/5 hover:bg-emerald-100 dark:hover:bg-emerald-500/10 rounded-lg transition-all duration-300 border border-transparent hover:border-emerald-600/50 dark:hover:border-emerald-300/40`}
                         >
                           {label}
                         </a>

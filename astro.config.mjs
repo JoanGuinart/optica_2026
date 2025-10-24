@@ -10,8 +10,38 @@ export default defineConfig({
   devToolbar: {
     enabled: false,
   },
+  build: {
+    // Optimizaciones de minificación y compresión
+    inlineStylesheets: 'auto',
+  },
+  compressHTML: true,
   vite: {
     plugins: [tailwindcss()],
+    build: {
+      // Configuración avanzada de minificación
+      minify: 'terser',
+      terserOptions: {
+        compress: {
+          drop_console: true, // Eliminar console.log en producción
+          drop_debugger: true,
+          dead_code: true,
+          unused: true,
+        },
+        mangle: {
+          safari10: true,
+        },
+      },
+      // Optimización de chunks para mejor caching
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'react-vendor': ['react', 'react-dom'],
+          },
+        },
+      },
+      // Compresión y optimización de assets
+      assetsInlineLimit: 4096, // Inline small assets
+    },
     resolve: {
       alias: {
         "@": fileURLToPath(new URL("./src", import.meta.url)),

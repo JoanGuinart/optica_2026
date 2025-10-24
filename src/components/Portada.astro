@@ -11,6 +11,8 @@ import portadaData from "@data/portada.json";
       width={portadaData.hero.image.width}
       height={portadaData.hero.image.height}
       priority
+      fetchpriority="high"
+      loading="eager"
       src={portadaData.hero.image.src}
       alt={portadaData.hero.image.alt}
       class="object-cover object-center opacity-40 dark:opacity-100"
