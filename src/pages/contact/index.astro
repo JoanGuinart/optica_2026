@@ -7,11 +7,11 @@ import contactData from "@data/contact.json";
   <main class="min-h-screen">
     <!-- Hero Section -->
     <section
-      class="relative py-20 sm:py-32 bg-gradient-to-br from-emerald-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden"
+      class="relative py-20 sm:py-32 bg-gradient-to-br from-emerald-50 via-white to-blue-50 overflow-hidden"
     >
       {/* Decoración de fondo */}
       <div
-        class="absolute inset-0 bg-[url('/api/placeholder/1920/1080')] opacity-5 dark:opacity-10"
+        class="absolute inset-0 bg-[url('/api/placeholder/1920/1080')] opacity-5"
       >
       </div>
       <div
@@ -26,7 +26,7 @@ import contactData from "@data/contact.json";
       <div class="relative container mx-auto px-6 text-center">
         {/* Badge */}
         <div
-          class="inline-flex items-center px-4 py-2 bg-emerald-600/10 dark:bg-emerald-400/20 text-emerald-700 dark:text-emerald-300 rounded-full text-sm font-semibold mb-8 border border-emerald-600/20 dark:border-emerald-400/30"
+          class="inline-flex items-center px-4 py-2 bg-emerald-600/10 text-emerald-700 rounded-full text-sm font-semibold mb-8 border border-emerald-600/20"
         >
           <svg
             class="w-4 h-4 mr-2"
@@ -45,15 +45,15 @@ import contactData from "@data/contact.json";
         </div>
 
         <h1
-          class="text-4xl sm:text-5xl md:text-7xl font-black text-slate-900 dark:text-white mb-6 leading-tight"
+          class="text-4xl sm:text-5xl md:text-7xl font-black text-slate-900 mb-6 leading-tight"
         >
           {contactData.hero.title.main}
-          <span class="text-emerald-600 dark:text-emerald-400"
+          <span class="text-emerald-600"
             >{contactData.hero.title.highlight}</span
           >
         </h1>
         <p
-          class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto font-medium leading-relaxed"
+          class="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto font-medium leading-relaxed"
         >
           {contactData.hero.subtitle}
         </p>
@@ -61,18 +61,18 @@ import contactData from "@data/contact.json";
     </section>
 
     {/* Contenido Principal */}
-    <section class="py-20 bg-white dark:bg-slate-900">
+    <section class="py-20 bg-white">
       <div class="container mx-auto px-6">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Información de Contacto */}
           <div class="space-y-8">
             <div>
               <h2
-                class="text-3xl font-bold text-slate-900 dark:text-white mb-6"
+                class="text-3xl font-bold text-slate-900 mb-6"
               >
                 Información de Contacto
               </h2>
-              <p class="text-slate-600 dark:text-slate-300 mb-8">
+              <p class="text-slate-600 mb-8">
                 Ponte en contacto con nosotros por cualquiera de estos medios
               </p>
             </div>
@@ -81,10 +81,10 @@ import contactData from "@data/contact.json";
             <div class="space-y-6">
               {/* Teléfono */}
               <div
-                class="flex items-start space-x-4 p-6 bg-slate-50 dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-emerald-500/30 dark:hover:border-emerald-400/30 transition-colors"
+                class="flex items-start space-x-4 p-6 bg-slate-50  rounded-2xl border border-slate-200  hover:border-emerald-500/30  transition-colors"
               >
                 <div
-                  class="w-12 h-12 bg-emerald-600 dark:bg-emerald-500 rounded-xl flex items-center justify-center"
+                  class="w-12 h-12 bg-emerald-600  rounded-xl flex items-center justify-center"
                 >
                   <svg
                     class="w-6 h-6 text-white"
@@ -101,16 +101,16 @@ import contactData from "@data/contact.json";
                   </svg>
                 </div>
                 <div>
-                  <h3 class="font-semibold text-slate-900 dark:text-white">
+                  <h3 class="font-semibold text-slate-900 ">
                     Teléfono
                   </h3>
-                  <p class="text-slate-600 dark:text-slate-300">
+                  <p class="text-slate-600 ">
                     {contactData.contactInfo.phone.display}
                   </p>
                   <a
                     href={`https://wa.me/${contactData.contactInfo.phone.whatsapp}`}
                     target="_blank"
-                    class="inline-flex items-center text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-medium mt-1"
+                    class="inline-flex items-center text-emerald-600  hover:text-emerald-700  font-medium mt-1"
                   >
                     <svg
                       class="w-4 h-4 mr-1"
@@ -128,10 +128,10 @@ import contactData from "@data/contact.json";
 
               {/* Email */}
               <div
-                class="flex items-start space-x-4 p-6 bg-slate-50 dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-emerald-500/30 dark:hover:border-emerald-400/30 transition-colors"
+                class="flex items-start space-x-4 p-6 bg-slate-50  rounded-2xl border border-slate-200  hover:border-emerald-500/30  transition-colors"
               >
                 <div
-                  class="w-12 h-12 shrink-0 bg-emerald-600 dark:bg-emerald-500 rounded-xl flex items-center justify-center"
+                  class="w-12 h-12 shrink-0 bg-emerald-600  rounded-xl flex items-center justify-center"
                 >
                   <svg
                     class="w-6 h-6 text-white"
@@ -148,12 +148,12 @@ import contactData from "@data/contact.json";
                   </svg>
                 </div>
                 <div class="min-w-0 flex-1">
-                  <h3 class="font-semibold text-slate-900 dark:text-white">
+                  <h3 class="font-semibold text-slate-900 ">
                     Email
                   </h3>
                   <a
                     href={`mailto:${contactData.contactInfo.email.address}`}
-                    class="text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 break-all sm:break-normal text-sm sm:text-base"
+                    class="text-emerald-600  hover:text-emerald-700  break-all sm:break-normal text-sm sm:text-base"
                   >
                     {contactData.contactInfo.email.address}
                   </a>
@@ -162,10 +162,10 @@ import contactData from "@data/contact.json";
 
               {/* Dirección */}
               <div
-                class="flex items-start space-x-4 p-6 bg-slate-50 dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-emerald-500/30 dark:hover:border-emerald-400/30 transition-colors"
+                class="flex items-start space-x-4 p-6 bg-slate-50  rounded-2xl border border-slate-200  hover:border-emerald-500/30  transition-colors"
               >
                 <div
-                  class="w-12 h-12 bg-emerald-600 dark:bg-emerald-500 rounded-xl flex items-center justify-center"
+                  class="w-12 h-12 bg-emerald-600  rounded-xl flex items-center justify-center"
                 >
                   <svg
                     class="w-6 h-6 text-white"
@@ -187,19 +187,19 @@ import contactData from "@data/contact.json";
                   </svg>
                 </div>
                 <div>
-                  <h3 class="font-semibold text-slate-900 dark:text-white">
+                  <h3 class="font-semibold text-slate-900 ">
                     Dirección
                   </h3>
-                  <p class="text-slate-600 dark:text-slate-300">
+                  <p class="text-slate-600 ">
                     {contactData.contactInfo.address.street}
                   </p>
-                  <p class="text-slate-600 dark:text-slate-300">
+                  <p class="text-slate-600 ">
                     {contactData.contactInfo.address.city}
                   </p>
                   <a
                     href={contactData.contactInfo.address.googleMaps}
                     target="_blank"
-                    class="inline-flex items-center text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-medium mt-1"
+                    class="inline-flex items-center text-emerald-600  hover:text-emerald-700  font-medium mt-1"
                   >
                     <svg
                       class="w-4 h-4 mr-1"
@@ -221,10 +221,10 @@ import contactData from "@data/contact.json";
 
               {/* Horarios */}
               <div
-                class="flex items-start space-x-4 p-6 bg-slate-50 dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700"
+                class="flex items-start space-x-4 p-6 bg-slate-50  rounded-2xl border border-slate-200 "
               >
                 <div
-                  class="w-12 h-12 bg-emerald-600 dark:bg-emerald-500 rounded-xl flex items-center justify-center"
+                  class="w-12 h-12 bg-emerald-600  rounded-xl flex items-center justify-center"
                 >
                   <svg
                     class="w-6 h-6 text-white"
@@ -240,16 +240,16 @@ import contactData from "@data/contact.json";
                   </svg>
                 </div>
                 <div>
-                  <h3 class="font-semibold text-slate-900 dark:text-white">
+                  <h3 class="font-semibold text-slate-900 ">
                     Horarios
                   </h3>
-                  <p class="text-slate-600 dark:text-slate-300">
+                  <p class="text-slate-600 ">
                     {contactData.contactInfo.hours.weekdays}
                   </p>
-                  <p class="text-slate-600 dark:text-slate-300">
+                  <p class="text-slate-600 ">
                     {contactData.contactInfo.hours.saturday}
                   </p>
-                  <p class="text-slate-600 dark:text-slate-300">
+                  <p class="text-slate-600 ">
                     {contactData.contactInfo.hours.sunday}
                   </p>
                 </div>
@@ -257,8 +257,8 @@ import contactData from "@data/contact.json";
             </div>
 
             {/* Redes Sociales */}
-            <div class="pt-8 border-t border-slate-200 dark:border-slate-700">
-              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-6">
+            <div class="pt-8 border-t border-slate-200 ">
+              <h3 class="text-xl font-bold text-slate-900  mb-6">
                 Síguenos en Redes
               </h3>
               <div class="grid grid-cols-2 gap-4">
@@ -284,7 +284,7 @@ import contactData from "@data/contact.json";
                 <a
                   href={contactData.socialMedia.instagram.url}
                   target="_blank"
-                  class="flex items-center justify-center p-4 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 text-white rounded-xl hover:from-purple-600 hover:via-pink-600 hover:to-orange-500 transition-all border border-pink-200 dark:border-pink-800 shadow-lg"
+                  class="flex items-center justify-center p-4 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 text-white rounded-xl hover:from-purple-600 hover:via-pink-600 hover:to-orange-500 transition-all border border-pink-200  shadow-lg"
                 >
                   <svg
                     class="w-6 h-6 mr-3"
@@ -347,14 +347,14 @@ import contactData from "@data/contact.json";
           </div>
 
           {/* Formulario de Contacto */}
-          <div class="bg-slate-50 dark:bg-slate-800 rounded-3xl p-8">
+          <div class="bg-slate-50  rounded-3xl p-8">
             <div class="mb-8">
               <h2
-                class="text-3xl font-bold text-slate-900 dark:text-white mb-4"
+                class="text-3xl font-bold text-slate-900  mb-4"
               >
                 {contactData.form.title}
               </h2>
-              <p class="text-slate-600 dark:text-slate-300">
+              <p class="text-slate-600 ">
                 {contactData.form.subtitle}
               </p>
             </div>
@@ -364,7 +364,7 @@ import contactData from "@data/contact.json";
               <div>
                 <label
                   for="name"
-                  class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
+                  class="block text-sm font-medium text-slate-700  mb-2"
                 >
                   {contactData.form.fields.name.label} *
                 </label>
@@ -374,7 +374,7 @@ import contactData from "@data/contact.json";
                   name="name"
                   required
                   placeholder={contactData.form.fields.name.placeholder}
-                  class="w-full px-4 py-3 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 dark:focus:ring-emerald-400 dark:focus:border-emerald-400 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400"
+                  class="w-full px-4 py-3 bg-white  border border-slate-300  rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500   text-slate-900  placeholder-slate-500 "
                 />
               </div>
 
@@ -382,7 +382,7 @@ import contactData from "@data/contact.json";
               <div>
                 <label
                   for="email"
-                  class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
+                  class="block text-sm font-medium text-slate-700  mb-2"
                 >
                   {contactData.form.fields.email.label} *
                 </label>
@@ -392,7 +392,7 @@ import contactData from "@data/contact.json";
                   name="email"
                   required
                   placeholder={contactData.form.fields.email.placeholder}
-                  class="w-full px-4 py-3 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 dark:focus:ring-emerald-400 dark:focus:border-emerald-400 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400"
+                  class="w-full px-4 py-3 bg-white  border border-slate-300  rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500   text-slate-900  placeholder-slate-500 "
                 />
               </div>
 
@@ -400,7 +400,7 @@ import contactData from "@data/contact.json";
               <div>
                 <label
                   for="phone"
-                  class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
+                  class="block text-sm font-medium text-slate-700  mb-2"
                 >
                   {contactData.form.fields.phone.label}
                 </label>
@@ -409,7 +409,7 @@ import contactData from "@data/contact.json";
                   id="phone"
                   name="phone"
                   placeholder={contactData.form.fields.phone.placeholder}
-                  class="w-full px-4 py-3 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 dark:focus:ring-emerald-400 dark:focus:border-emerald-400 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400"
+                  class="w-full px-4 py-3 bg-white  border border-slate-300  rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500   text-slate-900  placeholder-slate-500 "
                 />
               </div>
 
@@ -417,7 +417,7 @@ import contactData from "@data/contact.json";
               <div>
                 <label
                   for="subject"
-                  class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
+                  class="block text-sm font-medium text-slate-700  mb-2"
                 >
                   {contactData.form.fields.subject.label} *
                 </label>
@@ -427,7 +427,7 @@ import contactData from "@data/contact.json";
                   name="subject"
                   required
                   placeholder={contactData.form.fields.subject.placeholder}
-                  class="w-full px-4 py-3 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 dark:focus:ring-emerald-400 dark:focus:border-emerald-400 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400"
+                  class="w-full px-4 py-3 bg-white  border border-slate-300  rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500   text-slate-900  placeholder-slate-500 "
                 />
               </div>
 
@@ -435,7 +435,7 @@ import contactData from "@data/contact.json";
               <div>
                 <label
                   for="message"
-                  class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
+                  class="block text-sm font-medium text-slate-700  mb-2"
                 >
                   {contactData.form.fields.message.label} *
                 </label>
@@ -445,14 +445,14 @@ import contactData from "@data/contact.json";
                   rows="5"
                   required
                   placeholder={contactData.form.fields.message.placeholder}
-                  class="w-full px-4 py-3 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 dark:focus:ring-emerald-400 dark:focus:border-emerald-400 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 resize-none"
+                  class="w-full px-4 py-3 bg-white  border border-slate-300  rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500   text-slate-900  placeholder-slate-500  resize-none"
                 ></textarea>
               </div>
 
               {/* Botón */}
               <button
                 type="submit"
-                class="w-full bg-emerald-700 dark:bg-emerald-600 hover:bg-emerald-800 dark:hover:bg-emerald-500 text-white font-semibold py-4 px-6 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 dark:focus:ring-emerald-400 dark:focus:ring-offset-slate-800 flex items-center justify-center"
+                class="w-full bg-emerald-700  hover:bg-emerald-800  text-white font-semibold py-4 px-6 rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2   flex items-center justify-center"
               >
                 <svg
                   class="w-5 h-5 mr-2"
@@ -475,16 +475,16 @@ import contactData from "@data/contact.json";
     </section>
 
     {/* Características */}
-    <section class="py-20 bg-slate-50 dark:bg-slate-800">
+    <section class="py-20 bg-slate-50 ">
       <div class="container mx-auto px-6">
         <div class="text-center mb-16">
           <h2
-            class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4"
+            class="text-3xl sm:text-4xl font-bold text-slate-900  mb-4"
           >
             ¿Por qué contactarnos?
           </h2>
           <p
-            class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto"
+            class="text-lg text-slate-600  max-w-2xl mx-auto"
           >
             Te ofrecemos la mejor atención y servicio al cliente
           </p>
@@ -493,8 +493,8 @@ import contactData from "@data/contact.json";
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           {
             contactData.features.map((feature) => (
-              <div class="text-center p-8 bg-white dark:bg-slate-900 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700">
-                <div class="w-16 h-16 bg-emerald-600 dark:bg-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <div class="text-center p-8 bg-white  rounded-2xl shadow-lg border border-slate-200 ">
+                <div class="w-16 h-16 bg-emerald-600  rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <svg
                     class="w-8 h-8 text-white"
                     fill="none"
@@ -509,10 +509,10 @@ import contactData from "@data/contact.json";
                     />
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4">
+                <h3 class="text-xl font-bold text-slate-900  mb-4">
                   {feature.title}
                 </h3>
-                <p class="text-slate-600 dark:text-slate-300">
+                <p class="text-slate-600 ">
                   {feature.description}
                 </p>
               </div>

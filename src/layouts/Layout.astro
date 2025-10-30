@@ -6,9 +6,6 @@ export interface Props {
 }
 
 const { title = "Óptica y Audiometria Gruinart Barcelona" } = Astro.props;
-
-// Obtener la configuración de tema forzado
-const forceTheme = import.meta.env.PUBLIC_FORCE_THEME || 'auto';
 ---
 
 <!doctype html>
@@ -16,152 +13,140 @@ const forceTheme = import.meta.env.PUBLIC_FORCE_THEME || 'auto';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <!-- SEO Meta Tags -->
     <title>{title}</title>
     <meta
       name="description"
       content="Óptica Guinart Barcelona - Más de 25 años cuidando tu salud visual con gafas graduadas, audiometrías, lentillas y servicios ópticos profesionales en San Andrés de Palomar."
     />
-    <meta name="keywords" content="óptica Barcelona, gafas graduadas, audiometría, lentillas, revisión vista, óptico Sant Andreu" />
+    <meta
+      name="keywords"
+      content="óptica Barcelona, gafas graduadas, audiometría, lentillas, revisión vista, óptico Sant Andreu"
+    />
     <meta name="author" content="Óptica Guinart" />
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content="Óptica Guinart Barcelona - Más de 25 años cuidando tu salud visual con gafas graduadas, audiometrías y servicios ópticos profesionales." />
+    <meta
+      property="og:description"
+      content="Óptica Guinart Barcelona - Más de 25 años cuidando tu salud visual con gafas graduadas, audiometrías y servicios ópticos profesionales."
+    />
     <meta property="og:image" content="/portada/portada_compressed.webp" />
     <meta property="og:site_name" content="Óptica Guinart" />
     <meta property="og:locale" content="es_ES" />
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={Astro.url} />
     <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content="Óptica Guinart Barcelona - Más de 25 años cuidando tu salud visual con servicios ópticos profesionales." />
+    <meta
+      property="twitter:description"
+      content="Óptica Guinart Barcelona - Más de 25 años cuidando tu salud visual con servicios ópticos profesionales."
+    />
     <meta property="twitter:image" content="/portada/portada_compressed.webp" />
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href={Astro.url} />
-    
+
     <!-- Favicon y otros -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    
+
     <!-- Preload critical resources -->
-    <link rel="preload" href="/portada/portada_compressed.webp" as="image" fetchpriority="high" />
-    
+    <link
+      rel="preload"
+      href="/portada/portada_compressed.webp"
+      as="image"
+      fetchpriority="high"
+    />
+
     <!-- Preload critical JavaScript modules -->
-    <link rel="modulepreload" href="/_astro/client.D7xuJPQP.js" />
-    <link rel="modulepreload" href="/_astro/NavbarClient.8409WEoL.js" />
-    
+    <!-- Los nombres de archivos se generan dinámicamente en desarrollo -->
+
     <!-- DNS prefetch y preconnect para recursos externos -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
-    <!-- Resource hints para mejor performance -->
-    <link rel="prefetch" href="/_astro/ThemeToggle.Dy_ntpO7.js" />
-    
+
     <!-- CSS crítico optimizado - Astro maneja el resto automáticamente -->
-    
+
     <!-- Solo CSS crítico mínimo inline -->
     <style>
       /* Evitar layout shift crítico */
-      main { margin-top: 80px; }
-      body { scroll-behavior: smooth; }
-      .navbar-height { height: 80px; }
+      main {
+        margin-top: 80px;
+      }
+      body {
+        scroll-behavior: smooth;
+      }
+      .navbar-height {
+        height: 80px;
+      }
     </style>
-    
+
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Óptica Guinart",
-      "description": "Óptica y audiometría profesional en Barcelona con más de 25 años de experiencia. Especialistas en gafas graduadas, lentillas y salud visual.",
-      "image": "/portada/portada_compressed.webp",
-      "url": "https://optica-guinart.com",
-      "@id": "https://optica-guinart.com",
-      "telephone": "+34933118706",
-      "email": "opticaguinartsantandreu@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Carrer Gran de Sant Andreu, 308",
-        "addressLocality": "Barcelona",
-        "addressRegion": "Cataluña", 
-        "postalCode": "08030",
-        "addressCountry": "ES"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 41.4372,
-        "longitude": 2.1896
-      },
-      "openingHours": [
-        "Mo-Fr 09:30-13:30",
-        "Mo-Fr 17:00-20:00",
-        "Sa 09:30-13:30"
-      ],
-      "sameAs": [
-        "https://www.instagram.com/opticaguinart",
-        "https://www.facebook.com/opticaguinart"
-      ],
-      "priceRange": "€€",
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Servicios de Óptica",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Revisión de Vista",
-              "description": "Examen completo de graduación de vista"
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Óptica Guinart",
+        "description": "Óptica y audiometría profesional en Barcelona con más de 25 años de experiencia. Especialistas en gafas graduadas, lentillas y salud visual.",
+        "image": "/portada/portada_compressed.webp",
+        "url": "https://optica-guinart.com",
+        "@id": "https://optica-guinart.com",
+        "telephone": "+34933118706",
+        "email": "opticaguinartsantandreu@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Carrer Gran de Sant Andreu, 308",
+          "addressLocality": "Barcelona",
+          "addressRegion": "Cataluña",
+          "postalCode": "08030",
+          "addressCountry": "ES"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 41.4372,
+          "longitude": 2.1896
+        },
+        "openingHours": [
+          "Mo-Fr 09:30-13:30",
+          "Mo-Fr 17:00-20:00",
+          "Sa 09:30-13:30"
+        ],
+        "sameAs": [
+          "https://www.instagram.com/opticaguinart",
+          "https://www.facebook.com/opticaguinart"
+        ],
+        "priceRange": "€€",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Servicios de Óptica",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Revisión de Vista",
+                "description": "Examen completo de graduación de vista"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Audiometría",
+                "description": "Revisión completa de audición"
+              }
             }
-          },
-          {
-            "@type": "Offer", 
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Audiometría",
-              "description": "Revisión completa de audición"
-            }
-          }
-        ]
-      }
-    }
-    </script>
-    
-    <script is:inline define:vars={{ forceTheme }}>
-      // Sistema de tema con control forzado
-      function initTheme() {        
-        // Si hay tema forzado, aplicarlo directamente
-        if (forceTheme === 'light') {
-          document.documentElement.classList.remove('dark');
-          return;
+          ]
         }
-        
-        if (forceTheme === 'dark') {
-          document.documentElement.classList.add('dark');
-          return;
-        }
-        
-        // Si es "auto" o no está definido, usar lógica normal de Tailwind
-        document.documentElement.classList.toggle(
-          "dark",
-          localStorage.theme === "dark" ||
-            (!("theme" in localStorage) &&
-              window.matchMedia("(prefers-color-scheme: dark)").matches)
-        );
       }
-      
-      initTheme();
     </script>
   </head>
-  <body
-    class="bg-white dark:bg-slate-900 text-slate-900 dark:text-white transition-colors duration-300"
-  >
+  <body class="bg-white text-slate-900 transition-colors duration-300">
     <!-- Navbar crítico carga inmediatamente para LCP -->
     <NavbarClient client:load />
     <main>

@@ -1,15 +1,10 @@
-import { useEffect, useState, useCallback, lazy, Suspense } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { isUnderConstruction } from "@/lib/under-construction";
-import { initDarkMode } from "@/lib/theme";
 import navbarData from "@data/navbar.json";
-
-// Lazy load del ThemeToggle
-const ThemeToggle = lazy(() => import("./ThemeToggle"));
 
 const NavbarClient = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,22 +18,14 @@ const NavbarClient = () => {
       }
     };
     
-    // Forzar inicialización del tema cuando React se monta
-    initDarkMode();
-    
-    // Check initial theme después de la inicialización
-    const isDarkMode = document.documentElement.classList.contains('dark');
-    setIsDark(isDarkMode);
-    
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", onResize);
     
     // Back/forward cache optimization
     const handlePageShow = (event) => {
-      // Re-initialize theme when page is restored from cache
+      // Re-initialize when page is restored from cache
       if (event.persisted) {
-        initDarkMode();
-        setIsDark(document.documentElement.classList.contains('dark'));
+        // No theme functionality needed
       }
     };
     
@@ -71,41 +58,20 @@ const NavbarClient = () => {
 
   const toggleMenu = useCallback(() => setIsMenuOpen((o) => !o), []);
 
-  const toggleTheme = useCallback(() => {
-    const currentTheme = localStorage.getItem('theme');
-    
-    if (currentTheme === 'dark') {
-      // Cambiar a modo claro
-      localStorage.theme = 'light';
-    } else {
-      // Cambiar a modo oscuro
-      localStorage.theme = 'dark';
-    }
-    
-    // Aplicar la implementación oficial de Tailwind v4
-    document.documentElement.classList.toggle(
-      "dark",
-      localStorage.theme === "dark" ||
-        (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
-    );
-    
-    // Actualizar el estado de React
-    const isDarkNow = document.documentElement.classList.contains('dark');
-    setIsDark(isDarkNow);
-  }, []);
+
 
   return (
     <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
       isScrolled 
-        ? 'bg-white/90 dark:bg-black/80 backdrop-blur-lg border-b border-emerald-500/30 dark:border-emerald-400/20 shadow-2xl' 
-        : 'bg-white/60 dark:bg-black/40 backdrop-blur-sm'
+        ? 'bg-white/90 backdrop-blur-lg border-b border-emerald-500/30 shadow-2xl' 
+        : 'bg-white/60 backdrop-blur-sm'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="/" className="flex items-center space-x-2 group">
-              <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-700 dark:from-emerald-400 dark:to-emerald-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox={navbarData.logo.icon.viewBox}>
                   {navbarData.logo.icon.paths.map((path, index) => (
                     <path key={index} strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={path} />
@@ -113,9 +79,9 @@ const NavbarClient = () => {
                 </svg>
               </div>
               <span className={`text-xl font-black ${
-                isScrolled ? 'text-slate-900 dark:text-white' : 'text-slate-800 dark:text-white'
-              } tracking-wide group-hover:text-emerald-700 dark:group-hover:text-emerald-300 transition-colors duration-300`}>
-                {navbarData.logo.text} <span className="text-emerald-700 dark:text-emerald-300">{navbarData.logo.highlight}</span>
+                isScrolled ? 'text-slate-900' : 'text-slate-800'
+              } tracking-wide group-hover:text-emerald-700 transition-colors duration-300`}>
+                {navbarData.logo.text} <span className="text-emerald-700">{navbarData.logo.highlight}</span>
               </span>
             </a>
           </div>
@@ -130,8 +96,8 @@ const NavbarClient = () => {
                   {underConstruction ? (
                     <span 
                       className={`${
-                        isScrolled ? 'text-slate-600 dark:text-white/90' : 'text-slate-500 dark:text-white/80'
-                      } hover:text-emerald-700 dark:hover:text-emerald-300 font-medium tracking-wide cursor-not-allowed opacity-70 transition-all duration-300`}
+                        isScrolled ? 'text-slate-600' : 'text-slate-500'
+                      } hover:text-emerald-700 font-medium tracking-wide cursor-not-allowed opacity-70 transition-all duration-300`}
                       onClick={(e) => {
                         e.preventDefault();
                         alert(navbarData.messages.underConstruction);
@@ -143,11 +109,11 @@ const NavbarClient = () => {
                     <a 
                       href={href} 
                       className={`${
-                        isScrolled ? 'text-slate-800 dark:text-gray-100' : 'text-slate-700 dark:text-white'
-                      } hover:text-emerald-700 dark:hover:text-emerald-300 font-medium tracking-wide transition-all duration-300 relative`}
+                        isScrolled ? 'text-slate-800' : 'text-slate-700'
+                      } hover:text-emerald-700 font-medium tracking-wide transition-all duration-300 relative`}
                     >
                       {label}
-                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-600 dark:bg-emerald-400 group-hover:w-full transition-all duration-300"></span>
+                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-600 group-hover:w-full transition-all duration-300"></span>
                     </a>
                   )}
                 </div>
@@ -155,46 +121,18 @@ const NavbarClient = () => {
             })}
           </nav>
 
-          {/* Theme toggle and Mobile menu buttons */}
-          <div className="flex items-center space-x-3">
-            {/* Theme Toggle - Desktop */}
-            <div className="hidden lg:block">
-              <Suspense fallback={<div className="w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-xl animate-pulse"></div>}>
-                <ThemeToggle />
-              </Suspense>
-            </div>
-            
-            {/* Theme Toggle - Mobile */}
-            <div className="lg:hidden">
-              <button
-                onClick={toggleTheme}
-                className="relative w-10 h-10 bg-emerald-600/20 dark:bg-emerald-500/20 hover:bg-emerald-600/30 dark:hover:bg-emerald-500/30 rounded-xl border border-emerald-500/40 dark:border-emerald-400/30 backdrop-blur-sm transition-all duration-300 flex items-center justify-center group"
-                aria-label={navbarData.theme.ariaLabel}
-              >
-                {isDark ? (
-                  // Sun icon for light mode
-                  <svg className="w-5 h-5 text-slate-700 dark:text-white transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox={navbarData.theme.icons.sun.viewBox}>
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={navbarData.theme.icons.sun.path} />
-                  </svg>
-                ) : (
-                  // Moon icon for dark mode
-                  <svg className="w-5 h-5 text-slate-700 dark:text-white transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox={navbarData.theme.icons.moon.viewBox}>
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={navbarData.theme.icons.moon.path} />
-                  </svg>
-                )}
-              </button>
-            </div>
-            
+          {/* Mobile menu button */}
+          <div className="flex items-center">
             {/* Mobile menu button */}
             <div className="lg:hidden">
               <button
                 onClick={toggleMenu}
-                className="relative w-10 h-10 bg-emerald-600/20 dark:bg-emerald-500/20 hover:bg-emerald-600/30 dark:hover:bg-emerald-500/30 rounded-xl border border-emerald-500/40 dark:border-emerald-400/30 backdrop-blur-sm transition-all duration-300 flex items-center justify-center group"
+                className="relative w-10 h-10 bg-emerald-600/20 hover:bg-emerald-600/30 rounded-xl border border-emerald-500/40 backdrop-blur-sm transition-all duration-300 flex items-center justify-center group"
               >
                 <div className="flex flex-col space-y-1.5">
-                  <span className={`block w-5 h-0.5 bg-slate-700 dark:bg-white transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-                  <span className={`block w-5 h-0.5 bg-slate-700 dark:bg-white transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-                  <span className={`block w-5 h-0.5 bg-slate-700 dark:bg-white transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+                  <span className={`block w-5 h-0.5 bg-slate-700 transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+                  <span className={`block w-5 h-0.5 bg-slate-700 transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+                  <span className={`block w-5 h-0.5 bg-slate-700 transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
                 </div>
               </button>
             </div>
@@ -207,7 +145,7 @@ const NavbarClient = () => {
             ? 'opacity-100 translate-y-0 pointer-events-auto' 
             : 'opacity-0 -translate-y-4 pointer-events-none'
         }`}>
-          <nav className="bg-white/95 dark:bg-black/95 backdrop-blur-xl border-t border-emerald-500/30 dark:border-emerald-400/20 shadow-2xl">
+          <nav className="bg-white/95 backdrop-blur-xl border-t border-emerald-500/30 shadow-2xl">
             <div className="max-w-7xl mx-auto px-4 py-6">
               <div className="space-y-4">
                 {navbarData.navigation.mobile.map(({ href, label }) => {
@@ -218,8 +156,8 @@ const NavbarClient = () => {
                       {underConstruction ? (
                         <span 
                           className={`block w-full text-left py-3 px-4 ${
-                            isScrolled ? 'text-slate-700 dark:text-white/90' : 'text-slate-600 dark:text-white/80'
-                          } font-medium tracking-wide cursor-not-allowed opacity-70 bg-slate-100 dark:bg-white/5 rounded-lg`}
+                            isScrolled ? 'text-slate-700' : 'text-slate-600'
+                          } font-medium tracking-wide cursor-not-allowed opacity-70 bg-slate-100 rounded-lg`}
                           onClick={(e) => {
                             e.preventDefault();
                             alert(navbarData.messages.underConstruction);
@@ -232,8 +170,8 @@ const NavbarClient = () => {
                           href={href} 
                           onClick={() => setIsMenuOpen(false)}
                           className={`block w-full text-left py-3 px-4 ${
-                            isScrolled ? 'text-slate-900 dark:text-white' : 'text-slate-800 dark:text-white'
-                          } hover:text-emerald-700 dark:hover:text-emerald-300 font-medium tracking-wide bg-slate-100 dark:bg-white/5 hover:bg-emerald-100 dark:hover:bg-emerald-500/10 rounded-lg transition-all duration-300 border border-transparent hover:border-emerald-600/50 dark:hover:border-emerald-300/40`}
+                            isScrolled ? 'text-slate-900' : 'text-slate-800'
+                          } hover:text-emerald-700 font-medium tracking-wide bg-slate-100 hover:bg-emerald-100 rounded-lg transition-all duration-300 border border-transparent hover:border-emerald-600/50`}
                         >
                           {label}
                         </a>
