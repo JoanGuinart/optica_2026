@@ -8,24 +8,24 @@
     "offers": [
       {
         "id": 1,
-        "badge": "-30%",
+        "badge": "-33%",
         "badgeColor": "red",
         "title": "Gafas de Sol",
         "description": "Protección UV total con las mejores marcas. Estilo y calidad garantizada.",
-        "currentPrice": "desde 49€",
-        "originalPrice": "70€",
+        "currentPrice": "desde 39€",
+        "originalPrice": "59€",
         "buttonText": "VER OFERTA",
         "icon": "sun",
         "iconPath": "M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
       },
       {
         "id": 2,
-        "badge": "2x1",
+        "badge": "20%",
         "badgeColor": "emerald",
         "title": "Gafas Graduadas",
         "description": "Llévate 2 pares por el precio de 1. Monta y cristales incluidos.",
-        "currentPrice": "desde 89€",
-        "originalPrice": "178€",
+        "currentPrice": "desde 75€",
+        "originalPrice": "94€",
         "buttonText": "VER OFERTA",
         "icon": "glasses",
         "iconPath": "M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
@@ -54,7 +54,7 @@
     "products": [
       {
         "id": 1,
-        "name": "Ray-Ban Aviator",
+        "name": "RayBan Meta",
         "description": "Clásicas gafas de sol con estilo atemporal",
         "price": "159€",
         "buttonText": "VER",
@@ -62,7 +62,7 @@
       },
       {
         "id": 2,
-        "name": "Oakley Sport",
+        "name": "Silhouette Sport",
         "description": "Rendimiento y protección para deportistas",
         "price": "189€",
         "buttonText": "VER",
@@ -70,7 +70,7 @@
       },
       {
         "id": 3,
-        "name": "Persol Vintage",
+        "name": "Maui Jim Elegance",
         "description": "Elegancia italiana en cada detalle",
         "price": "225€",
         "buttonText": "VER",
@@ -78,7 +78,7 @@
       },
       {
         "id": 4,
-        "name": "Guess Modern",
+        "name": "Yalea",
         "description": "Tendencia y glamour para el día a día",
         "price": "129€",
         "buttonText": "VER",

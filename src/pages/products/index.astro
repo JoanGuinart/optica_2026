@@ -194,102 +194,102 @@ import { Image } from "astro:assets";
             {
               productsData.specialOffers.offers.map((offer) => (
                 <div class="relative group h-full">
-                  {offer.badgeColor === "red" ? (
-                    <div class="bg-white/95 backdrop-blur-md rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-red-200 overflow-hidden hover:bg-white h-full flex flex-col">
-                      <div class="absolute top-4 right-4 bg-red-600 text-white px-4 py-2 rounded-full text-lg font-bold shadow-lg">
-                        {offer.badge}
+                  <div class="bg-white/95 backdrop-blur-md rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-emerald-500 overflow-hidden hover:bg-white h-full flex flex-col">
+                    <div class="absolute top-4 right-4 bg-emerald-600 text-white px-4 py-2 rounded-full text-lg font-bold shadow-lg">
+                      {offer.badge}
+                    </div>
+                    <div class="flex items-center gap-6 flex-grow">
+                      <div class="w-24 h-24 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg flex-shrink-0">
+                        <svg
+                          class="w-12 h-12 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                          />
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                          />
+                        </svg>
                       </div>
-                      <div class="flex items-center gap-6 flex-grow">
-                        <div class="w-24 h-24 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center shadow-lg flex-shrink-0">
-                          <svg
-                            class="w-12 h-12 text-white"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                            />
-                          </svg>
-                        </div>
-                        <div class="flex-grow flex flex-col justify-between">
-                          <h3 class="text-2xl font-bold text-slate-800 mb-2">
-                            {offer.title}
-                          </h3>
-                          <p class="text-slate-600 mb-4">{offer.description}</p>
-                          <div class="flex items-center gap-3 mb-4">
-                            <span class="text-3xl font-black text-red-600">
-                              {offer.currentPrice}
+                      <div class="flex-grow flex flex-col justify-between">
+                        <h3 class="text-2xl font-bold text-slate-800 mb-2">
+                          {offer.title}
+                        </h3>
+                        <p class="text-slate-600 mb-4">{offer.description}</p>
+                        <div class="flex items-center gap-3 mb-4">
+                          <span class="text-3xl font-black text-emerald-600">
+                            {offer.currentPrice}
+                          </span>
+                          {offer.originalPrice && (
+                            <span class="text-xl text-slate-500 line-through">
+                              {offer.originalPrice}
                             </span>
-                            {offer.originalPrice && (
-                              <span class="text-xl text-slate-500 line-through">
-                                {offer.originalPrice}
-                              </span>
-                            )}
-                          </div>
-                          <button class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-bold transition-colors duration-300 shadow-lg hover:shadow-xl">
-                            {offer.buttonText}
-                          </button>
+                          )}
                         </div>
+                        <button
+                          class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-bold transition-colors duration-300 shadow-lg hover:shadow-xl"
+                          data-offer-content={(offer.buttonText.includes('DETALLES') || offer.buttonText.includes('CONDICIONES'))
+                            ? (offer.buttonText.includes('CONDICIONES')
+                                ? (offer.conditions || offer.details || offer.description)
+                                : (offer.details || offer.description))
+                            : undefined}
+                        >
+                          {offer.buttonText}
+                        </button>
                       </div>
                     </div>
-                  ) : (
-                    <div class="bg-white/95 backdrop-blur-md rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-orange-200 overflow-hidden hover:bg-white h-full flex flex-col">
-                      <div class="absolute top-4 right-4 bg-orange-500 text-white px-4 py-2 rounded-full text-lg font-bold shadow-lg">
-                        {offer.badge}
-                      </div>
-                      <div class="flex items-center gap-6 flex-grow">
-                        <div class="w-24 h-24 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg flex-shrink-0">
-                          <svg
-                            class="w-12 h-12 text-white"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                            />
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                            />
-                          </svg>
-                        </div>
-                        <div class="flex-grow flex flex-col justify-between">
-                          <h3 class="text-2xl font-bold text-slate-800 mb-2">
-                            {offer.title}
-                          </h3>
-                          <p class="text-slate-600 mb-4">{offer.description}</p>
-                          <div class="flex items-center gap-3 mb-4">
-                            <span class="text-3xl font-black text-orange-600">
-                              {offer.currentPrice}
-                            </span>
-                            {offer.originalPrice && (
-                              <span class="text-xl text-slate-500 line-through">
-                                {offer.originalPrice}
-                              </span>
-                            )}
-                          </div>
-                          <button class="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-bold transition-colors duration-300 shadow-lg hover:shadow-xl">
-                            {offer.buttonText}
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  )}
+                  </div>
                 </div>
               ))
             }
           </div>
         </div>
+
+        {/* Modal de Detalles/Condiciones */}
+        <div id="offer-modal" class="fixed inset-0 z-50 hidden">
+          <div id="offer-modal-overlay" class="absolute inset-0 bg-black/40"></div>
+          <div class="relative mx-auto mt-24 max-w-lg bg-white rounded-2xl p-6 shadow-2xl border border-emerald-200">
+            <button id="offer-modal-close" class="absolute top-3 right-3 text-slate-500 hover:text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-full w-8 h-8 grid place-items-center" aria-label="Cerrar">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+            <h3 class="text-xl font-bold text-slate-800 mb-3">Información de la oferta</h3>
+            <p id="offer-modal-content" class="text-slate-600 leading-relaxed"></p>
+          </div>
+        </div>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('offer-modal');
+            const overlay = document.getElementById('offer-modal-overlay');
+            const closeBtn = document.getElementById('offer-modal-close');
+            const contentEl = document.getElementById('offer-modal-content');
+
+            const close = () => modal?.classList.add('hidden');
+
+            document.querySelectorAll('[data-offer-content]').forEach((btn) => {
+              btn.addEventListener('click', () => {
+                const text = btn.getAttribute('data-offer-content') || '';
+                if (contentEl) contentEl.textContent = text;
+                modal?.classList.remove('hidden');
+              });
+            });
+
+            overlay?.addEventListener('click', close);
+            closeBtn?.addEventListener('click', close);
+            document.addEventListener('keydown', (e) => {
+              if (e.key === 'Escape') close();
+            });
+          });
+        </script>
 
         {/* Sección de Contacto */}
         <div

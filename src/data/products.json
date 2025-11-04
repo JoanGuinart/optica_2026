@@ -30,32 +30,117 @@
     "products": [
       {
         "id": 1,
-        "name": "Ray-Ban Aviator",
-        "description": "Clásicas gafas de aviador con protección UV",
+        "name": "Ray-Ban Meta",
+        "description": "Gafas inteligentes con tecnología Meta, captura fotos y videos con estilo icónico Ray-Ban",
         "price": "149€",
         "buttonText": "Ver Detalles"
       },
       {
         "id": 2,
-        "name": "Oakley Holbrook",
-        "description": "Diseño deportivo con lentes polarizados",
+        "name": "Silhouette Sport",
+        "description": "Ultraligeras sin montura austríacas, máxima comodidad y tecnología sin tornillos",
         "price": "179€",
         "buttonText": "Ver Detalles"
       },
       {
         "id": 3,
-        "name": "Tom Ford",
-        "description": "Elegancia y sofisticación premium",
+        "name": "Maui Jim",
+        "description": "Tecnología PolarizedPlus2® hawaiana, colores vibrantes y protección superior",
         "price": "299€",
         "buttonText": "Ver Detalles"
       },
       {
         "id": 4,
-        "name": "Persol",
-        "description": "Artesanía italiana tradicional",
+        "name": "Yalea",
+        "description": "Artesanía italiana en acetato de alta calidad, diseños únicos hechos a mano",
         "price": "219€",
         "buttonText": "Ver Detalles"
+      },
+      {
+        "id": 5,
+        "name": "Tous Classic",
+        "description": "Diseño barcelonés con detalles de osito icónico y elegancia mediterránea",
+        "price": "199€",
+        "buttonText": "Ver Detalles"
+      },
+      {
+        "id": 6,
+        "name": "Vogue",
+        "description": "Estilo y glamour con diseños femeninos únicos",
+        "price": "169€",
+        "buttonText": "Ver Detalles"
+      },
+      {
+        "id": 7,
+        "name": "Ray-Ban",
+        "description": "Icónicas gafas con estilo clásico y protección superior",
+        "price": "189€",
+        "buttonText": "Ver Detalles"
+      },
+      {
+        "id": 8,
+        "name": "Zadig & Voltaire",
+        "description": "Diseño rebelde y sofisticado con acabados premium",
+        "price": "249€",
+        "buttonText": "Ver Detalles"
+      },
+      {
+        "id": 9,
+        "name": "Furla",
+        "description": "Elegancia italiana con detalles artesanales exclusivos",
+        "price": "229€",
+        "buttonText": "Ver Detalles"
+      },
+      {
+        "id": 10,
+        "name": "Pertegaz",
+        "description": "Tradición española en moda y complementos de lujo",
+        "price": "159€",
+        "buttonText": "Ver Detalles"
+      },
+      {
+        "id": 11,
+        "name": "Ralph Lauren",
+        "description": "Estilo clásico americano con sofisticación atemporal",
+        "price": "219€",
+        "buttonText": "Ver Detalles"
+      },
+      {
+        "id": 12,
+        "name": "Polo Ralph Lauren",
+        "description": "Deportividad y elegancia en diseños versátiles",
+        "price": "179€",
+        "buttonText": "Ver Detalles"
+      },
+      {
+        "id": 13,
+        "name": "Arnette",
+        "description": "Gafas juveniles con actitud urbana y deportiva",
+        "price": "129€",
+        "buttonText": "Ver Detalles"
+      },
+      {
+        "id": 14,
+        "name": "Lacoste",
+        "description": "Espíritu deportivo francés con elegancia casual",
+        "price": "199€",
+        "buttonText": "Ver Detalles"
+      },
+      {
+        "id": 15,
+        "name": "Tommy Hilfiger",
+        "description": "Estilo preppy americano con toques contemporáneos",
+        "price": "169€",
+        "buttonText": "Ver Detalles"
+      },
+      {
+        "id": 16,
+        "name": "Police",
+        "description": "Diseños audaces con personalidad urbana distintiva",
+        "price": "149€",
+        "buttonText": "Ver Detalles"
       }
+
     ]
   },
   "specialOffers": {
@@ -67,27 +152,54 @@
     "offers": [
       {
         "id": 1,
-        "badge": "-40%",
+        "badge": "OFERTA",
         "badgeColor": "red",
-        "icon": "sun",
-        "title": "Pack Gafas de Sol + Funda",
-        "description": "Gafas de sol premium con funda de regalo y pack limpieza incluida",
-        "currentPrice": "89€",
-        "originalPrice": "149€",
-        "buttonText": "APROVECHAR OFERTA",
-        "buttonColor": "red"
+        "icon": "glasses",
+        "title": "Montura + Lentes Graduadas",
+        "description": "Montura completa con lentes graduadas antireflejantes o de sol incluidas",
+        "currentPrice": "75€",
+        "originalPrice": null,
+        "buttonText": "VER DETALLES",
+        "buttonColor": "red",
+        "details": "Incluye montura y lentes con tratamiento antirreflejante o lentes de sol."
       },
       {
         "id": 2,
-        "badge": "2x1",
+        "badge": "PACK",
         "badgeColor": "orange",
         "icon": "glasses",
-        "title": "Gafas Graduadas 2x1",
-        "description": "Llévate 2 pares de gafas graduadas por el precio de 1. Cristales incluidos",
-        "currentPrice": "desde 119€",
+        "title": "Gafa Fila + Lentes Antireflejantes",
+        "description": "Gafa Fila completa con lentes antireflejantes monofocales* incluidas",
+        "currentPrice": "109€",
         "originalPrice": null,
-        "buttonText": "VER CONDICIONES",
-        "buttonColor": "orange"
+        "buttonText": "VER CONDICIONES*",
+        "buttonColor": "orange",
+        "details": "Pack con lentes monofocales antirreflejantes. Revisa las condiciones.",
+        "conditions": "*Esfera hasta ±6.00 y cilindro hasta -4.00"
+      },
+      {
+        "id": 3,
+        "badge": "REGALO",
+        "badgeColor": "green",
+        "icon": "gift",
+        "title": "Cargador de Regalo",
+        "description": "Llévate un cargador completamente gratis al comprar dos audífonos recargables",
+        "currentPrice": "Cargador gratis",
+        "originalPrice": null,
+        "buttonText": "VER AUDÍFONOS",
+        "buttonColor": "green"
+      },
+      {
+        "id": 4,
+        "badge": "2x1",
+        "badgeColor": "purple",
+        "icon": "glasses",
+        "title": "Lentes Progresivas 2x1",
+        "description": "Dos lentes progresivas de alta gama por el precio de una, máxima calidad visual",
+        "currentPrice": "desde 299€",
+        "originalPrice": null,
+        "buttonText": "CONSULTAR OFERTA",
+        "buttonColor": "purple"
       }
     ]
   },
