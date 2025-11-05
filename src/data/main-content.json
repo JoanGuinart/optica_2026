@@ -58,7 +58,8 @@
         "description": "Clásicas gafas de sol con estilo atemporal",
         "price": "159€",
         "buttonText": "VER",
-        "imagePlaceholder": "Imagen del producto"
+        "imagePlaceholder": "Imagen del producto",
+        "src": "/productos/rayban-meta.webp"
       },
       {
         "id": 2,
@@ -66,23 +67,26 @@
         "description": "Rendimiento y protección para deportistas",
         "price": "189€",
         "buttonText": "VER",
-        "imagePlaceholder": "Imagen del producto"
+        "imagePlaceholder": "Imagen del producto",
+        "src": "/productos/silhouette-escondido.webp"
       },
       {
         "id": 3,
-        "name": "Maui Jim Elegance",
+        "name": "Maui Jim Paluna",
         "description": "Elegancia italiana en cada detalle",
         "price": "225€",
         "buttonText": "VER",
-        "imagePlaceholder": "Imagen del producto"
+        "imagePlaceholder": "Imagen del producto",
+        "src": "/productos/maui-jim-paluna.webp"
       },
       {
         "id": 4,
-        "name": "Yalea",
+        "name": "Yalea SYA053V",
         "description": "Tendencia y glamour para el día a día",
         "price": "129€",
         "buttonText": "VER",
-        "imagePlaceholder": "Imagen del producto"
+        "imagePlaceholder": "Imagen del producto",
+        "src": "/productos/yalea-SYA053V.webp"
       }
     ]
   },

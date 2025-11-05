@@ -1,9 +1,13 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
-main{
-    margin-top: 80px;
+main {
+  margin-top: 80px;
 }
 button {
-    cursor: pointer;
+  cursor: pointer;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding: 200px;
 }

@@ -10,7 +10,7 @@
     },
     "subtitle": "Más de 25 años cuidando tu salud visual con la mejor tecnología",
     "image": {
-      "src": "/portada/portada_compressed.webp",
+      "src": "/portada/portada_compressed_2.webp",
       "alt": "Óptica Guinart - Gafas y lentes de calidad"
     }
   },
@@ -39,13 +39,15 @@
       "id": 1,
       "text": "RESERVAR CITA",
       "type": "primary",
-      "action": "booking"
+      "action": "booking",
+      "link": "/contact#contact"
     },
     {
       "id": 2,
       "text": "VER PRODUCTOS",
       "type": "secondary",
-      "action": "products"
+      "action": "products",
+      "link": "/products"
     }
   ],
   "contact": {
