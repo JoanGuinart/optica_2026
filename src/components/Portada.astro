@@ -119,9 +119,21 @@ import portadaData from "@data/portada.json";
           {portadaData.contact.location.text}
         </p>
         <p class="font-medium text-xs sm:text-base">
-          {portadaData.contact.info.text
-            .replace('{phone}', portadaData.contact.info.phone)
-            .replace('{email}', portadaData.contact.info.email)}
+          <span>📞 Llámanos: </span>
+          <a
+            href={`tel:${portadaData.contact.info.phone.replace(/\s+/g, '')}`}
+            class="text-emerald-600 hover:text-emerald-700 font-semibold underline underline-offset-2"
+          >
+            {portadaData.contact.info.phone}
+          </a>
+          <span class="mx-2">|</span>
+          <span>✉️ </span>
+          <a
+            href={`mailto:${portadaData.contact.info.email}`}
+            class="text-emerald-600 hover:text-emerald-700 font-semibold underline underline-offset-2"
+          >
+            {portadaData.contact.info.email}
+          </a>
         </p>
       </div>
     </div>

@@ -33,112 +33,120 @@
         "name": "Ray-Ban Meta",
         "description": "Gafas inteligentes con tecnología Meta, captura fotos y videos con estilo icónico Ray-Ban",
         "price": "149€",
-        "buttonText": "Ver Detalles"
+        "src": "/productos/rayban-meta.webp",
+        "buttonText": "Saber más"
       },
       {
         "id": 2,
-        "name": "Silhouette Sport",
+        "name": "Silhouette Escondido",
         "description": "Ultraligeras sin montura austríacas, máxima comodidad y tecnología sin tornillos",
         "price": "179€",
-        "buttonText": "Ver Detalles"
+        "src": "/productos/silhouette-escondido.webp",
+        "buttonText": "Saber más"
       },
       {
         "id": 3,
-        "name": "Maui Jim",
+        "name": "Maui Jim Paluna",
         "description": "Tecnología PolarizedPlus2® hawaiana, colores vibrantes y protección superior",
         "price": "299€",
-        "buttonText": "Ver Detalles"
+        "src": "/productos/maui-jim-paluna.webp",
+        "buttonText": "Saber más"
       },
       {
         "id": 4,
-        "name": "Yalea",
+        "name": "Yalea SYA053V",
         "description": "Artesanía italiana en acetato de alta calidad, diseños únicos hechos a mano",
         "price": "219€",
-        "buttonText": "Ver Detalles"
+        "src": "/productos/yalea-SYA053V.webp",
+        "buttonText": "Saber más"
       },
       {
         "id": 5,
-        "name": "Tous Classic",
+        "name": "Tous Daisy",
         "description": "Diseño barcelonés con detalles de osito icónico y elegancia mediterránea",
         "price": "199€",
-        "buttonText": "Ver Detalles"
+        "src": "/productos/tous-daisy.webp",
+        "buttonText": "Saber más"
       },
       {
         "id": 6,
-        "name": "Vogue",
+        "name": "Vogue V05582S",
         "description": "Estilo y glamour con diseños femeninos únicos",
         "price": "169€",
-        "buttonText": "Ver Detalles"
+        "src": "/productos/vogue-V05582S.webp",
+        "buttonText": "Saber más"
       },
       {
         "id": 7,
-        "name": "Ray-Ban",
+        "name": "Ray-Ban Wayfarer",
         "description": "Icónicas gafas con estilo clásico y protección superior",
         "price": "189€",
-        "buttonText": "Ver Detalles"
+        "src": "/productos/rayban-wayfarer.webp",
+        "buttonText": "Saber más"
       },
       {
         "id": 8,
-        "name": "Zadig & Voltaire",
+        "name": "Zadig & Voltaire ZV23H5",
         "description": "Diseño rebelde y sofisticado con acabados premium",
         "price": "249€",
-        "buttonText": "Ver Detalles"
+        "src": "/productos/zadig-voltaire-ZV23H5.webp",
+        "buttonText": "Saber más"
       },
       {
         "id": 9,
-        "name": "Furla",
+        "name": "Furla-VFU718-09MA",
         "description": "Elegancia italiana con detalles artesanales exclusivos",
         "price": "229€",
-        "buttonText": "Ver Detalles"
+        "src": "/productos/furla-VFU718-09MA.webp",
+        "buttonText": "Saber más"
       },
       {
         "id": 10,
-        "name": "Pertegaz",
+        "name": "Pertegaz-55178550",
         "description": "Tradición española en moda y complementos de lujo",
         "price": "159€",
-        "buttonText": "Ver Detalles"
+        "src": "/productos/pertegaz-55178550.webp",
+        "buttonText": "Saber más"
       },
       {
         "id": 11,
-        "name": "Ralph Lauren",
+        "name": "Polo Ralph Lauren ph2211",
         "description": "Estilo clásico americano con sofisticación atemporal",
         "price": "219€",
-        "buttonText": "Ver Detalles"
+        "src": "/productos/polo-ralph-lauren-ph2211.webp",
+        "buttonText": "Saber más"
       },
       {
         "id": 12,
-        "name": "Polo Ralph Lauren",
+        "name": "Ralph by Ralph Lauren",
         "description": "Deportividad y elegancia en diseños versátiles",
         "price": "179€",
-        "buttonText": "Ver Detalles"
+        "src": "/productos/ralph-by-ralph-lauren.webp",
+        "buttonText": "Saber más"
       },
       {
         "id": 13,
-        "name": "Arnette",
+        "name": "Arnette Hot Shot AN4182-2149/81",
         "description": "Gafas juveniles con actitud urbana y deportiva",
         "price": "129€",
-        "buttonText": "Ver Detalles"
+        "src": "/productos/arnette-hot-shot-an4182-214981.webp",
+        "buttonText": "Saber más"
       },
       {
         "id": 14,
-        "name": "Lacoste",
+        "name": "Lacoste L2912-301",
         "description": "Espíritu deportivo francés con elegancia casual",
         "price": "199€",
-        "buttonText": "Ver Detalles"
+        "src": "/productos/lacoste-L2912-301.webp",
+        "buttonText": "Saber más"
       },
       {
         "id": 15,
-        "name": "Tommy Hilfiger",
-        "description": "Estilo preppy americano con toques contemporáneos",
-        "price": "169€",
-        "buttonText": "Ver Detalles"
-      },
-      {
-        "id": 16,
-        "name": "Police",
+        "name": "Police x Mercedes AMG Petronas SPLR50 R22B",
         "description": "Diseños audaces con personalidad urbana distintiva",
         "price": "149€",
-        "buttonText": "Ver Detalles"
+        "src": "/productos/police-x-mercedes-amg-petronas-splr50-r22b.webp",
+        "buttonText": "Saber más"
       }
 
     ]
@@ -159,7 +167,7 @@
         "description": "Montura completa con lentes graduadas antireflejantes o de sol incluidas",
         "currentPrice": "75€",
         "originalPrice": null,
-        "buttonText": "VER DETALLES",
+        "buttonText": "Saber más",
         "buttonColor": "red",
         "details": "Incluye montura y lentes con tratamiento antirreflejante o lentes de sol."
       },

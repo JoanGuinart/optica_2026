@@ -12,15 +12,15 @@
   },
   "navigation": {
     "desktop": [
-      { "href": "/products", "label": "Productes" },
-      { "href": "/services", "label": "Serveis" },
-      { "href": "/contact", "label": "Contacte" },
+      { "href": "/products", "label": "Productos" },
+      { "href": "/services", "label": "Servicios" },
+      { "href": "/contact", "label": "Contacto" },
       { "href": "/faq", "label": "FAQ" }
     ],
     "mobile": [
-      { "href": "/products", "label": "Productes" },
-      { "href": "/services", "label": "Serveis" },
-      { "href": "/contact", "label": "Contacte" },
+      { "href": "/products", "label": "Productos" },
+      { "href": "/services", "label": "Servicios" },
+      { "href": "/contact", "label": "Contacto" },
       { "href": "/faq", "label": "FAQ" }
     ]
   },

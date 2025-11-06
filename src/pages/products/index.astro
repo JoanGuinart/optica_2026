@@ -49,11 +49,11 @@ import { Image } from "astro:assets";
                   {
                     productsData.hero.buttons.map((button) => (
                       button.type === "primary" ? (
-                        <button
+                        <a href={"https://wa.me/34682502960?text=" + encodeURIComponent(`quiero informacion sobre el producto: ${productsData.hero.title.main} ${productsData.hero.title.highlight}`)} target="_blank"
                           class="bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
                         >
                           {button.text}
-                        </button>
+                        </a>
                       ) : (
                         <a
                           href="https://www.youtube.com/watch?v=E1LW_MteTho"
@@ -132,26 +132,14 @@ import { Image } from "astro:assets";
               productsData.featuredProducts.products.map((product) => (
                 <div class="group">
                   <div class="flex flex-col bg-white/90 backdrop-blur-md rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 border border-emerald-500/20 overflow-hidden hover:bg-white h-full">
-                    <div class="aspect-square bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl mb-4 flex items-center justify-center">
-                      <svg
-                        class="w-12 h-12 text-slate-400"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                        />
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                        />
-                      </svg>
+                    <div class="aspect-square bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl mb-4 flex items-center justify- p-2">
+                      <Image
+                        src={product.src}
+                        alt={product.name}
+                        width={360}
+                        height={360}
+                        class="mix-blend-multiply max-w-full max-h-full object-contain transition-transform duration-200 group-hover:scale-105 rotate-y-180"
+                      />
                     </div>
                     <h3 class="text-xl font-bold text-slate-800 mb-2">
                       {product.name}
@@ -159,12 +147,12 @@ import { Image } from "astro:assets";
                     <p class="text-slate-600 text-sm mb-4">
                       {product.description}
                     </p>
-                    <div class="text-2xl font-black text-emerald-600 mb-4">
+                    {/* <div class="text-2xl font-black text-emerald-600 mb-4">
                       {product.price}
-                    </div>
-                    <button class="w-full mt-auto bg-emerald-700 hover:bg-emerald-800 text-white py-2 rounded-lg font-semibold transition-colors duration-300">
+                    </div> */}
+                    <a href={"https://wa.me/34682502960?text=" + encodeURIComponent(`quiero informacion sobre el producto: ${product.name}`)} target="_blank" class="w-full mt-auto text-center bg-emerald-700 hover:bg-emerald-800 text-white py-2 rounded-lg font-semibold transition-colors duration-300">
                       {product.buttonText}
-                    </button>
+                    </a>
                   </div>
                 </div>
               ))

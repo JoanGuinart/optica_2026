@@ -74,9 +74,9 @@ import mainContentData from "@data/main-content.json";
                       </span>
                     )}
                   </div>
-                  <button class="w-full mt-auto bg-emerald-700  hover:bg-emerald-800  text-white py-3 rounded-lg font-bold transition-colors duration-300 shadow-lg">
+                  <a href={offer.url} target="_blank" class="w-full mt-auto text-center bg-emerald-700  hover:bg-emerald-800  text-white py-3 rounded-lg font-bold transition-colors duration-300 shadow-lg">
                     {offer.buttonText}
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -120,9 +120,9 @@ import mainContentData from "@data/main-content.json";
                 <span class="text-2xl font-black text-emerald-600 ">
                   {product.price}
                 </span>
-                <button class="bg-emerald-700  hover:bg-emerald-800  px-4 py-2 rounded-lg font-bold text-sm transition-colors text-white">
+                <a href={"https://wa.me/34682502960?text=" + encodeURIComponent(`quiero el producto: ${product.name} / ${product.description}`)} target="_blank" class="bg-emerald-700  hover:bg-emerald-800  px-4 py-2 rounded-lg font-bold text-sm transition-colors text-white">
                   {product.buttonText}
-                </button>
+                </a>
               </div>
             </div>
           ))
