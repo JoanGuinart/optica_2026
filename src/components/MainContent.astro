@@ -150,16 +150,19 @@ import mainContentData from "@data/main-content.json";
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           {
             mainContentData.callToAction.buttons.map((button) => (
-              <button
+              <a
+                href={button.url}
+                target={button.url?.startsWith('http') ? '_blank' : undefined}
+                rel={button.url?.startsWith('http') ? 'noopener noreferrer' : undefined}
                 class={`${
                   button.style === "white"
                     ? "bg-white text-emerald-700 hover:bg-gray-100 border border-gray-300"
                     : "bg-slate-900 border-2 border-white text-white hover:bg-slate-800"
                 } 
-                  px-8 py-4 rounded-lg font-bold text-lg transition-colors duration-300 shadow-xl`}
+                  px-8 py-4 rounded-lg font-bold text-lg transition-colors duration-300 shadow-xl inline-block`}
               >
                 {button.text}
-              </button>
+              </a>
             ))
           }
         </div>

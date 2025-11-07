@@ -14,7 +14,10 @@ import { Image } from "astro:assets";
         <div
           class="relative bg-gradient-to-r from-white to-gray-50 rounded-3xl overflow-hidden shadow-2xl mb-20 border border-gray-200"
         >
-          <div class="absolute inset-0 bg-gradient-to-br from-emerald-50/50 via-transparent to-blue-50/50"></div>
+          <div
+            class="absolute inset-0 bg-gradient-to-br from-emerald-50/50 via-transparent to-blue-50/50"
+          >
+          </div>
           <div
             class="relative z-10 px-8 py-16 sm:px-12 sm:py-20 lg:px-16 lg:py-24"
           >
@@ -47,9 +50,16 @@ import { Image } from "astro:assets";
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
                   {
-                    productsData.hero.buttons.map((button) => (
+                    productsData.hero.buttons.map((button) =>
                       button.type === "primary" ? (
-                        <a href={"https://wa.me/34682502960?text=" + encodeURIComponent(`quiero informacion sobre el producto: ${productsData.hero.title.main} ${productsData.hero.title.highlight}`)} target="_blank"
+                        <a
+                          href={
+                            "https://wa.me/34682502960?text=" +
+                            encodeURIComponent(
+                              `quiero informacion sobre el producto: ${productsData.hero.title.main} ${productsData.hero.title.highlight}`
+                            )
+                          }
+                          target="_blank"
                           class="bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
                         >
                           {button.text}
@@ -61,13 +71,17 @@ import { Image } from "astro:assets";
                           rel="noopener noreferrer"
                           class="inline-flex items-center justify-center border-2 border-gray-300 hover:border-gray-400 hover:bg-gray-50 text-gray-600 hover:text-gray-700 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
                         >
-                          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                          <svg
+                            class="w-5 h-5 mr-2"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                           </svg>
                           {button.text}
                         </a>
                       )
-                    ))
+                    )
                   }
                 </div>
               </div>
@@ -76,15 +90,26 @@ import { Image } from "astro:assets";
                   class="w-full h-80 sm:h-96 bg-white rounded-2xl border border-gray-200 flex items-center justify-center relative overflow-hidden shadow-inner"
                 >
                   {/* Fondo decorativo sutil */}
-                  <div class="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50"></div>
-                  <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,0,0,0.02)_0%,transparent_70%)]"></div>
-                  
+                  <div
+                    class="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50"
+                  >
+                  </div>
+                  <div
+                    class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,0,0,0.02)_0%,transparent_70%)]"
+                  >
+                  </div>
+
                   {/* Container para la imagen */}
-                  <div class="relative z-10 transform hover:scale-105 transition-transform duration-500 ease-out">
+                  <div
+                    class="relative z-10 transform hover:scale-105 transition-transform duration-500 ease-out"
+                  >
                     <div class="relative">
                       {/* Sombra suave y clara detrás de la imagen */}
-                      <div class="absolute inset-0 bg-gray-300/30 blur-xl scale-110 rounded-xl"></div>
-                      
+                      <div
+                        class="absolute inset-0 bg-gray-300/30 blur-xl scale-110 rounded-xl"
+                      >
+                      </div>
+
                       <Image
                         src="/productos/rayban-meta.webp"
                         alt="Ray-Ban Meta Smart Glasses - Inteligencia Artificial"
@@ -93,16 +118,28 @@ import { Image } from "astro:assets";
                         priority
                         class="relative z-10 drop-shadow-lg filter brightness-100 contrast-105 saturate-105 rounded-lg"
                       />
-                      
+
                       {/* Efecto de brillo muy sutil */}
-                      <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/20 via-transparent to-transparent rounded-lg pointer-events-none"></div>
+                      <div
+                        class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/20 via-transparent to-transparent rounded-lg pointer-events-none"
+                      >
+                      </div>
                     </div>
                   </div>
-                  
+
                   {/* Partículas decorativas sutiles */}
-                  <div class="absolute top-4 right-6 w-2 h-2 bg-emerald-500 rounded-full opacity-40 animate-pulse"></div>
-                  <div class="absolute bottom-8 left-8 w-1 h-1 bg-blue-500 rounded-full opacity-30 animate-ping"></div>
-                  <div class="absolute top-1/3 right-1/4 w-1.5 h-1.5 bg-gray-400/50 rounded-full opacity-30"></div>
+                  <div
+                    class="absolute top-4 right-6 w-2 h-2 bg-emerald-500 rounded-full opacity-40 animate-pulse"
+                  >
+                  </div>
+                  <div
+                    class="absolute bottom-8 left-8 w-1 h-1 bg-blue-500 rounded-full opacity-30 animate-ping"
+                  >
+                  </div>
+                  <div
+                    class="absolute top-1/3 right-1/4 w-1.5 h-1.5 bg-gray-400/50 rounded-full opacity-30"
+                  >
+                  </div>
                 </div>
               </div>
             </div>
@@ -150,7 +187,16 @@ import { Image } from "astro:assets";
                     {/* <div class="text-2xl font-black text-emerald-600 mb-4">
                       {product.price}
                     </div> */}
-                    <a href={"https://wa.me/34682502960?text=" + encodeURIComponent(`quiero informacion sobre el producto: ${product.name}`)} target="_blank" class="w-full mt-auto text-center bg-emerald-700 hover:bg-emerald-800 text-white py-2 rounded-lg font-semibold transition-colors duration-300">
+                    <a
+                      href={
+                        "https://wa.me/34682502960?text=" +
+                        encodeURIComponent(
+                          `quiero informacion sobre el producto: ${product.name}`
+                        )
+                      }
+                      target="_blank"
+                      class="w-full mt-auto text-center bg-emerald-700 hover:bg-emerald-800 text-white py-2 rounded-lg font-semibold transition-colors duration-300"
+                    >
                       {product.buttonText}
                     </a>
                   </div>
@@ -223,16 +269,44 @@ import { Image } from "astro:assets";
                             </span>
                           )}
                         </div>
-                        <button
-                          class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-bold transition-colors duration-300 shadow-lg hover:shadow-xl"
-                          data-offer-content={(offer.buttonText.includes('DETALLES') || offer.buttonText.includes('CONDICIONES'))
-                            ? (offer.buttonText.includes('CONDICIONES')
-                                ? (offer.conditions || offer.details || offer.description)
-                                : (offer.details || offer.description))
-                            : undefined}
-                        >
-                          {offer.buttonText}
-                        </button>
+                        {offer.id === 1 || offer.id === 4 ? (
+                          <a
+                            href={
+                              offer.id === 1
+                                ? "https://wa.me/34682502960?text=" +
+                                  encodeURIComponent(
+                                    "saber mas: oferta montura + lentes graduadas"
+                                  )
+                                : "https://wa.me/34682502960?text=" +
+                                  encodeURIComponent(
+                                    "consultar oferta lentes progressivas 2x1"
+                                  )
+                            }
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-bold transition-colors duration-300 shadow-lg hover:shadow-xl text-center inline-block"
+                          >
+                            {offer.buttonText}
+                          </a>
+                        ) : (
+                          <button
+                            class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-bold transition-colors duration-300 shadow-lg hover:shadow-xl"
+                            data-offer-content={
+                              offer.id === 3
+                                ? "Esta sección estará disponible muy pronto."
+                                : offer.buttonText.includes("DETALLES") ||
+                                    offer.buttonText.includes("CONDICIONES")
+                                  ? offer.buttonText.includes("CONDICIONES")
+                                    ? offer.conditions ||
+                                      offer.details ||
+                                      offer.description
+                                    : offer.details || offer.description
+                                  : undefined
+                            }
+                          >
+                            {offer.buttonText}
+                          </button>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -244,37 +318,57 @@ import { Image } from "astro:assets";
 
         {/* Modal de Detalles/Condiciones */}
         <div id="offer-modal" class="fixed inset-0 z-50 hidden">
-          <div id="offer-modal-overlay" class="absolute inset-0 bg-black/40"></div>
-          <div class="relative mx-auto mt-24 max-w-lg bg-white rounded-2xl p-6 shadow-2xl border border-emerald-200">
-            <button id="offer-modal-close" class="absolute top-3 right-3 text-slate-500 hover:text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-full w-8 h-8 grid place-items-center" aria-label="Cerrar">
-              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+          <div id="offer-modal-overlay" class="absolute inset-0 bg-black/40">
+          </div>
+          <div
+            class="relative mx-auto mt-24 max-w-lg bg-white rounded-2xl p-6 shadow-2xl border border-emerald-200"
+          >
+            <button
+              id="offer-modal-close"
+              class="absolute top-3 right-3 text-slate-500 hover:text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-full w-8 h-8 grid place-items-center"
+              aria-label="Cerrar"
+            >
+              <svg
+                class="w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                ><path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18L18 6M6 6l12 12"></path></svg
+              >
             </button>
-            <h3 class="text-xl font-bold text-slate-800 mb-3">Información de la oferta</h3>
-            <p id="offer-modal-content" class="text-slate-600 leading-relaxed"></p>
+            <h3 class="text-xl font-bold text-slate-800 mb-3">
+              Información de la oferta
+            </h3>
+            <p id="offer-modal-content" class="text-slate-600 leading-relaxed">
+            </p>
           </div>
         </div>
 
         <script>
-          document.addEventListener('DOMContentLoaded', () => {
-            const modal = document.getElementById('offer-modal');
-            const overlay = document.getElementById('offer-modal-overlay');
-            const closeBtn = document.getElementById('offer-modal-close');
-            const contentEl = document.getElementById('offer-modal-content');
+          document.addEventListener("DOMContentLoaded", () => {
+            const modal = document.getElementById("offer-modal");
+            const overlay = document.getElementById("offer-modal-overlay");
+            const closeBtn = document.getElementById("offer-modal-close");
+            const contentEl = document.getElementById("offer-modal-content");
 
-            const close = () => modal?.classList.add('hidden');
+            const close = () => modal?.classList.add("hidden");
 
-            document.querySelectorAll('[data-offer-content]').forEach((btn) => {
-              btn.addEventListener('click', () => {
-                const text = btn.getAttribute('data-offer-content') || '';
+            document.querySelectorAll("[data-offer-content]").forEach((btn) => {
+              btn.addEventListener("click", () => {
+                const text = btn.getAttribute("data-offer-content") || "";
                 if (contentEl) contentEl.textContent = text;
-                modal?.classList.remove('hidden');
+                modal?.classList.remove("hidden");
               });
             });
 
-            overlay?.addEventListener('click', close);
-            closeBtn?.addEventListener('click', close);
-            document.addEventListener('keydown', (e) => {
-              if (e.key === 'Escape') close();
+            overlay?.addEventListener("click", close);
+            closeBtn?.addEventListener("click", close);
+            document.addEventListener("keydown", (e) => {
+              if (e.key === "Escape") close();
             });
           });
         </script>
@@ -356,20 +450,33 @@ import { Image } from "astro:assets";
                     {method.name}
                   </h3>
                   <p class="text-slate-600 mb-4">{method.description}</p>
-                  <div class="text-emerald-600 font-semibold">
-                    {method.value}
-                  </div>
+                  {method.url ? (
+                    <a
+                      href={method.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-emerald-700 font-semibold underline decoration-emerald-400 underline-offset-4 hover:text-emerald-800"
+                    >
+                      {method.value}
+                    </a>
+                  ) : (
+                    <div class="text-emerald-600 font-semibold">
+                      {method.value}
+                    </div>
+                  )}
                 </div>
               ))
             }
           </div>
 
           <div class="text-center">
-            <button
+            <a
+              href="https://www.google.com/maps/dir//Carrer+Gran+de+Sant+Andreu,+308,+Sant+Andreu,+08030+Barcelona/@41.4370855,2.1072775,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x12a4bcdc240241cf:0xa4b5922d46c1e48d!2m2!1d2.1896783!2d41.4371149?entry=ttu&g_ep=EgoyMDI1MTEwNC4xIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
               class="bg-emerald-700 hover:bg-emerald-800 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               {productsData.contact.mainButton}
-            </button>
+            </a>
           </div>
         </div>
       </div>

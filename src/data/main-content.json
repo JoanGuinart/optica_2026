@@ -102,13 +102,15 @@
         "id": 1,
         "text": "PEDIR CITA GRATUITA",
         "type": "primary",
-        "style": "white"
+        "style": "white",
+        "url": "https://wa.me/34682502960"
       },
       {
         "id": 2,
         "text": "LLAMAR AHORA",
         "type": "secondary",
-        "style": "dark"
+        "style": "dark",
+        "url": "tel:933118706"
       }
     ]
   }

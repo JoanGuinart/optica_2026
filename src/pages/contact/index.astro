@@ -3,7 +3,7 @@ import Layout from "@/layouts/Layout.astro";
 import contactData from "@data/contact.json";
 ---
 
-<Layout title="Contacto - Óptica Vision">
+<Layout title="Contacto - Óptica Guinart">
   <main class="min-h-screen">
     <!-- Hero Section -->
     <section
@@ -108,7 +108,7 @@ import contactData from "@data/contact.json";
                     {contactData.contactInfo.phone.display}
                   </p>
                   <a
-                    href={`https://wa.me/${contactData.contactInfo.phone.whatsapp}`}
+                    href={`https://wa.me/34682502960`}
                     target="_blank"
                     class="inline-flex items-center text-emerald-600  hover:text-emerald-700  font-medium mt-1"
                   >
@@ -359,7 +359,30 @@ import contactData from "@data/contact.json";
               </p>
             </div>
 
-            <form class="space-y-6" action="#" method="POST">
+            {/* Aviso de éxito tras enviar */}
+            <div id="form-success" class="mb-6 hidden rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-emerald-800">
+              <div class="flex items-center">
+                <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <p class="font-medium">Mensaje enviado correctamente. Te contactaremos en breve.</p>
+              </div>
+            </div>
+
+            <form
+              id="contact-form"
+              class="space-y-6"
+              action={`https://formsubmit.co/${contactData.contactInfo.email.address}`}
+              method="POST"
+            >
+              {/* FormSubmit settings */}
+              <input type="hidden" name="_subject" value="Nuevo mensaje de un cliente - Óptica Guinart" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+              {/* Honeypot anti-spam */}
+              <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" />
+              {/* Redirect to this page with success flag */}
+              <input type="hidden" name="_next" id="form-next" value="" />
               {/* Nombre */}
               <div>
                 <label
@@ -469,6 +492,24 @@ import contactData from "@data/contact.json";
                 {contactData.form.button.text}
               </button>
             </form>
+            {/* Script para gestionar redirección y mostrar aviso de éxito */}
+            <script>
+              document.addEventListener('DOMContentLoaded', () => {
+                const nextField = document.getElementById('form-next');
+                if (nextField instanceof HTMLInputElement) {
+                  try {
+                    nextField.value = `${location.origin}/contact?sent=1`;
+                  } catch (e) {
+                    // noop
+                  }
+                }
+                const params = new URLSearchParams(location.search);
+                if (params.get('sent') === '1') {
+                  const success = document.getElementById('form-success');
+                  if (success) success.classList.remove('hidden');
+                }
+              });
+            </script>
           </div>
         </div>
       </div>

@@ -16,22 +16,42 @@ const services: Array<{
 ---
 
 <Layout title="Servicios - Óptica Guinart">
-  <section class="bg-gradient-to-b from-gray-300 via-gray-200 to-gray-300 min-h-screen pt-20 sm:pt-24 lg:pt-28">
-    
+  <section
+    class="bg-gradient-to-b from-gray-300 via-gray-200 to-gray-300 min-h-screen pt-20 sm:pt-24 lg:pt-28"
+  >
     {/* Hero Section */}
     <div class="py-16 px-4 sm:px-8 lg:px-12">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16">
-          <div class="inline-flex items-center bg-emerald-500/20 text-emerald-600 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+          <div
+            class="inline-flex items-center bg-emerald-500/20 text-emerald-600 px-4 py-2 rounded-full text-sm font-semibold mb-6"
+          >
+            <svg
+              class="w-4 h-4 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+              ></path>
             </svg>
             {servicesData.hero.badge.text}
           </div>
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-800 mb-6 tracking-tight drop-shadow-lg">
-            {servicesData.hero.title.main} <span class="text-emerald-600">{servicesData.hero.title.highlight}</span>
+          <h1
+            class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-800 mb-6 tracking-tight drop-shadow-lg"
+          >
+            {servicesData.hero.title.main}
+            <span class="text-emerald-600"
+              >{servicesData.hero.title.highlight}</span
+            >
           </h1>
-          <p class="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto font-medium leading-relaxed">
+          <p
+            class="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto font-medium leading-relaxed"
+          >
             {servicesData.hero.subtitle}
           </p>
         </div>
@@ -43,76 +63,113 @@ const services: Array<{
 
         {/* Servicios Grid - Layout uniforme profesional */}
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-16">
-          {services.map((service, index) => {
-            // Diseño profesional: todo en verde esmeralda uniforme
-            const iconBg = "bg-emerald-600";
-            const priceColor = "text-emerald-600";
-            const checkColor = "text-emerald-600";
-            const buttonStyle = "bg-emerald-600 hover:bg-emerald-700";
-            
-            return (
-              <div class="group">
-                <div class="bg-white/90 backdrop-blur-md rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-emerald-500/20 overflow-hidden hover:bg-white h-full flex flex-col">
-                  
-                  {/* Header del servicio */}
-                  <div class="flex items-start justify-between mb-6">
-                    <div class={`w-16 h-16 ${iconBg} rounded-xl flex items-center justify-center shadow-lg`}>
-                      <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={service.iconPath}/>
-                      </svg>
+          {
+            services.map((service, index) => {
+              // Diseño profesional: todo en verde esmeralda uniforme
+              const iconBg = "bg-emerald-600";
+              const priceColor = "text-emerald-600";
+              const checkColor = "text-emerald-600";
+              const buttonStyle = "bg-emerald-600 hover:bg-emerald-700";
+
+              return (
+                <div class="group">
+                  <div class="bg-white/90 backdrop-blur-md rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-emerald-500/20 overflow-hidden hover:bg-white h-full flex flex-col">
+                    {/* Header del servicio */}
+                    <div class="flex items-start justify-between mb-6">
+                      <div
+                        class={`w-16 h-16 ${iconBg} rounded-xl flex items-center justify-center shadow-lg`}
+                      >
+                        <svg
+                          class="w-8 h-8 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d={service.iconPath}
+                          />
+                        </svg>
+                      </div>
+                      {(service.price || service.duration) && (
+                        <div class="text-right">
+                          {service.price && (
+                            <div
+                              class={`text-2xl font-black ${priceColor} mb-1`}
+                            >
+                              {service.price}
+                            </div>
+                          )}
+                          {service.duration && (
+                            <div class="text-sm text-slate-500">
+                              {service.duration}
+                            </div>
+                          )}
+                        </div>
+                      )}
                     </div>
-                    {(service.price || service.duration) && (
-                      <div class="text-right">
-                        {service.price && (
-                          <div class={`text-2xl font-black ${priceColor} mb-1`}>
-                            {service.price}
-                          </div>
-                        )}
-                        {service.duration && (
-                          <div class="text-sm text-slate-500">
-                            {service.duration}
-                          </div>
-                        )}
-                      </div>
-                    )}
-                  </div>
 
-                  {/* Contenido del servicio */}
-                  <div class="flex-grow">
-                    <h3 class="text-2xl font-bold text-slate-800 mb-3">
-                      {service.title}
-                    </h3>
-                    <p class="text-slate-600 mb-6 leading-relaxed">
-                      {service.description}
-                    </p>
-                    
-                    {/* Características */}
-                    {service.features && service.features.length > 0 && (
-                      <div class="space-y-2 mb-6">
-                        {service.features.map((feature) => (
-                          <div class="flex items-center text-sm">
-                            <svg class={`w-4 h-4 ${checkColor} mr-3 flex-shrink-0`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span class="text-slate-600">{feature}</span>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
+                    {/* Contenido del servicio */}
+                    <div class="flex-grow">
+                      <h3 class="text-2xl font-bold text-slate-800 mb-3">
+                        {service.title}
+                      </h3>
+                      <p class="text-slate-600 mb-6 leading-relaxed">
+                        {service.description}
+                      </p>
 
-                  {/* Botón */}
-                  <button class={`w-full mt-auto ${buttonStyle} text-white py-3 rounded-lg font-bold transition-colors duration-300 shadow-lg`}>
-                    SOLICITAR SERVICIO
-                  </button>
+                      {/* Características */}
+                      {service.features && service.features.length > 0 && (
+                        <div class="space-y-2 mb-6">
+                          {service.features.map((feature) => (
+                            <div class="flex items-center text-sm">
+                              <svg
+                                class={`w-4 h-4 ${checkColor} mr-3 flex-shrink-0`}
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  stroke-width="2"
+                                  d="M5 13l4 4L19 7"
+                                />
+                              </svg>
+                              <span class="text-slate-600">{feature}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Botón -> Enlace WhatsApp */}
+                    <a
+                      href={
+                        "https://wa.me/34682502960?text=" +
+                        encodeURIComponent(
+                          `solicito información sobre el servicio: ${service.title}`
+                        )
+                      }
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class={`w-full mt-auto ${buttonStyle} text-white py-3 rounded-lg font-bold transition-colors duration-300 shadow-lg text-center inline-block`}
+                    >
+                      SOLICITAR SERVICIO
+                    </a>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })
+          }
         </div>
 
         {/* Notas */}
-        <div class="bg-white/70 backdrop-blur-md rounded-xl p-6 mb-16 border border-emerald-500/20">
+        <div
+          class="bg-white/70 backdrop-blur-md rounded-xl p-6 mb-16 border border-emerald-500/20"
+        >
           <div class="text-sm text-slate-600 space-y-1">
             <p>{servicesData.notes.free}</p>
             <p>{servicesData.notes.included}</p>
@@ -122,48 +179,84 @@ const services: Array<{
         {/* Por qué elegirnos */}
         <div class="mb-16">
           <div class="text-center mb-12">
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-800 mb-4 tracking-tight drop-shadow-lg">
+            <h2
+              class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-800 mb-4 tracking-tight drop-shadow-lg"
+            >
               {servicesData.benefits.title}
             </h2>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {servicesData.benefits.items.map((benefit) => (
-              <div class="text-center group">
-                <div class="w-20 h-20 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl group-hover:scale-110 transition-transform duration-300">
-                  <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={benefit.iconPath}/>
-                  </svg>
+            {
+              servicesData.benefits.items.map((benefit) => (
+                <div class="text-center group">
+                  <div class="w-20 h-20 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl group-hover:scale-110 transition-transform duration-300">
+                    <svg
+                      class="w-10 h-10 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d={benefit.iconPath}
+                      />
+                    </svg>
+                  </div>
+                  <h3 class="text-xl font-bold text-slate-800 mb-3">
+                    {benefit.title}
+                  </h3>
+                  <p class="text-slate-600 leading-relaxed">
+                    {benefit.description}
+                  </p>
                 </div>
-                <h3 class="text-xl font-bold text-slate-800 mb-3">
-                  {benefit.title}
-                </h3>
-                <p class="text-slate-600 leading-relaxed">
-                  {benefit.description}
-                </p>
-              </div>
-            ))}
+              ))
+            }
           </div>
         </div>
 
         {/* Call to Action */}
-        <div class="bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-3xl p-8 sm:p-12 text-white shadow-2xl border border-emerald-500/40">
+        <div
+          class="bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-3xl p-8 sm:p-12 text-white shadow-2xl border border-emerald-500/40"
+        >
           <div class="text-center">
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 tracking-tight drop-shadow-lg">
+            <h2
+              class="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 tracking-tight drop-shadow-lg"
+            >
               {servicesData.cta.title}
             </h2>
-            <p class="text-lg sm:text-xl mb-8 opacity-90 max-w-2xl mx-auto leading-relaxed">
+            <p
+              class="text-lg sm:text-xl mb-8 opacity-90 max-w-2xl mx-auto leading-relaxed"
+            >
               {servicesData.cta.subtitle}
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-              {servicesData.cta.buttons.map((button) => (
-                <button class={`${button.type === 'primary' 
-                  ? 'bg-white text-emerald-700 hover:bg-gray-100 border border-gray-300' 
-                  : 'bg-slate-900 border-2 border-white text-white hover:bg-slate-800'} 
-                  px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-xl`}>
-                  {button.text}
-                </button>
-              ))}
+              {
+                servicesData.cta.buttons.map((button) =>
+                  button.type === "primary" ? (
+                    <a
+                      href={
+                        "https://wa.me/34682502960?text=" +
+                        encodeURIComponent("reservar cita")
+                      }
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class={`px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-xl bg-white text-emerald-700 hover:bg-gray-100 border border-gray-300`}
+                    >
+                      {button.text}
+                    </a>
+                  ) : (
+                    <a
+                      href="tel:933118706"
+                      class={`px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-xl bg-slate-900 border-2 border-white text-white hover:bg-slate-800`}
+                    >
+                      {button.text}
+                    </a>
+                  )
+                )
+              }
             </div>
           </div>
         </div>

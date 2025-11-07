@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "optica-i-audiologia-guinart",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -16,7 +16,8 @@
     "astro": "^5.15.3",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "tailwindcss": "^4.1.14"
+    "tailwindcss": "^4.1.14",
+    "nodemailer": "^6.9.14"
   },
   "devDependencies": {
     "terser": "^5.44.0"

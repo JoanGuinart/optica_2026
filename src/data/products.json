@@ -222,7 +222,8 @@
         "id": 1,
         "name": "WhatsApp",
         "description": "Consulta rápida por mensaje",
-        "value": "+34 123 456 789",
+        "value": "+34 682 502 960",
+        "url": "https://wa.me/34682502960",
         "icon": "whatsapp",
         "color": "green"
       },
@@ -230,7 +231,8 @@
         "id": 2,
         "name": "Email",
         "description": "Consultas detalladas",
-        "value": "info@opticaguinart.es",
+        "value": "opticaguinartsantandreu@gmail.com",
+        "url": "mailto:opticaguinartsantandreu@gmail.com",
         "icon": "email",
         "color": "blue"
       },
@@ -239,6 +241,7 @@
         "name": "Nuestra Tienda",
         "description": "Visítanos en persona",
         "value": "Ver en Maps",
+        "url": "https://www.google.com/maps/dir//Carrer+Gran+de+Sant+Andreu,+308,+Sant+Andreu,+08030+Barcelona/@41.4370855,2.1072775,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x12a4bcdc240241cf:0xa4b5922d46c1e48d!2m2!1d2.1896783!2d41.4371149?entry=ttu&g_ep=EgoyMDI1MTEwNC4xIKXMDSoASAFQAw%3D%3D",
         "icon": "location",
         "color": "red"
       }
