@@ -60,7 +60,7 @@ import { Image } from "astro:assets";
                             )
                           }
                           target="_blank"
-                          class="bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+                          class="text-center bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
                         >
                           {button.text}
                         </a>
@@ -229,7 +229,7 @@ import { Image } from "astro:assets";
               productsData.specialOffers.offers.map((offer) => (
                 <div class="relative group h-full">
                   <div class="bg-white/95 backdrop-blur-md rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-emerald-500 overflow-hidden hover:bg-white h-full flex flex-col">
-                    <div class="absolute top-4 right-4 bg-emerald-600 text-white px-4 py-2 rounded-full text-lg font-bold shadow-lg">
+                    <div class="absolute top-4 sm:right-4 w-fit sm:left-auto left-4 right-auto bg-emerald-600 text-white px-4 py-2 rounded-full text-lg font-bold shadow-lg">
                       {offer.badge}
                     </div>
                     <div class="flex items-center gap-6 flex-grow">
