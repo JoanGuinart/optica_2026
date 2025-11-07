@@ -7,6 +7,9 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
+  // Domain principal del sitio para generar URLs canónicas y metadata absoluta
+  // TODO: Sustituir si el dominio final es diferente
+  site: 'https://opticaguinart.com',
   devToolbar: {
     enabled: false,
   },
