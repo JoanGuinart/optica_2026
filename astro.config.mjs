@@ -1,6 +1,7 @@
 // @ts-check
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
+import sitemap from "@astrojs/sitemap";
 import { fileURLToPath, URL } from "node:url";
 
 import react from "@astrojs/react";
@@ -64,5 +65,5 @@ export default defineConfig({
       },
     },
   },
-  integrations: [react()],
+  integrations: [react(), sitemap()],
 });

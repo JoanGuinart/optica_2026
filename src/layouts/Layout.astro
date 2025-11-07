@@ -18,6 +18,8 @@ const { title = defaultTitle, description = defaultDescription, ogImage = defaul
 // Construir URL canónica absoluta si 'site' está definido en astro.config.mjs
 const canonical = Astro.site ? new URL(Astro.url.pathname.replace(/index\.html$/, ''), Astro.site).toString().replace(/\/$/, Astro.url.pathname.endsWith('/') ? '/' : '') : Astro.url;
 const robotsContent = noindex ? 'noindex,nofollow' : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
+// URL de Google Maps para hasMap (si existe en contactData)
+const googleMapsUrl = contactData?.contactInfo?.address?.googleMaps || contactData?.socialMedia?.google?.url;
 ---
 
 <!doctype html>
@@ -62,8 +64,11 @@ const robotsContent = noindex ? 'noindex,nofollow' : 'index,follow,max-image-pre
   <!-- Canonical URL -->
   <link rel="canonical" href={canonical} />
 
-    <!-- Favicon y otros -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <!-- Favicon y otros -->
+  <!-- Añadimos un parámetro de versión para forzar actualización en cachés (Google favicon cache) -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
+  <!-- Soporte Safari pinned-tab (usa el SVG como máscara) -->
+  <link rel="mask-icon" href="/favicon.svg" color="#065f46" />
     <meta name="generator" content={Astro.generator} />
   <meta name="theme-color" content="#065f46" />
   <link rel="alternate" hreflang="es-ES" href={canonical} />
@@ -151,6 +156,7 @@ const robotsContent = noindex ? 'noindex,nofollow' : 'index,follow,max-image-pre
         ],
         priceRange: '€€',
         areaServed: { '@type': 'City', name: 'Barcelona' },
+  hasMap: googleMapsUrl,
         contactPoint: [
           {
             '@type': 'ContactPoint',

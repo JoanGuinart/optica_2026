@@ -3,8 +3,32 @@ import Layout from '../../layouts/Layout.astro';
 import faqData from '../../data/faq.json';
 ---
 
-<Layout title="Preguntas Frecuentes - Òptica Guinart">
+<Layout title="Preguntas Frecuentes - Òptica Guinart" description="FAQ sobre óptica, audiometría, audífonos y servicios en Sant Andreu (Barcelona). Resuelve dudas sobre revisiones visuales, lentes, gafas y salud auditiva.">
   <main class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <!-- FAQPage Structured Data -->
+    <script type="application/ld+json">
+      {JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          ...faqData.optica.map((faq) => ({
+            '@type': 'Question',
+            name: faq.question,
+            acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+          })),
+          ...faqData.audiometria.map((faq) => ({
+            '@type': 'Question',
+            name: faq.question,
+            acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+          })),
+          ...faqData.general.map((faq) => ({
+            '@type': 'Question',
+            name: faq.question,
+            acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+          })),
+        ],
+      })}
+    </script>
     <!-- Hero Section -->
     <section class="py-20 px-4">
       <div class="max-w-4xl mx-auto text-center">

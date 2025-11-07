@@ -23,6 +23,5 @@
       { "href": "/contact", "label": "Contacto" },
       { "href": "/faq", "label": "FAQ" }
     ]
-  },
-  "messages": {}
+  }
 }
