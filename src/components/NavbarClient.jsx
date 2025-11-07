@@ -1,5 +1,4 @@
 import { useEffect, useState, useCallback } from "react";
-import { isUnderConstruction } from "@/lib/under-construction";
 import navbarData from "@data/navbar.json";
 
 const NavbarClient = () => {
@@ -88,37 +87,19 @@ const NavbarClient = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex lg:items-center lg:space-x-8">
-            {navbarData.navigation.desktop.map(({ href, label }) => {
-              const underConstruction = isUnderConstruction();
-              
-              return (
-                <div key={href} className="relative group">
-                  {underConstruction ? (
-                    <span 
-                      className={`${
-                        isScrolled ? 'text-slate-600' : 'text-slate-500'
-                      } hover:text-emerald-700 font-medium tracking-wide cursor-not-allowed opacity-70 transition-all duration-300`}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        alert(navbarData.messages.underConstruction);
-                      }}
-                    >
-                      {label}
-                    </span>
-                  ) : (
-                    <a 
-                      href={href} 
-                      className={`${
-                        isScrolled ? 'text-slate-800' : 'text-slate-700'
-                      } hover:text-emerald-700 font-medium tracking-wide transition-all duration-300 relative`}
-                    >
-                      {label}
-                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-600 group-hover:w-full transition-all duration-300"></span>
-                    </a>
-                  )}
-                </div>
-              );
-            })}
+            {navbarData.navigation.desktop.map(({ href, label }) => (
+              <div key={href} className="relative group">
+                <a 
+                  href={href} 
+                  className={`${
+                    isScrolled ? 'text-slate-800' : 'text-slate-700'
+                  } hover:text-emerald-700 font-medium tracking-wide transition-all duration-300 relative`}
+                >
+                  {label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-600 group-hover:w-full transition-all duration-300"></span>
+                </a>
+              </div>
+            ))}
           </nav>
 
           {/* Mobile menu button */}
@@ -148,37 +129,19 @@ const NavbarClient = () => {
           <nav className="bg-white/95 backdrop-blur-xl border-t border-emerald-500/30 shadow-2xl">
             <div className="max-w-7xl mx-auto px-4 py-6">
               <div className="space-y-4">
-                {navbarData.navigation.mobile.map(({ href, label }) => {
-                  const underConstruction = isUnderConstruction();
-                  
-                  return (
-                    <div key={href} className="group">
-                      {underConstruction ? (
-                        <span 
-                          className={`block w-full text-left py-3 px-4 ${
-                            isScrolled ? 'text-slate-700' : 'text-slate-600'
-                          } font-medium tracking-wide cursor-not-allowed opacity-70 bg-slate-100 rounded-lg`}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            alert(navbarData.messages.underConstruction);
-                          }}
-                        >
-                          {label}
-                        </span>
-                      ) : (
-                        <a 
-                          href={href} 
-                          onClick={() => setIsMenuOpen(false)}
-                          className={`block w-full text-left py-3 px-4 ${
-                            isScrolled ? 'text-slate-900' : 'text-slate-800'
-                          } hover:text-emerald-700 font-medium tracking-wide bg-slate-100 hover:bg-emerald-100 rounded-lg transition-all duration-300 border border-transparent hover:border-emerald-600/50`}
-                        >
-                          {label}
-                        </a>
-                      )}
-                    </div>
-                  );
-                })}
+                {navbarData.navigation.mobile.map(({ href, label }) => (
+                  <div key={href} className="group">
+                    <a 
+                      href={href} 
+                      onClick={() => setIsMenuOpen(false)}
+                      className={`block w-full text-left py-3 px-4 ${
+                        isScrolled ? 'text-slate-900' : 'text-slate-800'
+                      } hover:text-emerald-700 font-medium tracking-wide bg-slate-100 hover:bg-emerald-100 rounded-lg transition-all duration-300 border border-transparent hover:border-emerald-600/50`}
+                    >
+                      {label}
+                    </a>
+                  </div>
+                ))}
               </div>
             </div>
           </nav>

@@ -24,7 +24,5 @@
       { "href": "/faq", "label": "FAQ" }
     ]
   },
-  "messages": {
-    "underConstruction": "Esta sección estará disponible muy pronto. ¡Gracias por tu paciencia!"
-  }
+  "messages": {}
 }
