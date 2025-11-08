@@ -105,8 +105,10 @@ const googleMapsUrl = contactData?.contactInfo?.address?.googleMaps || contactDa
     </style>
 
     <!-- Structured Data (JSON-LD) dinámico usando contactData -->
-    <script type="application/ld+json">
-      {JSON.stringify({
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Optician',
         name: 'Óptica y Audiología Guinart',
@@ -114,7 +116,7 @@ const googleMapsUrl = contactData?.contactInfo?.address?.googleMaps || contactDa
         image: ogImage,
         url: canonical,
         '@id': canonical,
-        telephone: contactData.contactInfo.phone.display.replace(/\s+/g,'').replace(/^\+34/, '+34 '),
+        telephone: contactData.contactInfo.phone.display.replace(/\s+/g, '').replace(/^\+34/, '+34 '),
         email: contactData.contactInfo.email.address,
         address: {
           '@type': 'PostalAddress',
@@ -122,52 +124,52 @@ const googleMapsUrl = contactData?.contactInfo?.address?.googleMaps || contactDa
           addressLocality: 'Barcelona',
           addressRegion: 'Cataluña',
           postalCode: '08030',
-          addressCountry: 'ES'
+          addressCountry: 'ES',
         },
         geo: {
           '@type': 'GeoCoordinates',
           latitude: 41.4372,
-          longitude: 2.1896
+          longitude: 2.1896,
         },
         openingHoursSpecification: [
           {
             '@type': 'OpeningHoursSpecification',
-            dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'],
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
             opens: '09:30',
-            closes: '13:30'
+            closes: '13:30',
           },
           {
             '@type': 'OpeningHoursSpecification',
-            dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'],
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
             opens: '17:00',
-            closes: '20:30'
+            closes: '20:30',
           },
           {
             '@type': 'OpeningHoursSpecification',
             dayOfWeek: ['Saturday'],
             opens: '10:00',
-            closes: '13:30'
-          }
+            closes: '13:30',
+          },
         ],
         sameAs: [
           contactData.socialMedia.instagram.url,
           contactData.socialMedia.facebook.url,
-          contactData.socialMedia.google.url
+          contactData.socialMedia.google.url,
         ],
         priceRange: '€€',
         areaServed: { '@type': 'City', name: 'Barcelona' },
-  hasMap: googleMapsUrl,
+        hasMap: googleMapsUrl,
         contactPoint: [
           {
             '@type': 'ContactPoint',
-            telephone: contactData.socialMedia.whatsapp.url.replace(/.*\/?(\d+)/,'+$1'),
+            telephone: '+' + (contactData.socialMedia.whatsapp.url.match(/wa\.me\/(\d+)/)?.[1] || contactData.contactInfo.phone.display.replace(/\D/g, '')),
             contactType: 'customer service',
             areaServed: 'ES',
-            availableLanguage: ['es']
-          }
-        ]
+            availableLanguage: ['es'],
+          },
+        ],
       })}
-    </script>
+    ></script>
   </head>
   <body class="bg-white text-slate-900 transition-colors duration-300">
     <!-- Navbar crítico carga inmediatamente para LCP -->
