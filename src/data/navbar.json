@@ -14,12 +14,14 @@
     "desktop": [
       { "href": "/products", "label": "Productos" },
       { "href": "/services", "label": "Servicios" },
+      { "href": "/audiologia-barcelona", "label": "Audiología" },
       { "href": "/contact", "label": "Contacto" },
       { "href": "/faq", "label": "FAQ" }
     ],
     "mobile": [
       { "href": "/products", "label": "Productos" },
       { "href": "/services", "label": "Servicios" },
+      { "href": "/audiologia-barcelona", "label": "Audiología" },
       { "href": "/contact", "label": "Contacto" },
       { "href": "/faq", "label": "FAQ" }
     ]
