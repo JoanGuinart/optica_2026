@@ -11,15 +11,35 @@ export interface Props {
 }
 
 const defaultTitle = "Òptica y Audiología Guinart Sant Andreu Barcelona";
-const defaultDescription = "Òptica y audiología en Sant Andreu (Barcelona). Revisiones visuales, gafas graduadas, lentillas, adaptación de audífonos y salud auditiva con más de 25 años de experiencia.";
+const defaultDescription =
+  "Òptica y audiología en Sant Andreu (Barcelona). Revisiones visuales, gafas graduadas, lentillas, adaptación de audífonos y salud auditiva con más de 25 años de experiencia.";
 const defaultImage = "/portada/portada_compressed_2.webp";
 
-const { title = defaultTitle, description = defaultDescription, ogImage = defaultImage, noindex = false } = Astro.props as Props;
+const {
+  title = defaultTitle,
+  description = defaultDescription,
+  ogImage = defaultImage,
+  noindex = false,
+} = Astro.props as Props;
 // Construir URL canónica absoluta si 'site' está definido en astro.config.mjs
-const canonical = Astro.site ? new URL(Astro.url.pathname.replace(/index\.html$/, ''), Astro.site).toString().replace(/\/$/, Astro.url.pathname.endsWith('/') ? '/' : '') : Astro.url;
-const robotsContent = noindex ? 'noindex,nofollow' : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
+const canonical = Astro.site
+  ? new URL(Astro.url.pathname.replace(/index\.html$/, ""), Astro.site)
+      .toString()
+      .replace(/\/$/, Astro.url.pathname.endsWith("/") ? "/" : "")
+  : Astro.url;
+const robotsContent = noindex
+  ? "noindex,nofollow"
+  : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1";
 // URL de Google Maps para hasMap (si existe en contactData)
-const googleMapsUrl = contactData?.contactInfo?.address?.googleMaps || contactData?.socialMedia?.google?.url;
+const googleMapsUrl =
+  contactData?.contactInfo?.address?.googleMaps ||
+  contactData?.socialMedia?.google?.url;
+// Raíz del sitio para JSON-LD WebSite
+const siteRoot = Astro.site
+  ? new URL("/", Astro.site).toString()
+  : typeof canonical === "string"
+    ? canonical
+    : String(canonical);
 ---
 
 <!doctype html>
@@ -61,17 +81,17 @@ const googleMapsUrl = contactData?.contactInfo?.address?.googleMaps || contactDa
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={ogImage} />
 
-  <!-- Canonical URL -->
-  <link rel="canonical" href={canonical} />
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonical} />
 
-  <!-- Favicon y otros -->
-  <!-- Añadimos un parámetro de versión para forzar actualización en cachés (Google favicon cache) -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
-  <!-- Soporte Safari pinned-tab (usa el SVG como máscara) -->
-  <link rel="mask-icon" href="/favicon.svg" color="#065f46" />
+    <!-- Favicon y otros -->
+    <!-- Añadimos un parámetro de versión para forzar actualización en cachés (Google favicon cache) -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
+    <!-- Soporte Safari pinned-tab (usa el SVG como máscara) -->
+    <link rel="mask-icon" href="/favicon.svg" color="#065f46" />
     <meta name="generator" content={Astro.generator} />
-  <meta name="theme-color" content="#065f46" />
-  <link rel="alternate" hreflang="es-ES" href={canonical} />
+    <meta name="theme-color" content="#065f46" />
+    <link rel="alternate" hreflang="es-ES" href={canonical} />
 
     <!-- Preload critical resources -->
     <link
@@ -109,46 +129,48 @@ const googleMapsUrl = contactData?.contactInfo?.address?.googleMaps || contactDa
       type="application/ld+json"
       is:inline
       set:html={JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'Optician',
-        name: 'Óptica y Audiología Guinart',
+        "@context": "https://schema.org",
+        "@type": "Optician",
+        name: "Óptica y Audiología Guinart",
         description,
         image: ogImage,
         url: canonical,
-        '@id': canonical,
-        telephone: contactData.contactInfo.phone.display.replace(/\s+/g, '').replace(/^\+34/, '+34 '),
+        "@id": canonical,
+        telephone: contactData.contactInfo.phone.display
+          .replace(/\s+/g, "")
+          .replace(/^\+34/, "+34 "),
         email: contactData.contactInfo.email.address,
         address: {
-          '@type': 'PostalAddress',
+          "@type": "PostalAddress",
           streetAddress: contactData.contactInfo.address.street,
-          addressLocality: 'Barcelona',
-          addressRegion: 'Cataluña',
-          postalCode: '08030',
-          addressCountry: 'ES',
+          addressLocality: "Barcelona",
+          addressRegion: "Cataluña",
+          postalCode: "08030",
+          addressCountry: "ES",
         },
         geo: {
-          '@type': 'GeoCoordinates',
+          "@type": "GeoCoordinates",
           latitude: 41.4372,
           longitude: 2.1896,
         },
         openingHoursSpecification: [
           {
-            '@type': 'OpeningHoursSpecification',
-            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-            opens: '09:30',
-            closes: '13:30',
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            opens: "09:30",
+            closes: "13:30",
           },
           {
-            '@type': 'OpeningHoursSpecification',
-            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-            opens: '17:00',
-            closes: '20:30',
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            opens: "17:00",
+            closes: "20:30",
           },
           {
-            '@type': 'OpeningHoursSpecification',
-            dayOfWeek: ['Saturday'],
-            opens: '10:00',
-            closes: '13:30',
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Saturday"],
+            opens: "10:00",
+            closes: "13:30",
           },
         ],
         sameAs: [
@@ -156,20 +178,44 @@ const googleMapsUrl = contactData?.contactInfo?.address?.googleMaps || contactDa
           contactData.socialMedia.facebook.url,
           contactData.socialMedia.google.url,
         ],
-        priceRange: '€€',
-        areaServed: { '@type': 'City', name: 'Barcelona' },
+        priceRange: "€€",
+        areaServed: { "@type": "City", name: "Barcelona" },
         hasMap: googleMapsUrl,
         contactPoint: [
           {
-            '@type': 'ContactPoint',
-            telephone: '+' + (contactData.socialMedia.whatsapp.url.match(/wa\.me\/(\d+)/)?.[1] || contactData.contactInfo.phone.display.replace(/\D/g, '')),
-            contactType: 'customer service',
-            areaServed: 'ES',
-            availableLanguage: ['es'],
+            "@type": "ContactPoint",
+            telephone:
+              "+" +
+              (contactData.socialMedia.whatsapp.url.match(
+                /wa\.me\/(\d+)/
+              )?.[1] ||
+                contactData.contactInfo.phone.display.replace(/\D/g, "")),
+            contactType: "customer service",
+            areaServed: "ES",
+            availableLanguage: ["es"],
           },
         ],
       })}
-    ></script>
+    />
+
+    <!-- Structured Data (WebSite + SearchAction) -->
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": siteRoot.replace(/\/$/, "") + "#website",
+        url: siteRoot,
+        name: "Óptica Guinart",
+        potentialAction: {
+          "@type": "SearchAction",
+          target:
+            siteRoot.replace(/\/$/, "") + "/products?q={search_term_string}",
+          "query-input": "required name=search_term_string",
+        },
+      })}
+    />
   </head>
   <body class="bg-white text-slate-900 transition-colors duration-300">
     <!-- Navbar crítico carga inmediatamente para LCP -->
