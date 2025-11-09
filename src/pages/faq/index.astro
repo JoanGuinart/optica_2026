@@ -1,9 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import faqData from '../../data/faq.json';
+import contactData from '../../data/contact.json';
 ---
 
-<Layout title="Preguntas Frecuentes - Òptica Guinart" description="FAQ sobre óptica, audiometría, audífonos y servicios en Sant Andreu (Barcelona). Resuelve dudas sobre revisiones visuales, lentes, gafas y salud auditiva.">
+<Layout title={`${faqData.page.title} - Òptica Guinart`} description="FAQ sobre óptica, audiometría, audífonos y servicios en Sant Andreu (Barcelona). Resuelve dudas sobre revisiones visuales, lentes, gafas y salud auditiva.">
   <main class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
     <!-- FAQPage Structured Data -->
     <script
@@ -35,10 +36,10 @@ import faqData from '../../data/faq.json';
     <section class="py-20 px-4">
       <div class="max-w-4xl mx-auto text-center">
         <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-          Preguntas Frecuentes
+          {faqData.page.title}
         </h1>
         <p class="text-xl text-gray-600 mb-8">
-          Resolvemos tus dudas sobre óptica, audiometría y nuestros servicios
+          {faqData.page.subtitle}
         </p>
         <div class="w-24 h-1 bg-emerald-500 mx-auto rounded-full"></div>
       </div>
@@ -146,22 +147,22 @@ import faqData from '../../data/faq.json';
 
         <!-- Contact CTA -->
         <div class="bg-emerald-500 rounded-2xl p-8 text-center text-white">
-          <h3 class="text-2xl font-bold mb-4">¿No encuentras tu respuesta?</h3>
+          <h3 class="text-2xl font-bold mb-4">{faqData.page.cta.noAnswerTitle}</h3>
           <p class="text-emerald-100 mb-6">
-            Nuestro equipo estará encantado de resolver cualquier duda adicional que tengas
+            {faqData.page.cta.noAnswerText}
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
               href="/contact" 
               class="bg-white text-emerald-500 px-6 py-3 rounded-lg font-semibold hover:bg-emerald-50 transition-colors"
             >
-              Contactar
+              {faqData.page.cta.contact}
             </a>
             <a 
-              href="tel:+34123456789" 
+              href={`tel:${contactData.contactInfo.phone.display.replace(/\s+/g, '')}`} 
               class="bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-800 transition-colors border border-emerald-400"
             >
-              Llamar ahora
+              {faqData.page.cta.call}
             </a>
           </div>
         </div>

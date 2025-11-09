@@ -1,40 +1,24 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import contactData from "../../data/contact.json";
+import pageData from "../../data/optica-sant-andreu.json";
 
-const pageTitle = "Óptica en Sant Andreu (Barcelona) | Òptica Guinart";
-const pageDescription = "Óptica y audiología en Sant Andreu (Barcelona). Revisiones visuales, gafas, lentillas y adaptación de audífonos. Más de 25 años de experiencia en el barrio.";
-const pageOgImage = "/portada/portada_compressed_2.webp";
+const pageTitle = pageData.seo.title;
+const pageDescription = pageData.seo.description;
+const pageOgImage = pageData.seo.ogImage;
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : Astro.url;
 
-const services = [
-  {
-    title: "Revisión y salud visual",
-    description: "Examen visual completo, control de miopía, astigmatismo, presbicia y asesoramiento personalizado.",
-    iconPath: "M12 8v4l3 2",
-  },
-  {
-    title: "Gafas graduadas y de sol",
-    description: "Monturas actuales y lentes de calidad para uso diario, trabajo y deporte.",
-    iconPath: "M2 12s3-4 10-4 10 4 10 4-3 4-10 4S2 12 2 12z",
-  },
-  {
-    title: "Lentillas y adaptación",
-    description: "Adaptación segura y seguimiento, con formación de uso y mantenimiento.",
-    iconPath: "M12 4a8 8 0 100 16 8 8 0 000-16z",
-  },
-  {
-    title: "Audiología y audífonos",
-    description: "Audiometría, adaptación de audífonos discretos y mantenimiento profesional.",
-    iconPath: "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14",
-  },
-];
-
-const faqs = [
-  { q: "¿Dónde estamos?", a: `${contactData.contactInfo.address.street}, Barcelona` },
-  { q: "¿Horario?", a: `${contactData.contactInfo.hours.weekdays}. ${contactData.contactInfo.hours.saturday}.` },
-  { q: "¿Cita previa?", a: "Recomendable para revisiones visuales y audiometrías. Para compras rápidas, puedes venir sin cita." },
-];
+const services = pageData.services;
+// Map FAQs substituting dynamic contact data where appropriate
+const faqs = pageData.faqs.map(f => {
+  if (f.q.startsWith("¿Horario")) {
+    return { ...f, a: `${contactData.contactInfo.hours.weekdays}. ${contactData.contactInfo.hours.saturday}.` };
+  }
+  if (f.q.startsWith("¿Dónde")) {
+    return { ...f, a: `${contactData.contactInfo.address.street}, Barcelona` };
+  }
+  return f;
+});
 ---
 
 <Layout title={pageTitle} description={pageDescription} ogImage={pageOgImage}>
@@ -44,16 +28,16 @@ const faqs = [
       <div class="relative max-w-7xl mx-auto px-6 text-center">
         <div class="inline-flex items-center px-4 py-2 bg-emerald-600/10 text-emerald-700 rounded-full text-sm font-semibold mb-8 border border-emerald-600/20">
           <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
-          Tu óptica de confianza en Sant Andreu
+          {pageData.hero.badge}
         </div>
         <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 mb-6 leading-tight">
-          Óptica en <span class="text-emerald-600">Sant Andreu</span> (Barcelona)
+          {pageData.hero.title.main} <span class="text-emerald-600">{pageData.hero.title.highlight}</span>{pageData.hero.title.suffix}
         </h1>
         <p class="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto font-medium leading-relaxed">
-          Revisiones visuales, gafas, lentillas y audiología. Atención cercana y profesional con más de 25 años de experiencia en el barrio.
+          {pageData.hero.subtitle}
         </p>
         <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-          <a href={contactData.socialMedia.whatsapp.url} target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg">Pedir cita por WhatsApp</a>
+          <a href={contactData.socialMedia.whatsapp.url} target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg">{contactData.socialMedia.whatsapp.text}</a>
           <a href={contactData.contactInfo.address.googleMaps} target="_blank" class="border-2 border-emerald-600 hover:bg-emerald-50 text-emerald-700 px-8 py-4 rounded-xl font-bold text-lg">Cómo llegar</a>
         </div>
       </div>
@@ -62,7 +46,7 @@ const faqs = [
     <!-- Servicios locales destacados -->
     <section class="py-16 bg-white">
       <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mb-10 text-center">Servicios en Sant Andreu</h2>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mb-10 text-center">{pageData.sections.servicesTitle}</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
           {services.map((s) => (
             <div class="group bg-white/90 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-emerald-500/20 hover:shadow-2xl transition-all duration-300">
@@ -81,7 +65,7 @@ const faqs = [
     <section class="py-16 bg-slate-50 border-t border-emerald-500/20">
       <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
         <div>
-          <h2 class="text-2xl font-black text-slate-900 mb-4">Cómo encontrarnos</h2>
+          <h2 class="text-2xl font-black text-slate-900 mb-4">{pageData.sections.napTitle}</h2>
           <div class="text-slate-700 space-y-2">
             <p><strong>Dirección:</strong> {contactData.contactInfo.address.street}, Barcelona</p>
             <p><strong>Teléfono:</strong> {contactData.contactInfo.phone.display}</p>
@@ -89,7 +73,7 @@ const faqs = [
             <p><strong>Horario:</strong> {contactData.contactInfo.hours.weekdays} · {contactData.contactInfo.hours.saturday}</p>
           </div>
           <div class="mt-6 flex gap-3">
-            <a href={contactData.socialMedia.whatsapp.url} target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold">WhatsApp</a>
+            <a href={contactData.socialMedia.whatsapp.url} target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold">{contactData.socialMedia.whatsapp.text}</a>
             <a href={contactData.contactInfo.address.googleMaps} target="_blank" class="border-2 border-emerald-600 hover:bg-emerald-50 text-emerald-700 px-6 py-3 rounded-lg font-semibold">Abrir en Google Maps</a>
           </div>
         </div>
@@ -115,7 +99,7 @@ const faqs = [
     <!-- FAQs locales -->
     <section class="py-16 bg-white">
       <div class="max-w-4xl mx-auto px-6">
-        <h2 class="text-2xl font-black text-slate-900 mb-6">Preguntas frecuentes</h2>
+  <h2 class="text-2xl font-black text-slate-900 mb-6">{pageData.sections.faqTitle}</h2>
         <div class="space-y-4">
           {faqs.map((f) => (
             <details class="group bg-white rounded-xl shadow border border-slate-200">

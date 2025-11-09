@@ -2,9 +2,14 @@
 import Layout from "@/layouts/Layout.astro";
 import productsData from "@data/products.json";
 import { Image } from "astro:assets";
----
 
-<Layout title="Productos - Òptica Guinart">
+const pageTitle = productsData.seo?.title;
+const pageDescription = productsData.seo?.description;
+const pageOgImage = productsData.seo?.ogImage;
+// Canonical URL for this page
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : new URL(Astro.url.pathname, 'http://localhost').toString();
+---
+<Layout title={pageTitle} description={pageDescription} ogImage={pageOgImage}>
   <section
     class="bg-gradient-to-b from-slate-100 via-gray-50 to-slate-100 min-h-screen pt-20 sm:pt-24 lg:pt-28"
   >
@@ -348,30 +353,7 @@ import { Image } from "astro:assets";
           </div>
         </div>
 
-        <script>
-          document.addEventListener("DOMContentLoaded", () => {
-            const modal = document.getElementById("offer-modal");
-            const overlay = document.getElementById("offer-modal-overlay");
-            const closeBtn = document.getElementById("offer-modal-close");
-            const contentEl = document.getElementById("offer-modal-content");
-
-            const close = () => modal?.classList.add("hidden");
-
-            document.querySelectorAll("[data-offer-content]").forEach((btn) => {
-              btn.addEventListener("click", () => {
-                const text = btn.getAttribute("data-offer-content") || "";
-                if (contentEl) contentEl.textContent = text;
-                modal?.classList.remove("hidden");
-              });
-            });
-
-            overlay?.addEventListener("click", close);
-            closeBtn?.addEventListener("click", close);
-            document.addEventListener("keydown", (e) => {
-              if (e.key === "Escape") close();
-            });
-          });
-        </script>
+        <script src="/scripts/offer-modal.js" defer></script>
 
         {/* Sección de Contacto */}
         <div
@@ -482,4 +464,17 @@ import { Image } from "astro:assets";
       </div>
     </div>
   </section>
+  <!-- JSON-LD: Breadcrumbs -->
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Inicio', item: Astro.site ? new URL('/', Astro.site).toString() : '/' },
+        { '@type': 'ListItem', position: 2, name: 'Productos', item: canonical },
+      ],
+    })}
+  ></script>
 </Layout>

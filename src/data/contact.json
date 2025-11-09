@@ -1,12 +1,12 @@
 {
   "hero": {
     "title": {
-      "main": "PONTE EN",
-      "highlight": "CONTACTO"
+      "main": "Ponte en",
+      "highlight": "Contacto"
     },
     "subtitle": "Estamos aquí para ayudarte con cualquier consulta sobre tu salud visual y auditiva. ¡Contáctanos!",
     "badge": {
-      "text": "RESPUESTA RÁPIDA",
+      "text": "Respuesta rápida",
       "icon": "message"
     }
   },

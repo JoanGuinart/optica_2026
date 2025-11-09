@@ -2,6 +2,7 @@
 import Portada from "@components/Portada.astro";
 import MainContent from "@components/MainContent.astro";
 import Layout from "@layouts/Layout.astro";
+import homeData from "@data/home.json";
 ---
 
 <Layout title="Òptica i Audiología Guinart">
@@ -12,41 +13,27 @@ import Layout from "@layouts/Layout.astro";
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-12">
         <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mb-4">
-          Servicios <span class="text-emerald-600">Especializados</span>
+          {homeData.localLandings.title.split(" ")[0]} <span class="text-emerald-600">{homeData.localLandings.title.split(" ")[1]}</span>
         </h2>
-        <p class="text-lg text-slate-600">Descubre nuestros servicios en Barcelona</p>
+        <p class="text-lg text-slate-600">{homeData.localLandings.subtitle}</p>
       </div>
       
       <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-        <!-- Óptica Sant Andreu -->
-        <a href="/optica-sant-andreu" class="group bg-gradient-to-br from-emerald-50 to-white rounded-2xl p-8 border-2 border-emerald-200 hover:border-emerald-400 hover:shadow-xl transition-all">
-          <div class="flex items-center mb-4">
-            <div class="w-12 h-12 bg-emerald-600 rounded-lg flex items-center justify-center mr-4">
-              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+        {homeData.localLandings.cards.map((card) => (
+          <a href={card.href} class={`group bg-gradient-to-br ${card.color === 'emerald' ? 'from-emerald-50 border-emerald-200 hover:border-emerald-400' : 'from-blue-50 border-blue-200 hover:border-blue-400'} to-white rounded-2xl p-8 border-2 hover:shadow-xl transition-all`}>
+            <div class="flex items-center mb-4">
+              <div class={`w-12 h-12 ${card.color === 'emerald' ? 'bg-emerald-600' : 'bg-blue-600'} rounded-lg flex items-center justify-center mr-4`}>
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={card.color === 'emerald' ? 'M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z' : 'M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z'}/></svg>
+              </div>
+              <div>
+                <h3 class={`text-xl font-bold text-slate-900 transition-colors ${card.color === 'emerald' ? 'group-hover:text-emerald-600' : 'group-hover:text-blue-600'}`}>{card.title}</h3>
+                <p class="text-sm text-slate-600">{card.subtitle}</p>
+              </div>
             </div>
-            <div>
-              <h3 class="text-xl font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">Óptica en Sant Andreu</h3>
-              <p class="text-sm text-slate-600">Revisiones, gafas y lentillas</p>
-            </div>
-          </div>
-          <p class="text-slate-600 mb-4">Más de 25 años cuidando tu salud visual en el barrio de Sant Andreu.</p>
-          <span class="text-emerald-600 font-semibold group-hover:underline">Ver servicios →</span>
-        </a>
-
-        <!-- Audiología Barcelona -->
-        <a href="/audiologia-barcelona" class="group bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 border-2 border-blue-200 hover:border-blue-400 hover:shadow-xl transition-all">
-          <div class="flex items-center mb-4">
-            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
-              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>
-            </div>
-            <div>
-              <h3 class="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">Audiología Barcelona</h3>
-              <p class="text-sm text-slate-600">Audiometrías y audífonos</p>
-            </div>
-          </div>
-          <p class="text-slate-600 mb-4">Audiometrías gratuitas, adaptación de audífonos digitales y revisiones auditivas.</p>
-          <span class="text-blue-600 font-semibold group-hover:underline">Ver servicios →</span>
-        </a>
+            <p class="text-slate-600 mb-4">{card.description}</p>
+            <span class={`${card.color === 'emerald' ? 'text-emerald-600' : 'text-blue-600'} font-semibold group-hover:underline`}>{card.linkText}</span>
+          </a>
+        ))}
       </div>
     </div>
   </section>

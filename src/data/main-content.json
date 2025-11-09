@@ -1,8 +1,8 @@
 {
   "specialOffers": {
     "title": {
-      "main": "OFERTAS",
-      "highlight": "ESPECIALES"
+      "main": "Ofertas",
+      "highlight": "Especiales"
     },
     "subtitle": "Descubre nuestras promociones exclusivas y cuida tu visión con los mejores precios",
     "offers": [
@@ -14,7 +14,7 @@
         "description": "Protección UV total con las mejores marcas. Estilo y calidad garantizada.",
         "currentPrice": "desde 39€",
         "originalPrice": "59€",
-        "buttonText": "SABER MÁS",
+  "buttonText": "Saber más",
         "url": "https://wa.me/34682502960",
         "icon": "sun",
         "iconPath": "M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
@@ -27,21 +27,21 @@
         "description": "Llévate 2 pares por el precio de 1. Monta y cristales incluidos.",
         "currentPrice": "desde 75€",
         "originalPrice": "94€",
-        "buttonText": "SABER MÁS",
+  "buttonText": "Saber más",
         "url": "https://wa.me/34682502960",
         "icon": "glasses",
         "iconPath": "M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
       },
       {
         "id": 3,
-        "badge": "NUEVO",
+  "badge": "Nuevo",
         "badgeColor": "blue",
         "title": "Lentillas",
         "description": "Comodidad absoluta con las lentillas más avanzadas del mercado.",
         "currentPrice": "desde 25€",
         "originalPrice": null,
         "priceNote": "pack mensual",
-        "buttonText": "SABER MÁS",
+  "buttonText": "Saber más",
         "url": "https://wa.me/34682502960",
         "icon": "contact",
         "iconPath": "M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"
@@ -50,8 +50,8 @@
   },
   "featuredProducts": {
     "title": {
-      "main": "PRODUCTOS",
-      "highlight": "DESTACADOS"
+      "main": "Productos",
+      "highlight": "Destacados"
     },
     "subtitle": "Selección de las mejores marcas y los modelos más populares",
     "products": [
@@ -60,7 +60,7 @@
         "name": "RayBan Meta",
         "description": "Gafas inteligentes Ray‑Ban Meta con cámara y audio integrados: captura fotos y vídeo, realiza llamadas y escucha música con el estilo icónico Ray‑Ban.",
         "price": "",
-        "buttonText": "PEDIR",
+  "buttonText": "Pedir",
         "imagePlaceholder": "Imagen del producto",
         "src": "/productos/rayban-meta.webp"
       },
@@ -69,7 +69,7 @@
         "name": "Silhouette Sport",
         "description": "Montura deportiva ultraligera y sin montura, máxima comodidad y sujeción flexible para entrenar y usar a diario.",
         "price": "",
-        "buttonText": "PEDIR",
+  "buttonText": "Pedir",
         "imagePlaceholder": "Imagen del producto",
         "src": "/productos/silhouette-escondido.webp"
 
@@ -79,7 +79,7 @@
         "name": "Maui Jim Paluna",
         "description": "Lentes polarizadas que realzan el color y reducen reflejos, visión nítida y protección total con el estilo premium de Maui Jim.",
         "price": "",
-        "buttonText": "PEDIR",
+  "buttonText": "Pedir",
         "imagePlaceholder": "Imagen del producto",
         "src": "/productos/maui-jim-paluna.webp"
       },
@@ -88,26 +88,26 @@
         "name": "Yalea SYA053V",
         "description": "Diseño femenino en acetato italiano: líneas elegantes, ligereza y comodidad para tu día a día.",
         "price": "",
-        "buttonText": "PEDIR",
+  "buttonText": "Pedir",
         "imagePlaceholder": "Imagen del producto",
         "src": "/productos/yalea-SYA053V.webp"
       }
     ]
   },
   "callToAction": {
-    "title": "¿NECESITAS ASESORAMIENTO?",
+  "title": "¿Necesitas asesoramiento?",
     "subtitle": "Nuestros expertos te ayudarán a encontrar la solución perfecta para tu visión",
     "buttons": [
       {
         "id": 1,
-        "text": "PEDIR CITA GRATUITA",
+        "text": "Pedir cita gratuita",
         "type": "primary",
         "style": "white",
         "url": "https://wa.me/34682502960"
       },
       {
         "id": 2,
-        "text": "LLAMAR AHORA",
+        "text": "Llamar ahora",
         "type": "secondary",
         "style": "dark",
         "url": "tel:933118706"

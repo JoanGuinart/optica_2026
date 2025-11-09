@@ -1,12 +1,17 @@
 {
+  "seo": {
+    "title": "Servicios - Òptica Guinart",
+    "description": "Servicios de óptica y audiología en Sant Andreu (Barcelona): optometría, audiología, adaptación de audífonos, lentillas y taller de reparación.",
+    "ogImage": "/portada/portada_compressed_2.webp"
+  },
   "hero": {
     "title": {
-      "main": "NUESTROS",
-      "highlight": "SERVICIOS"
-    },
+    "main": "Nuestros",
+    "highlight": "Servicios"
+  },
     "subtitle": "Cuidamos tu salud visual y auditiva con la tecnología más avanzada y el mejor servicio profesional",
     "badge": {
-      "text": "PROFESIONALES CUALIFICADOS",
+      "text": "Profesionales cualificados",
       "icon": "certificate"
     }
   },
@@ -67,7 +72,7 @@
       },
       {
         "id": 2,
-        "title": "Profesionales Cualificados",
+        "title": "Profesionales cualificados",
         "description": "Nuestro equipo cuenta con más de 25 años de experiencia en el sector",
         "icon": "award",
         "iconPath": "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
@@ -87,13 +92,13 @@
     "buttons": [
       {
         "id": 1,
-        "text": "RESERVAR CITA",
+        "text": "Reservar cita",
         "type": "primary",
         "action": "booking"
       },
       {
         "id": 2,
-        "text": "LLAMAR AHORA",
+        "text": "Llamar ahora",
         "type": "secondary",
         "action": "call"
       }

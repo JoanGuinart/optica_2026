@@ -1,7 +1,7 @@
 {
   "hero": {
     "badge": {
-      "text": "NOVEDAD TECNOLÓGICA",
+      "text": "Novedad tecnológica",
       "icon": "star"
     },
     "title": {
@@ -11,20 +11,25 @@
     "description": "Las primeras gafas inteligentes de Ray-Ban. Captura fotos y videos, escucha música y realiza llamadas, todo con el icónico estilo Ray-Ban.",
     "buttons": [
       {
-        "text": "DESCUBRIR MÁS",
+        "text": "Descubrir más",
         "type": "primary"
       },
       {
-        "text": "VER DEMO",
+        "text": "Ver demo",
         "type": "secondary"
       }
     ],
     "imageAlt": "Imagen Ray-Ban Stories"
   },
+  "seo": {
+    "title": "Productos - Òptica Guinart",
+    "description": "Catálogo de productos: gafas de sol, graduadas, lentillas y gafas inteligentes en Óptica Guinart. Consulta precios y disponibilidad en Sant Andreu, Barcelona.",
+    "ogImage": "/portada/portada_compressed_2.webp"
+  },
   "featuredProducts": {
     "title": {
-      "main": "PRODUCTOS",
-      "highlight": "DESTACADOS"
+      "main": "Productos",
+      "highlight": "Destacados"
     },
     "subtitle": "Nuestra selección de las mejores gafas y lentes para ti",
     "products": [
@@ -153,14 +158,14 @@
   },
   "specialOffers": {
     "title": {
-      "main": "OFERTAS",
-      "highlight": "ESPECIALES"
+      "main": "Ofertas",
+      "highlight": "Especiales"
     },
     "subtitle": "Aprovecha nuestros descuentos limitados",
     "offers": [
       {
         "id": 1,
-        "badge": "OFERTA",
+        "badge": "Oferta",
         "badgeColor": "red",
         "icon": "glasses",
         "title": "Montura + Lentes Graduadas",
@@ -173,28 +178,28 @@
       },
       {
         "id": 2,
-        "badge": "PACK",
+        "badge": "Pack",
         "badgeColor": "orange",
         "icon": "glasses",
         "title": "Gafa Fila + Lentes Antireflejantes",
         "description": "Gafa Fila completa con lentes antireflejantes monofocales* incluidas",
         "currentPrice": "109€",
         "originalPrice": null,
-        "buttonText": "VER CONDICIONES*",
+        "buttonText": "Ver condiciones",
         "buttonColor": "orange",
         "details": "Pack con lentes monofocales antirreflejantes. Revisa las condiciones.",
         "conditions": "*Esfera hasta ±6.00 y cilindro hasta -4.00"
       },
       {
         "id": 3,
-        "badge": "REGALO",
+        "badge": "Regalo",
         "badgeColor": "green",
         "icon": "gift",
         "title": "Cargador de Regalo",
         "description": "Llévate un cargador completamente gratis al comprar dos audífonos recargables",
         "currentPrice": "Cargador gratis",
         "originalPrice": null,
-        "buttonText": "VER AUDÍFONOS",
+        "buttonText": "Ver audífonos",
         "buttonColor": "green"
       },
       {
@@ -206,7 +211,7 @@
         "description": "Dos lentes progresivas de alta gama por el precio de una, máxima calidad visual",
         "currentPrice": "desde 299€",
         "originalPrice": null,
-        "buttonText": "CONSULTAR OFERTA",
+        "buttonText": "Consultar oferta",
         "buttonColor": "purple"
       }
     ]
@@ -246,6 +251,6 @@
         "color": "red"
       }
     ],
-    "mainButton": "VISITAR TIENDA FÍSICA"
+    "mainButton": "Visitar tienda física"
   }
 }

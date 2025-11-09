@@ -1,0 +1,59 @@
+{
+  "seo": {
+    "title": "Audiología Barcelona | Audífonos y Audiometrías | Òptica Guinart",
+    "description": "Centro de audiología en Barcelona: audiometrías gratuitas, adaptación de audífonos digitales y revisiones auditivas. +25 años cuidando tu salud auditiva en Sant Andreu.",
+    "ogImage": "/portada/portada_compressed_2.webp"
+  },
+  "hero": {
+    "badge": "Audiología profesional en Barcelona",
+    "title": {
+      "line1": { "text": "Audiología en", "highlight": "Barcelona" },
+      "line2": { "text": "Cuida tu audición" }
+    },
+    "subtitle": "+25 años de experiencia en Sant Andreu. Audiometrías gratuitas, adaptación de audífonos digitales y revisiones auditivas profesionales."
+  },
+  "services": [
+    {
+      "title": "Audiometría completa",
+      "description": "Prueba auditiva profesional gratuita para evaluar tu capacidad auditiva y detectar pérdidas tempranas.",
+      "iconPath": "M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"
+    },
+    {
+      "title": "Adaptación de audífonos",
+      "description": "Ajuste personalizado de audífonos digitales de última generación: discretos, recargables y con tecnología Bluetooth.",
+      "iconPath": "M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
+    },
+    {
+      "title": "Mantenimiento y revisiones",
+      "description": "Limpieza profesional, ajustes, cambio de pilas y revisiones periódicas para mantener tus audífonos en perfecto estado.",
+      "iconPath": "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+    },
+    {
+      "title": "Protección auditiva",
+      "description": "Tapones a medida para músicos, trabajadores y natación. Protege tu audición del ruido y el agua.",
+      "iconPath": "M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+    }
+  ],
+  "benefits": [
+    { "title": "Audiometría gratuita", "icon": "✓" },
+    { "title": "Audífonos recargables", "icon": "🔋" },
+    { "title": "Ajuste personalizado", "icon": "👂" },
+    { "title": "Garantía y seguimiento", "icon": "🛡️" },
+    { "title": "Tecnología Bluetooth", "icon": "📱" },
+    { "title": "Modelos discretos", "icon": "🔇" }
+  ],
+  "faqs": [
+    { "q": "¿La audiometría es gratuita?", "a": "Sí, realizamos audiometrías gratuitas sin compromiso para evaluar tu salud auditiva." },
+    { "q": "¿Cuánto cuestan los audífonos?", "a": "Disponemos de audífonos desde 600€ hasta modelos premium de 2.500€. El precio depende de la tecnología y prestaciones. Te asesoramos según tu caso." },
+    { "q": "¿Los audífonos son visibles?", "a": "Contamos con modelos intracanales prácticamente invisibles y retroauriculares muy discretos. Te mostramos todas las opciones." },
+    { "q": "¿Qué garantía tienen?", "a": "Los audífonos incluyen garantía del fabricante (2-5 años según modelo) y nuestro seguimiento profesional sin coste adicional." },
+    { "q": "¿Dónde estamos?", "a": "En Carrer Gran de Sant Andreu, 308, Barcelona (barrio de Sant Andreu). Metro: Sant Andreu." },
+    { "q": "¿Necesito cita previa?", "a": "Para audiometrías y adaptación de audífonos, recomendamos cita previa para asegurar atención personalizada." }
+  ],
+  "cta": {
+    "title": "Cuida tu salud auditiva hoy",
+    "subtitle": "Pide tu audiometría gratuita y descubre cómo podemos ayudarte",
+    "primary": "Pedir cita gratuita",
+    "secondary": "Llamar ahora"
+  }
+}

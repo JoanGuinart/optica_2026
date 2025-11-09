@@ -1,43 +1,65 @@
-# Astro Starter Kit: Minimal
+# Òptica & Audiología Guinart Web
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Sitio web construido con [Astro](https://astro.build) para la óptica y centro de audiología. El contenido textual principal está desacoplado en ficheros JSON dentro de `src/data` para facilitar su edición sin tocar las plantillas.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## � Estructura principal
 
 ```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+src/
+	components/          Componentes Astro/JSX reutilizables
+	layouts/             Layout base
+	pages/               Rutas del sitio (.astro)
+	data/                Fuente de datos en JSON (textos y configuración)
+	styles/              CSS global y crítico
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+### Datos en `src/data`
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+| Archivo | Uso |
+|---------|-----|
+| `navbar.json` | Items del menú de navegación |
+| `portada.json` | Contenido del hero de la portada |
+| `main-content.json` | Bloques informativos de la home |
+| `contact.json` | Información de contacto (NAP, redes, horarios) |
+| `faq.json` | Preguntas frecuentes globales |
+| `products.json` | Datos de productos y ofertas |
+| `services.json` | Listado de servicios y beneficios |
+| `audifonos-barcelona.json` | Contenido landing audífonos |
+| `audiologia-barcelona.json` | Contenido landing audiología |
+| `optica-sant-andreu.json` | Contenido landing óptica local |
+| `home.json` | Sección de landings locales en la página de inicio |
 
-Any static assets, like images, can be placed in the `public/` directory.
+Para añadir o editar textos sólo actualiza el JSON correspondiente (mantén la estructura de claves). Las páginas importan los datos con alias `@data/...` gracias a la configuración de rutas en `tsconfig.json`.
 
-## 🧞 Commands
+## ✨ Flujo para añadir una nueva landing
+1. Crear `src/data/nueva-landing.json` con campos `seo`, `hero`, bloques (ej: `services`, `faqs`, etc.).
+2. Importar el JSON en `src/pages/nueva-landing/index.astro` y mapear los arrays en el markup.
+3. Añadir entrada opcional en `home.json` para que aparezca en la portada.
+4. Ejecutar `npm run build` para verificar que todo compila.
 
-All commands are run from the root of the project, from a terminal:
+## 🧞 Comandos
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| Comando | Acción |
+|---------|--------|
+| `npm install` | Instala dependencias |
+| `npm run dev` | Servidor de desarrollo en `http://localhost:4321` |
+| `npm run build` | Genera la versión estática en `dist/` |
+| `npm run preview` | Previsualiza el build antes de desplegar |
 
-## 👀 Want to learn more?
+## 🔍 Buenas prácticas de contenido
+- Mantén frases concisas en los JSON para favorecer el SEO y la reutilización.
+- Evita HTML dentro de los valores; usa marcado en la plantilla si necesitas énfasis.
+- Para números de teléfono usa siempre formato internacional (+34) y deja la presentación (espacios) a la vista.
+- Cuando un texto depende de datos dinámicos (ej. dirección u horario) construye la cadena en la plantilla como se hace en `optica-sant-andreu`.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## � Despliegue
+El resultado tras `npm run build` es totalmente estático. Puedes desplegar en cualquier hosting de contenido estático (Netlify, Vercel, GitHub Pages, etc.).
+
+## 🤝 Contribuir
+1. Crea rama (`git checkout -b feature/nueva-seccion`).
+2. Realiza cambios en JSON y páginas.
+3. Ejecuta `npm run build` y revisa.
+4. Abre Pull Request.
+
+---
+Si necesitas añadir nuevos tipos de contenido estructurado (Schema.org) sigue el patrón de los `<script type="application/ld+json">` existentes y alimenta `description`, `name`, etc. desde los JSON para mantener consistencia.

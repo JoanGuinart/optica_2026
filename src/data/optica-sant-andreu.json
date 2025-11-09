@@ -1,0 +1,44 @@
+{
+  "seo": {
+    "title": "Óptica en Sant Andreu (Barcelona) | Òptica Guinart",
+    "description": "Óptica y audiología en Sant Andreu (Barcelona). Revisiones visuales, gafas, lentillas y adaptación de audífonos. Más de 25 años de experiencia en el barrio.",
+    "ogImage": "/portada/portada_compressed_2.webp"
+  },
+  "hero": {
+    "badge": "Tu óptica de confianza en Sant Andreu",
+    "title": { "main": "Óptica en", "highlight": "Sant Andreu", "suffix": " (Barcelona)" },
+    "subtitle": "Revisiones visuales, gafas, lentillas y audiología. Atención cercana y profesional con más de 25 años de experiencia en el barrio."
+  },
+  "sections": {
+    "servicesTitle": "Servicios en Sant Andreu",
+    "napTitle": "Cómo encontrarnos",
+    "faqTitle": "Preguntas frecuentes"
+  },
+  "services": [
+    {
+      "title": "Revisión y salud visual",
+      "description": "Examen visual completo, control de miopía, astigmatismo, presbicia y asesoramiento personalizado.",
+      "iconPath": "M12 8v4l3 2"
+    },
+    {
+      "title": "Gafas graduadas y de sol",
+      "description": "Monturas actuales y lentes de calidad para uso diario, trabajo y deporte.",
+      "iconPath": "M2 12s3-4 10-4 10 4 10 4-3 4-10 4S2 12 2 12z"
+    },
+    {
+      "title": "Lentillas y adaptación",
+      "description": "Adaptación segura y seguimiento, con formación de uso y mantenimiento.",
+      "iconPath": "M12 4a8 8 0 100 16 8 8 0 000-16z"
+    },
+    {
+      "title": "Audiología y audífonos",
+      "description": "Audiometría, adaptación de audífonos discretos y mantenimiento profesional.",
+      "iconPath": "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14"
+    }
+  ],
+  "faqs": [
+    { "q": "¿Dónde estamos?", "a": "Carrer Gran de Sant Andreu, 308, Barcelona" },
+    { "q": "¿Horario?", "a": "Lunes a viernes: 9:30-13:30 y 17:00-20:30. Sábado: 10:00-13:30." },
+    { "q": "¿Cita previa?", "a": "Recomendable para revisiones visuales y audiometrías. Para compras rápidas, puedes venir sin cita." }
+  ]
+}

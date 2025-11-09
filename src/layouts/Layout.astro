@@ -21,6 +21,20 @@ const {
   ogImage = defaultImage,
   noindex = false,
 } = Astro.props as Props;
+// Title template: añade el nombre del sitio si la página tiene título personalizado
+const siteName = "Óptica Guinart";
+const fullTitle = title && title !== defaultTitle ? `${title} | ${siteName}` : title;
+// Asegurar que ogImage sea una URL absoluta cuando sea una ruta relativa y `Astro.site` esté definido
+const ogImageUrl =
+  Astro.site && typeof ogImage === "string" && ogImage.startsWith("/")
+    ? new URL(ogImage, Astro.site).toString()
+    : ogImage;
+// sameAs array limpio (solo URLs existentes)
+const sameAs = [
+  contactData?.socialMedia?.instagram?.url,
+  contactData?.socialMedia?.facebook?.url,
+  contactData?.socialMedia?.google?.url,
+].filter(Boolean);
 // Construir URL canónica absoluta si 'site' está definido en astro.config.mjs
 const canonical = Astro.site
   ? new URL(Astro.url.pathname.replace(/index\.html$/, ""), Astro.site)
@@ -49,8 +63,8 @@ const siteRoot = Astro.site
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- SEO Meta Tags -->
-    <title>{title}</title>
-    <meta name="description" content={description} />
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
     <!-- Aunque 'keywords' ya no es determinante, mantenemos una lista semántica para buscadores secundarios -->
     <meta
       name="keywords"
@@ -67,22 +81,26 @@ const siteRoot = Astro.site
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImageUrl} />
     <meta property="og:site_name" content="Óptica Guinart" />
     <meta property="og:locale" content="es_ES" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonical} />
-    <meta property="twitter:title" content={title} />
+    <meta property="twitter:title" content={fullTitle} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={ogImage} />
+    <meta property="twitter:image" content={ogImageUrl} />
+    <!-- Twitter site/creator (si se dispone) -->
+    {contactData?.socialMedia?.instagram?.text && (
+      <meta name="twitter:creator" content={contactData.socialMedia.instagram.text} />
+    )}
 
     <!-- Canonical URL -->
-    <link rel="canonical" href={canonical} />
+  <link rel="canonical" href={canonical} />
 
     <!-- Favicon y otros -->
     <!-- Añadimos un parámetro de versión para forzar actualización en cachés (Google favicon cache) -->
@@ -133,7 +151,7 @@ const siteRoot = Astro.site
         "@type": "Optician",
         name: "Óptica y Audiología Guinart",
         description,
-        image: ogImage,
+        image: ogImageUrl,
         url: canonical,
         "@id": canonical,
         telephone: contactData.contactInfo.phone.display
@@ -173,11 +191,7 @@ const siteRoot = Astro.site
             closes: "13:30",
           },
         ],
-        sameAs: [
-          contactData.socialMedia.instagram.url,
-          contactData.socialMedia.facebook.url,
-          contactData.socialMedia.google.url,
-        ],
+        sameAs,
         priceRange: "€€",
         areaServed: { "@type": "City", name: "Barcelona" },
         hasMap: googleMapsUrl,
@@ -186,9 +200,7 @@ const siteRoot = Astro.site
             "@type": "ContactPoint",
             telephone:
               "+" +
-              (contactData.socialMedia.whatsapp.url.match(
-                /wa\.me\/(\d+)/
-              )?.[1] ||
+              (contactData.socialMedia.whatsapp.url.match(/wa\.me\/(\d+)/)?.[1] ||
                 contactData.contactInfo.phone.display.replace(/\D/g, "")),
             contactType: "customer service",
             areaServed: "ES",

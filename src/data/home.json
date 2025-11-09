@@ -1,0 +1,24 @@
+{
+  "localLandings": {
+    "title": "Servicios Especializados",
+    "subtitle": "Descubre nuestros servicios en Barcelona",
+    "cards": [
+      {
+        "href": "/optica-sant-andreu",
+        "title": "Óptica en Sant Andreu",
+        "subtitle": "Revisiones, gafas y lentillas",
+        "description": "Más de 25 años cuidando tu salud visual en el barrio de Sant Andreu.",
+        "linkText": "Ver servicios →",
+        "color": "emerald"
+      },
+      {
+        "href": "/audiologia-barcelona",
+        "title": "Audiología Barcelona",
+        "subtitle": "Audiometrías y audífonos",
+        "description": "Audiometrías gratuitas, adaptación de audífonos digitales y revisiones auditivas.",
+        "linkText": "Ver servicios →",
+        "color": "blue"
+      }
+    ]
+  }
+}

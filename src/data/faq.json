@@ -1,4 +1,14 @@
 {
+  "page": {
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Resolvemos tus dudas sobre óptica, audiometría y nuestros servicios",
+    "cta": {
+      "contact": "Contactar",
+      "call": "Llamar ahora",
+      "noAnswerTitle": "¿No encuentras tu respuesta?",
+      "noAnswerText": "Nuestro equipo estará encantado de resolver cualquier duda adicional que tengas"
+    }
+  },
   "optica": [
     {
       "question": "¿Con qué frecuencia debo revisar mi vista?",

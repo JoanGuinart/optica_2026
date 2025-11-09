@@ -1,0 +1,83 @@
+{
+  "seo": {
+    "title": "Audífonos Barcelona | Adaptación y Audiometría | Òptica Guinart",
+    "description": "Audífonos digitales en Barcelona: adaptación personalizada, modelos invisibles, recargables y Bluetooth. Audiometría gratuita y seguimiento profesional en Sant Andreu.",
+    "ogImage": "/portada/portada_compressed_2.webp"
+  },
+  "hero": {
+    "badge": "Audífonos digitales en Barcelona",
+    "title": { "main": "Audífonos", "highlight": "Barcelona" },
+    "subtitle": "Modelos invisibles, recargables y con conectividad Bluetooth. Audiometría gratuita y adaptación profesional personalizada."
+  },
+  "tipos": [
+    {
+      "nombre": "Invisibles (CIC / IIC)",
+      "desc": "Diseñados para quedar totalmente dentro del canal auditivo: máxima discreción y sonido natural.",
+      "iconPath": "M12 8a4 4 0 110 8 4 4 0 010-8 M12 2v3 M12 19v3",
+      "beneficios": ["Total discreción", "Reducción de ruido viento", "Sujeción estable"]
+    },
+    {
+      "nombre": "Recargables",
+      "desc": "Batería integrada de larga duración. Olvídate de cambiar pilas y disfruta de autonomía todo el día.",
+      "iconPath": "M12 2a10 10 0 100 20 10 10 0 000-20m-1 5h2v6l4 2",
+      "beneficios": ["Sin pilas", "Carga rápida", "Uso intensivo"]
+    },
+    {
+      "nombre": "Bluetooth / Conectividad",
+      "desc": "Conecta tu audífono al móvil, TV o llamadas. Control y ajuste desde la app.",
+      "iconPath": "M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M6 8a6 6 0 1112 0",
+      "beneficios": ["Streaming directo", "Control por app", "Compatibilidad amplia"]
+    },
+    {
+      "nombre": "Ruido / Profesionales",
+      "desc": "Protección y amplificación equilibrada para entornos laborales ruidosos o músicos.",
+      "iconPath": "M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3",
+      "beneficios": ["Diseño robusto", "Filtros específicos", "Ajuste de frecuencias"]
+    }
+  ],
+  "proceso": [
+    { "paso": 1, "titulo": "Audiometría completa", "texto": "Evaluamos tu audición (tono puro, discriminación verbal, timpanometría) para determinar el grado y tipo de pérdida." },
+    { "paso": 2, "titulo": "Selección del modelo", "texto": "Recomendamos el tipo de audífono ideal según tu pérdida, estilo de vida, destreza y presupuesto." },
+    { "paso": 3, "titulo": "Adaptación inicial", "texto": "Ajuste digital (programación) y verificación in situ. Explicamos uso y mantenimiento." },
+    { "paso": 4, "titulo": "Revisión y optimización", "texto": "Seguimiento en las primeras semanas: ajustes finos de ganancia, compresión y ruido." },
+    { "paso": 5, "titulo": "Mantenimiento continuo", "texto": "Limpieza profesional, cambio de filtros y reevaluación auditiva periódica." }
+  ],
+  "benefits": [
+    "Audiometría gratuita",
+    "Modelos discretos",
+    "Conectividad avanzada",
+    "Seguimiento profesional"
+  ],
+  "sections": {
+    "tipos": {
+      "title": "Tipos de Audífonos",
+      "subtitle": "Seleccionamos el modelo que mejor se adapta a tu pérdida auditiva y estilo de vida."
+    },
+    "proceso": {
+      "title": "Proceso de Adaptación",
+      "subtitle": "Seguimos un protocolo profesional para garantizar comodidad y rendimiento óptimo."
+    },
+    "benefits": {
+      "title": "Beneficios",
+      "subtitle": "Más allá de la amplificación: confort, claridad y conectividad."
+    },
+    "faqs": {
+      "title": "Preguntas Frecuentes",
+      "subtitle": "Resolvemos dudas habituales sobre audífonos"
+    }
+  },
+  "faqs": [
+    { "q": "¿La prueba auditiva es realmente gratuita?", "a": "Sí. La audiometría básica y valoración inicial no tiene coste ni compromiso." },
+    { "q": "¿Cuánto dura la adaptación inicial?", "a": "Entre 30 y 60 minutos dependiendo del tipo de audífono y ajustes necesarios." },
+    { "q": "¿Cada cuánto debo revisar los audífonos?", "a": "Recomendamos revisión cada 6 meses y limpieza preventiva profesional." },
+    { "q": "¿Los recargables duran todo el día?", "a": "Sí, los modelos actuales ofrecen hasta 16–24 horas según uso de streaming." },
+    { "q": "¿Puedo financiar la compra?", "a": "Sí, disponemos de opciones de financiación flexible. Consúltanos en tienda." },
+    { "q": "¿Qué pasa si no me adapto?", "a": "Realizamos ajustes sucesivos. Si el modelo no es adecuado, buscamos alternativa dentro del periodo inicial." }
+  ],
+  "cta": {
+    "title": "Recupera tu calidad auditiva",
+    "subtitle": "Pide tu audiometría gratuita y descubre el audífono ideal para ti",
+    "primary": "Pedir cita gratuita",
+    "secondary": "Llamar ahora"
+  }
+}

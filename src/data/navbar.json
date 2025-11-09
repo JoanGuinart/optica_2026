@@ -1,7 +1,7 @@
 {
   "logo": {
-    "text": "ÓPTICA",
-    "highlight": "GUINART",
+    "text": "Òptica",
+    "highlight": "Guinart",
     "icon": {
       "viewBox": "0 0 24 24",
       "paths": [
@@ -16,14 +16,14 @@
       { "href": "/services", "label": "Servicios" },
       { "href": "/audiologia-barcelona", "label": "Audiología" },
       { "href": "/contact", "label": "Contacto" },
-      { "href": "/faq", "label": "FAQ" }
+      { "href": "/faq", "label": "Preguntas frecuentes" }
     ],
     "mobile": [
       { "href": "/products", "label": "Productos" },
       { "href": "/services", "label": "Servicios" },
       { "href": "/audiologia-barcelona", "label": "Audiología" },
       { "href": "/contact", "label": "Contacto" },
-      { "href": "/faq", "label": "FAQ" }
+      { "href": "/faq", "label": "Preguntas frecuentes" }
     ]
   }
 }

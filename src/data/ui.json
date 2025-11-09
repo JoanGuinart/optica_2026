@@ -1,0 +1,14 @@
+{
+  "cta": {
+    "book": "Pedir cita gratuita",
+    "call": "Llamar ahora",
+    "whatsapp": "Contactar por WhatsApp",
+    "solicitarServicio": "Solicitar servicio",
+    "saberMas": "Saber más",
+    "pedir": "Pedir"
+  },
+  "faqTitle": "Preguntas frecuentes",
+  "contact": {
+    "contact": "Contactar"
+  }
+}

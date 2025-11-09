@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "check-data": "node ./scripts/check-data.js",
     "preview": "astro preview",
     "astro": "astro"
   },
