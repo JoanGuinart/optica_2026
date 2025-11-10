@@ -1,11 +1,14 @@
 {
   "redirects": [
     {
-      "source": "/:path((?!_next/|favicon\\.ico|robots\\.txt|sitemap\\.xml).*)",
+      "source": "/:path*",
       "has": [
-        { "type": "host", "value": "www.opticaguinart.com" }
+        {
+          "type": "host",
+          "value": "www.opticaguinart.com"
+        }
       ],
-      "destination": "https://opticaguinart.com/:path",
+      "destination": "https://opticaguinart.com/:path*",
       "permanent": true
     }
   ]
