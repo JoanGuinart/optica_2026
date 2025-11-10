@@ -288,4 +288,39 @@ const services: Array<{
       ],
     })}
   ></script>
+  <!-- JSON-LD: Services (@graph) -->
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': services.map(s => {
+        const match = typeof s.price === 'string' ? s.price.replace(/\./g,'').match(/(\d+)/) : null;
+        const numPrice = match ? match[1] : null;
+        return {
+          '@type': 'Service',
+          name: s.title,
+          description: s.description,
+          provider: {
+            '@type': 'LocalBusiness',
+            name: 'Òptica Guinart',
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: contactData.contactInfo.address.street,
+              addressLocality: contactData.contactInfo.address.city,
+              addressCountry: contactData.contactInfo.address.country
+            },
+            telephone: contactData.contactInfo.phone.display
+          },
+          areaServed: { '@type': 'AdministrativeArea', name: 'Barcelona' },
+          ...(numPrice ? { offers: {
+            '@type': 'Offer',
+            price: numPrice,
+            priceCurrency: 'EUR',
+            availability: 'https://schema.org/InStoreOnly'
+          }} : {})
+        };
+      })
+    })}
+  ></script>
 </Layout>

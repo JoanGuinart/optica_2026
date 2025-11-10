@@ -75,7 +75,7 @@ import ui from "@data/ui.json";
                       </span>
                     )}
                   </div>
-                    <a href={offer.url} target="_blank" class="w-full mt-auto text-center bg-emerald-700  hover:bg-emerald-800  text-white py-3 rounded-lg font-bold transition-colors duration-300 shadow-lg">
+                    <a href={offer.url} target="_blank" rel="noopener noreferrer" class="w-full mt-auto text-center bg-emerald-700  hover:bg-emerald-800  text-white py-3 rounded-lg font-bold transition-colors duration-300 shadow-lg">
                     {offer.buttonText || ui.cta.saberMas}
                   </a>
                 </div>
@@ -113,7 +113,16 @@ import ui from "@data/ui.json";
           mainContentData.featuredProducts.products.map((product) => (
             <div class="flex flex-col bg-white/80 backdrop-blur-md rounded-2xl p-6 hover:bg-white transition-all duration-300 border border-emerald-500/30 ">
               <div class="aspect-square bg-gray-300 rounded-lg mb-4 flex items-center justify-center">
-               <img src={product.src} alt={product.imagePlaceholder} class="mix-blend-multiply object-contain w-full h-full rounded-lg"/>
+               <img 
+                 src={product.src} 
+                 alt={`${product.name} ${product.description ? '– ' + product.description.split('.')[0] : ''} | Óptica Guinart Sant Andreu Barcelona`} 
+                 loading="lazy" 
+                 decoding="async" 
+                 fetchpriority="low" 
+                 width="400" 
+                 height="400" 
+                 class="mix-blend-multiply object-contain w-full h-full rounded-lg"
+               />
               </div>
               <h3 class="text-xl font-bold mb-2 uppercase">{product.name}</h3>
               <p class="text-slate-600  text-sm mb-4">{product.description}</p>
@@ -121,7 +130,7 @@ import ui from "@data/ui.json";
                 <span class="text-2xl font-black text-emerald-600 ">
                   {product.price}
                 </span>
-                <a href={"https://wa.me/34682502960?text=" + encodeURIComponent(`quiero el producto: ${product.name} / ${product.description}`)} target="_blank" class="bg-emerald-700  hover:bg-emerald-800  px-4 py-2 rounded-lg font-bold text-sm transition-colors text-white">
+                <a href={"https://wa.me/34682502960?text=" + encodeURIComponent(`quiero el producto: ${product.name} / ${product.description}`)} target="_blank" rel="noopener noreferrer" class="bg-emerald-700  hover:bg-emerald-800  px-4 py-2 rounded-lg font-bold text-sm transition-colors text-white">
                   {product.buttonText || ui.cta.pedir}
                 </a>
               </div>

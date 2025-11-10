@@ -1,9 +1,13 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import contactData from "@data/contact.json";
+
+const pageTitle = contactData.seo?.title;
+const pageDescription = contactData.seo?.description;
+const pageOgImage = contactData.seo?.ogImage;
 ---
 
-<Layout title="Contacto - Òptica Guinart">
+<Layout title={pageTitle} description={pageDescription} ogImage={pageOgImage}>
   <main class="min-h-screen">
     <!-- Hero Section -->
     <section

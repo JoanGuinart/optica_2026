@@ -29,6 +29,10 @@ const ogImageUrl =
   Astro.site && typeof ogImage === "string" && ogImage.startsWith("/")
     ? new URL(ogImage, Astro.site).toString()
     : ogImage;
+// Dimensiones OG si la imagen por defecto coincide (mejora de previews)
+const ogImageDims = ogImageUrl?.includes("portada_compressed_2.webp")
+  ? { width: 1526, height: 994 }
+  : null;
 // sameAs array limpio (solo URLs existentes)
 const sameAs = [
   contactData?.socialMedia?.instagram?.url,
@@ -54,6 +58,20 @@ const siteRoot = Astro.site
   : typeof canonical === "string"
     ? canonical
     : String(canonical);
+
+// Breadcrumbs (visible + JSON-LD)
+const path = Astro.url.pathname.replace(/\/$/, "");
+const segments = path === "" || path === "/" ? [] : path.split("/").filter(Boolean);
+const breadcrumbs = [
+  { name: "Inicio", url: siteRoot },
+  ...segments.map((seg, i) => {
+    const name = decodeURIComponent(seg)
+      .replace(/-/g, " ")
+      .replace(/\b\w/g, (c) => c.toUpperCase());
+    const url = new URL("/" + segments.slice(0, i + 1).join("/") + "/", siteRoot).toString();
+    return { name, url };
+  }),
+];
 ---
 
 <!doctype html>
@@ -85,6 +103,14 @@ const siteRoot = Astro.site
   <meta property="og:title" content={fullTitle} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content={ogImageUrl} />
+    {ogImageDims && (
+      <>
+        <meta property="og:image:width" content={String(ogImageDims.width)} />
+        <meta property="og:image:height" content={String(ogImageDims.height)} />
+        <meta name="twitter:image:width" content={String(ogImageDims.width)} />
+        <meta name="twitter:image:height" content={String(ogImageDims.height)} />
+      </>
+    )}
     <meta property="og:site_name" content="Óptica Guinart" />
     <meta property="og:locale" content="es_ES" />
 
@@ -109,6 +135,7 @@ const siteRoot = Astro.site
     <link rel="mask-icon" href="/favicon.svg" color="#065f46" />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#065f46" />
+  <meta name="format-detection" content="telephone=no,address=no,email=no" />
     <link rel="alternate" hreflang="es-ES" href={canonical} />
 
     <!-- Preload critical resources -->
@@ -125,6 +152,11 @@ const siteRoot = Astro.site
     <!-- DNS prefetch y preconnect para recursos externos -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Web App Manifest & Icons -->
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+  <link rel="icon" sizes="192x192" href="/icons/icon-192.png" />
+  <link rel="icon" sizes="512x512" href="/icons/icon-512.png" />
 
     <!-- CSS crítico optimizado - Astro maneja el resto automáticamente -->
 
@@ -228,10 +260,42 @@ const siteRoot = Astro.site
         },
       })}
     />
+    <!-- BreadcrumbList Structured Data -->
+    {breadcrumbs.length > 1 && (
+      <script
+        type="application/ld+json"
+        is:inline
+        set:html={JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: breadcrumbs.map((b, idx) => ({
+            "@type": "ListItem",
+            position: idx + 1,
+            name: b.name,
+            item: b.url,
+          })),
+        })}
+      />
+    )}
   </head>
   <body class="bg-white text-slate-900 transition-colors duration-300">
     <!-- Navbar crítico carga inmediatamente para LCP -->
     <NavbarClient client:load />
+    {breadcrumbs.length > 1 && (
+      <nav aria-label="Breadcrumb" class="px-4 py-2 text-sm text-slate-600">
+        <ol class="flex flex-wrap gap-1">
+          {breadcrumbs.map((b, i) => (
+            <li class="flex items-center" typeof="ListItem" property="itemListElement">
+              <a href={b.url} class="hover:text-emerald-700 font-medium" property="item" typeof="WebPage">
+                <span property="name">{b.name}</span>
+              </a>
+              <meta property="position" content={String(i + 1)} />
+              {i < breadcrumbs.length - 1 && <span class="mx-1">/</span>}
+            </li>
+          ))}
+        </ol>
+      </nav>
+    )}
     <main>
       <slot />
     </main>

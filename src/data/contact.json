@@ -1,4 +1,9 @@
 {
+  "seo": {
+    "title": "Contacto | Òptica y Audiología Guinart Sant Andreu",
+    "description": "¿Tienes dudas? Contáctanos: teléfono, WhatsApp, email y dirección en Sant Andreu (Barcelona). Citas para revisiones, audiometrías y adaptación de audífonos.",
+    "ogImage": "/portada/portada_compressed_2.webp"
+  },
   "hero": {
     "title": {
       "main": "Ponte en",

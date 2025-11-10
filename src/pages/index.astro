@@ -3,9 +3,12 @@ import Portada from "@components/Portada.astro";
 import MainContent from "@components/MainContent.astro";
 import Layout from "@layouts/Layout.astro";
 import homeData from "@data/home.json";
----
 
-<Layout title="Òptica i Audiología Guinart">
+const pageTitle = homeData.seo?.title;
+const pageDescription = homeData.seo?.description;
+const pageOgImage = homeData.seo?.ogImage;
+---
+<Layout title={pageTitle} description={pageDescription} ogImage={pageOgImage}>
   <Portada />
   
   <!-- Sección de Landings Locales -->

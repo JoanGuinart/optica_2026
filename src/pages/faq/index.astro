@@ -2,9 +2,12 @@
 import Layout from '../../layouts/Layout.astro';
 import faqData from '../../data/faq.json';
 import contactData from '../../data/contact.json';
----
 
-<Layout title={`${faqData.page.title} - Òptica Guinart`} description="FAQ sobre óptica, audiometría, audífonos y servicios en Sant Andreu (Barcelona). Resuelve dudas sobre revisiones visuales, lentes, gafas y salud auditiva.">
+const pageTitle = faqData.seo?.title || `${faqData.page.title} | Óptica Guinart`;
+const pageDescription = faqData.seo?.description;
+const pageOgImage = faqData.seo?.ogImage;
+---
+<Layout title={pageTitle} description={pageDescription} ogImage={pageOgImage}>
   <main class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
     <!-- FAQPage Structured Data -->
     <script

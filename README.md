@@ -2,7 +2,7 @@
 
 Sitio web construido con [Astro](https://astro.build) para la óptica y centro de audiología. El contenido textual principal está desacoplado en ficheros JSON dentro de `src/data` para facilitar su edición sin tocar las plantillas.
 
-## � Estructura principal
+## 🗂️ Estructura principal
 
 ```text
 src/
@@ -52,7 +52,7 @@ Para añadir o editar textos sólo actualiza el JSON correspondiente (mantén la
 - Para números de teléfono usa siempre formato internacional (+34) y deja la presentación (espacios) a la vista.
 - Cuando un texto depende de datos dinámicos (ej. dirección u horario) construye la cadena en la plantilla como se hace en `optica-sant-andreu`.
 
-## � Despliegue
+## 🚀 Despliegue
 El resultado tras `npm run build` es totalmente estático. Puedes desplegar en cualquier hosting de contenido estático (Netlify, Vercel, GitHub Pages, etc.).
 
 ## 🤝 Contribuir
@@ -62,4 +62,89 @@ El resultado tras `npm run build` es totalmente estático. Puedes desplegar en c
 4. Abre Pull Request.
 
 ---
-Si necesitas añadir nuevos tipos de contenido estructurado (Schema.org) sigue el patrón de los `<script type="application/ld+json">` existentes y alimenta `description`, `name`, etc. desde los JSON para mantener consistencia.
+## 📈 SEO y Metadatos
+
+El proyecto usa un enfoque centralizado para SEO y datos estructurados.
+
+### 1. Bloques `seo` en JSON
+Cada fichero de contenido relevante incluye un bloque:
+
+```json
+"seo": {
+	"title": "Título único de la página",
+	"description": "Descripción persuasiva (≤160 caracteres recomendados)",
+	"ogImage": "/portada/portada_compressed_2.webp"
+}
+```
+
+Uso en la página Astro:
+
+```astro
+---
+import Layout from "@/layouts/Layout.astro";
+import pageData from "@data/products.json";
+const pageTitle = pageData.seo?.title;
+const pageDescription = pageData.seo?.description;
+const pageOgImage = pageData.seo?.ogImage;
+---
+<Layout title={pageTitle} description={pageDescription} ogImage={pageOgImage}>
+	<!-- contenido -->
+</Layout>
+```
+
+### 2. Layout central (`Layout.astro`)
+Genera automáticamente:
+- `<title>` con plantilla.
+- `<meta name="description">`.
+- Etiquetas Open Graph y Twitter.
+- `canonical` usando `Astro.site`.
+- JSON-LD base (`WebSite`, `LocalBusiness` / Optician y `SearchAction`).
+
+### 3. JSON-LD por página
+Se añaden scripts inline para enriquecer resultados (rich snippets):
+- `BreadcrumbList` en páginas internas.
+- `FAQPage` en la página de preguntas frecuentes.
+- `Product` y `Offer` en `products/index.astro`.
+- `Service` en `services/index.astro`.
+
+Patrón general:
+
+```astro
+<script type="application/ld+json" is:inline set:html={JSON.stringify({...})}></script>
+```
+
+### 4. Buenas prácticas aplicadas
+- Fallback de `alt` para imágenes (`product.imagePlaceholder || product.name`).
+- Precio numérico extraído para Schema (se limpia `€` y puntos para `price`).
+- Uso de `InStoreOnly` para ofertas sin venta online.
+- Redirección 301 de `www` → dominio raíz para evitar contenido duplicado.
+
+### 5. Cómo añadir nuevo Schema
+1. Identifica el tipo (`Article`, `Event`, etc.).
+2. Añade campos necesarios al JSON fuente.
+3. Inserta bloque `<script type="application/ld+json">` en la página.
+4. Valida con Rich Results Test de Google.
+
+### 6. Validación rápida
+```powershell
+npm run build
+# Abrir dist/pagina/index.html y buscar "application/ld+json"
+```
+
+## 🌐 Canonical y redirecciones
+Se fuerza la versión sin `www` mediante configuración de despliegue (ej. `vercel.json`) para consolidar señales SEO.
+
+## 🧪 Checklist antes de desplegar
+- [ ] Cada página tiene bloque `seo`.
+- [ ] Descripciones ≤160 caracteres y sin duplicados.
+- [ ] Imágenes usadas como `og:image` servidas en WebP.
+- [ ] JSON-LD válido (sin campos vacíos). 
+- [ ] Build sin errores: `npm run build`.
+
+## 🧩 Futuras mejoras sugeridas
+- Añadir `AggregateRating` si hay reseñas.
+- Implementar página de detalle de producto con `Product` + `Offer` extensos.
+- Sitemap de imágenes si el catálogo crece.
+
+---
+Si necesitas añadir nuevos tipos de contenido estructurado (Schema.org) sigue el patrón de los scripts existentes y alimenta `description`, `name`, etc. desde los JSON para mantener consistencia.

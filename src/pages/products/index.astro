@@ -477,4 +477,48 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString(
       ],
     })}
   ></script>
+  <!-- JSON-LD: Products & Offers (@graph) -->
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        // Productos destacados como Product
+        ...productsData.featuredProducts.products.map(p => {
+          // Extraer parte numérica del precio (ej: "desde 299€" -> 299)
+          const match = typeof p.price === 'string' ? p.price.replace(/\./g,'').match(/(\d+)/) : null;
+          const numPrice = match ? match[1] : null;
+          const imageUrl = Astro.site ? new URL(p.src, Astro.site).toString() : p.src;
+          return {
+            '@type': 'Product',
+            name: p.name,
+            description: p.description,
+            image: imageUrl,
+            brand: { '@type': 'Brand', name: 'Òptica Guinart' },
+            ...(numPrice ? { offers: {
+              '@type': 'Offer',
+              priceCurrency: 'EUR',
+              price: numPrice,
+              availability: 'https://schema.org/InStoreOnly',
+              url: canonical
+            }} : {})
+          };
+        }),
+        // Ofertas especiales como Offer individuales
+        ...productsData.specialOffers.offers.map(o => {
+          const match = typeof o.currentPrice === 'string' ? o.currentPrice.replace(/\./g,'').match(/(\d+)/) : null;
+          const numPrice = match ? match[1] : null;
+          return {
+            '@type': 'Offer',
+            name: o.title,
+            description: o.description,
+            ...(numPrice ? { price: numPrice, priceCurrency: 'EUR' } : {}),
+            availability: 'https://schema.org/InStoreOnly',
+            url: canonical
+          };
+        })
+      ]
+    })}
+  ></script>
 </Layout>
