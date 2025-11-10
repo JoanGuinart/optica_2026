@@ -1,11 +1,11 @@
 {
   "redirects": [
     {
-      "source": "/(.*)",
+      "source": "/:path*",
       "has": [
         { "type": "host", "value": "www.opticaguinart.com" }
       ],
-      "destination": "https://opticaguinart.com/:1",
+      "destination": "https://opticaguinart.com/:path*",
       "permanent": true
     }
   ]
