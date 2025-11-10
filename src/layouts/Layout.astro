@@ -10,9 +10,11 @@ export interface Props {
   noindex?: boolean;
 }
 
-const defaultTitle = "Òptica y Audiología Guinart Sant Andreu Barcelona";
+const defaultTitle =
+  "Óptica y Audiología Guinart · Gran de Sant Andreu 308, Barcelona";
 const defaultDescription =
-  "Òptica y audiología en Sant Andreu (Barcelona). Revisiones visuales, gafas graduadas, lentillas, adaptación de audífonos y salud auditiva con más de 25 años de experiencia.";
+  "Óptica y audiología en Gran de Sant Andreu, 308 (Barcelona). Revisiones visuales, gafas graduadas, lentillas y adaptación de audífonos con más de 25 años de experiencia en Sant Andreu.";
+
 const defaultImage = "/portada/portada_compressed_2.webp";
 
 const {
@@ -23,7 +25,8 @@ const {
 } = Astro.props as Props;
 // Title template: añade el nombre del sitio si la página tiene título personalizado
 const siteName = "Óptica Guinart";
-const fullTitle = title && title !== defaultTitle ? `${title} | ${siteName}` : title;
+const fullTitle =
+  title && title !== defaultTitle ? `${title} | ${siteName}` : title;
 // Asegurar que ogImage sea una URL absoluta cuando sea una ruta relativa y `Astro.site` esté definido
 const ogImageUrl =
   Astro.site && typeof ogImage === "string" && ogImage.startsWith("/")
@@ -61,14 +64,18 @@ const siteRoot = Astro.site
 
 // Breadcrumbs (visible + JSON-LD)
 const path = Astro.url.pathname.replace(/\/$/, "");
-const segments = path === "" || path === "/" ? [] : path.split("/").filter(Boolean);
+const segments =
+  path === "" || path === "/" ? [] : path.split("/").filter(Boolean);
 const breadcrumbs = [
   { name: "Inicio", url: siteRoot },
   ...segments.map((seg, i) => {
     const name = decodeURIComponent(seg)
       .replace(/-/g, " ")
       .replace(/\b\w/g, (c) => c.toUpperCase());
-    const url = new URL("/" + segments.slice(0, i + 1).join("/") + "/", siteRoot).toString();
+    const url = new URL(
+      "/" + segments.slice(0, i + 1).join("/") + "/",
+      siteRoot
+    ).toString();
     return { name, url };
   }),
 ];
@@ -81,8 +88,8 @@ const breadcrumbs = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- SEO Meta Tags -->
-  <title>{fullTitle}</title>
-  <meta name="description" content={description} />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
     <!-- Aunque 'keywords' ya no es determinante, mantenemos una lista semántica para buscadores secundarios -->
     <meta
       name="keywords"
@@ -99,18 +106,29 @@ const breadcrumbs = [
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-  <meta property="og:url" content={canonical} />
-  <meta property="og:title" content={fullTitle} />
-  <meta property="og:description" content={description} />
-  <meta property="og:image" content={ogImageUrl} />
-    {ogImageDims && (
-      <>
-        <meta property="og:image:width" content={String(ogImageDims.width)} />
-        <meta property="og:image:height" content={String(ogImageDims.height)} />
-        <meta name="twitter:image:width" content={String(ogImageDims.width)} />
-        <meta name="twitter:image:height" content={String(ogImageDims.height)} />
-      </>
-    )}
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    {
+      ogImageDims && (
+        <>
+          <meta property="og:image:width" content={String(ogImageDims.width)} />
+          <meta
+            property="og:image:height"
+            content={String(ogImageDims.height)}
+          />
+          <meta
+            name="twitter:image:width"
+            content={String(ogImageDims.width)}
+          />
+          <meta
+            name="twitter:image:height"
+            content={String(ogImageDims.height)}
+          />
+        </>
+      )
+    }
     <meta property="og:site_name" content="Óptica Guinart" />
     <meta property="og:locale" content="es_ES" />
 
@@ -121,12 +139,17 @@ const breadcrumbs = [
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={ogImageUrl} />
     <!-- Twitter site/creator (si se dispone) -->
-    {contactData?.socialMedia?.instagram?.text && (
-      <meta name="twitter:creator" content={contactData.socialMedia.instagram.text} />
-    )}
+    {
+      contactData?.socialMedia?.instagram?.text && (
+        <meta
+          name="twitter:creator"
+          content={contactData.socialMedia.instagram.text}
+        />
+      )
+    }
 
     <!-- Canonical URL -->
-  <link rel="canonical" href={canonical} />
+    <link rel="canonical" href={canonical} />
 
     <!-- Favicon y otros -->
     <!-- Añadimos un parámetro de versión para forzar actualización en cachés (Google favicon cache) -->
@@ -135,7 +158,7 @@ const breadcrumbs = [
     <link rel="mask-icon" href="/favicon.svg" color="#065f46" />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#065f46" />
-  <meta name="format-detection" content="telephone=no,address=no,email=no" />
+    <meta name="format-detection" content="telephone=no,address=no,email=no" />
     <link rel="alternate" hreflang="es-ES" href={canonical} />
 
     <!-- Preload critical resources -->
@@ -152,11 +175,11 @@ const breadcrumbs = [
     <!-- DNS prefetch y preconnect para recursos externos -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Web App Manifest & Icons -->
-  <link rel="manifest" href="/manifest.webmanifest" />
-  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
-  <link rel="icon" sizes="192x192" href="/icons/icon-192.png" />
-  <link rel="icon" sizes="512x512" href="/icons/icon-512.png" />
+    <!-- Web App Manifest & Icons -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <link rel="icon" sizes="192x192" href="/icons/icon-192.png" />
+    <link rel="icon" sizes="512x512" href="/icons/icon-512.png" />
 
     <!-- CSS crítico optimizado - Astro maneja el resto automáticamente -->
 
@@ -232,7 +255,9 @@ const breadcrumbs = [
             "@type": "ContactPoint",
             telephone:
               "+" +
-              (contactData.socialMedia.whatsapp.url.match(/wa\.me\/(\d+)/)?.[1] ||
+              (contactData.socialMedia.whatsapp.url.match(
+                /wa\.me\/(\d+)/
+              )?.[1] ||
                 contactData.contactInfo.phone.display.replace(/\D/g, "")),
             contactType: "customer service",
             areaServed: "ES",
@@ -261,41 +286,54 @@ const breadcrumbs = [
       })}
     />
     <!-- BreadcrumbList Structured Data -->
-    {breadcrumbs.length > 1 && (
-      <script
-        type="application/ld+json"
-        is:inline
-        set:html={JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: breadcrumbs.map((b, idx) => ({
-            "@type": "ListItem",
-            position: idx + 1,
-            name: b.name,
-            item: b.url,
-          })),
-        })}
-      />
-    )}
+    {
+      breadcrumbs.length > 1 && (
+        <script
+          type="application/ld+json"
+          is:inline
+          set:html={JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: breadcrumbs.map((b, idx) => ({
+              "@type": "ListItem",
+              position: idx + 1,
+              name: b.name,
+              item: b.url,
+            })),
+          })}
+        />
+      )
+    }
   </head>
   <body class="bg-white text-slate-900 transition-colors duration-300">
     <!-- Navbar crítico carga inmediatamente para LCP -->
     <NavbarClient client:load />
-    {breadcrumbs.length > 1 && (
-      <nav aria-label="Breadcrumb" class="px-4 py-2 text-sm text-slate-600">
-        <ol class="flex flex-wrap gap-1">
-          {breadcrumbs.map((b, i) => (
-            <li class="flex items-center" typeof="ListItem" property="itemListElement">
-              <a href={b.url} class="hover:text-emerald-700 font-medium" property="item" typeof="WebPage">
-                <span property="name">{b.name}</span>
-              </a>
-              <meta property="position" content={String(i + 1)} />
-              {i < breadcrumbs.length - 1 && <span class="mx-1">/</span>}
-            </li>
-          ))}
-        </ol>
-      </nav>
-    )}
+    {
+      breadcrumbs.length > 1 && (
+        <nav aria-label="Breadcrumb" class="px-4 py-2 text-sm text-slate-600">
+          <ol class="flex flex-wrap gap-1">
+            {breadcrumbs.map((b, i) => (
+              <li
+                class="flex items-center"
+                typeof="ListItem"
+                property="itemListElement"
+              >
+                <a
+                  href={b.url}
+                  class="hover:text-emerald-700 font-medium"
+                  property="item"
+                  typeof="WebPage"
+                >
+                  <span property="name">{b.name}</span>
+                </a>
+                <meta property="position" content={String(i + 1)} />
+                {i < breadcrumbs.length - 1 && <span class="mx-1">/</span>}
+              </li>
+            ))}
+          </ol>
+        </nav>
+      )
+    }
     <main>
       <slot />
     </main>
