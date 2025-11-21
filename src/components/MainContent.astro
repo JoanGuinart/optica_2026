@@ -1,6 +1,33 @@
 ---
+import { getSpecialOffersPortada } from "@/lib/strapi";
 import mainContentData from "@data/main-content.json";
 import ui from "@data/ui.json";
+
+const apiOffers = await getSpecialOffersPortada();
+
+interface OfferMerged {
+  badge: string;
+  badge_color: string;
+  title: string;
+  description: string;
+  price_from: string;
+  subtitle?: string;
+  iconPath: string;
+  buttonText: string;
+  url: string;
+}
+
+// Merge API data with static config from JSON
+const offersMainContent: OfferMerged[] = apiOffers.map((apiOffer: any, index: number) => {
+  const staticConfig = mainContentData.specialOffers.offers[index] || mainContentData.specialOffers.offers[0];
+  return {
+    ...apiOffer,
+    iconPath: staticConfig.iconPath,
+    buttonText: staticConfig.buttonText,
+    url: staticConfig.url,
+  };
+});
+
 ---
 
 <section
@@ -30,11 +57,12 @@ import ui from "@data/ui.json";
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 items-stretch"
       >
         {
-          mainContentData.specialOffers.offers.map((offer) => (
+          offersMainContent.map((offer) => (
             <div class="relative group h-full">
               <div class="bg-white/90  backdrop-blur-md rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-emerald-500/40  overflow-hidden hover:bg-white  h-full flex flex-col">
                 <div
-                  class={`absolute top-4 right-4 bg-${offer.badgeColor === "emerald" ? "emerald-700 " : offer.badgeColor + "-600"} text-white px-3 py-1 rounded-full text-sm font-bold`}
+                  class={`absolute top-4 right-4 text-white px-3 py-1 rounded-full text-sm font-bold`}
+                  style={`background-color: ${offer.badge_color};`}
                 >
                   {offer.badge}
                 </div>
@@ -62,21 +90,16 @@ import ui from "@data/ui.json";
                   </p>
                   <div class="text-center mb-6">
                     <span class="text-3xl font-black text-emerald-600 ">
-                      {offer.currentPrice}
+                      {offer.price_from}
                     </span>
-                    {offer.originalPrice && (
-                      <span class="text-lg text-slate-500 line-through ml-2">
-                        {offer.originalPrice}
-                      </span>
-                    )}
-                    {offer.priceNote && (
+                    {offer.subtitle && (
                       <span class="text-sm text-slate-500  block">
-                        {offer.priceNote}
+                        {offer.subtitle}
                       </span>
                     )}
                   </div>
                     <a href={offer.url} target="_blank" rel="noopener noreferrer" class="w-full mt-auto text-center bg-emerald-700  hover:bg-emerald-800  text-white py-3 rounded-lg font-bold transition-colors duration-300 shadow-lg">
-                    {offer.buttonText || ui.cta.saberMas}
+                    {offer.buttonText}
                   </a>
                 </div>
               </div>
