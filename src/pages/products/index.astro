@@ -1,5 +1,9 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import {
+  getPrincipalOfferProducts,
+  getSpecialOffersProducts,
+} from "@/lib/strapi";
 import productsData from "@data/products.json";
 import { Image } from "astro:assets";
 
@@ -7,8 +11,28 @@ const pageTitle = productsData.seo?.title;
 const pageDescription = productsData.seo?.description;
 const pageOgImage = productsData.seo?.ogImage;
 // Canonical URL for this page
-const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : new URL(Astro.url.pathname, 'http://localhost').toString();
+const canonical = Astro.site
+  ? new URL(Astro.url.pathname, Astro.site).toString()
+  : new URL(Astro.url.pathname, "http://localhost").toString();
+
+const ofertaPrincipal = await getPrincipalOfferProducts();
+
+const apiProductsOffers = await getSpecialOffersProducts();
+
+// Merge API offers with static config from JSON (buttonText, conditions, details)
+const productsOffers = apiProductsOffers.map((apiOffer: any, index: number) => {
+  const staticConfig =
+    productsData.specialOffers.offers[index] ||
+    productsData.specialOffers.offers[0];
+  return {
+    ...apiOffer,
+    buttonText: staticConfig.buttonText,
+    conditions: staticConfig.conditions,
+    details: staticConfig.details,
+  };
+});
 ---
+
 <Layout title={pageTitle} description={pageDescription} ogImage={pageOgImage}>
   <section
     class="bg-gradient-to-b from-slate-100 via-gray-50 to-slate-100 min-h-screen pt-20 sm:pt-24 lg:pt-28"
@@ -40,18 +64,18 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString(
                       d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
                     ></path>
                   </svg>
-                  {productsData.hero.badge.text}
+                  {ofertaPrincipal.badge}
                 </div>
                 <h1
                   class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-800 mb-6 leading-tight"
                 >
-                  {productsData.hero.title.main}
-                  <span class="text-emerald-600"
+                  {ofertaPrincipal.title}
+                  <!-- <span class="text-emerald-600"
                     >{productsData.hero.title.highlight}</span
-                  >
+                  > -->
                 </h1>
                 <p class="text-xl text-gray-600 mb-8 leading-relaxed">
-                  {productsData.hero.description}
+                  {ofertaPrincipal.description}
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
                   {
@@ -71,7 +95,7 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString(
                         </a>
                       ) : (
                         <a
-                          href="https://www.youtube.com/watch?v=E1LW_MteTho"
+                          href={ofertaPrincipal.link}
                           target="_blank"
                           rel="noopener noreferrer"
                           class="inline-flex items-center justify-center border-2 border-gray-300 hover:border-gray-400 hover:bg-gray-50 text-gray-600 hover:text-gray-700 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
@@ -231,7 +255,7 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString(
 
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {
-              productsData.specialOffers.offers.map((offer) => (
+              productsOffers.map((offer: any, index: number) => (
                 <div class="relative group h-full">
                   <div class="bg-white/95 backdrop-blur-md rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-emerald-500 overflow-hidden hover:bg-white h-full flex flex-col">
                     <div class="absolute top-4 sm:right-4 w-fit sm:left-auto left-4 right-auto bg-emerald-600 text-white px-4 py-2 rounded-full text-lg font-bold shadow-lg">
@@ -266,18 +290,13 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString(
                         <p class="text-slate-600 mb-4">{offer.description}</p>
                         <div class="flex items-center gap-3 mb-4">
                           <span class="text-3xl font-black text-emerald-600">
-                            {offer.currentPrice}
+                            {offer.price_or_gift}
                           </span>
-                          {offer.originalPrice && (
-                            <span class="text-xl text-slate-500 line-through">
-                              {offer.originalPrice}
-                            </span>
-                          )}
                         </div>
-                        {offer.id === 1 || offer.id === 4 ? (
+                        {index === 0 || index === 3 ? (
                           <a
                             href={
-                              offer.id === 1
+                              index === 0
                                 ? "https://wa.me/34682502960?text=" +
                                   encodeURIComponent(
                                     "saber mas: oferta montura + lentes graduadas"
@@ -297,16 +316,13 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString(
                           <button
                             class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-bold transition-colors duration-300 shadow-lg hover:shadow-xl"
                             data-offer-content={
-                              offer.id === 3
+                              index === 2
                                 ? "Esta sección estará disponible muy pronto."
-                                : offer.buttonText.includes("DETALLES") ||
-                                    offer.buttonText.includes("CONDICIONES")
-                                  ? offer.buttonText.includes("CONDICIONES")
-                                    ? offer.conditions ||
-                                      offer.details ||
-                                      offer.description
-                                    : offer.details || offer.description
-                                  : undefined
+                                : index === 1
+                                  ? offer.conditions ||
+                                    offer.details ||
+                                    offer.description
+                                  : offer.details || offer.description
                             }
                           >
                             {offer.buttonText}
@@ -469,56 +485,78 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString(
     type="application/ld+json"
     is:inline
     set:html={JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Inicio', item: Astro.site ? new URL('/', Astro.site).toString() : '/' },
-        { '@type': 'ListItem', position: 2, name: 'Productos', item: canonical },
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Inicio",
+          item: Astro.site ? new URL("/", Astro.site).toString() : "/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Productos",
+          item: canonical,
+        },
       ],
     })}
-  ></script>
+  />
   <!-- JSON-LD: Products & Offers (@graph) -->
   <script
     type="application/ld+json"
     is:inline
     set:html={JSON.stringify({
-      '@context': 'https://schema.org',
-      '@graph': [
+      "@context": "https://schema.org",
+      "@graph": [
         // Productos destacados como Product
-        ...productsData.featuredProducts.products.map(p => {
+        ...productsData.featuredProducts.products.map((p) => {
           // Extraer parte numérica del precio (ej: "desde 299€" -> 299)
-          const match = typeof p.price === 'string' ? p.price.replace(/\./g,'').match(/(\d+)/) : null;
+          const match =
+            typeof p.price === "string"
+              ? p.price.replace(/\./g, "").match(/(\d+)/)
+              : null;
           const numPrice = match ? match[1] : null;
-          const imageUrl = Astro.site ? new URL(p.src, Astro.site).toString() : p.src;
+          const imageUrl = Astro.site
+            ? new URL(p.src, Astro.site).toString()
+            : p.src;
           return {
-            '@type': 'Product',
+            "@type": "Product",
             name: p.name,
             description: p.description,
             image: imageUrl,
-            brand: { '@type': 'Brand', name: 'Òptica Guinart' },
-            ...(numPrice ? { offers: {
-              '@type': 'Offer',
-              priceCurrency: 'EUR',
-              price: numPrice,
-              availability: 'https://schema.org/InStoreOnly',
-              url: canonical
-            }} : {})
+            brand: { "@type": "Brand", name: "Òptica Guinart" },
+            ...(numPrice
+              ? {
+                  offers: {
+                    "@type": "Offer",
+                    priceCurrency: "EUR",
+                    price: numPrice,
+                    availability: "https://schema.org/InStoreOnly",
+                    url: canonical,
+                  },
+                }
+              : {}),
           };
         }),
         // Ofertas especiales como Offer individuales
-        ...productsData.specialOffers.offers.map(o => {
-          const match = typeof o.currentPrice === 'string' ? o.currentPrice.replace(/\./g,'').match(/(\d+)/) : null;
+        ...productsOffers.map((o: any) => {
+          const match =
+            typeof o.price_or_gift === "string"
+              ? o.price_or_gift.replace(/\./g, "").match(/(\d+)/)
+              : null;
           const numPrice = match ? match[1] : null;
           return {
-            '@type': 'Offer',
+            "@type": "Offer",
             name: o.title,
             description: o.description,
-            ...(numPrice ? { price: numPrice, priceCurrency: 'EUR' } : {}),
-            availability: 'https://schema.org/InStoreOnly',
-            url: canonical
+            ...(numPrice ? { price: numPrice, priceCurrency: "EUR" } : {}),
+            availability: "https://schema.org/InStoreOnly",
+            url: canonical,
           };
-        })
-      ]
+        }),
+      ],
     })}
-  ></script>
+  />
 </Layout>

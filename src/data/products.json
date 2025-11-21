@@ -164,55 +164,19 @@
     "subtitle": "Aprovecha nuestros descuentos limitados",
     "offers": [
       {
-        "id": 1,
-        "badge": "Oferta",
-        "badgeColor": "red",
-        "icon": "glasses",
-        "title": "Montura + Lentes Graduadas",
-        "description": "Montura completa con lentes graduadas antireflejantes o de sol incluidas",
-        "currentPrice": "75€",
-        "originalPrice": null,
         "buttonText": "Saber más",
-        "buttonColor": "red",
         "details": "Incluye montura y lentes con tratamiento antirreflejante o lentes de sol."
       },
       {
-        "id": 2,
-        "badge": "Pack",
-        "badgeColor": "orange",
-        "icon": "glasses",
-        "title": "Gafa Fila + Lentes Antireflejantes",
-        "description": "Gafa Fila completa con lentes antireflejantes monofocales* incluidas",
-        "currentPrice": "109€",
-        "originalPrice": null,
         "buttonText": "Ver condiciones",
-        "buttonColor": "orange",
         "details": "Pack con lentes monofocales antirreflejantes. Revisa las condiciones.",
         "conditions": "*Esfera hasta ±6.00 y cilindro hasta -4.00"
       },
       {
-        "id": 3,
-        "badge": "Regalo",
-        "badgeColor": "green",
-        "icon": "gift",
-        "title": "Cargador de Regalo",
-        "description": "Llévate un cargador completamente gratis al comprar dos audífonos recargables",
-        "currentPrice": "Cargador gratis",
-        "originalPrice": null,
-        "buttonText": "Ver audífonos",
-        "buttonColor": "green"
+        "buttonText": "Ver audífonos"
       },
       {
-        "id": 4,
-        "badge": "2x1",
-        "badgeColor": "purple",
-        "icon": "glasses",
-        "title": "Lentes Progresivas 2x1",
-        "description": "Dos lentes progresivas de alta gama por el precio de una, máxima calidad visual",
-        "currentPrice": "desde 299€",
-        "originalPrice": null,
-        "buttonText": "Consultar oferta",
-        "buttonColor": "purple"
+        "buttonText": "Consultar oferta"
       }
     ]
   },
