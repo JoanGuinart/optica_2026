@@ -3,30 +3,28 @@ import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import { fileURLToPath, URL } from "node:url";
-
 import react from "@astrojs/react";
+import vercelAdapter from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
-  // Domain principal del sitio para generar URLs canónicas y metadata absoluta
-  // TODO: Sustituir si el dominio final es diferente
-  site: 'https://opticaguinart.com',
+  // Dominio principal del sitio para generar URLs canónicas y metadata absoluta
+  site: "https://opticaguinart.com",
   devToolbar: {
     enabled: false,
   },
   build: {
-    // Optimizaciones de minificación y compresión
-    inlineStylesheets: 'auto',
+    inlineStylesheets: "auto",
   },
   compressHTML: true,
   vite: {
+    // @ts-ignore - Vite plugin type mismatch between Astro internal and @tailwindcss/vite
     plugins: [tailwindcss()],
     build: {
-      // Configuración avanzada de minificación
-      minify: 'terser',
+      minify: "terser",
       terserOptions: {
         compress: {
-          drop_console: true, // Eliminar console.log en producción
+          drop_console: true,
           drop_debugger: true,
           dead_code: true,
           unused: true,
@@ -35,16 +33,14 @@ export default defineConfig({
           safari10: true,
         },
       },
-      // Optimización de chunks para mejor caching
       rollupOptions: {
         output: {
           manualChunks: {
-            'react-vendor': ['react', 'react-dom'],
+            "react-vendor": ["react", "react-dom"],
           },
         },
       },
-      // Compresión y optimización de assets
-      assetsInlineLimit: 4096, // Inline small assets
+      assetsInlineLimit: 4096,
     },
     resolve: {
       alias: {
@@ -66,4 +62,6 @@ export default defineConfig({
     },
   },
   integrations: [react(), sitemap()],
+  output: "server", // 🔹 Cambiado a SSR
+  adapter: vercelAdapter(), // 🔹 Adaptador SSR para Vercel
 });
