@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://opticaguinart.com/sitemap-index.xml

@@ -1,0 +1,18 @@
+* text=auto
+
+# Enforce LF for source and web assets
+*.js   text eol=lf
+*.mjs  text eol=lf
+*.jsx  text eol=lf
+*.ts   text eol=lf
+*.tsx  text eol=lf
+*.css  text eol=lf
+*.scss text eol=lf
+*.html text eol=lf
+*.astro text eol=lf
+*.json text eol=lf
+*.md   text eol=lf
+*.sh   text eol=lf
+
+# Keep Windows line endings for batch scripts
+*.bat  text eol=crlf
