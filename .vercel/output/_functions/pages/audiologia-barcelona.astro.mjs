@@ -1,0 +1,108 @@
+import { c as createAstro, a as createComponent, r as renderComponent, b as renderTemplate, u as unescapeHTML, d as addAttribute, m as maybeRenderHead } from '../chunks/astro/server_Bigw0NEF.mjs';
+import 'piccolore';
+import { $ as $$Layout, c as contactData } from '../chunks/Layout_Cza0hYEJ.mjs';
+import { u as ui } from '../chunks/ui_CoScT6KI.mjs';
+export { renderers } from '../renderers.mjs';
+
+const seo = {"title":"Audiología Barcelona | Audífonos y Audiometrías | Òptica Guinart","description":"Centro de audiología en Barcelona: audiometrías gratuitas, adaptación de audífonos digitales y revisiones auditivas. +25 años cuidando tu salud auditiva en Sant Andreu.","ogImage":"/portada/portada_compressed_2.webp"};
+const hero = {"badge":"Audiología profesional en Barcelona","title":{"line1":{"text":"Audiología en","highlight":"Barcelona"},"line2":{"text":"Cuida tu audición"}},"subtitle":"+25 años de experiencia en Sant Andreu. Audiometrías gratuitas, adaptación de audífonos digitales y revisiones auditivas profesionales."};
+const services = [{"title":"Audiometría completa","description":"Prueba auditiva profesional gratuita para evaluar tu capacidad auditiva y detectar pérdidas tempranas.","iconPath":"M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"},{"title":"Adaptación de audífonos","description":"Ajuste personalizado de audífonos digitales de última generación: discretos, recargables y con tecnología Bluetooth.","iconPath":"M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"},{"title":"Mantenimiento y revisiones","description":"Limpieza profesional, ajustes, cambio de pilas y revisiones periódicas para mantener tus audífonos en perfecto estado.","iconPath":"M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"},{"title":"Protección auditiva","description":"Tapones a medida para músicos, trabajadores y natación. Protege tu audición del ruido y el agua.","iconPath":"M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"}];
+const benefits = [{"title":"Audiometría gratuita","icon":"✓"},{"title":"Audífonos recargables","icon":"🔋"},{"title":"Ajuste personalizado","icon":"👂"},{"title":"Garantía y seguimiento","icon":"🛡️"},{"title":"Tecnología Bluetooth","icon":"📱"},{"title":"Modelos discretos","icon":"🔇"}];
+const faqs = [{"q":"¿La audiometría es gratuita?","a":"Sí, realizamos audiometrías gratuitas sin compromiso para evaluar tu salud auditiva."},{"q":"¿Cuánto cuestan los audífonos?","a":"Disponemos de audífonos desde 600€ hasta modelos premium de 2.500€. El precio depende de la tecnología y prestaciones. Te asesoramos según tu caso."},{"q":"¿Los audífonos son visibles?","a":"Contamos con modelos intracanales prácticamente invisibles y retroauriculares muy discretos. Te mostramos todas las opciones."},{"q":"¿Qué garantía tienen?","a":"Los audífonos incluyen garantía del fabricante (2-5 años según modelo) y nuestro seguimiento profesional sin coste adicional."},{"q":"¿Dónde estamos?","a":"En Carrer Gran de Sant Andreu, 308, Barcelona (barrio de Sant Andreu). Metro: Sant Andreu."},{"q":"¿Necesito cita previa?","a":"Para audiometrías y adaptación de audífonos, recomendamos cita previa para asegurar atención personalizada."}];
+const cta = {"title":"Cuida tu salud auditiva hoy","subtitle":"Pide tu audiometría gratuita y descubre cómo podemos ayudarte","primary":"Pedir cita gratuita","secondary":"Llamar ahora"};
+const pageData = {
+  seo,
+  hero,
+  services,
+  benefits,
+  faqs,
+  cta,
+};
+
+var __freeze = Object.freeze;
+var __defProp = Object.defineProperty;
+var __template = (cooked, raw) => __freeze(__defProp(cooked, "raw", { value: __freeze(cooked.slice()) }));
+var _a;
+const $$Astro = createAstro("https://opticaguinart.com");
+const $$Index = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
+  Astro2.self = $$Index;
+  const pageTitle = pageData.seo.title;
+  const pageDescription = pageData.seo.description;
+  const pageOgImage = pageData.seo.ogImage;
+  const canonical = Astro2.site ? new URL(Astro2.url.pathname, Astro2.site).toString() : Astro2.url;
+  const services = pageData.services;
+  const benefits = pageData.benefits;
+  const faqs = pageData.faqs;
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": pageTitle, "description": pageDescription, "ogImage": pageOgImage }, { "default": ($$result2) => renderTemplate(_a || (_a = __template([" ", '<main class="min-h-screen"> <!-- Hero --> <section class="relative py-20 sm:py-28 bg-gradient-to-br from-blue-50 via-white to-emerald-50 overflow-hidden"> <div class="absolute inset-0 opacity-5"> <div class="absolute top-20 left-10 w-72 h-72 bg-emerald-500 rounded-full blur-3xl"></div> <div class="absolute bottom-20 right-10 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div> </div> <div class="relative max-w-7xl mx-auto px-6 text-center"> <div class="inline-flex items-center px-4 py-2 bg-blue-600/10 text-blue-700 rounded-full text-sm font-semibold mb-8 border border-blue-600/20"> <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"></path></svg> ', ' </div> <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 mb-6 leading-tight"> ', ' <span class="text-blue-600">', '</span><br> <span class="text-emerald-600">', '</span> </h1> <p class="text-xl sm:text-2xl text-slate-600 mb-8 max-w-3xl mx-auto leading-relaxed"> ', ' </p> <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12"> <a', ' target="_blank" class="inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg transition-all hover:shadow-xl hover:scale-105"> <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"></path></svg> ', " </a> <a", ' class="inline-flex items-center justify-center bg-white hover:bg-slate-50 text-slate-900 px-8 py-4 rounded-xl font-bold text-lg shadow-lg border-2 border-slate-200 transition-all hover:shadow-xl"> <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> ', ' </a> </div> <!-- Beneficios destacados --> <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-5xl mx-auto"> ', ' </div> <p class="text-slate-600 mt-6">\n\xBFBuscas informaci\xF3n espec\xEDfica sobre modelos? Consulta nuestra p\xE1gina de\n<a href="/audifonos-barcelona" class="text-emerald-700 font-semibold hover:underline">aud\xEDfonos en Barcelona</a>.\n</p> </div> </section> <!-- Servicios de Audiolog\xEDa --> <section class="py-16 bg-white"> <div class="max-w-7xl mx-auto px-6"> <div class="text-center mb-12"> <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mb-4">\nServicios de <span class="text-blue-600">Audiolog\xEDa</span> </h2> <p class="text-lg text-slate-600 max-w-2xl mx-auto">\nAtenci\xF3n profesional integral para tu salud auditiva\n</p> </div> <div class="grid md:grid-cols-2 gap-8"> ', ' </div> </div> </section> <!-- Por qu\xE9 elegirnos --> <section class="py-16 bg-gradient-to-br from-blue-50 to-emerald-50"> <div class="max-w-7xl mx-auto px-6"> <div class="text-center mb-12"> <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mb-4">\n\xBFPor qu\xE9 elegir <span class="text-emerald-600">\xD3ptica Guinart</span>?\n</h2> </div> <div class="grid md:grid-cols-3 gap-8"> <div class="bg-white rounded-2xl p-8 text-center shadow-lg"> <div class="text-5xl mb-4">\u{1F3C6}</div> <h3 class="text-xl font-bold text-slate-900 mb-3">+25 a\xF1os de experiencia</h3> <p class="text-slate-600">Profesionales cualificados en audiolog\xEDa y salud auditiva</p> </div> <div class="bg-white rounded-2xl p-8 text-center shadow-lg"> <div class="text-5xl mb-4">\u{1F3AF}</div> <h3 class="text-xl font-bold text-slate-900 mb-3">Atenci\xF3n personalizada</h3> <p class="text-slate-600">Seguimiento continuo y ajustes sin coste adicional</p> </div> <div class="bg-white rounded-2xl p-8 text-center shadow-lg"> <div class="text-5xl mb-4">\u{1F48E}</div> <h3 class="text-xl font-bold text-slate-900 mb-3">Tecnolog\xEDa avanzada</h3> <p class="text-slate-600">Aud\xEDfonos digitales de \xFAltima generaci\xF3n y equipamiento profesional</p> </div> </div> </div> </section> <!-- D\xF3nde estamos (NAP + Mapa) --> <section class="py-16 bg-white"> <div class="max-w-7xl mx-auto px-6"> <div class="text-center mb-12"> <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mb-4">\nVis\xEDtanos en <span class="text-blue-600">Barcelona</span> </h2> <p class="text-lg text-slate-600">Centro de audiolog\xEDa en Sant Andreu</p> </div> <div class="grid lg:grid-cols-2 gap-8 items-start"> <!-- Informaci\xF3n de contacto --> <div class="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-8 border border-slate-200 space-y-6"> <div class="flex items-start space-x-4"> <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0"> <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg> </div> <div> <h3 class="font-bold text-slate-900 mb-1">Direcci\xF3n</h3> <p class="text-slate-600">', '</p> <p class="text-slate-600">', '</p> <p class="text-sm text-blue-600 mt-2">\u{1F687} Metro: Sant Andreu</p> </div> </div> <div class="flex items-start space-x-4"> <div class="w-12 h-12 bg-emerald-600 rounded-lg flex items-center justify-center flex-shrink-0"> <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> </div> <div> <h3 class="font-bold text-slate-900 mb-1">Tel\xE9fono</h3> <a', ' class="text-slate-600 hover:text-emerald-600 transition-colors"> ', ' </a> </div> </div> <div class="flex items-start space-x-4"> <div class="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center flex-shrink-0"> <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> </div> <div> <h3 class="font-bold text-slate-900 mb-1">Horario</h3> <p class="text-slate-600 text-sm">', '</p> <p class="text-slate-600 text-sm">', '</p> <p class="text-slate-500 text-sm mt-1">', "</p> </div> </div> <a", ' target="_blank" class="block w-full bg-emerald-600 hover:bg-emerald-700 text-white text-center py-4 rounded-xl font-bold transition-colors shadow-lg">\n\u{1F4AC} ', ' </a> </div> <!-- Mapa --> <div class="rounded-2xl overflow-hidden shadow-lg border border-slate-200 h-[400px] lg:h-full"> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.4447!2d2.1896759669114636!3d41.43713194467858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDI2JzEzLjciTiAywrAxMScyMi44IkU!5e0!3m2!1ses!2ses!4v1234567890" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicaci\xF3n de \xD3ptica Guinart en Barcelona"></iframe> </div> </div> </div> </section> <!-- FAQs --> <section class="py-16 bg-slate-50"> <div class="max-w-4xl mx-auto px-6"> <div class="text-center mb-12"> <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mb-4">\nPreguntas <span class="text-blue-600">Frecuentes</span> </h2> <p class="text-lg text-slate-600">Resuelve tus dudas sobre audiolog\xEDa y aud\xEDfonos</p> </div> <div class="space-y-4"> ', ' </div> </div> </section> <!-- CTA Final --> <section class="py-16 bg-gradient-to-r from-blue-600 to-emerald-600"> <div class="max-w-4xl mx-auto px-6 text-center text-white"> <h2 class="text-3xl sm:text-4xl font-black mb-6"> ', ' </h2> <p class="text-xl mb-8 opacity-90"> ', ' </p> <div class="flex flex-col sm:flex-row gap-4 justify-center"> <a', ' target="_blank" class="inline-flex items-center justify-center bg-white text-blue-700 px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:bg-slate-50 transition-all"> <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"></path></svg> ', " </a> <a", ' class="inline-flex items-center justify-center bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 rounded-xl font-bold text-lg border-2 border-white/20 transition-all"> <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> ', ' </a> </div> </div> </section> <!-- JSON-LD: Breadcrumbs --> <script type="application/ld+json">', '<\/script> <!-- JSON-LD: Service (Audiolog\xEDa) --> <script type="application/ld+json">', "<\/script> </main> "])), maybeRenderHead(), pageData.hero.badge, pageData.hero.title.line1.text, pageData.hero.title.line1.highlight, pageData.hero.title.line2.text, pageData.hero.subtitle, addAttribute(contactData.socialMedia.whatsapp.url, "href"), pageData.cta.primary, addAttribute(`tel:${contactData.contactInfo.phone.display.replace(/\s+/g, "")}`, "href"), pageData.cta.secondary, benefits.map((benefit) => renderTemplate`<div class="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-slate-200 shadow-sm hover:shadow-md transition-shadow"> <div class="text-3xl mb-2">${benefit.icon}</div> <p class="text-sm font-semibold text-slate-700">${benefit.title}</p> </div>`), services.map((service) => renderTemplate`<div class="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-8 border border-slate-200 hover:border-blue-300 hover:shadow-xl transition-all"> <div class="w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center mb-6 shadow-lg"> <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"${addAttribute(service.iconPath, "d")}></path> </svg> </div> <h3 class="text-2xl font-bold text-slate-900 mb-4">${service.title}</h3> <p class="text-slate-600 leading-relaxed">${service.description}</p> </div>`), contactData.contactInfo.address.street, contactData.contactInfo.address.city, addAttribute(`tel:${contactData.contactInfo.phone.display.replace(/\s+/g, "")}`, "href"), contactData.contactInfo.phone.display, contactData.contactInfo.hours.weekdays, contactData.contactInfo.hours.saturday, contactData.contactInfo.hours.sunday, addAttribute(contactData.socialMedia.whatsapp.url, "href"), ui.cta.whatsapp, faqs.map((faq) => renderTemplate`<div class="bg-white rounded-xl shadow-md border border-slate-200"> <details class="group"> <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-slate-50 rounded-xl transition-colors"> <h3 class="text-lg font-semibold text-slate-900 pr-4">${faq.q}</h3> <svg class="w-5 h-5 text-blue-600 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> </svg> </summary> <div class="px-6 pb-6"> <p class="text-slate-600 leading-relaxed">${faq.a}</p> </div> </details> </div>`), pageData.cta.title, pageData.cta.subtitle, addAttribute(contactData.socialMedia.whatsapp.url, "href"), pageData.cta.primary, addAttribute(`tel:${contactData.contactInfo.phone.display.replace(/\s+/g, "")}`, "href"), pageData.cta.secondary, unescapeHTML(JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: Astro2.site ? new URL("/", Astro2.site).toString() : "/" },
+      { "@type": "ListItem", position: 2, name: "Audiolog\xEDa Barcelona", item: canonical }
+    ]
+  })), unescapeHTML(JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "@id": canonical + "#audiologia",
+    name: "Audiolog\xEDa Barcelona - \xD3ptica Guinart",
+    description: pageDescription,
+    url: canonical,
+    telephone: contactData.contactInfo.phone.display.replace(/\s+/g, "").replace(/^\+34/, "+34 "),
+    email: contactData.contactInfo.email.address,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: contactData.contactInfo.address.street,
+      addressLocality: "Barcelona",
+      addressRegion: "Catalu\xF1a",
+      postalCode: "08030",
+      addressCountry: "ES"
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 41.4372,
+      longitude: 2.1896
+    },
+    areaServed: [
+      { "@type": "City", name: "Barcelona" },
+      { "@type": "City", name: "Sant Andreu" }
+    ],
+    hasMap: contactData.contactInfo.address.googleMaps,
+    priceRange: "\u20AC\u20AC-\u20AC\u20AC\u20AC",
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "09:30",
+        closes: "13:30"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "17:00",
+        closes: "20:30"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Saturday",
+        opens: "10:00",
+        closes: "13:30"
+      }
+    ],
+    medicalSpecialty: "Audiolog\xEDa"
+  }))) })}`;
+}, "C:/Users/guina/OneDrive/Escritorio/optica-web-2026/src/pages/audiologia-barcelona/index.astro", void 0);
+
+const $$file = "C:/Users/guina/OneDrive/Escritorio/optica-web-2026/src/pages/audiologia-barcelona/index.astro";
+const $$url = "/audiologia-barcelona";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$Index,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };
