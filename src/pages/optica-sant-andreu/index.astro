@@ -151,5 +151,22 @@ const faqs = pageData.faqs.map(f => {
         url: canonical,
       })}
     ></script>
+    <!-- FAQPage Structured Data for rich results -->
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: f.a,
+          },
+        })),
+      })}
+    ></script>
   </main>
 </Layout>

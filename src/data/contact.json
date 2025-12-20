@@ -65,6 +65,10 @@
       "color": "red"
     }
   },
+  "reviews": {
+    "average": 4.9,
+    "count": 26
+  },
   "form": {
     "title": "Envíanos un mensaje",
     "subtitle": "Completa el formulario y te responderemos lo antes posible",

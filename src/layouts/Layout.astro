@@ -26,8 +26,12 @@ const {
 } = Astro.props as Props;
 // Title template: añade el nombre del sitio si la página tiene título personalizado
 const siteName = "Óptica Guinart";
+// Evitar duplicar la marca si ya está presente en el título
+const brandInTitle = title?.toLowerCase().includes(siteName.toLowerCase());
 const fullTitle =
-  title && title !== defaultTitle ? `${title} | ${siteName}` : title;
+  title && title !== defaultTitle && !brandInTitle
+    ? `${title} | ${siteName}`
+    : title;
 // Asegurar que ogImage sea una URL absoluta cuando sea una ruta relativa y `Astro.site` esté definido
 const ogImageUrl =
   Astro.site && typeof ogImage === "string" && ogImage.startsWith("/")
@@ -43,6 +47,9 @@ const sameAs = [
   contactData?.socialMedia?.facebook?.url,
   contactData?.socialMedia?.google?.url,
 ].filter(Boolean);
+// Optional ratings sourced from contact data if available
+const reviewAverage = (contactData as any)?.reviews?.average as number | undefined;
+const reviewCount = (contactData as any)?.reviews?.count as number | undefined;
 // Construir URL canónica absoluta si 'site' está definido en astro.config.mjs
 const canonical = Astro.site
   ? new URL(Astro.url.pathname.replace(/index\.html$/, ""), Astro.site)
@@ -153,12 +160,12 @@ const breadcrumbs = [
     <link rel="canonical" href={canonical} />
 
     <!-- Favicon y otros -->
-    <!-- Añadimos un parámetro de versión para forzar actualización en cachés (Google favicon cache) -->
-    <!-- Favicon principal (SVG) -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <!-- Favicon SVG + ICO correctamente tipados -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
     <!-- Apple / Safari pinned tab -->
-    <link rel="mask-icon" href="/favicon.ico" color="#065f46" />
+    <link rel="mask-icon" href="/favicon.svg" color="#065f46" />
 
     <!-- Manifest PWA -->
     <link rel="manifest" href="/manifest.webmanifest?v=4" />
@@ -234,6 +241,17 @@ const breadcrumbs = [
           latitude: 41.4372,
           longitude: 2.1896,
         },
+        ...(reviewAverage && reviewCount
+          ? {
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: reviewAverage,
+                ratingCount: reviewCount,
+                bestRating: 5,
+                worstRating: 1,
+              },
+            }
+          : {}),
         openingHoursSpecification: [
           {
             "@type": "OpeningHoursSpecification",
