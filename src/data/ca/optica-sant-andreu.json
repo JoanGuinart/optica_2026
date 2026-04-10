@@ -1,0 +1,50 @@
+{
+  "seo": {
+    "title": "Òptica a Sant Andreu (Barcelona) | Òptica Guinart",
+    "description": "Òptica i audiologia a Sant Andreu (Barcelona). Revisions visuals, ulleres, lents de contacte i adaptació d'audiòfons. Més de 25 anys d'experiència al barri.",
+    "ogImage": "/portada/portada_compressed_2.webp"
+  },
+  "hero": {
+    "badge": "La teva òptica de confiança a Sant Andreu",
+    "title": { "main": "Òptica a", "highlight": "Sant Andreu", "suffix": " (Barcelona)" },
+    "subtitle": "Revisions visuals, ulleres, lents de contacte i audiologia. Atenció propera i professional amb més de 25 anys d'experiència al barri."
+  },
+  "sections": {
+    "servicesTitle": "Serveis a Sant Andreu",
+    "napTitle": "Com trobar-nos",
+    "faqTitle": "Preguntes freqüents",
+    "location": {
+      "howToGet": "Com arribar",
+      "addressLabel": "Adreça:",
+      "phoneLabel": "Telèfon:",
+      "openMaps": "Obrir a Google Maps"
+    }
+  },
+  "services": [
+    {
+      "title": "Revisió i salut visual",
+      "description": "Examen visual complet, control de miopia, astigmatisme, presbícia i assessorament personalitzat.",
+      "iconPath": "M12 8v4l3 2"
+    },
+    {
+      "title": "Ulleres graduades i de sol",
+      "description": "Muntures actuals i lents de qualitat per a ús diari, feina i esport.",
+      "iconPath": "M2 12s3-4 10-4 10 4 10 4-3 4-10 4S2 12 2 12z"
+    },
+    {
+      "title": "Lents de contacte i adaptació",
+      "description": "Adaptació segura i seguiment, amb formació d'ús i manteniment.",
+      "iconPath": "M12 4a8 8 0 100 16 8 8 0 000-16z"
+    },
+    {
+      "title": "Audiologia i audiòfons",
+      "description": "Audiometria, adaptació d'audiòfons discrets i manteniment professional.",
+      "iconPath": "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14"
+    }
+  ],
+  "faqs": [
+    { "q": "On som?", "a": "Carrer Gran de Sant Andreu, 308, Barcelona" },
+    { "q": "Horari?", "a": "Dilluns a divendres: 9:30-13:30 i 17:00-20:30. Dissabte: 10:00-13:30." },
+    { "q": "Cita prèvia?", "a": "Recomanable per a revisions visuals i audiometries. Per a compres ràpides, pots venir sense cita." }
+  ]
+}

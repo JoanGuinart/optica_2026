@@ -1,12 +1,20 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import offersProductsData from "@data/offers-products.json";
-import productsData from "@data/products.json";
+import {
+  getLocaleFromPath,
+  getLocalizedData,
+} from "@/utils/i18n";
 import { Image } from "astro:assets";
+
+const locale = getLocaleFromPath(Astro.url.pathname);
+const offersProductsData = getLocalizedData<any>(locale, "offers-products");
+const productsData = getLocalizedData<any>(locale, "products");
 
 const pageTitle = productsData.seo?.title;
 const pageDescription = productsData.seo?.description;
 const pageOgImage = productsData.seo?.ogImage;
+const whatsappMessagePrefix =
+  productsData.whatsappMessagePrefix || "Quiero información sobre el producto:";
 // Canonical URL for this page
 const canonical = Astro.site
   ? new URL(Astro.url.pathname, Astro.site).toString()
@@ -87,13 +95,13 @@ const productsOffers = (offersProductsData.offers || [])
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
                   {
-                    productsData.hero.buttons.map((button) =>
+                    productsData.hero.buttons.map((button: any) =>
                       button.type === "primary" ? (
                         <a
                           href={
                             "https://wa.me/34682502960?text=" +
                             encodeURIComponent(
-                              `quiero informacion sobre el producto: ${productsData.hero.title.main} ${productsData.hero.title.highlight}`
+                              `${whatsappMessagePrefix} ${productsData.hero.title.main} ${productsData.hero.title.highlight}`
                             )
                           }
                           target="_blank"
@@ -203,7 +211,7 @@ const productsOffers = (offersProductsData.offers || [])
 
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {
-              productsData.featuredProducts.products.map((product) => (
+              productsData.featuredProducts.products.map((product: any) => (
                 <div class="group">
                   <div class="flex flex-col bg-white/90 backdrop-blur-md rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 border border-emerald-500/20 overflow-hidden hover:bg-white h-full">
                     <div class="aspect-square bg-linear-to-br from-slate-100 to-slate-200 rounded-xl mb-4 flex items-center justify- p-2">
@@ -228,7 +236,7 @@ const productsOffers = (offersProductsData.offers || [])
                       href={
                         "https://wa.me/34682502960?text=" +
                         encodeURIComponent(
-                          `quiero informacion sobre el producto: ${product.name}`
+                          `${whatsappMessagePrefix} ${product.name}`
                         )
                       }
                       target="_blank"
@@ -377,7 +385,7 @@ const productsOffers = (offersProductsData.offers || [])
           </div>
         </div>
 
-        <script src="/scripts/offer-modal.js" defer></script>
+        <script is:inline src="/scripts/offer-modal.js" defer></script>
 
         {/* Sección de Contacto */}
         <div
@@ -399,7 +407,7 @@ const productsOffers = (offersProductsData.offers || [])
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {
-              productsData.contact.contactMethods.map((method) => (
+              productsData.contact.contactMethods.map((method: any) => (
                 <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer border border-slate-200/50 hover:border-emerald-300">
                   {method.color === "green" && (
                     <div class="w-12 h-12 bg-linear-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
@@ -519,7 +527,7 @@ const productsOffers = (offersProductsData.offers || [])
       "@context": "https://schema.org",
       "@graph": [
         // Productos destacados como Product
-        ...productsData.featuredProducts.products.map((p) => {
+        ...productsData.featuredProducts.products.map((p: any) => {
           // Extraer parte numérica del precio (ej: "desde 299€" -> 299)
           const match =
             typeof p.price === "string"

@@ -7,6 +7,11 @@
   "page": {
     "title": "Preguntas Frecuentes",
     "subtitle": "Resolvemos tus dudas sobre óptica, audiometría y nuestros servicios",
+    "sections": {
+      "optica": "Òptica y Visión",
+      "audiometria": "Audiometría y Audición",
+      "general": "Información General"
+    },
     "cta": {
       "contact": "Contactar",
       "call": "Llamar ahora",

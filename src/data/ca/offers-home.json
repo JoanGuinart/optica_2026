@@ -1,0 +1,28 @@
+{
+  "offers": [
+    {
+      "badge": "-40%",
+      "badge_color": "#10b981",
+      "title": "2a unitat al 40%",
+      "description": "Renova les teves ulleres amb descompte especial a la segona unitat.",
+      "price_from": "Des de 79€",
+      "subtitle": "En muntures seleccionades"
+    },
+    {
+      "badge": "PACK",
+      "badge_color": "#0ea5e9",
+      "title": "Muntura + lents",
+      "description": "Pack complet amb tractament antireflectant i assessorament personalitzat.",
+      "price_from": "Des de 99€",
+      "subtitle": "Promoció limitada"
+    },
+    {
+      "badge": "NOU",
+      "badge_color": "#f59e0b",
+      "title": "Lents de contacte",
+      "description": "Prova inicial i seguiment per trobar les lents ideals.",
+      "price_from": "Des de 19€",
+      "subtitle": "Consulta condicions"
+    }
+  ]
+}

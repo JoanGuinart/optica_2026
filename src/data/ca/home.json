@@ -1,0 +1,29 @@
+{
+  "seo": {
+    "title": "Òptica i Audiologia Guinart | Sant Andreu Barcelona",
+    "description": "Òptica i audiologia a Sant Andreu (Barcelona): revisions visuals, ulleres graduades, lents de contacte, audiometries i adaptació d'audiòfons.",
+    "ogImage": "/portada/portada_compressed_2.webp"
+  },
+  "localLandings": {
+    "title": "Serveis especialitzats",
+    "subtitle": "Descobreix els nostres serveis a Barcelona",
+    "cards": [
+      {
+        "href": "/optica-sant-andreu",
+        "title": "Òptica a Sant Andreu",
+        "subtitle": "Revisions, ulleres i lents de contacte",
+        "description": "Més de 25 anys cuidant la teva salut visual al barri de Sant Andreu.",
+        "linkText": "Veure serveis →",
+        "color": "emerald"
+      },
+      {
+        "href": "/audiologia-barcelona",
+        "title": "Audiologia Barcelona",
+        "subtitle": "Audiometries i audiòfons",
+        "description": "Audiometries gratuïtes, adaptació d'audiòfons digitals i revisions auditives.",
+        "linkText": "Veure serveis →",
+        "color": "blue"
+      }
+    ]
+  }
+}

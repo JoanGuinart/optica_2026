@@ -12,7 +12,13 @@
   "sections": {
     "servicesTitle": "Servicios en Sant Andreu",
     "napTitle": "Cómo encontrarnos",
-    "faqTitle": "Preguntas frecuentes"
+    "faqTitle": "Preguntas frecuentes",
+    "location": {
+      "howToGet": "Cómo llegar",
+      "addressLabel": "Dirección:",
+      "phoneLabel": "Teléfono:",
+      "openMaps": "Abrir en Google Maps"
+    }
   },
   "services": [
     {

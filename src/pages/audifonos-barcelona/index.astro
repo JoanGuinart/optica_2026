@@ -1,7 +1,10 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import contactData from "../../data/contact.json";
-import pageData from "../../data/audifonos-barcelona.json";
+import { getLocaleFromPath, getLocalizedData } from "@/utils/i18n";
+
+const locale = getLocaleFromPath(Astro.url.pathname);
+const contactData = getLocalizedData<any>(locale, "contact");
+const pageData = getLocalizedData<any>(locale, "audifonos-barcelona");
 
 const pageTitle = pageData.seo.title;
 const pageDescription = pageData.seo.description;
@@ -16,10 +19,10 @@ const faqs = pageData.faqs;
 <Layout title={pageTitle} description={pageDescription} ogImage={pageOgImage}>
   <main class="min-h-screen">
     <!-- Hero -->
-    <section class="relative py-20 sm:py-28 bg-gradient-to-br from-emerald-50 via-white to-blue-50 overflow-hidden">
+    <section class="relative py-20 sm:py-28 bg-linear-to-br from-emerald-50 via-white to-blue-50 overflow-hidden">
       <div class="absolute inset-0 opacity-5">
         <div class="absolute top-24 left-8 w-80 h-80 bg-emerald-500 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-24 right-10 w-[28rem] h-[28rem] bg-blue-600 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-24 right-10 w-md h-112 bg-blue-600 rounded-full blur-3xl"></div>
       </div>
       <div class="relative max-w-7xl mx-auto px-6 text-center">
         <div class="inline-flex items-center px-4 py-2 bg-emerald-600/10 text-emerald-700 rounded-full text-sm font-semibold mb-8 border border-emerald-600/20">
@@ -53,15 +56,15 @@ const faqs = pageData.faqs;
           <p class="text-lg text-slate-600 max-w-2xl mx-auto">{pageData.sections.tipos.subtitle}</p>
         </div>
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {tipos.map(t => (
-            <div class="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 border border-emerald-200 hover:border-emerald-400 hover:shadow-xl transition-all flex flex-col">
+          {tipos.map((t: any) => (
+            <div class="bg-linear-to-br from-slate-50 to-white rounded-2xl p-6 border border-emerald-200 hover:border-emerald-400 hover:shadow-xl transition-all flex flex-col">
               <div class="w-14 h-14 bg-emerald-600 rounded-xl flex items-center justify-center mb-4 shadow-lg">
                 <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={t.iconPath}/></svg>
               </div>
               <h3 class="text-lg font-bold text-slate-900 mb-2">{t.nombre}</h3>
               <p class="text-slate-600 text-sm mb-4 leading-relaxed">{t.desc}</p>
               <ul class="text-sm text-emerald-700 space-y-1 mb-4">
-                {t.beneficios.map(b => <li class="flex items-center"><span class="mr-2">✓</span>{b}</li>)}
+                {t.beneficios.map((b: any) => <li class="flex items-center"><span class="mr-2">✓</span>{b}</li>)}
               </ul>
               <a href={contactData.socialMedia.whatsapp.url} target="_blank" class="mt-auto inline-block text-center bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors">Más información</a>
             </div>
@@ -71,14 +74,14 @@ const faqs = pageData.faqs;
     </section>
 
     <!-- Proceso de adaptación -->
-    <section class="py-16 bg-gradient-to-br from-blue-50 to-emerald-50">
+    <section class="py-16 bg-linear-to-br from-blue-50 to-emerald-50">
       <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-12">
           <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mb-4">{pageData.sections.proceso.title}</h2>
           <p class="text-lg text-slate-600 max-w-2xl mx-auto">{pageData.sections.proceso.subtitle}</p>
         </div>
         <div class="grid md:grid-cols-3 gap-8">
-          {proceso.map(p => (
+          {proceso.map((p: any) => (
             <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-200 hover:shadow-lg transition-all">
               <div class="w-12 h-12 bg-emerald-600 text-white rounded-lg flex items-center justify-center font-bold mb-4">{p.paso}</div>
               <h3 class="text-lg font-bold text-slate-900 mb-2">{p.titulo}</h3>
@@ -97,8 +100,8 @@ const faqs = pageData.faqs;
           <p class="text-lg text-slate-600 max-w-2xl mx-auto">{pageData.sections.benefits.subtitle}</p>
         </div>
         <div class="grid md:grid-cols-4 gap-6">
-          {pageData.benefits.map(b => (
-            <div class="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 border border-slate-200 text-center shadow-sm">
+          {pageData.benefits.map((b: any) => (
+            <div class="bg-linear-to-br from-slate-50 to-white rounded-2xl p-6 border border-slate-200 text-center shadow-sm">
               <div class="text-3xl mb-3">🔊</div>
               <p class="font-semibold text-slate-800 text-sm">{b}</p>
             </div>
@@ -115,7 +118,7 @@ const faqs = pageData.faqs;
           <p class="text-lg text-slate-600">{pageData.sections.faqs.subtitle}</p>
         </div>
         <div class="space-y-4">
-          {faqs.map(f => (
+          {faqs.map((f: any) => (
             <div class="bg-white rounded-xl shadow-md border border-slate-200">
               <details class="group">
                 <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-slate-50 rounded-xl transition-colors">
@@ -133,7 +136,7 @@ const faqs = pageData.faqs;
     </section>
 
     <!-- CTA Final -->
-    <section class="py-16 bg-gradient-to-r from-emerald-600 to-blue-600">
+    <section class="py-16 bg-linear-to-r from-emerald-600 to-blue-600">
       <div class="max-w-4xl mx-auto px-6 text-center text-white">
         <h2 class="text-3xl sm:text-4xl font-black mb-6">{pageData.cta.title}</h2>
         <p class="text-xl mb-8 opacity-90">{pageData.cta.subtitle}</p>

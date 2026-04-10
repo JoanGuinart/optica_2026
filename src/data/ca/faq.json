@@ -1,0 +1,92 @@
+{
+  "seo": {
+    "title": "Preguntes freqüents | Òptica i Audiologia a Sant Andreu",
+    "description": "Resol dubtes sobre òptica, audiometria, ulleres, lents de contacte i audiòfons a Òptica Guinart (Sant Andreu, Barcelona). Revisions, serveis i garanties.",
+    "ogImage": "/portada/portada_compressed_2.webp"
+  },
+  "page": {
+    "title": "Preguntes freqüents",
+    "subtitle": "Resolem els teus dubtes sobre òptica, audiometria i els nostres serveis",
+    "sections": {
+      "optica": "Òptica i visió",
+      "audiometria": "Audiometria i audició",
+      "general": "Informació general"
+    },
+    "cta": {
+      "contact": "Contactar",
+      "call": "Trucar ara",
+      "noAnswerTitle": "No trobes la resposta?",
+      "noAnswerText": "El nostre equip estarà encantat de resoldre qualsevol dubte addicional que tinguis"
+    }
+  },
+  "optica": [
+    {
+      "question": "Amb quina freqüència he de revisar la vista?",
+      "answer": "Es recomana una revisió anual per a adults. Per a infants i persones majors de 60 anys, és aconsellable cada 6 mesos. Si tens símptomes com mal de cap, visió borrosa o fatiga ocular, consulta'ns immediatament."
+    },
+    {
+      "question": "Com sé si necessito ulleres?",
+      "answer": "Alguns símptomes comuns inclouen: visió borrosa de prop o de lluny, mal de cap freqüent, fatiga ocular, dificultat per veure de nit o entrecerrar els ulls per enfocar. Una revisió visual completa confirmarà si necessites correcció."
+    },
+    {
+      "question": "Quina diferència hi ha entre ulleres progressives i bifocals?",
+      "answer": "Les ulleres bifocals tenen dues zones definides: una per a prop i una altra per a lluny. Les progressives ofereixen una transició gradual entre totes les distàncies (prop, intermèdia i lluny) sense línies visibles, proporcionant una visió més natural."
+    },
+    {
+      "question": "Quant tarda a estar llesta la meva graduació?",
+      "answer": "Les ulleres estàndard solen estar llestes en 7-10 dies laborables. Les lents especials (progressives, antireflectants especials, etc.) poden requerir 10-15 dies. Les lents de contacte graduades normalment estan disponibles en 3-5 dies."
+    },
+    {
+      "question": "Les lents de contacte són segures?",
+      "answer": "Sí, són molt segures quan s'utilitzen correctament. És fonamental seguir les indicacions d'higiene, temps d'ús i reemplaçament. Oferim una consulta completa per determinar si ets candidat i t'ensenyem l'ús i la cura adequats."
+    },
+    {
+      "question": "Què són els tractaments antireflectants?",
+      "answer": "Són recobriments especials que eliminen els reflexos molestos a les lents, milloren la transparència, redueixen la fatiga ocular i proporcionen millor visió nocturna. També faciliten la neteja i protegeixen contra ratllades."
+    }
+  ],
+  "audiometria": [
+    {
+      "question": "Què és una audiometria?",
+      "answer": "És una prova que avalua la teva capacitat auditiva mesurant com perceps diferents sons i freqüències. És indolora i dura aproximadament 20-30 minuts. Ens permet detectar qualsevol pèrdua auditiva i el seu grau."
+    },
+    {
+      "question": "Quan m'he de fer una audiometria?",
+      "answer": "Es recomana una revisió anual després dels 50 anys, o abans si notes: dificultat per entendre converses, necessitat d'apujar el volum de TV/ràdio, brunzits a les orelles o sensació d'orelles tapades freqüentment."
+    },
+    {
+      "question": "Com em preparo per a una audiometria?",
+      "answer": "Evita l'exposició a sorolls forts 24 hores abans de la prova. Si tens cera a les orelles, neteja suaument l'exterior. No facis servir bastonets. Informa sobre la medicació que prens i qualsevol símptoma auditiu recent."
+    },
+    {
+      "question": "Els audiòfons són molt visibles?",
+      "answer": "Els audiòfons moderns són molt discrets. Tenim models intrauriculars pràcticament invisibles i retroauriculars molt petits. La tecnologia actual prioritza tant l'estètica com la funcionalitat."
+    },
+    {
+      "question": "Quant duren els audiòfons?",
+      "answer": "Amb la cura adequada, els audiòfons solen durar 5-7 anys. Oferim servei de manteniment, neteja professional i garantia. També proporcionem formació completa sobre l'ús i la cura."
+    },
+    {
+      "question": "Els audiòfons necessiten manteniment?",
+      "answer": "Sí, requereixen neteja diària bàsica i revisions professionals periòdiques. Proporcionem kit de neteja, instruccions detallades i serveis de manteniment. Una bona cura garanteix millor rendiment i més durabilitat."
+    }
+  ],
+  "general": [
+    {
+      "question": "Accepteu assegurances mèdiques?",
+      "answer": "Actualment no treballem amb assegurances mèdiques. Oferim facilitats de pagament i finançament per a tractaments i productes. Consulta'ns per a més informació."
+    },
+    {
+      "question": "Oferiu garantia en els vostres productes?",
+      "answer": "Sí, tots els nostres productes tenen garantia. La durada i les condicions depenen del producte específic. Consulta'ns per informació detallada sobre garanties de muntures, lents, audiòfons i altres productes."
+    },
+    {
+      "question": "Feu reparacions?",
+      "answer": "Fem reparacions d'ulleres al moment per a ajustaments, canvi de cargols i reparacions menors. Per a reparacions complexes o audiòfons, tenim servei tècnic especialitzat."
+    },
+    {
+      "question": "Necessito cita prèvia?",
+      "answer": "Per a revisions visuals i audiometries és recomanable cita prèvia per garantir atenció personalitzada. Per a compres o consultes ràpides pots venir sense cita, tot i que potser hauràs d'esperar una mica."
+    }
+  ]
+}

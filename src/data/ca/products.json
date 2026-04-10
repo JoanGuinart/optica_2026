@@ -1,180 +1,179 @@
 {
   "hero": {
     "badge": {
-      "text": "Novedad tecnológica",
+      "text": "Novetat tecnològica",
       "icon": "star"
     },
     "title": {
       "main": "Ray-Ban",
       "highlight": "Stories"
     },
-    "description": "Las primeras gafas inteligentes de Ray-Ban. Captura fotos y videos, escucha música y realiza llamadas, todo con el icónico estilo Ray-Ban.",
+    "description": "Les primeres ulleres intel·ligents de Ray-Ban. Captura fotos i vídeos, escolta música i fes trucades, tot amb l'icònic estil Ray-Ban.",
     "buttons": [
       {
-        "text": "Descubrir más",
+        "text": "Descobrir més",
         "type": "primary"
       },
       {
-        "text": "Ver demo",
+        "text": "Veure demo",
         "type": "secondary"
       }
     ],
-    "imageAlt": "Imagen Ray-Ban Stories"
+    "imageAlt": "Imatge Ray-Ban Stories"
   },
-  "whatsappMessagePrefix": "Quiero información sobre el producto:",
+  "whatsappMessagePrefix": "Vull informació sobre el producte:",
   "seo": {
-    "title": "Productos - Òptica Guinart",
-    "description": "Catálogo de productos: gafas de sol, graduadas, lentillas y gafas inteligentes en Óptica Guinart. Consulta precios y disponibilidad en Sant Andreu, Barcelona.",
+    "title": "Productes - Òptica Guinart",
+    "description": "Catàleg de productes: ulleres de sol, graduades, lents de contacte i ulleres intel·ligents a Òptica Guinart. Consulta preus i disponibilitat a Sant Andreu, Barcelona.",
     "ogImage": "/portada/portada_compressed_2.webp"
   },
   "featuredProducts": {
     "title": {
-      "main": "Productos",
-      "highlight": "Destacados"
+      "main": "Productes",
+      "highlight": "destacats"
     },
-    "subtitle": "Nuestra selección de las mejores gafas y lentes para ti",
+    "subtitle": "La nostra selecció de les millors ulleres i lents per a tu",
     "products": [
       {
         "id": 1,
         "name": "Ray-Ban Meta",
-        "description": "Gafas inteligentes con tecnología Meta, captura fotos y videos con estilo icónico Ray-Ban",
+        "description": "Ulleres intel·ligents amb tecnologia Meta, captura fotos i vídeos amb l'icònic estil Ray-Ban",
         "price": "149€",
         "src": "/productos/rayban-meta.webp",
-        "buttonText": "Saber más"
+        "buttonText": "Saber-ne més"
       },
       {
         "id": 2,
         "name": "Silhouette Escondido",
-        "description": "Ultraligeras sin montura austríacas, máxima comodidad y tecnología sin tornillos",
+        "description": "Ultralleugeres sense muntura austríaques, màxima comoditat i tecnologia sense cargols",
         "price": "179€",
         "src": "/productos/silhouette-escondido.webp",
-        "buttonText": "Saber más"
+        "buttonText": "Saber-ne més"
       },
       {
         "id": 3,
         "name": "Maui Jim Paluna",
-        "description": "Tecnología PolarizedPlus2® hawaiana, colores vibrantes y protección superior",
+        "description": "Tecnologia PolarizedPlus2® hawaiana, colors vibrants i protecció superior",
         "price": "299€",
         "src": "/productos/maui-jim-paluna.webp",
-        "buttonText": "Saber más"
+        "buttonText": "Saber-ne més"
       },
       {
         "id": 4,
         "name": "Yalea SYA053V",
-        "description": "Artesanía italiana en acetato de alta calidad, diseños únicos hechos a mano",
+        "description": "Artesania italiana en acetat d'alta qualitat, dissenys únics fets a mà",
         "price": "219€",
         "src": "/productos/yalea-SYA053V.webp",
-        "buttonText": "Saber más"
+        "buttonText": "Saber-ne més"
       },
       {
         "id": 5,
         "name": "Tous Daisy",
-        "description": "Diseño barcelonés con detalles de osito icónico y elegancia mediterránea",
+        "description": "Disseny barceloní amb detalls de l'osset icònic i elegància mediterrània",
         "price": "199€",
         "src": "/productos/tous-daisy.webp",
-        "buttonText": "Saber más"
+        "buttonText": "Saber-ne més"
       },
       {
         "id": 6,
         "name": "Vogue V05582S",
-        "description": "Estilo y glamour con diseños femeninos únicos",
+        "description": "Estil i glamur amb dissenys femenins únics",
         "price": "169€",
         "src": "/productos/vogue-V05582S.webp",
-        "buttonText": "Saber más"
+        "buttonText": "Saber-ne més"
       },
       {
         "id": 7,
         "name": "Ray-Ban Wayfarer",
-        "description": "Icónicas gafas con estilo clásico y protección superior",
+        "description": "Ulleres icòniques amb estil clàssic i protecció superior",
         "price": "189€",
         "src": "/productos/rayban-wayfarer.webp",
-        "buttonText": "Saber más"
+        "buttonText": "Saber-ne més"
       },
       {
         "id": 8,
         "name": "Zadig & Voltaire ZV23H5",
-        "description": "Diseño rebelde y sofisticado con acabados premium",
+        "description": "Disseny rebel i sofisticat amb acabats premium",
         "price": "249€",
         "src": "/productos/zadig-voltaire-ZV23H5.webp",
-        "buttonText": "Saber más"
+        "buttonText": "Saber-ne més"
       },
       {
         "id": 9,
         "name": "Furla-VFU718-09MA",
-        "description": "Elegancia italiana con detalles artesanales exclusivos",
+        "description": "Elegància italiana amb detalls artesanals exclusius",
         "price": "229€",
         "src": "/productos/furla-VFU718-09MA.webp",
-        "buttonText": "Saber más"
+        "buttonText": "Saber-ne més"
       },
       {
         "id": 10,
         "name": "Pertegaz-55178550",
-        "description": "Tradición española en moda y complementos de lujo",
+        "description": "Tradició espanyola en moda i complements de luxe",
         "price": "159€",
         "src": "/productos/pertegaz-55178550.webp",
-        "buttonText": "Saber más"
+        "buttonText": "Saber-ne més"
       },
       {
         "id": 11,
         "name": "Polo Ralph Lauren ph2211",
-        "description": "Estilo clásico americano con sofisticación atemporal",
+        "description": "Estil clàssic americà amb sofisticació atemporal",
         "price": "219€",
         "src": "/productos/polo-ralph-lauren-ph2211.webp",
-        "buttonText": "Saber más"
+        "buttonText": "Saber-ne més"
       },
       {
         "id": 12,
         "name": "Ralph by Ralph Lauren",
-        "description": "Deportividad y elegancia en diseños versátiles",
+        "description": "Esportivitat i elegància en dissenys versàtils",
         "price": "179€",
         "src": "/productos/ralph-by-ralph-lauren.webp",
-        "buttonText": "Saber más"
+        "buttonText": "Saber-ne més"
       },
       {
         "id": 13,
         "name": "Arnette Hot Shot AN4182-2149/81",
-        "description": "Gafas juveniles con actitud urbana y deportiva",
+        "description": "Ulleres juvenils amb actitud urbana i esportiva",
         "price": "129€",
         "src": "/productos/arnette-hot-shot-an4182-214981.webp",
-        "buttonText": "Saber más"
+        "buttonText": "Saber-ne més"
       },
       {
         "id": 14,
         "name": "Lacoste L2912-301",
-        "description": "Espíritu deportivo francés con elegancia casual",
+        "description": "Esperit esportiu francès amb elegància casual",
         "price": "199€",
         "src": "/productos/lacoste-L2912-301.webp",
-        "buttonText": "Saber más"
+        "buttonText": "Saber-ne més"
       },
       {
         "id": 15,
         "name": "Police x Mercedes AMG Petronas SPLR50 R22B",
-        "description": "Diseños audaces con personalidad urbana distintiva",
+        "description": "Dissenys atrevits amb personalitat urbana distintiva",
         "price": "149€",
         "src": "/productos/police-x-mercedes-amg-petronas-splr50-r22b.webp",
-        "buttonText": "Saber más"
+        "buttonText": "Saber-ne més"
       }
-
     ]
   },
   "specialOffers": {
     "title": {
-      "main": "Ofertas",
-      "highlight": "Especiales"
+      "main": "Ofertes",
+      "highlight": "especials"
     },
-    "subtitle": "Aprovecha nuestros descuentos limitados",
+    "subtitle": "Aprofita els nostres descomptes limitats",
     "offers": [
       {
-        "buttonText": "Saber más",
-        "details": "Incluye montura y lentes con tratamiento antirreflejante o lentes de sol."
+        "buttonText": "Saber-ne més",
+        "details": "Inclou muntura i lents amb tractament antireflectant o lents de sol."
       },
       {
-        "buttonText": "Ver condiciones",
-        "details": "Pack con lentes monofocales antirreflejantes. Revisa las condiciones.",
-        "conditions": "*Esfera hasta ±6.00 y cilindro hasta -4.00"
+        "buttonText": "Veure condicions",
+        "details": "Pack amb lents monofocals antireflectants. Revisa'n les condicions.",
+        "conditions": "*Esfera fins a ±6.00 i cilindre fins a -4.00"
       },
       {
-        "buttonText": "Ver audífonos"
+        "buttonText": "Veure audiòfons"
       },
       {
         "buttonText": "Consultar oferta"
@@ -183,15 +182,15 @@
   },
   "contact": {
     "title": {
-      "main": "¿Buscas algo",
-      "highlight": "específico?"
+      "main": "Busques alguna cosa",
+      "highlight": "específica?"
     },
-    "subtitle": "Tenemos una amplia selección de marcas y modelos en nuestra tienda física. Ven a visitarnos o contáctanos para encontrar exactamente lo que necesitas.",
+    "subtitle": "Tenim una àmplia selecció de marques i models a la nostra botiga física. Vine a visitar-nos o contacta'ns per trobar exactament el que necessites.",
     "contactMethods": [
       {
         "id": 1,
         "name": "WhatsApp",
-        "description": "Consulta rápida por mensaje",
+        "description": "Consulta ràpida per missatge",
         "value": "+34 682 502 960",
         "url": "https://wa.me/34682502960",
         "icon": "whatsapp",
@@ -200,7 +199,7 @@
       {
         "id": 2,
         "name": "Email",
-        "description": "Consultas detalladas",
+        "description": "Consultes detallades",
         "value": "opticaguinartsantandreu@gmail.com",
         "url": "mailto:opticaguinartsantandreu@gmail.com",
         "icon": "email",
@@ -208,14 +207,14 @@
       },
       {
         "id": 3,
-        "name": "Nuestra Tienda",
-        "description": "Visítanos en persona",
-        "value": "Ver en Maps",
+        "name": "La nostra botiga",
+        "description": "Vine a veure'ns en persona",
+        "value": "Veure a Maps",
         "url": "https://www.google.com/maps/dir//Carrer+Gran+de+Sant+Andreu,+308,+Sant+Andreu,+08030+Barcelona/@41.4370855,2.1072775,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x12a4bcdc240241cf:0xa4b5922d46c1e48d!2m2!1d2.1896783!2d41.4371149?entry=ttu&g_ep=EgoyMDI1MTEwNC4xIKXMDSoASAFQAw%3D%3D",
         "icon": "location",
         "color": "red"
       }
     ],
-    "mainButton": "Visitar tienda física"
+    "mainButton": "Visitar botiga física"
   }
 }

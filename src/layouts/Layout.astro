@@ -2,7 +2,12 @@
 import NavbarClient from "@/components/NavbarClient";
 import WhatsAppButton from "@/components/WhatsAppButton.astro";
 import "@styles/global.css";
-import contactData from "@/data/contact.json";
+import {
+  getLocaleFromPath,
+  getLocalizedData,
+  localizePath,
+  type Locale,
+} from "@/utils/i18n";
 
 export interface Props {
   title?: string;
@@ -24,6 +29,8 @@ const {
   ogImage = defaultImage,
   noindex = false,
 } = Astro.props as Props;
+const locale = getLocaleFromPath(Astro.url.pathname);
+const contactData = getLocalizedData<any>(locale, "contact");
 // Title template: añade el nombre del sitio si la página tiene título personalizado
 const siteName = "Óptica Guinart";
 // Evitar duplicar la marca si ya está presente en el título
@@ -56,6 +63,12 @@ const canonical = Astro.site
       .toString()
       .replace(/\/$/, Astro.url.pathname.endsWith("/") ? "/" : "")
   : Astro.url;
+const alternateCa = Astro.site
+  ? new URL(localizePath(Astro.url.pathname, "ca" as Locale), Astro.site).toString()
+  : localizePath(Astro.url.pathname, "ca" as Locale);
+const alternateEs = Astro.site
+  ? new URL(localizePath(Astro.url.pathname, "es" as Locale), Astro.site).toString()
+  : localizePath(Astro.url.pathname, "es" as Locale);
 const robotsContent = noindex
   ? "noindex,nofollow"
   : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1";
@@ -90,7 +103,7 @@ const breadcrumbs = [
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -105,7 +118,7 @@ const breadcrumbs = [
     />
     <meta name="author" content="Óptica Guinart" />
     <meta name="robots" content={robotsContent} />
-    <meta name="language" content="es" />
+    <meta name="language" content={locale} />
     <meta name="distribution" content="global" />
     <meta name="geo.region" content="ES-B" />
     <meta name="geo.placename" content="Barcelona" />
@@ -138,7 +151,7 @@ const breadcrumbs = [
       )
     }
     <meta property="og:site_name" content="Óptica Guinart" />
-    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale" content={locale === "ca" ? "ca_ES" : "es_ES"} />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -174,7 +187,9 @@ const breadcrumbs = [
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#065f46" />
     <meta name="format-detection" content="telephone=no,address=no,email=no" />
-    <link rel="alternate" hreflang="es-ES" href={canonical} />
+    <link rel="alternate" hreflang="ca-ES" href={alternateCa} />
+    <link rel="alternate" hreflang="es-ES" href={alternateEs} />
+    <link rel="alternate" hreflang="x-default" href={alternateCa} />
 
     <!-- Preload critical resources -->
     <link
@@ -333,7 +348,7 @@ const breadcrumbs = [
   </head>
   <body class="bg-white text-slate-900 transition-colors duration-300">
     <!-- Navbar crítico carga inmediatamente para LCP -->
-    <NavbarClient client:load />
+    <NavbarClient client:load locale={locale} currentPath={Astro.url.pathname} />
     {
       breadcrumbs.length > 1 && (
         <nav aria-label="Breadcrumb" class="px-4 py-2 text-sm text-slate-600">

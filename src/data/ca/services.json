@@ -1,40 +1,40 @@
 {
   "seo": {
-    "title": "Servicios - Òptica Guinart",
-    "description": "Servicios de óptica y audiología en Sant Andreu (Barcelona): optometría, audiología, adaptación de audífonos, lentillas y taller de reparación.",
+    "title": "Serveis - Òptica Guinart",
+    "description": "Serveis d'òptica i audiologia a Sant Andreu (Barcelona): optometria, audiologia, adaptació d'audiòfons, lents de contacte i taller de reparació.",
     "ogImage": "/portada/portada_compressed_2.webp"
   },
   "hero": {
     "title": {
-    "main": "Nuestros",
-    "highlight": "Servicios"
-  },
-    "subtitle": "Cuidamos tu salud visual y auditiva con la tecnología más avanzada y el mejor servicio profesional",
+      "main": "Els nostres",
+      "highlight": "serveis"
+    },
+    "subtitle": "Cuidem la teva salut visual i auditiva amb la tecnologia més avançada i el millor servei professional",
     "badge": {
-      "text": "Profesionales cualificados",
+      "text": "Professionals qualificats",
       "icon": "certificate"
     }
   },
   "intro": {
-    "sectionTitle": "Nuestros Servicios",
+    "sectionTitle": "Els nostres serveis",
     "blocks": [
       {
-        "prefix": "¿Buscas una óptica de confianza en Sant Andreu (Barcelona)? Conoce nuestra ",
-        "linkText": "óptica en Sant Andreu",
-        "suffix": " con atención cercana y servicios completos de visión y audiología.",
+        "prefix": "Busques una òptica de confiança a Sant Andreu (Barcelona)? Descobreix la nostra ",
+        "linkText": "òptica a Sant Andreu",
+        "suffix": " amb atenció propera i serveis complets de visió i audiologia.",
         "path": "/optica-sant-andreu",
         "linkClass": "text-emerald-700 font-semibold hover:underline"
       },
       {
-        "prefix": "Especialistas en ",
-        "linkText": "audiología en Barcelona",
-        "suffix": ": audiometrías gratuitas, adaptación de audífonos digitales y revisiones auditivas profesionales.",
+        "prefix": "Especialistes en ",
+        "linkText": "audiologia a Barcelona",
+        "suffix": ": audiometries gratuïtes, adaptació d'audiòfons digitals i revisions auditives professionals.",
         "path": "/audiologia-barcelona",
         "linkClass": "text-blue-700 font-semibold hover:underline"
       },
       {
-        "prefix": "¿Interesado en modelos, tipos y precios? Visita ",
-        "linkText": "audífonos en Barcelona",
+        "prefix": "T'interessen models, tipus i preus? Visita ",
+        "linkText": "audiòfons a Barcelona",
         "suffix": ".",
         "path": "/audifonos-barcelona",
         "linkClass": "text-emerald-700 font-semibold hover:underline"
@@ -44,25 +44,25 @@
   "services": [
     {
       "id": 1,
-      "title": "Optometría",
-      "description": "Revisión visual gratuita con aparatología Zeiss de última generación para cuidar tu salud ocular.",
+      "title": "Optometria",
+      "description": "Revisió visual gratuïta amb aparatologia Zeiss d'última generació per cuidar la teva salut ocular.",
       "icon": "eye",
       "iconPath": "M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z",
       "color": "emerald",
-      "price": "gratuito"
+      "price": "gratuït"
     },
     {
       "id": 2,
-      "title": "Contactología",
-      "description": "Adaptación y control de lentes de contacto para todo tipo de necesidades visuales.",
+      "title": "Contactologia",
+      "description": "Adaptació i control de lents de contacte per a tota mena de necessitats visuals.",
       "icon": "contact",
       "iconPath": "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z",
       "color": "emerald"
     },
     {
       "id": 3,
-      "title": "Presión Ocular",
-      "description": "Medición precisa de la presión intraocular para la detección temprana de glaucoma y otras patologías.",
+      "title": "Pressió ocular",
+      "description": "Mesura precisa de la pressió intraocular per a la detecció precoç del glaucoma i d'altres patologies.",
       "icon": "pressure",
       "iconPath": "M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707",
       "color": "emerald",
@@ -70,51 +70,51 @@
     },
     {
       "id": 4,
-      "title": "Audiología",
-      "description": "Revisión gratuita de la audición: audiometría, timpanometría, valoración del reflejo estapedial y otoscopia con videotoscopio Zeiss. Realización de todo tipo de audífonos y moldes a medida para protección contra el sonido o el agua.",
+      "title": "Audiologia",
+      "description": "Revisió gratuïta de l'audició: audiometria, timpanometria, valoració del reflex estapedial i otoscòpia amb videotoscopi Zeiss. Fem tota mena d'audiòfons i motlles a mida per protegir-te del soroll o de l'aigua.",
       "icon": "ear",
       "iconPath": "M6 8a6 6 0 1112 0c0 2.761-1.239 3.333-2 5a3 3 0 11-6 0 M10 10a2 2 0 114 0",
       "color": "emerald",
-      "price": "gratuito"
+      "price": "gratuït"
     },
     {
       "id": 5,
-      "title": "Taller propio y reparaciones",
-      "description": "Montaje profesional, ajustes y reparaciones de gafas en nuestro propio taller especializado.",
+      "title": "Taller propi i reparacions",
+      "description": "Muntatge professional, ajustaments i reparacions d'ulleres al nostre propi taller especialitzat.",
       "icon": "wrench",
       "iconPath": "M12 8a4 4 0 110 8 4 4 0 010-8 M12 2v3 M12 19v3 M2 12h3 M19 12h3 M4.22 4.22l2.12 2.12 M17.66 17.66l2.12 2.12 M19.78 4.22l-2.12 2.12 M6.34 17.66l-2.12 2.12",
       "color": "emerald"
     }
   ],
   "benefits": {
-    "title": "¿Por qué elegirnos?",
+    "title": "Per què escollir-nos?",
     "items": [
       {
         "id": 1,
-        "title": "Equipamiento Avanzado",
-        "description": "Utilizamos la tecnología más moderna para garantizar diagnósticos precisos",
+        "title": "Equipament avançat",
+        "description": "Utilitzem la tecnologia més moderna per garantir diagnòstics precisos",
         "icon": "technology",
         "iconPath": "M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"
       },
       {
         "id": 2,
-        "title": "Profesionales cualificados",
-        "description": "Nuestro equipo cuenta con más de 25 años de experiencia en el sector",
+        "title": "Professionals qualificats",
+        "description": "El nostre equip té més de 25 anys d'experiència en el sector",
         "icon": "award",
         "iconPath": "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
       },
       {
         "id": 3,
-        "title": "Garantía Total",
-        "description": "Todos nuestros servicios incluyen garantía de calidad y satisfación",
+        "title": "Garantia total",
+        "description": "Tots els nostres serveis inclouen garantia de qualitat i satisfacció",
         "icon": "shield",
         "iconPath": "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
       }
     ]
   },
   "cta": {
-    "title": "¿Necesitas algún servicio?",
-    "subtitle": "Reserva tu cita y cuida tu salud visual y auditiva con nosotros",
+    "title": "Necessites algun servei?",
+    "subtitle": "Reserva la teva cita i cuida la teva salut visual i auditiva amb nosaltres",
     "buttons": [
       {
         "id": 1,
@@ -124,14 +124,14 @@
       },
       {
         "id": 2,
-        "text": "Llamar ahora",
+        "text": "Trucar ara",
         "type": "secondary",
         "action": "call"
       }
     ]
   },
   "notes": {
-    "free": "*Gratuito con la compra de gafas graduadas",
-    "included": "**Incluido en el precio de las gafas"
+    "free": "*Gratuït amb la compra d'ulleres graduades",
+    "included": "**Inclòs en el preu de les ulleres"
   }
 }

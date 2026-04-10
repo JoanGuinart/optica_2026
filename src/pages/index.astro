@@ -2,7 +2,10 @@
 import Portada from "@components/Portada.astro";
 import MainContent from "@components/MainContent.astro";
 import Layout from "@layouts/Layout.astro";
-import homeData from "@data/home.json";
+import { getLocaleFromPath, getLocalizedData } from "@/utils/i18n";
+
+const locale = getLocaleFromPath(Astro.url.pathname);
+const homeData = getLocalizedData<any>(locale, "home");
 
 const pageTitle = homeData.seo?.title;
 const pageDescription = homeData.seo?.description;
@@ -22,7 +25,7 @@ const pageOgImage = homeData.seo?.ogImage;
       </div>
       
       <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-        {homeData.localLandings.cards.map((card) => (
+        {homeData.localLandings.cards.map((card: any) => (
           <a href={card.href} class={`group bg-linear-to-br ${card.color === 'emerald' ? 'from-emerald-50 border-emerald-200 hover:border-emerald-400' : 'from-blue-50 border-blue-200 hover:border-blue-400'} to-white rounded-2xl p-8 border-2 hover:shadow-xl transition-all`}>
             <div class="flex items-center mb-4">
               <div class={`w-12 h-12 ${card.color === 'emerald' ? 'bg-emerald-600' : 'bg-blue-600'} rounded-lg flex items-center justify-center mr-4`}>

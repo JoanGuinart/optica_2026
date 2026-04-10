@@ -1,0 +1,36 @@
+{
+  "principal": {
+    "badge": "Novetat tecnològica",
+    "title": "Ray-Ban Stories",
+    "description": "Ulleres intel·ligents per capturar moments, escoltar música i mantenir-te connectat amb estil.",
+    "link": "https://www.youtube.com/watch?v=GQxYj6qM8Rk"
+  },
+  "offers": [
+    {
+      "badge": "TOP",
+      "title": "Muntura + lents graduades",
+      "description": "Inclou muntura i lents amb tractament antireflectant o lents de sol.",
+      "price_or_gift": "Des de 99€",
+      "details": "Inclou muntura i lents amb tractament antireflectant o lents de sol."
+    },
+    {
+      "badge": "PACK",
+      "title": "Pack ulleres monofocals",
+      "description": "Promoció especial en lents monofocals amb antireflectant.",
+      "price_or_gift": "Des de 79€",
+      "conditions": "*Esfera fins a ±6.00 i cilindre fins a -4.00"
+    },
+    {
+      "badge": "AUDIO",
+      "title": "Audiòfons personalitzats",
+      "description": "Assessorament professional i adaptació personalitzada.",
+      "price_or_gift": "Consulta"
+    },
+    {
+      "badge": "2x1",
+      "title": "Lents progressives",
+      "description": "Oferta limitada en lents progressives amb revisió completa.",
+      "price_or_gift": "2x1"
+    }
+  ]
+}

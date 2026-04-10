@@ -1,7 +1,10 @@
 ---
-import mainContentData from "@data/main-content.json";
-import offersHomeData from "@data/offers-home.json";
-import ui from "@data/ui.json";
+import { getLocaleFromPath, getLocalizedData } from "@/utils/i18n";
+
+const locale = getLocaleFromPath(Astro.url.pathname);
+const mainContentData = getLocalizedData<any>(locale, "main-content");
+const offersHomeData = getLocalizedData<any>(locale, "offers-home");
+const ui = getLocalizedData<any>(locale, "ui");
 
 interface OfferMerged {
   badge: string;
@@ -15,7 +18,7 @@ interface OfferMerged {
   url: string;
 }
 
-const offersMainContent: OfferMerged[] = (offersHomeData.offers || []).map((offer, index: number) => {
+const offersMainContent: OfferMerged[] = (offersHomeData.offers || []).map((offer: any, index: number) => {
   const staticConfig =
     mainContentData.specialOffers.offers[index] ||
     mainContentData.specialOffers.offers[0];
@@ -132,7 +135,7 @@ const offersMainContent: OfferMerged[] = (offersHomeData.offers || []).map((offe
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {
-          mainContentData.featuredProducts.products.map((product) => (
+          mainContentData.featuredProducts.products.map((product: any) => (
             <div class="flex flex-col bg-white/80 backdrop-blur-md rounded-2xl p-6 hover:bg-white transition-all duration-300 border border-emerald-500/30 ">
               <div class="aspect-square bg-gray-300 rounded-lg mb-4 flex items-center justify-center">
                <img 
@@ -181,7 +184,7 @@ const offersMainContent: OfferMerged[] = (offersHomeData.offers || []).map((offe
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           {
-            mainContentData.callToAction.buttons.map((button) => (
+            mainContentData.callToAction.buttons.map((button: any) => (
               <a
                 href={button.url}
                 target={button.url?.startsWith('http') ? '_blank' : undefined}

@@ -1,9 +1,27 @@
 import { useEffect, useState, useCallback } from "react";
-import navbarData from "@data/navbar.json";
+import navbarDataEs from "@data/navbar.json";
+import navbarDataCa from "@data/ca/navbar.json";
 
-const NavbarClient = () => {
+const stripLocalePrefix = (pathname) => {
+  if (pathname === "/es") return "/";
+  if (pathname.startsWith("/es/")) return pathname.slice(3) || "/";
+  return pathname || "/";
+};
+
+const localizePath = (pathname, locale) => {
+  const clean = stripLocalePrefix(pathname);
+  if (locale === "es") {
+    return clean === "/" ? "/es/" : `/es${clean}`;
+  }
+  return clean;
+};
+
+const NavbarClient = ({ locale = "ca", currentPath = "/" }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navbarData = locale === "es" ? navbarDataEs : navbarDataCa;
+  const localeSwitchHref = localizePath(currentPath, locale === "ca" ? "es" : "ca");
+  const localeSwitchLabel = locale === "ca" ? "ES" : "CA";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,7 +87,7 @@ const NavbarClient = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="/" className="flex items-center space-x-2 group">
+            <a href={localizePath("/", locale)} className="flex items-center space-x-2 group">
               <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox={navbarData.logo.icon.viewBox}>
                   {navbarData.logo.icon.paths.map((path, index) => (
@@ -90,7 +108,7 @@ const NavbarClient = () => {
             {navbarData.navigation.desktop.map(({ href, label }) => (
               <div key={href} className="relative group">
                 <a 
-                  href={href} 
+                  href={localizePath(href, locale)} 
                   className={`${
                     isScrolled ? 'text-slate-800' : 'text-slate-700'
                   } hover:text-emerald-700 font-medium tracking-wide transition-all duration-300 relative`}
@@ -100,6 +118,12 @@ const NavbarClient = () => {
                 </a>
               </div>
             ))}
+            <a
+              href={localeSwitchHref}
+              className="ml-2 inline-flex items-center justify-center rounded-lg border border-emerald-500/40 px-3 py-1.5 text-sm font-semibold text-emerald-700 hover:bg-emerald-50 transition-colors duration-200"
+            >
+              {localeSwitchLabel}
+            </a>
           </nav>
 
           {/* Mobile menu button */}
@@ -132,7 +156,7 @@ const NavbarClient = () => {
                 {navbarData.navigation.mobile.map(({ href, label }) => (
                   <div key={href} className="group">
                     <a 
-                      href={href} 
+                      href={localizePath(href, locale)} 
                       onClick={() => setIsMenuOpen(false)}
                       className={`block w-full text-left py-3 px-4 ${
                         isScrolled ? 'text-slate-900' : 'text-slate-800'
@@ -142,6 +166,15 @@ const NavbarClient = () => {
                     </a>
                   </div>
                 ))}
+                <div className="pt-2">
+                  <a
+                    href={localeSwitchHref}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block w-full text-left py-3 px-4 text-emerald-700 font-semibold bg-emerald-50 rounded-lg border border-emerald-400/40"
+                  >
+                    {locale === "ca" ? "Canviar a espanyol" : "Canviar a catala"}
+                  </a>
+                </div>
               </div>
             </div>
           </nav>

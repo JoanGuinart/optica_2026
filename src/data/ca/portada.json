@@ -1,0 +1,64 @@
+{
+  "hero": {
+    "title": {
+      "main": "Òptica i audiologia",
+      "highlight": "Guinart"
+    },
+    "tagline": {
+      "main": "La teva visió és la nostra",
+      "highlight": "Passió"
+    },
+    "subtitle": "Més de 25 anys cuidant la teva salut visual amb la millor tecnologia",
+    "image": {
+      "src": "/portada/portada_compressed_2.webp",
+      "alt": "Òptica Guinart - Ulleres i lents de qualitat"
+    }
+  },
+  "benefits": [
+    {
+      "id": 1,
+      "title": "Qualitat garantida",
+      "icon": "check",
+      "iconPath": "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+    },
+    {
+      "id": 2,
+      "title": "Servei ràpid",
+      "icon": "clock",
+      "iconPath": "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+    },
+    {
+      "id": 3,
+      "title": "Atenció personalitzada",
+      "icon": "heart",
+      "iconPath": "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+    }
+  ],
+  "buttons": [
+    {
+      "id": 1,
+      "text": "Reservar cita",
+      "type": "primary",
+      "action": "booking",
+      "link": "/contact#contact"
+    },
+    {
+      "id": 2,
+      "text": "Veure productes",
+      "type": "secondary",
+      "action": "products",
+      "link": "/products"
+    }
+  ],
+  "contact": {
+    "location": {
+      "text": "📍 Troba la teva òptica de confiança",
+      "icon": "📍"
+    },
+    "info": {
+      "phone": "933118706",
+      "email": "opticaguinartsantandreu@gmail.com",
+      "text": "📞 Truca'ns: {phone} | ✉️ {email}"
+    }
+  }
+}

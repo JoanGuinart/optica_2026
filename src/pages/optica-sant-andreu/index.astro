@@ -1,7 +1,10 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import contactData from "../../data/contact.json";
-import pageData from "../../data/optica-sant-andreu.json";
+import { getLocaleFromPath, getLocalizedData } from "@/utils/i18n";
+
+const locale = getLocaleFromPath(Astro.url.pathname);
+const contactData = getLocalizedData<any>(locale, "contact");
+const pageData = getLocalizedData<any>(locale, "optica-sant-andreu");
 
 const pageTitle = pageData.seo.title;
 const pageDescription = pageData.seo.description;
@@ -9,12 +12,13 @@ const pageOgImage = pageData.seo.ogImage;
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : Astro.url;
 
 const services = pageData.services;
+const locationLabels = pageData.sections.location;
 // Map FAQs substituting dynamic contact data where appropriate
-const faqs = pageData.faqs.map(f => {
-  if (f.q.startsWith("¿Horario")) {
+const faqs = pageData.faqs.map((f: any, idx: number) => {
+  if (idx === 1) {
     return { ...f, a: `${contactData.contactInfo.hours.weekdays}. ${contactData.contactInfo.hours.saturday}.` };
   }
-  if (f.q.startsWith("¿Dónde")) {
+  if (idx === 0) {
     return { ...f, a: `${contactData.contactInfo.address.street}, Barcelona` };
   }
   return f;
@@ -24,7 +28,7 @@ const faqs = pageData.faqs.map(f => {
 <Layout title={pageTitle} description={pageDescription} ogImage={pageOgImage}>
   <main class="min-h-screen">
     <!-- Hero local -->
-    <section class="relative py-20 sm:py-28 bg-gradient-to-br from-emerald-50 via-white to-blue-50 overflow-hidden">
+    <section class="relative py-20 sm:py-28 bg-linear-to-br from-emerald-50 via-white to-blue-50 overflow-hidden">
       <div class="relative max-w-7xl mx-auto px-6 text-center">
         <div class="inline-flex items-center px-4 py-2 bg-emerald-600/10 text-emerald-700 rounded-full text-sm font-semibold mb-8 border border-emerald-600/20">
           <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>
@@ -38,7 +42,7 @@ const faqs = pageData.faqs.map(f => {
         </p>
         <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
           <a href={contactData.socialMedia.whatsapp.url} target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg">{contactData.socialMedia.whatsapp.text}</a>
-          <a href={contactData.contactInfo.address.googleMaps} target="_blank" class="border-2 border-emerald-600 hover:bg-emerald-50 text-emerald-700 px-8 py-4 rounded-xl font-bold text-lg">Cómo llegar</a>
+          <a href={contactData.contactInfo.address.googleMaps} target="_blank" class="border-2 border-emerald-600 hover:bg-emerald-50 text-emerald-700 px-8 py-4 rounded-xl font-bold text-lg">{locationLabels.howToGet}</a>
         </div>
       </div>
     </section>
@@ -48,7 +52,7 @@ const faqs = pageData.faqs.map(f => {
       <div class="max-w-7xl mx-auto px-6">
         <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mb-10 text-center">{pageData.sections.servicesTitle}</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-          {services.map((s) => (
+          {services.map((s: any) => (
             <div class="group bg-white/90 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-emerald-500/20 hover:shadow-2xl transition-all duration-300">
               <div class="w-14 h-14 bg-emerald-600 rounded-xl flex items-center justify-center shadow-lg mb-4">
                 <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={s.iconPath} /></svg>
@@ -67,14 +71,14 @@ const faqs = pageData.faqs.map(f => {
         <div>
           <h2 class="text-2xl font-black text-slate-900 mb-4">{pageData.sections.napTitle}</h2>
           <div class="text-slate-700 space-y-2">
-            <p><strong>Dirección:</strong> {contactData.contactInfo.address.street}, Barcelona</p>
-            <p><strong>Teléfono:</strong> {contactData.contactInfo.phone.display}</p>
+            <p><strong>{locationLabels.addressLabel}</strong> {contactData.contactInfo.address.street}, Barcelona</p>
+            <p><strong>{locationLabels.phoneLabel}</strong> {contactData.contactInfo.phone.display}</p>
             <p><strong>Email:</strong> {contactData.contactInfo.email.address}</p>
-            <p><strong>Horario:</strong> {contactData.contactInfo.hours.weekdays} · {contactData.contactInfo.hours.saturday}</p>
+            <p><strong>{contactData.page.labels.hours}:</strong> {contactData.contactInfo.hours.weekdays} · {contactData.contactInfo.hours.saturday}</p>
           </div>
           <div class="mt-6 flex gap-3">
             <a href={contactData.socialMedia.whatsapp.url} target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold">{contactData.socialMedia.whatsapp.text}</a>
-            <a href={contactData.contactInfo.address.googleMaps} target="_blank" class="border-2 border-emerald-600 hover:bg-emerald-50 text-emerald-700 px-6 py-3 rounded-lg font-semibold">Abrir en Google Maps</a>
+            <a href={contactData.contactInfo.address.googleMaps} target="_blank" class="border-2 border-emerald-600 hover:bg-emerald-50 text-emerald-700 px-6 py-3 rounded-lg font-semibold">{locationLabels.openMaps}</a>
           </div>
         </div>
         <div class="w-full h-80 rounded-2xl overflow-hidden border border-emerald-500/20 shadow-lg bg-white flex items-center justify-center p-4">
@@ -101,7 +105,7 @@ const faqs = pageData.faqs.map(f => {
       <div class="max-w-4xl mx-auto px-6">
   <h2 class="text-2xl font-black text-slate-900 mb-6">{pageData.sections.faqTitle}</h2>
         <div class="space-y-4">
-          {faqs.map((f) => (
+          {faqs.map((f: any) => (
             <details class="group bg-white rounded-xl shadow border border-slate-200">
               <summary class="flex justify-between items-center p-5 cursor-pointer hover:bg-slate-50">
                 <span class="font-semibold text-slate-900">{f.q}</span>
@@ -158,7 +162,7 @@ const faqs = pageData.faqs.map(f => {
       set:html={JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
-        mainEntity: faqs.map((f) => ({
+        mainEntity: faqs.map((f: any) => ({
           '@type': 'Question',
           name: f.q,
           acceptedAnswer: {

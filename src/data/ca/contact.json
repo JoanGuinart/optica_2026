@@ -1,32 +1,32 @@
 {
   "seo": {
-    "title": "Contacto | Òptica y Audiología Guinart Sant Andreu",
-    "description": "¿Tienes dudas? Contáctanos: teléfono, WhatsApp, email y dirección en Sant Andreu (Barcelona). Citas para revisiones, audiometrías y adaptación de audífonos.",
+    "title": "Contacte | Òptica i Audiologia Guinart Sant Andreu",
+    "description": "Tens dubtes? Contacta'ns: telèfon, WhatsApp, email i adreça a Sant Andreu (Barcelona). Cites per a revisions, audiometries i adaptació d'audiòfons.",
     "ogImage": "/portada/portada_compressed_2.webp"
   },
   "hero": {
     "title": {
-      "main": "Ponte en",
-      "highlight": "Contacto"
+      "main": "Posa't en",
+      "highlight": "contacte"
     },
-    "subtitle": "Estamos aquí para ayudarte con cualquier consulta sobre tu salud visual y auditiva. ¡Contáctanos!",
+    "subtitle": "Som aquí per ajudar-te amb qualsevol consulta sobre la teva salut visual i auditiva. Contacta'ns!",
     "badge": {
-      "text": "Respuesta rápida",
+      "text": "Resposta ràpida",
       "icon": "message"
     }
   },
   "page": {
     "labels": {
-      "contactInfoTitle": "Información de Contacto",
-      "contactInfoSubtitle": "Ponte en contacto con nosotros por cualquiera de estos medios",
-      "phone": "Teléfono",
-      "address": "Dirección",
-      "hours": "Horarios",
-      "viewMaps": "Ver en Google Maps",
-      "followUs": "Síguenos en Redes",
-      "whyContactUs": "¿Por qué contactarnos?",
-      "whyContactUsSubtitle": "Te ofrecemos la mejor atención y servicio al cliente",
-      "mapTitle": "Ubicación de Òptica Guinart - Carrer Gran de Sant Andreu, 308, Barcelona"
+      "contactInfoTitle": "Informació de contacte",
+      "contactInfoSubtitle": "Posa't en contacte amb nosaltres per qualsevol d'aquests canals",
+      "phone": "Telèfon",
+      "address": "Adreça",
+      "hours": "Horaris",
+      "viewMaps": "Veure a Google Maps",
+      "followUs": "Segueix-nos a les xarxes",
+      "whyContactUs": "Per què contactar-nos?",
+      "whyContactUsSubtitle": "T'oferim la millor atenció i servei al client",
+      "mapTitle": "Ubicació d'Òptica Guinart - Carrer Gran de Sant Andreu, 308, Barcelona"
     }
   },
   "contactInfo": {
@@ -41,22 +41,22 @@
     },
     "address": {
       "street": "Carrer Gran de Sant Andreu, 308",
-      "city": "08030 Barcelona, San Andrés de Palomar",
-      "country": "España",
+      "city": "08030 Barcelona, Sant Andreu de Palomar",
+      "country": "Espanya",
       "icon": "location",
       "googleMaps": "https://maps.google.com/?q=41.43713194467858,2.1896759669114636"
     },
     "hours": {
-      "weekdays": "Lunes a Viernes: 9:30 - 13:30, 17:00 - 20:30",
-      "saturday": "Sábado: 10:00 - 13:30",
-      "sunday": "Domingo: Cerrado",
+      "weekdays": "Dilluns a divendres: 9:30 - 13:30, 17:00 - 20:30",
+      "saturday": "Dissabte: 10:00 - 13:30",
+      "sunday": "Diumenge: Tancat",
       "icon": "clock"
     }
   },
   "socialMedia": {
     "whatsapp": {
       "url": "https://wa.me/34682502960",
-      "text": "Contactar por WhatsApp",
+      "text": "Contactar per WhatsApp",
       "icon": "whatsapp",
       "color": "green"
     },
@@ -74,7 +74,7 @@
     },
     "google": {
       "url": "https://g.page/opticaguinart",
-      "text": "Reseñas en Google",
+      "text": "Ressenyes a Google",
       "icon": "google",
       "color": "red"
     }
@@ -84,59 +84,59 @@
     "count": 26
   },
   "form": {
-    "title": "Envíanos un mensaje",
-    "subtitle": "Completa el formulario y te responderemos lo antes posible",
+    "title": "Envia'ns un missatge",
+    "subtitle": "Completa el formulari i et respondrem al més aviat possible",
     "fields": {
       "name": {
-        "label": "Nombre completo",
-        "placeholder": "Tu nombre y apellidos",
+        "label": "Nom complet",
+        "placeholder": "El teu nom i cognoms",
         "required": true
       },
       "email": {
-        "label": "Correo electrónico",
+        "label": "Correu electrònic",
         "placeholder": "tu@email.com",
         "required": true
       },
       "phone": {
-        "label": "Teléfono",
+        "label": "Telèfon",
         "placeholder": "+34 xxx xxx xxx",
         "required": false
       },
       "subject": {
-        "label": "Asunto",
-        "placeholder": "¿En qué podemos ayudarte?",
+        "label": "Assumpte",
+        "placeholder": "En què et podem ajudar?",
         "required": true
       },
       "message": {
-        "label": "Mensaje",
-        "placeholder": "Cuéntanos tu consulta...",
+        "label": "Missatge",
+        "placeholder": "Explica'ns la teva consulta...",
         "required": true
       }
     },
     "button": {
-      "text": "Enviar mensaje",
+      "text": "Enviar missatge",
       "icon": "send"
     }
   },
   "features": [
     {
       "id": 1,
-      "title": "Respuesta Rápida",
-      "description": "Te respondemos en menos de 24 horas",
+      "title": "Resposta ràpida",
+      "description": "Et responem en menys de 24 hores",
       "icon": "clock",
       "iconPath": "M12 6v6l4 2"
     },
     {
       "id": 2,
-      "title": "Atención Personalizada",
-      "description": "Cada consulta recibe atención individual",
+      "title": "Atenció personalitzada",
+      "description": "Cada consulta rep atenció individual",
       "icon": "user",
       "iconPath": "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
     },
     {
       "id": 3,
-      "title": "Múltiples Canales",
-      "description": "Contáctanos por el medio que prefieras",
+      "title": "Múltiples canals",
+      "description": "Contacta'ns pel canal que et vagi millor",
       "icon": "chat",
       "iconPath": "M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
     }

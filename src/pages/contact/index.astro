@@ -1,17 +1,21 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import contactData from "@data/contact.json";
+import { getLocaleFromPath, getLocalizedData } from "@/utils/i18n";
+
+const locale = getLocaleFromPath(Astro.url.pathname);
+const contactData = getLocalizedData<any>(locale, "contact");
 
 const pageTitle = contactData.seo?.title;
 const pageDescription = contactData.seo?.description;
 const pageOgImage = contactData.seo?.ogImage;
+const labels = contactData.page?.labels;
 ---
 
 <Layout title={pageTitle} description={pageDescription} ogImage={pageOgImage}>
   <main class="min-h-screen">
     <!-- Hero Section -->
     <section
-      class="relative py-20 sm:py-32 bg-gradient-to-br from-emerald-50 via-white to-blue-50 overflow-hidden"
+      class="relative py-20 sm:py-32 bg-linear-to-br from-emerald-50 via-white to-blue-50 overflow-hidden"
     >
       {/* Decoración de fondo */}
       <div
@@ -74,10 +78,10 @@ const pageOgImage = contactData.seo?.ogImage;
               <h2
                 class="text-3xl font-bold text-slate-900 mb-6"
               >
-                Información de Contacto
+                {labels.contactInfoTitle}
               </h2>
               <p class="text-slate-600 mb-8">
-                Ponte en contacto con nosotros por cualquiera de estos medios
+                {labels.contactInfoSubtitle}
               </p>
             </div>
 
@@ -106,7 +110,7 @@ const pageOgImage = contactData.seo?.ogImage;
                 </div>
                 <div>
                   <h3 class="font-semibold text-slate-900 ">
-                    Teléfono
+                    {labels.phone}
                   </h3>
                   <p class="text-slate-600 ">
                     {contactData.contactInfo.phone.display}
@@ -192,7 +196,7 @@ const pageOgImage = contactData.seo?.ogImage;
                 </div>
                 <div>
                   <h3 class="font-semibold text-slate-900 ">
-                    Dirección
+                    {labels.address}
                   </h3>
                   <p class="text-slate-600 ">
                     {contactData.contactInfo.address.street}
@@ -218,7 +222,7 @@ const pageOgImage = contactData.seo?.ogImage;
                         d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                       ></path>
                     </svg>
-                    Ver en Google Maps
+                    {labels.viewMaps}
                   </a>
                 </div>
               </div>
@@ -245,7 +249,7 @@ const pageOgImage = contactData.seo?.ogImage;
                 </div>
                 <div>
                   <h3 class="font-semibold text-slate-900 ">
-                    Horarios
+                    {labels.hours}
                   </h3>
                   <p class="text-slate-600 ">
                     {contactData.contactInfo.hours.weekdays}
@@ -263,14 +267,14 @@ const pageOgImage = contactData.seo?.ogImage;
             {/* Redes Sociales */}
             <div class="pt-8 border-t border-slate-200 ">
               <h3 class="text-xl font-bold text-slate-900  mb-6">
-                Síguenos en Redes
+                {labels.followUs}
               </h3>
               <div class="grid grid-cols-2 gap-4">
                 {/* WhatsApp */}
                 <a
                   href={contactData.socialMedia.whatsapp.url}
                   target="_blank"
-                  class="flex items-center justify-center p-4 bg-gradient-to-br from-green-400 to-green-600 text-white rounded-xl hover:from-green-500 hover:to-green-700 transition-all shadow-lg"
+                  class="flex items-center justify-center p-4 bg-linear-to-br from-green-400 to-green-600 text-white rounded-xl hover:from-green-500 hover:to-green-700 transition-all shadow-lg"
                 >
                   <svg
                     class="w-6 h-6 mr-3"
@@ -288,7 +292,7 @@ const pageOgImage = contactData.seo?.ogImage;
                 <a
                   href={contactData.socialMedia.instagram.url}
                   target="_blank"
-                  class="flex items-center justify-center p-4 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 text-white rounded-xl hover:from-purple-600 hover:via-pink-600 hover:to-orange-500 transition-all border border-pink-200  shadow-lg"
+                  class="flex items-center justify-center p-4 bg-linear-to-br from-purple-500 via-pink-500 to-orange-400 text-white rounded-xl hover:from-purple-600 hover:via-pink-600 hover:to-orange-500 transition-all border border-pink-200  shadow-lg"
                 >
                   <svg
                     class="w-6 h-6 mr-3"
@@ -306,7 +310,7 @@ const pageOgImage = contactData.seo?.ogImage;
                 <a
                   href={contactData.socialMedia.facebook.url}
                   target="_blank"
-                  class="flex items-center justify-center p-4 bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-xl hover:from-blue-700 hover:to-blue-900 transition-all shadow-lg"
+                  class="flex items-center justify-center p-4 bg-linear-to-br from-blue-600 to-blue-800 text-white rounded-xl hover:from-blue-700 hover:to-blue-900 transition-all shadow-lg"
                 >
                   <svg
                     class="w-6 h-6 mr-3"
@@ -324,7 +328,7 @@ const pageOgImage = contactData.seo?.ogImage;
                 <a
                   href={contactData.socialMedia.google.url}
                   target="_blank"
-                  class="flex items-center justify-center p-4 bg-gradient-to-r from-blue-500 via-red-500 to-yellow-500 text-white rounded-xl hover:from-blue-600 hover:via-red-600 hover:to-yellow-600 transition-all shadow-lg"
+                  class="flex items-center justify-center p-4 bg-linear-to-r from-blue-500 via-red-500 to-yellow-500 text-white rounded-xl hover:from-blue-600 hover:via-red-600 hover:to-yellow-600 transition-all shadow-lg"
                 >
                   <svg
                     class="w-6 h-6 mr-3"
@@ -526,18 +530,18 @@ const pageOgImage = contactData.seo?.ogImage;
           <h2
             class="text-3xl sm:text-4xl font-bold text-slate-900  mb-4"
           >
-            ¿Por qué contactarnos?
+            {labels.whyContactUs}
           </h2>
           <p
             class="text-lg text-slate-600  max-w-2xl mx-auto"
           >
-            Te ofrecemos la mejor atención y servicio al cliente
+            {labels.whyContactUsSubtitle}
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           {
-            contactData.features.map((feature) => (
+            contactData.features.map((feature: any) => (
               <div class="text-center p-8 bg-white  rounded-2xl shadow-lg border border-slate-200 ">
                 <div class="w-16 h-16 bg-emerald-600  rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <svg
@@ -577,7 +581,7 @@ const pageOgImage = contactData.seo?.ogImage;
         allowfullscreen=""
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
-        title="Ubicación de Òptica Guinart - Carrer Gran de Sant Andreu, 308, Barcelona"
+        title={labels.mapTitle}
         class="w-full h-full"
       >
       </iframe>

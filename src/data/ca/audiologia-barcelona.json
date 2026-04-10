@@ -1,0 +1,112 @@
+{
+  "seo": {
+    "title": "Audiologia Barcelona | Audiòfons i Audiometries | Òptica Guinart",
+    "description": "Centre d'audiologia a Barcelona: audiometries gratuïtes, adaptació d'audiòfons digitals i revisions auditives. +25 anys cuidant la teva salut auditiva a Sant Andreu.",
+    "ogImage": "/portada/portada_compressed_2.webp"
+  },
+  "hero": {
+    "badge": "Audiologia professional a Barcelona",
+    "title": {
+      "line1": { "text": "Audiologia a", "highlight": "Barcelona" },
+      "line2": { "text": "Cuida la teva audició" }
+    },
+    "subtitle": "+25 anys d'experiència a Sant Andreu. Audiometries gratuïtes, adaptació d'audiòfons digitals i revisions auditives professionals."
+  },
+  "sections": {
+    "modelsCta": {
+      "prefix": "Busques informació específica sobre models? Consulta la nostra pàgina d'",
+      "linkText": "audiòfons a Barcelona",
+      "path": "/audifonos-barcelona"
+    },
+    "services": {
+      "titlePrefix": "Serveis d'",
+      "titleHighlight": "Audiologia",
+      "subtitle": "Atenció professional integral per a la teva salut auditiva"
+    },
+    "whyChoose": {
+      "title": "Per què escollir",
+      "brand": "Òptica Guinart",
+      "items": [
+        {
+          "title": "+25 anys d'experiència",
+          "description": "Professionals qualificats en audiologia i salut auditiva"
+        },
+        {
+          "title": "Atenció personalitzada",
+          "description": "Seguiment continu i ajustos sense cost addicional"
+        },
+        {
+          "title": "Tecnologia avançada",
+          "description": "Audiòfons digitals d'última generació i equipament professional"
+        }
+      ]
+    },
+    "location": {
+      "titlePrefix": "Visita'ns a",
+      "titleHighlight": "Barcelona",
+      "subtitle": "Centre d'audiologia a Sant Andreu",
+      "addressLabel": "Adreça",
+      "phoneLabel": "Telèfon",
+      "hoursLabel": "Horari",
+      "metroText": "🚇 Metro: Sant Andreu",
+      "mapTitle": "Ubicació d'Òptica Guinart a Barcelona"
+    },
+    "faq": {
+      "titlePrefix": "Preguntes",
+      "titleHighlight": "freqüents",
+      "subtitle": "Resol els teus dubtes sobre audiologia i audiòfons"
+    },
+    "breadcrumbs": {
+      "home": "Inici",
+      "current": "Audiologia Barcelona"
+    },
+    "schema": {
+      "businessName": "Audiologia Barcelona - Òptica Guinart",
+      "addressRegion": "Catalunya"
+    }
+  },
+  "services": [
+    {
+      "title": "Audiometria completa",
+      "description": "Prova auditiva professional gratuïta per avaluar la teva capacitat auditiva i detectar pèrdues de manera precoç.",
+      "iconPath": "M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"
+    },
+    {
+      "title": "Adaptació d'audiòfons",
+      "description": "Ajust personalitzat d'audiòfons digitals d'última generació: discrets, recarregables i amb tecnologia Bluetooth.",
+      "iconPath": "M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
+    },
+    {
+      "title": "Manteniment i revisions",
+      "description": "Neteja professional, ajustos, canvi de piles i revisions periòdiques per mantenir els teus audiòfons en perfecte estat.",
+      "iconPath": "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+    },
+    {
+      "title": "Protecció auditiva",
+      "description": "Taps a mida per a músics, treballadors i natació. Protegeix la teva audició del soroll i de l'aigua.",
+      "iconPath": "M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+    }
+  ],
+  "benefits": [
+    { "title": "Audiometria gratuïta", "icon": "✓" },
+    { "title": "Audiòfons recarregables", "icon": "🔋" },
+    { "title": "Ajust personalitzat", "icon": "👂" },
+    { "title": "Garantia i seguiment", "icon": "🛡️" },
+    { "title": "Tecnologia Bluetooth", "icon": "📱" },
+    { "title": "Models discrets", "icon": "🔇" }
+  ],
+  "faqs": [
+    { "q": "L'audiometria és gratuïta?", "a": "Sí, fem audiometries gratuïtes sense compromís per avaluar la teva salut auditiva." },
+    { "q": "Quant costen els audiòfons?", "a": "Disposem d'audiòfons des de 600€ fins a models premium de 2.500€. El preu depèn de la tecnologia i les prestacions. T'assessorem segons el teu cas." },
+    { "q": "Els audiòfons són visibles?", "a": "Comptem amb models intracanal pràcticament invisibles i retroauriculars molt discrets. T'ensenyem totes les opcions." },
+    { "q": "Quina garantia tenen?", "a": "Els audiòfons inclouen garantia del fabricant (2-5 anys segons el model) i el nostre seguiment professional sense cost addicional." },
+    { "q": "On som?", "a": "Al Carrer Gran de Sant Andreu, 308, Barcelona (barri de Sant Andreu). Metro: Sant Andreu." },
+    { "q": "Necessito cita prèvia?", "a": "Per a audiometries i adaptació d'audiòfons, recomanem cita prèvia per assegurar atenció personalitzada." }
+  ],
+  "cta": {
+    "title": "Cuida la teva salut auditiva avui",
+    "subtitle": "Demana la teva audiometria gratuïta i descobreix com et podem ajudar",
+    "primary": "Demanar cita gratuïta",
+    "secondary": "Trucar ara"
+  }
+}

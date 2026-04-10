@@ -12,6 +12,59 @@
     },
     "subtitle": "+25 años de experiencia en Sant Andreu. Audiometrías gratuitas, adaptación de audífonos digitales y revisiones auditivas profesionales."
   },
+  "sections": {
+    "modelsCta": {
+      "prefix": "¿Buscas información específica sobre modelos? Consulta nuestra página de ",
+      "linkText": "audífonos en Barcelona",
+      "path": "/audifonos-barcelona"
+    },
+    "services": {
+      "titlePrefix": "Servicios de",
+      "titleHighlight": "Audiología",
+      "subtitle": "Atención profesional integral para tu salud auditiva"
+    },
+    "whyChoose": {
+      "title": "¿Por qué elegir",
+      "brand": "Óptica Guinart",
+      "items": [
+        {
+          "title": "+25 años de experiencia",
+          "description": "Profesionales cualificados en audiología y salud auditiva"
+        },
+        {
+          "title": "Atención personalizada",
+          "description": "Seguimiento continuo y ajustes sin coste adicional"
+        },
+        {
+          "title": "Tecnología avanzada",
+          "description": "Audífonos digitales de última generación y equipamiento profesional"
+        }
+      ]
+    },
+    "location": {
+      "titlePrefix": "Visítanos en",
+      "titleHighlight": "Barcelona",
+      "subtitle": "Centro de audiología en Sant Andreu",
+      "addressLabel": "Dirección",
+      "phoneLabel": "Teléfono",
+      "hoursLabel": "Horario",
+      "metroText": "🚇 Metro: Sant Andreu",
+      "mapTitle": "Ubicación de Óptica Guinart en Barcelona"
+    },
+    "faq": {
+      "titlePrefix": "Preguntas",
+      "titleHighlight": "Frecuentes",
+      "subtitle": "Resuelve tus dudas sobre audiología y audífonos"
+    },
+    "breadcrumbs": {
+      "home": "Inicio",
+      "current": "Audiología Barcelona"
+    },
+    "schema": {
+      "businessName": "Audiología Barcelona - Óptica Guinart",
+      "addressRegion": "Cataluña"
+    }
+  },
   "services": [
     {
       "title": "Audiometría completa",
