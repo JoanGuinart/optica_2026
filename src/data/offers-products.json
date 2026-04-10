@@ -1,0 +1,36 @@
+{
+  "principal": {
+    "badge": "Novedad tecnologica",
+    "title": "Ray-Ban Stories",
+    "description": "Gafas inteligentes para capturar momentos, escuchar musica y mantenerte conectado con estilo.",
+    "link": "https://www.youtube.com/watch?v=GQxYj6qM8Rk"
+  },
+  "offers": [
+    {
+      "badge": "TOP",
+      "title": "Montura + lentes graduadas",
+      "description": "Incluye montura y lentes con tratamiento antirreflejante o lentes de sol.",
+      "price_or_gift": "Desde 99€",
+      "details": "Incluye montura y lentes con tratamiento antirreflejante o lentes de sol."
+    },
+    {
+      "badge": "PACK",
+      "title": "Pack gafas monofocales",
+      "description": "Promocion especial en lentes monofocales con antirreflejante.",
+      "price_or_gift": "Desde 79€",
+      "conditions": "*Esfera hasta ±6.00 y cilindro hasta -4.00"
+    },
+    {
+      "badge": "AUDIO",
+      "title": "Audifonos personalizados",
+      "description": "Asesoramiento profesional y adaptacion personalizada.",
+      "price_or_gift": "Consulta"
+    },
+    {
+      "badge": "2x1",
+      "title": "Lentes progresivas",
+      "description": "Oferta limitada en lentes progresivas con revision completa.",
+      "price_or_gift": "2x1"
+    }
+  ]
+}

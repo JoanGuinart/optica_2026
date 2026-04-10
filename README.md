@@ -20,9 +20,11 @@ src/
 | `navbar.json` | Items del menú de navegación |
 | `portada.json` | Contenido del hero de la portada |
 | `main-content.json` | Bloques informativos de la home |
+| `offers-home.json` | Ofertas especiales mostradas en la home |
 | `contact.json` | Información de contacto (NAP, redes, horarios) |
 | `faq.json` | Preguntas frecuentes globales |
 | `products.json` | Datos de productos y ofertas |
+| `offers-products.json` | Oferta principal y ofertas especiales de la página de productos |
 | `services.json` | Listado de servicios y beneficios |
 | `audifonos-barcelona.json` | Contenido landing audífonos |
 | `audiologia-barcelona.json` | Contenido landing audiología |

@@ -1,0 +1,28 @@
+{
+  "offers": [
+    {
+      "badge": "-40%",
+      "badge_color": "#10b981",
+      "title": "2a unidad al 40%",
+      "description": "Renueva tus gafas con descuento especial en la segunda unidad.",
+      "price_from": "Desde 79€",
+      "subtitle": "En monturas seleccionadas"
+    },
+    {
+      "badge": "PACK",
+      "badge_color": "#0ea5e9",
+      "title": "Montura + lentes",
+      "description": "Pack completo con tratamiento antirreflejante y asesoramiento personalizado.",
+      "price_from": "Desde 99€",
+      "subtitle": "Promocion limitada"
+    },
+    {
+      "badge": "NUEVO",
+      "badge_color": "#f59e0b",
+      "title": "Lentes de contacto",
+      "description": "Prueba inicial y seguimiento para encontrar las lentes ideales.",
+      "price_from": "Desde 19€",
+      "subtitle": "Consulta condiciones"
+    }
+  ]
+}

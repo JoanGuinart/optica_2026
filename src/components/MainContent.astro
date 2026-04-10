@@ -1,9 +1,7 @@
 ---
-import { getSpecialOffersPortada } from "@/lib/strapi";
 import mainContentData from "@data/main-content.json";
+import offersHomeData from "@data/offers-home.json";
 import ui from "@data/ui.json";
-
-const apiOffers = await getSpecialOffersPortada();
 
 interface OfferMerged {
   badge: string;
@@ -17,11 +15,12 @@ interface OfferMerged {
   url: string;
 }
 
-// Merge API data with static config from JSON
-const offersMainContent: OfferMerged[] = apiOffers.map((apiOffer: any, index: number) => {
-  const staticConfig = mainContentData.specialOffers.offers[index] || mainContentData.specialOffers.offers[0];
+const offersMainContent: OfferMerged[] = (offersHomeData.offers || []).map((offer, index: number) => {
+  const staticConfig =
+    mainContentData.specialOffers.offers[index] ||
+    mainContentData.specialOffers.offers[0];
   return {
-    ...apiOffer,
+    ...offer,
     iconPath: staticConfig.iconPath,
     buttonText: staticConfig.buttonText,
     url: staticConfig.url,

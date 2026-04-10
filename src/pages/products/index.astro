@@ -1,9 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import {
-  getPrincipalOfferProducts,
-  getSpecialOffersProducts,
-} from "@/lib/strapi";
+import offersProductsData from "@data/offers-products.json";
 import productsData from "@data/products.json";
 import { Image } from "astro:assets";
 
@@ -15,12 +12,23 @@ const canonical = Astro.site
   ? new URL(Astro.url.pathname, Astro.site).toString()
   : new URL(Astro.url.pathname, "http://localhost").toString();
 
-const ofertaPrincipal = await getPrincipalOfferProducts();
+const ofertaPrincipal = {
+  badge: offersProductsData.principal?.badge || productsData.hero.badge?.text || "Novedad",
+  title:
+    offersProductsData.principal?.title ||
+    `${productsData.hero.title?.main || ""} ${productsData.hero.title?.highlight || ""}`.trim() ||
+      "Producto destacado",
+  description:
+    offersProductsData.principal?.description ||
+    productsData.hero.description ||
+    "Descubre nuestra oferta destacada.",
+  link: offersProductsData.principal?.link || "https://www.youtube.com/watch?v=GQxYj6qM8Rk",
+};
 
-const apiProductsOffers = await getSpecialOffersProducts();
-
-// Merge API offers with static config from JSON (buttonText, conditions, details)
-const productsOffers = apiProductsOffers.map((apiOffer: any, index: number) => {
+// Merge local offers with static config from JSON (buttonText, conditions, details)
+const productsOffers = (offersProductsData.offers || [])
+  .filter(Boolean)
+  .map((apiOffer: any, index: number) => {
   const staticConfig =
     productsData.specialOffers.offers[index] ||
     productsData.specialOffers.offers[0];
