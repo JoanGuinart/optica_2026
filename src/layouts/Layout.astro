@@ -26,17 +26,22 @@ const defaultTitle =
 const defaultDescription =
   "Óptica y audiología en Gran de Sant Andreu, 308 (Barcelona). Revisiones visuales, gafas graduadas, lentillas y adaptación de audífonos con más de 25 años de experiencia en Sant Andreu.";
 
-const defaultImage = "/portada/portada_compressed_2.webp";
 
 const {
   title = defaultTitle,
   description = defaultDescription,
-  ogImage = defaultImage,
+  ogImage: ogImageProp,
   noindex = false,
   flush = false,
 } = Astro.props as Props;
 const locale = getLocaleFromPath(Astro.url.pathname);
 const site = getLocalizedData<any>(locale, "site");
+// Imatge per compartir (WhatsApp, Facebook...): la de l'idioma de la pàgina
+const ogImage = ogImageProp ?? `/og/optica-guinart-${locale}.jpg`;
+const ogImageAlt =
+  locale === "ca"
+    ? "Òptica Guinart: la teva òptica de barri a Sant Andreu, Barcelona"
+    : "Óptica Guinart: tu óptica de barrio en Sant Andreu, Barcelona";
 const contactData = getLocalizedData<any>(locale, "contact");
 // Title template: añade el nombre del sitio si la página tiene título personalizado
 const siteName = "Óptica Guinart";
@@ -52,9 +57,7 @@ const ogImageUrl =
     ? new URL(ogImage, Astro.site).toString()
     : ogImage;
 // Dimensiones OG si la imagen por defecto coincide (mejora de previews)
-const ogImageDims = ogImageUrl?.includes("portada_compressed_2.webp")
-  ? { width: 1526, height: 994 }
-  : null;
+const ogImageDims = ogImageUrl?.includes("/og/") ? { width: 1200, height: 630 } : null;
 // sameAs array limpio (solo URLs existentes)
 const sameAs = [
   contactData?.socialMedia?.instagram?.url,
@@ -143,6 +146,8 @@ const breadcrumbs = [
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content={ogImageAlt} />
+    {ogImageUrl?.endsWith(".jpg") && <meta property="og:image:type" content="image/jpeg" />}
     {
       ogImageDims && (
         <>
