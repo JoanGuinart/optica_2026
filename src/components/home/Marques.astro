@@ -1,0 +1,47 @@
+---
+import { getLocaleFromPath, getLocalizedData } from "@/utils/i18n";
+const locale = getLocaleFromPath(Astro.url.pathname);
+const t = getLocalizedData<any>(locale, "inici").brands;
+const list: string[] = t.list;
+---
+
+<section class="border-y border-bosc-900/10 bg-crema-50 py-7" aria-label={t.label}>
+  <p class="sr-only">{t.label}: {list.join(", ")}</p>
+  <div class="cinta relative flex overflow-hidden" aria-hidden="true">
+    {[0, 1].map(() => (
+      <ul class="cinta-pista flex shrink-0 items-center gap-12 pr-12">
+        {list.map((b) => (
+          <li class="flex items-center gap-12 whitespace-nowrap font-display text-2xl text-bosc-800/80 italic sm:text-3xl" style="font-weight:380">
+            {b}
+            <span class="inline-block h-1.5 w-1.5 rounded-full bg-fusta-400"></span>
+          </li>
+        ))}
+      </ul>
+    ))}
+  </div>
+</section>
+
+<style>
+  .cinta {
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+  .cinta-pista {
+    animation: desplaca 55s linear infinite;
+  }
+  .cinta:hover .cinta-pista {
+    animation-play-state: paused;
+  }
+  @keyframes desplaca {
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cinta-pista {
+      animation: none;
+    }
+    .cinta {
+      flex-wrap: wrap;
+    }
+  }
+</style>

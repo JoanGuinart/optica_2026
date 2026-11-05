@@ -1,0 +1,89 @@
+---
+/** Indicador "Obert ara / Tancat" segons l'hora de Barcelona (es calcula al navegador) */
+import { getLocaleFromPath, getLocalizedData } from "@/utils/i18n";
+interface Props {
+  class?: string;
+}
+const { class: className = "" } = Astro.props;
+const site = getLocalizedData<any>(getLocaleFromPath(Astro.url.pathname), "site");
+---
+
+<p
+  class={`estat-botiga inline-flex items-center gap-2.5 rounded-full bg-crema-50 px-4 py-2 text-sm font-semibold ${className}`}
+  hidden
+  data-open={site.status.open}
+  data-closed={site.status.closed}
+  data-opens={site.status.opensAt}
+>
+  <span class="punt relative flex h-2.5 w-2.5"><span class="absolute inset-0 rounded-full"></span></span>
+  <span class="text"></span>
+</p>
+
+<style>
+  .punt span {
+    background: var(--color-bosc-500);
+  }
+  [data-estat="closed"] .punt span {
+    background: var(--color-fusta-500);
+  }
+  [data-estat="open"] .punt::before {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: 999px;
+    background: var(--color-bosc-500);
+    opacity: 0.25;
+    animation: batec 2s ease-out infinite;
+  }
+  @keyframes batec {
+    from {
+      transform: scale(0.6);
+      opacity: 0.45;
+    }
+    to {
+      transform: scale(1.6);
+      opacity: 0;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-estat="open"] .punt::before {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  // Horari: dia (0 = diumenge) -> franges [obertura, tancament] en minuts
+  const H: Record<number, [number, number][]> = {
+    1: [[570, 810], [1020, 1230]],
+    2: [[570, 810], [1020, 1230]],
+    3: [[570, 810], [1020, 1230]],
+    4: [[570, 810], [1020, 1230]],
+    5: [[570, 810], [1020, 1230]],
+    6: [[600, 810]],
+  };
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Europe/Madrid",
+    weekday: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+    hourCycle: "h23",
+  }).formatToParts(new Date());
+  const get = (t: string) => parts.find((p) => p.type === t)?.value ?? "";
+  const day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(get("weekday"));
+  const min = parseInt(get("hour")) * 60 + parseInt(get("minute"));
+  const today = H[day] ?? [];
+  const open = today.some(([a, b]) => min >= a && min < b);
+  const next = today.find(([a]) => a > min);
+  const fmt = (m: number) => `${Math.floor(m / 60)}:${String(m % 60).padStart(2, "0")}`;
+
+  document.querySelectorAll<HTMLElement>(".estat-botiga").forEach((el) => {
+    el.dataset.estat = open ? "open" : "closed";
+    el.querySelector(".text")!.textContent = open
+      ? el.dataset.open!
+      : next
+        ? `${el.dataset.closed} · ${el.dataset.opens} ${fmt(next[0])}`
+        : el.dataset.closed!;
+    el.hidden = false;
+  });
+</script>

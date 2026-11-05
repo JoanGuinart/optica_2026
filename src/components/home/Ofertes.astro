@@ -1,0 +1,33 @@
+---
+import Icon from "@components/ui/Icon.astro";
+import Titol from "@components/ui/Titol.astro";
+import Etiquetes from "@components/ui/Etiquetes.astro";
+import { getLocaleFromPath, getLocalizedData } from "@/utils/i18n";
+
+const locale = getLocaleFromPath(Astro.url.pathname);
+const t = getLocalizedData<any>(locale, "inici").offers;
+const offers: any[] = getLocalizedData<any>(locale, "offers-home").offers ?? [];
+const whatsapp = getLocalizedData<any>(locale, "contact").socialMedia.whatsapp.url;
+
+const items = offers.map((o) => ({
+  badge: o.badge,
+  title: o.title,
+  description: o.description,
+  price: o.price_from,
+  sub: o.subtitle,
+}));
+---
+
+<section class="paper relative overflow-hidden bg-crema-100 py-24 sm:py-32">
+  <div class="contenidor">
+    <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+      <Titol eyebrow={t.eyebrow} title={t.title.before} italic={t.title.italic} />
+      <a href={whatsapp} target="_blank" rel="noopener noreferrer" class="boto boto-linia self-start sm:self-auto" data-reveal>
+        <Icon name="whatsapp" size={20} /> {t.cta}
+      </a>
+    </div>
+    <div class="mt-16">
+      <Etiquetes items={items} />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,130 @@
+---
+/**
+ * Bloc "On som": adreça, telèfon, horari i mapa.
+ * El mapa de Google només es carrega si l'usuari hi fa clic (estalvia molts KB).
+ */
+import Icon from "./Icon.astro";
+import Titol from "./Titol.astro";
+import EstatBotiga from "./EstatBotiga.astro";
+import { getLocaleFromPath, getLocalizedData } from "@/utils/i18n";
+
+interface Props {
+  title?: string;
+  italic?: string;
+  eyebrow?: string;
+}
+const locale = getLocaleFromPath(Astro.url.pathname);
+const site = getLocalizedData<any>(locale, "site");
+const w = site.comu.where;
+const { title = w.title, italic = w.italic, eyebrow = w.eyebrow } = Astro.props;
+const info = getLocalizedData<any>(locale, "contact").contactInfo;
+const mapSrc =
+  "https://maps.google.com/maps?q=" +
+  encodeURIComponent("Òptica Guinart, Carrer Gran de Sant Andreu 308, 08030 Barcelona") +
+  `&z=17&hl=${locale}&output=embed`;
+---
+
+<section class="bg-crema-50 py-24 sm:py-28">
+  <div class="contenidor grid gap-12 lg:grid-cols-12 lg:gap-16">
+    <div class="lg:col-span-5">
+      <Titol eyebrow={eyebrow} title={title} italic={italic} />
+      <EstatBotiga class="mt-8" />
+      <dl class="mt-8 space-y-6 border-t border-bosc-900/10 pt-8" data-reveal-stagger>
+        <div class="flex gap-4">
+          <Icon name="ubicacio" size={24} class="mt-0.5 shrink-0 text-bosc-600" />
+          <div>
+            <dt class="text-sm font-semibold text-tinta-suau">{w.address}</dt>
+            <dd class="mt-1">{info.address.street}<br />{info.address.city}</dd>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <Icon name="telefon" size={24} class="mt-0.5 shrink-0 text-bosc-600" />
+          <div>
+            <dt class="text-sm font-semibold text-tinta-suau">{w.phone}</dt>
+            <dd class="mt-1"><a href={`tel:${info.phone.display.replace(/\s+/g, "")}`} class="hover:text-bosc-700">{info.phone.display}</a></dd>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <Icon name="rellotge" size={24} class="mt-0.5 shrink-0 text-bosc-600" />
+          <div>
+            <dt class="text-sm font-semibold text-tinta-suau">{w.hours}</dt>
+            {site.footer.hoursRows.map((r: any) => (
+              <dd class="mt-1 flex flex-wrap gap-x-3"><span class="min-w-[9.5rem] text-tinta-suau">{r.d}</span><span>{r.h}</span></dd>
+            ))}
+          </div>
+        </div>
+      </dl>
+      <a href={info.address.googleMaps} target="_blank" rel="noopener noreferrer" class="enllac mt-8" data-reveal>
+        {w.directions} <Icon name="fletxa-diag" size={16} />
+      </a>
+    </div>
+
+    <!-- Mapa: primer un dibuix lleuger, i el de Google només en fer clic -->
+    <div class="lg:col-span-7" data-reveal>
+      <div class="mapa relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-crema-200 lg:aspect-auto lg:h-full lg:min-h-[28rem]">
+        <svg class="absolute inset-0 h-full w-full" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="400" height="300" style="fill: var(--color-crema-200)"></rect>
+          <g fill="none" stroke-linecap="round" style="stroke: var(--color-crema-50)">
+            <path d="M-20 210 L420 120" stroke-width="22"></path>
+            <path d="M120 -20 L175 320" stroke-width="10"></path>
+            <path d="M300 -20 L250 320" stroke-width="10"></path>
+            <path d="M-20 80 L420 40" stroke-width="7"></path>
+            <path d="M-20 290 L420 250" stroke-width="7"></path>
+            <path d="M40 -20 L70 320" stroke-width="5"></path>
+            <path d="M370 -20 L345 320" stroke-width="5"></path>
+          </g>
+          <text x="120" y="180" transform="rotate(-11.5 120 180)" font-size="9" letter-spacing="2.5" style="fill: var(--color-tinta-suau); font-family: var(--font-sans)">CARRER GRAN DE SANT ANDREU</text>
+        </svg>
+        <!-- l'agulla amb el monograma -->
+        <div class="absolute top-[40%] left-[52%] -translate-x-1/2 -translate-y-full">
+          <div class="agulla flex h-14 w-14 items-center justify-center rounded-full rounded-br-none bg-bosc-700 text-crema-50 shadow-xl" style="transform: rotate(45deg)">
+            <span style="transform: rotate(-45deg)" class="font-display text-xl" >Ò</span>
+          </div>
+        </div>
+        <div class="absolute inset-x-0 bottom-0 flex flex-col items-start gap-2 p-6 sm:flex-row sm:items-center sm:justify-between">
+          <button type="button" class="carrega-mapa boto boto-clar shadow-lg" data-src={mapSrc} data-title={`${info.address.street}, Barcelona`}>
+            <Icon name="ubicacio" size={18} /> {w.showMap}
+          </button>
+          <p class="text-xs text-tinta-suau">{w.mapNote}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .agulla {
+    animation: bota 2.6s var(--ease-out-soft) infinite;
+  }
+  @keyframes bota {
+    0%,
+    70%,
+    100% {
+      translate: 0 0;
+    }
+    80% {
+      translate: 0 -8px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .agulla {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>(".carrega-mapa").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const box = btn.closest(".mapa");
+      if (!box) return;
+      const iframe = document.createElement("iframe");
+      iframe.src = btn.dataset.src!;
+      iframe.title = btn.dataset.title!;
+      iframe.loading = "lazy";
+      iframe.referrerPolicy = "no-referrer-when-downgrade";
+      iframe.className = "absolute inset-0 h-full w-full border-0";
+      box.replaceChildren(iframe);
+    });
+  });
+</script>

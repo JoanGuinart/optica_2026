@@ -1,0 +1,72 @@
+{
+  "hero": {
+    "eyebrow": "Sant Andreu de Palomar · desde hace más de 25 años",
+    "title": { "before": "Tu óptica de barrio,", "italic": "con ojos de experto." },
+    "subtitle": "Revisiones visuales, gafas graduadas, lentillas y audiología en la calle Gran de Sant Andreu, 308. Atención de tú a tú, como siempre.",
+    "cta": "Pide cita",
+    "call": "Llámanos",
+    "rating": "en Google",
+    "reviews": "reseñas",
+    "photoAlt": "Fachada de Óptica Guinart en la calle Gran de Sant Andreu, con el rótulo verde",
+    "insetAlt": "Interior de la tienda con mostradores de madera y gafas expuestas"
+  },
+  "brands": {
+    "label": "Marcas que encontrarás en la tienda",
+    "list": ["Ray-Ban", "Silhouette", "Maui Jim", "Lacoste", "Polo Ralph Lauren", "Tous", "Vogue", "Police", "Furla", "Zadig & Voltaire", "Arnette", "Pertegaz"]
+  },
+  "services": {
+    "eyebrow": "Qué hacemos",
+    "title": { "before": "Dos especialidades,", "italic": "una sola casa." },
+    "blocks": [
+      {
+        "num": "01",
+        "title": "Óptica",
+        "text": "Te hacemos una revisión completa, te ayudamos a elegir la montura que de verdad te queda bien y ajustamos las gafas hasta que no las notes.",
+        "items": [
+          { "icon": "ull", "label": "Revisión visual completa" },
+          { "icon": "ulleres", "label": "Gafas graduadas y progresivas" },
+          { "icon": "lentilla", "label": "Lentillas y seguimiento" },
+          { "icon": "sol", "label": "Gafas de sol graduadas" }
+        ],
+        "link": { "href": "/optica-sant-andreu", "label": "Óptica en Sant Andreu" },
+        "photoAlt": "Mostradores de madera con gafas de distintas marcas"
+      },
+      {
+        "num": "02",
+        "title": "Audiología",
+        "text": "Si te cuesta seguir una conversación o subes la tele cada vez más, ven. La audiometría es gratuita y sin compromiso.",
+        "items": [
+          { "icon": "orella", "label": "Audiometría gratuita" },
+          { "icon": "audifon", "label": "Adaptación de audífonos digitales" },
+          { "icon": "check", "label": "Revisiones y mantenimiento" },
+          { "icon": "orella", "label": "Protectores auditivos a medida" }
+        ],
+        "link": { "href": "/audiologia-barcelona", "label": "Audiología en Barcelona" }
+      }
+    ]
+  },
+  "offers": {
+    "eyebrow": "Este mes",
+    "title": { "before": "Promociones", "italic": "en el escaparate." },
+    "cta": "Pregunta por WhatsApp"
+  },
+  "products": {
+    "eyebrow": "Elegidas por nosotros",
+    "title": { "before": "Monturas que", "italic": "nos gustan." },
+    "all": "Ver todo el catálogo",
+    "ask": "Pedir"
+  },
+  "numbers": [
+    { "value": "25", "prefix": "+", "suffix": "", "label": "años cuidando la vista del barrio" },
+    { "value": "4.9", "prefix": "", "suffix": "", "label": "de valoración media en Google", "sep": "," },
+    { "value": "0", "prefix": "", "suffix": " €", "label": "por la audiometría, sin compromiso" }
+  ],
+  "visit": {
+    "eyebrow": "Ven a vernos",
+    "title": { "before": "Nos encontrarás en la", "italic": "calle Gran." },
+    "text": "Entra, pruébate las monturas que quieras y pregúntalo todo: aquí nadie tiene prisa.",
+    "photoAlt": "Mostrador de atención de Óptica Guinart con sillas para los clientes",
+    "maps": "Cómo llegar",
+    "cta": "Pide cita"
+  }
+}

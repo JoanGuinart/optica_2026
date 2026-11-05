@@ -1,0 +1,104 @@
+---
+import Logo from "@components/ui/Logo.astro";
+import Icon from "@components/ui/Icon.astro";
+import { getLocaleFromPath, getLocalizedData, localizePath } from "@/utils/i18n";
+
+const locale = getLocaleFromPath(Astro.url.pathname);
+const site = getLocalizedData<any>(locale, "site");
+const nav = getLocalizedData<any>(locale, "navbar");
+const contact = getLocalizedData<any>(locale, "contact");
+const f = site.footer;
+const info = contact.contactInfo;
+const social = contact.socialMedia;
+const year = new Date().getFullYear();
+---
+
+<footer class="relative overflow-hidden bg-bosc-900 text-crema-200">
+  <div class="contenidor pt-20 pb-10">
+    <div class="grid gap-14 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <Logo href={localizePath("/", locale)} tone="crema" label={site.logoLabel} sub={site.logoSub} />
+        <p class="mt-8 max-w-sm font-display text-2xl leading-snug text-crema-50" style="font-weight:400">{f.claim}</p>
+        <div class="mt-8 flex gap-2">
+          {[
+            { href: social.instagram.url, icon: "instagram", label: "Instagram" },
+            { href: social.facebook.url, icon: "facebook", label: "Facebook" },
+            { href: social.whatsapp.url, icon: "whatsapp", label: "WhatsApp" },
+          ].map((s) => (
+            <a
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-crema-50/15 text-crema-100 transition-colors hover:border-fusta-300 hover:text-fusta-300"
+              aria-label={s.label}
+            >
+              <Icon name={s.icon as any} size={20} />
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div class="grid gap-10 sm:grid-cols-3 lg:col-span-7">
+        <div>
+          <h2 class="avantitol !text-fusta-300">{f.visit}</h2>
+          <address class="mt-4 not-italic leading-relaxed">
+            {info.address.street}<br />
+            {info.address.city}
+          </address>
+          <a href={info.address.googleMaps} target="_blank" rel="noopener noreferrer" class="enllac mt-3 !text-crema-50">
+            Google Maps <Icon name="fletxa-diag" size={16} />
+          </a>
+        </div>
+        <div>
+          <h2 class="avantitol !text-fusta-300">{f.hours}</h2>
+          <dl class="mt-4 space-y-3 text-sm">
+            {f.hoursRows.map((r: any) => (
+              <div>
+                <dt class="text-crema-50">{r.d}</dt>
+                <dd class="text-crema-200/80">{r.h}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+        <div>
+          <h2 class="avantitol !text-fusta-300">{f.contact}</h2>
+          <ul class="mt-4 space-y-3">
+            <li>
+              <a href={`tel:${info.phone.display.replace(/\s+/g, "")}`} class="inline-flex items-center gap-2 hover:text-crema-50">
+                <Icon name="telefon" size={18} /> {info.phone.display}
+              </a>
+            </li>
+            <li>
+              <a href={social.whatsapp.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 hover:text-crema-50">
+                <Icon name="whatsapp" size={18} /> WhatsApp
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${info.email.address}`} class="inline-flex items-start gap-2 text-sm [overflow-wrap:anywhere] hover:text-crema-50">
+                <Icon name="correu" size={18} /> {info.email.address}
+              </a>
+            </li>
+          </ul>
+          <h2 class="avantitol mt-8 !text-fusta-300">{f.explore}</h2>
+          <ul class="mt-4 space-y-2 text-sm">
+            {nav.navigation.desktop.map((l: any) => (
+              <li><a href={localizePath(l.href, locale)} class="hover:text-crema-50">{l.label}</a></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- L'adreça gran, com un rètol -->
+  <div class="contenidor select-none" aria-hidden="true">
+    <p class="pb-4 font-display leading-[0.95] text-crema-50/[0.07] whitespace-nowrap" style="font-size: clamp(1.9rem, 6.3vw, 6.5rem); font-weight: 650">
+      Gran de Sant Andreu, 308
+    </p>
+  </div>
+
+  <div class="contenidor flex flex-col gap-2 border-t border-crema-50/10 py-6 text-xs text-crema-200/70 sm:flex-row sm:justify-between">
+    <p>© {year} {f.rights}</p>
+    <p>{f.made}</p>
+  </div>
+</footer>

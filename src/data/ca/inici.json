@@ -1,0 +1,72 @@
+{
+  "hero": {
+    "eyebrow": "Sant Andreu de Palomar · des de fa més de 25 anys",
+    "title": { "before": "La teva òptica de barri,", "italic": "amb ulls d'expert." },
+    "subtitle": "Revisions visuals, ulleres graduades, lents de contacte i audiologia al Carrer Gran de Sant Andreu, 308. Atenció de tu a tu, com sempre.",
+    "cta": "Demana cita",
+    "call": "Truca'ns",
+    "rating": "a Google",
+    "reviews": "ressenyes",
+    "photoAlt": "Façana d'Òptica Guinart al Carrer Gran de Sant Andreu, amb el rètol verd",
+    "insetAlt": "Interior de la botiga amb mostradors de fusta i ulleres exposades"
+  },
+  "brands": {
+    "label": "Marques que trobaràs a la botiga",
+    "list": ["Ray-Ban", "Silhouette", "Maui Jim", "Lacoste", "Polo Ralph Lauren", "Tous", "Vogue", "Police", "Furla", "Zadig & Voltaire", "Arnette", "Pertegaz"]
+  },
+  "services": {
+    "eyebrow": "Què fem",
+    "title": { "before": "Dues especialitats,", "italic": "una sola casa." },
+    "blocks": [
+      {
+        "num": "01",
+        "title": "Òptica",
+        "text": "Et fem una revisió completa, t'ajudem a triar la muntura que et queda bé de debò i ajustem les ulleres fins que no les notis.",
+        "items": [
+          { "icon": "ull", "label": "Revisió visual completa" },
+          { "icon": "ulleres", "label": "Ulleres graduades i progressives" },
+          { "icon": "lentilla", "label": "Lents de contacte i seguiment" },
+          { "icon": "sol", "label": "Ulleres de sol graduades" }
+        ],
+        "link": { "href": "/optica-sant-andreu", "label": "Òptica a Sant Andreu" },
+        "photoAlt": "Mostradors de fusta amb ulleres de diferents marques"
+      },
+      {
+        "num": "02",
+        "title": "Audiologia",
+        "text": "Si et costa seguir una conversa o subjectes la tele cada cop més alta, vine. L'audiometria és gratuïta i sense compromís.",
+        "items": [
+          { "icon": "orella", "label": "Audiometria gratuïta" },
+          { "icon": "audifon", "label": "Adaptació d'audiòfons digitals" },
+          { "icon": "check", "label": "Revisions i manteniment" },
+          { "icon": "orella", "label": "Protectors auditius a mida" }
+        ],
+        "link": { "href": "/audiologia-barcelona", "label": "Audiologia a Barcelona" }
+      }
+    ]
+  },
+  "offers": {
+    "eyebrow": "Aquest mes",
+    "title": { "before": "Promocions", "italic": "a l'aparador." },
+    "cta": "Pregunta per WhatsApp"
+  },
+  "products": {
+    "eyebrow": "Seleccionades per nosaltres",
+    "title": { "before": "Muntures que", "italic": "ens agraden." },
+    "all": "Veure tot el catàleg",
+    "ask": "Demanar"
+  },
+  "numbers": [
+    { "value": "25", "prefix": "+", "suffix": "", "label": "anys cuidant la vista del barri" },
+    { "value": "4.9", "prefix": "", "suffix": "", "label": "de valoració mitjana a Google", "sep": "," },
+    { "value": "0", "prefix": "", "suffix": " €", "label": "per l'audiometria, sense compromís" }
+  ],
+  "visit": {
+    "eyebrow": "Vine a veure'ns",
+    "title": { "before": "Ens trobaràs al", "italic": "Carrer Gran." },
+    "text": "Entra, emprova't les muntures que vulguis i pregunta-ho tot: aquí ningú té pressa.",
+    "photoAlt": "Taulell d'atenció d'Òptica Guinart amb cadires per als clients",
+    "maps": "Com arribar",
+    "cta": "Demana cita"
+  }
+}

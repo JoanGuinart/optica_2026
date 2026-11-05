@@ -1,13 +1,181 @@
 @import "tailwindcss";
-@custom-variant dark (&:where(.dark, .dark *));
+@import "@fontsource-variable/fraunces/wght.css";
+@import "@fontsource-variable/fraunces/wght-italic.css";
+@import "@fontsource-variable/instrument-sans/wght.css";
 
-main {
-  margin-top: 80px;
+/*
+  Identitat Òptica Guinart
+  - bosc: el verd de les lletres del rètol de la façana
+  - crema: el fons del rètol
+  - fusta: la fusta de faig i la llum càlida de l'interior
+*/
+@theme {
+  --font-display: "Fraunces Variable", ui-serif, Georgia, serif;
+  --font-sans: "Instrument Sans Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --color-bosc-950: #0d241a;
+  --color-bosc-900: #123323;
+  --color-bosc-800: #18442f;
+  --color-bosc-700: #1e5a3d; /* color del rètol */
+  --color-bosc-600: #27704d;
+  --color-bosc-500: #3b8a63;
+  --color-bosc-200: #c6dccd;
+  --color-bosc-100: #e2ede5;
+  --color-bosc-50: #f0f6f1;
+
+  --color-crema-50: #fcfaf5;
+  --color-crema-100: #f6f1e6;
+  --color-crema-200: #ece3d1;
+  --color-crema-300: #ddd0b6;
+
+  --color-fusta-300: #e6c191;
+  --color-fusta-400: #d6a56c;
+  --color-fusta-500: #bf874f;
+  --color-fusta-600: #9a6838;
+
+  --color-tinta: #1a201c;
+  --color-tinta-suau: #535c56;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
-button {
-  cursor: pointer;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  body {
+    @apply bg-crema-50 font-sans text-tinta antialiased;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-display text-bosc-900;
+    font-weight: 560;
+    letter-spacing: -0.015em;
+    line-height: 1.05;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  button {
+    cursor: pointer;
+  }
+  ::selection {
+    @apply bg-bosc-700 text-crema-50;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-bosc-600);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
 }
-html {
-  scroll-behavior: smooth;
-  scroll-padding: 200px;
+
+/* Petites peces reutilitzables */
+@layer components {
+  .contenidor {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+  .avantitol {
+    @apply font-sans text-xs font-semibold uppercase text-bosc-600;
+    letter-spacing: 0.18em;
+  }
+  .cursiva {
+    @apply font-display italic text-bosc-600;
+    font-weight: 420;
+  }
+  .boto {
+    @apply relative inline-flex items-center justify-center gap-3 rounded-full px-7 py-3.5 font-semibold transition-[background-color,color,transform] duration-300 ease-out-soft active:scale-[0.98];
+    min-height: 48px;
+  }
+  /* ús: class="boto boto-primari" */
+  .boto-primari {
+    @apply bg-bosc-700 text-crema-50 hover:bg-bosc-800;
+  }
+  .boto-clar {
+    @apply bg-crema-50 text-bosc-800 hover:bg-white;
+  }
+  .boto-linia {
+    @apply border border-bosc-700/25 text-bosc-800 hover:border-bosc-700 hover:bg-bosc-50;
+  }
+  .boto .fletxa {
+    @apply transition-transform duration-300 ease-out-soft;
+  }
+  .boto:hover .fletxa {
+    transform: translateX(4px);
+  }
+  .enllac {
+    @apply relative inline-flex items-center gap-2 font-semibold text-bosc-700;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 100% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.4s var(--ease-out-soft);
+  }
+  .enllac:hover {
+    background-size: 0% 1px;
+    background-position: 100% 100%;
+  }
+  /* Arc de mig punt: la part de dalt és un semicercle perfecte segons la proporció */
+  .arc-4-5 {
+    border-radius: 50% 50% 2rem 2rem / 40% 40% 2rem 2rem;
+  }
+  .arc-5-4 {
+    border-radius: 50% 50% 2rem 2rem / 62.5% 62.5% 2rem 2rem;
+  }
+  /* Les màscares de línia del SplitText deixen espai per a accents i descendents */
+  .linia-mask {
+    padding-block: 0.1em 0.16em;
+    margin-block: -0.1em -0.16em;
+  }
+  /* Textura de paper molt subtil sobre els fons crema */
+  .paper {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.28 0 0 0 0 0.18 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* Animacions: el contingut només s'amaga si hi ha JS i l'usuari accepta moviment */
+@media (prefers-reduced-motion: no-preference) {
+  html.js [data-reveal],
+  html.js [data-reveal-stagger] > *,
+  html.js [data-etiqueta] {
+    opacity: 0;
+  }
+  html.js [data-lent] {
+    clip-path: circle(0% at 50% 55%);
+  }
+}
+/* Els títols que es parteixen en línies no poden fer servir balance */
+[data-split] {
+  text-wrap: wrap;
+}
+
+/* Transicions suaus entre pàgines (sense JS) */
+@view-transition {
+  navigation: auto;
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.35s;
+  animation-timing-function: var(--ease-out-soft);
+}
+.capcalera {
+  view-transition-name: capcalera;
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
 }

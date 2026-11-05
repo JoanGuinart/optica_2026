@@ -1,0 +1,23 @@
+---
+/** Títol de secció: avantítol + títol (amb part en cursiva) + subtítol */
+interface Props {
+  eyebrow?: string;
+  title: string;
+  italic?: string;
+  subtitle?: string;
+  center?: boolean;
+  dark?: boolean;
+  as?: "h1" | "h2";
+  class?: string;
+}
+const { eyebrow, title, italic, subtitle, center = false, dark = false, as: Tag = "h2", class: className = "" } = Astro.props;
+---
+
+<div class={`${center ? "mx-auto text-center" : ""} max-w-3xl ${className}`}>
+  {eyebrow && <p class={`avantitol ${dark ? "!text-fusta-300" : ""}`} data-reveal>{eyebrow}</p>}
+  <Tag class={`mt-5 ${dark ? "!text-crema-50" : ""}`} style="font-size: clamp(2.1rem, 4.4vw, 3.9rem)" data-split>
+    {title}
+    {italic && <span class={`cursiva ${dark ? "!text-fusta-300" : ""}`}> {italic}</span>}
+  </Tag>
+  {subtitle && <p class={`mt-5 text-lg ${dark ? "text-crema-200" : "text-tinta-suau"} ${center ? "mx-auto" : ""} max-w-2xl`} data-reveal>{subtitle}</p>}
+</div>

@@ -1,184 +1,77 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import {
-  getLocaleFromPath,
-  getLocalizedData,
-  localizePath,
-} from '@/utils/i18n';
+import Layout from "@layouts/Layout.astro";
+import CapPagina from "@components/ui/CapPagina.astro";
+import Icon from "@components/ui/Icon.astro";
+import Preguntes from "@components/ui/Preguntes.astro";
+import Crida from "@components/ui/Crida.astro";
+import { getLocaleFromPath, getLocalizedData } from "@/utils/i18n";
 
 const locale = getLocaleFromPath(Astro.url.pathname);
-const faqData = getLocalizedData<any>(locale, 'faq');
-const contactData = getLocalizedData<any>(locale, 'contact');
+const d = getLocalizedData<any>(locale, "faq");
+const comu = getLocalizedData<any>(locale, "site").comu;
+const titles = d.page.sections;
 
-const pageTitle = faqData.seo?.title || `${faqData.page.title} | Óptica Guinart`;
-const pageDescription = faqData.seo?.description;
-const pageOgImage = faqData.seo?.ogImage;
-const sectionTitles = faqData.page.sections;
+const toItems = (arr: any[]) => arr.map((f) => ({ q: f.question, a: f.answer }));
+const groups = [
+  { id: "optica", icon: "ulleres", title: titles.optica, items: toItems(d.optica) },
+  { id: "audiometria", icon: "orella", title: titles.audiometria, items: toItems(d.audiometria) },
+  { id: "general", icon: "xat", title: titles.general, items: toItems(d.general) },
+];
+const words = d.page.title.split(" ");
 ---
-<Layout title={pageTitle} description={pageDescription} ogImage={pageOgImage}>
-  <main class="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100">
-    <!-- FAQPage Structured Data -->
-    <script
-      type="application/ld+json"
-      is:inline
-      set:html={JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        mainEntity: [
-          ...faqData.optica.map((faq: any) => ({
-            '@type': 'Question',
-            name: faq.question,
-            acceptedAnswer: { '@type': 'Answer', text: faq.answer },
-          })),
-          ...faqData.audiometria.map((faq: any) => ({
-            '@type': 'Question',
-            name: faq.question,
-            acceptedAnswer: { '@type': 'Answer', text: faq.answer },
-          })),
-          ...faqData.general.map((faq: any) => ({
-            '@type': 'Question',
-            name: faq.question,
-            acceptedAnswer: { '@type': 'Answer', text: faq.answer },
-          })),
-        ],
-      })}
-    ></script>
-    <!-- Hero Section -->
-    <section class="py-20 px-4">
-      <div class="max-w-4xl mx-auto text-center">
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-          {faqData.page.title}
-        </h1>
-        <p class="text-xl text-gray-600 mb-8">
-          {faqData.page.subtitle}
-        </p>
-        <div class="w-24 h-1 bg-emerald-500 mx-auto rounded-full"></div>
+
+<Layout title={d.seo?.title} description={d.seo?.description} ogImage={d.seo?.ogImage}>
+  <CapPagina
+    eyebrow={comu.faqEyebrow}
+    title={words.slice(0, -1).join(" ") || d.page.title}
+    italic={words.length > 1 ? words.at(-1) : undefined}
+    subtitle={d.page.subtitle}
+    ctas={false}
+  />
+
+  <section class="bg-crema-50 py-20 sm:py-24">
+    <div class="contenidor grid gap-12 lg:grid-cols-12">
+      <!-- Índex lateral (fix en escriptori) -->
+      <nav class="min-w-0 lg:col-span-3" aria-label={d.page.title}>
+        <ul class="flex gap-2 overflow-x-auto pb-2 lg:sticky lg:top-28 lg:flex-col lg:gap-1 lg:overflow-visible">
+          {groups.map((g) => (
+            <li class="shrink-0">
+              <a href={`#${g.id}`} class="flex items-center gap-3 rounded-full px-4 py-2.5 text-sm font-semibold text-tinta-suau transition-colors hover:bg-crema-100 hover:text-bosc-700 lg:text-base">
+                <Icon name={g.icon} size={20} class="text-bosc-600" />
+                {g.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <div class="min-w-0 space-y-20 lg:col-span-9">
+        {groups.map((g) => (
+          <div id={g.id} class="scroll-mt-28">
+            <h2 class="mb-6 flex items-center gap-4" style="font-size: clamp(1.9rem, 3.4vw, 2.8rem)" data-reveal>
+              <span class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-crema-100 text-bosc-700">
+                <Icon name={g.icon} size={24} />
+              </span>
+              {g.title}
+            </h2>
+            <Preguntes items={g.items} group={`faq-${g.id}`} />
+          </div>
+        ))}
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- FAQ Content -->
-    <section class="pb-20 px-4">
-      <div class="max-w-4xl mx-auto">
-        
-        <!-- Òptica FAQ -->
-        <div class="mb-16">
-          <h2 class="text-3xl font-bold text-gray-900 mb-8 flex items-center">
-            <svg class="w-8 h-8 mr-3 text-emerald-500" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
-            </svg>
-            {sectionTitles.optica}
-          </h2>
-          
-          <div class="space-y-4">
-            {faqData.optica.map((faq: any) => (
-              <div class="bg-white  rounded-xl shadow-lg border border-gray-200 ">
-                <details class="group">
-                  <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50  rounded-xl transition-colors">
-                    <h3 class="text-lg font-semibold text-gray-900  pr-4">
-                      {faq.question}
-                    </h3>
-                    <svg class="w-5 h-5 text-emerald-500 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                  </summary>
-                  <div class="px-6 pb-6">
-                    <p class="text-gray-600  leading-relaxed">
-                      {faq.answer}
-                    </p>
-                  </div>
-                </details>
-              </div>
-            ))}
-          </div>
-        </div>
+  <Crida title={d.page.cta.noAnswerTitle} italic="" subtitle={d.page.cta.noAnswerText} />
 
-        <!-- Audiometría FAQ -->
-        <div class="mb-16">
-          <h2 class="text-3xl font-bold text-gray-900  mb-8 flex items-center">
-            <svg class="w-8 h-8 mr-3 text-emerald-500" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/>
-            </svg>
-            {sectionTitles.audiometria}
-          </h2>
-          
-          <div class="space-y-4">
-            {faqData.audiometria.map((faq: any) => (
-              <div class="bg-white  rounded-xl shadow-lg border border-gray-200 ">
-                <details class="group">
-                  <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50  rounded-xl transition-colors">
-                    <h3 class="text-lg font-semibold text-gray-900  pr-4">
-                      {faq.question}
-                    </h3>
-                    <svg class="w-5 h-5 text-emerald-500 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                  </summary>
-                  <div class="px-6 pb-6">
-                    <p class="text-gray-600  leading-relaxed">
-                      {faq.answer}
-                    </p>
-                  </div>
-                </details>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <!-- General FAQ -->
-        <div class="mb-16">
-          <h2 class="text-3xl font-bold text-gray-900  mb-8 flex items-center">
-            <svg class="w-8 h-8 mr-3 text-emerald-500" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-            </svg>
-            {sectionTitles.general}
-          </h2>
-          
-          <div class="space-y-4">
-            {faqData.general.map((faq: any) => (
-              <div class="bg-white  rounded-xl shadow-lg border border-gray-200 ">
-                <details class="group">
-                  <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50  rounded-xl transition-colors">
-                    <h3 class="text-lg font-semibold text-gray-900  pr-4">
-                      {faq.question}
-                    </h3>
-                    <svg class="w-5 h-5 text-emerald-500 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                  </summary>
-                  <div class="px-6 pb-6">
-                    <p class="text-gray-600  leading-relaxed">
-                      {faq.answer}
-                    </p>
-                  </div>
-                </details>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <!-- Contact CTA -->
-        <div class="bg-emerald-500 rounded-2xl p-8 text-center text-white">
-          <h3 class="text-2xl font-bold mb-4">{faqData.page.cta.noAnswerTitle}</h3>
-          <p class="text-emerald-100 mb-6">
-            {faqData.page.cta.noAnswerText}
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href={localizePath('/contact', locale)} 
-              class="bg-white text-emerald-500 px-6 py-3 rounded-lg font-semibold hover:bg-emerald-50 transition-colors"
-            >
-              {faqData.page.cta.contact}
-            </a>
-            <a 
-              href={`tel:${contactData.contactInfo.phone.display.replace(/\s+/g, '')}`} 
-              class="bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-800 transition-colors border border-emerald-400"
-            >
-              {faqData.page.cta.call}
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-  </main>
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: groups.flatMap((g) =>
+        g.items.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+      ),
+    })}
+  />
 </Layout>

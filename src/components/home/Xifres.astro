@@ -1,0 +1,22 @@
+---
+import { getLocaleFromPath, getLocalizedData } from "@/utils/i18n";
+const locale = getLocaleFromPath(Astro.url.pathname);
+const nums: any[] = getLocalizedData<any>(locale, "inici").numbers;
+---
+
+<section class="bg-bosc-900 py-20 text-crema-100 sm:py-24">
+  <dl class="contenidor grid gap-12 sm:grid-cols-3 sm:gap-8" data-reveal-stagger>
+    {nums.map((n, i) => (
+      <div class={`sm:px-6 ${i > 0 ? "sm:border-l sm:border-crema-50/10" : ""}`}>
+        <dt class="sr-only">{n.label}</dt>
+        <dd>
+          <p class="font-display leading-none text-crema-50" style="font-size: clamp(3.5rem, 7vw, 6rem); font-weight: 500" aria-hidden="true">
+            <span class="text-fusta-300">{n.prefix}</span><span data-compta={n.value} data-sep={n.sep}>{String(n.value).replace(".", n.sep || ".")}</span><span class="text-[0.5em]">{n.suffix}</span>
+          </p>
+          <span class="sr-only">{n.prefix}{String(n.value).replace(".", n.sep || ".")}{n.suffix}</span>
+          <p class="mt-4 max-w-[16rem] text-crema-200">{n.label}</p>
+        </dd>
+      </div>
+    ))}
+  </dl>
+</section>

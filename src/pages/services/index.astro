@@ -1,340 +1,126 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import {
-  getLocaleFromPath,
-  getLocalizedData,
-  localizePath,
-} from "@/utils/i18n";
+import Layout from "@layouts/Layout.astro";
+import CapPagina from "@components/ui/CapPagina.astro";
+import Titol from "@components/ui/Titol.astro";
+import Icon from "@components/ui/Icon.astro";
+import Crida from "@components/ui/Crida.astro";
+import { getLocaleFromPath, getLocalizedData, localizePath } from "@/utils/i18n";
 
 const locale = getLocaleFromPath(Astro.url.pathname);
-const servicesData = getLocalizedData<any>(locale, "services");
+const d = getLocalizedData<any>(locale, "services");
 const contactData = getLocalizedData<any>(locale, "contact");
-
-const pageTitle = servicesData.seo?.title;
-const pageDescription = servicesData.seo?.description;
-const pageOgImage = servicesData.seo?.ogImage;
 const ui = getLocalizedData<any>(locale, "ui");
-// Canonical URL for the page
-const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : new URL(Astro.url.pathname, 'http://localhost').toString();
-const intro = servicesData.intro;
-// Aseguramos tipos con campos opcionales para evitar errores TS al mapear
-const services: Array<{
-  id: number;
-  title: string;
-  description: string;
-  icon: string;
-  iconPath: string;
-  color: string;
-  price?: string;
-  duration?: string;
-  features?: string[];
-}> = servicesData.services as any;
+const wa = contactData.contactInfo.phone.whatsapp;
+const askText = (title: string) =>
+  locale === "ca" ? `Hola! Voldria informació sobre: ${title}` : `¡Hola! Quisiera información sobre: ${title}`;
+
+const services: { title: string; description: string; icon: string; price?: string; duration?: string; features?: string[] }[] =
+  d.services;
 ---
 
-<Layout title={pageTitle} description={pageDescription} ogImage={pageOgImage}>
-  <section
-    class="bg-linear-to-b from-gray-300 via-gray-200 to-gray-300 min-h-screen pt-20 sm:pt-24 lg:pt-28"
-  >
-    {/* Hero Section */}
-    <div class="py-16 px-4 sm:px-8 lg:px-12">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-          <div
-            class="inline-flex items-center bg-emerald-500/20 text-emerald-600 px-4 py-2 rounded-full text-sm font-semibold mb-6"
-          >
-            <svg
-              class="w-4 h-4 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-              ></path>
-            </svg>
-            {servicesData.hero.badge.text}
-          </div>
-          <h1
-            class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-800 mb-6 tracking-tight drop-shadow-lg"
-          >
-            {servicesData.hero.title.main}
-            <span class="text-emerald-600"
-              >{servicesData.hero.title.highlight}</span
-            >
-          </h1>
-          <p
-            class="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto font-medium leading-relaxed"
-          >
-            {servicesData.hero.subtitle}
-          </p>
-        </div>
+<Layout title={d.seo?.title} description={d.seo?.description} ogImage={d.seo?.ogImage}>
+  <CapPagina eyebrow={d.hero.badge.text} title={d.hero.title.main} italic={d.hero.title.highlight} subtitle={d.hero.subtitle} />
 
-        {/* Servicios principales */}
-        <h2 class="text-3xl font-bold text-slate-800 mb-8 text-center">
-          {intro.sectionTitle}
-        </h2>
-        {
-          intro.blocks.map((block: any, idx: number) => (
-            <p class={`text-center text-slate-600 ${idx === intro.blocks.length - 1 ? "mb-8" : "mb-4"}`}>
-              {block.prefix}
-              <a href={localizePath(block.path, locale)} class={block.linkClass}>{block.linkText}</a>
-              {block.suffix}
-            </p>
-          ))
-        }
-
-        {/* Servicios Grid - Layout uniforme profesional */}
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-16">
-          {
-            services.map((service) => {
-              // Diseño profesional: todo en verde esmeralda uniforme
-              const iconBg = "bg-emerald-600";
-              const priceColor = "text-emerald-600";
-              const checkColor = "text-emerald-600";
-              const buttonStyle = "bg-emerald-600 hover:bg-emerald-700";
-
-              return (
-                <div class="group">
-                  <div class="bg-white/90 backdrop-blur-md rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-emerald-500/20 overflow-hidden hover:bg-white h-full flex flex-col">
-                    {/* Header del servicio */}
-                    <div class="flex items-start justify-between mb-6">
-                      <div
-                        class={`w-16 h-16 ${iconBg} rounded-xl flex items-center justify-center shadow-lg`}
-                      >
-                        <svg
-                          class="w-8 h-8 text-white"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d={service.iconPath}
-                          />
-                        </svg>
-                      </div>
-                      {(service.price || service.duration) && (
-                        <div class="text-right">
-                          {service.price && (
-                            <div
-                              class={`text-2xl font-black ${priceColor} mb-1`}
-                            >
-                              {service.price}
-                            </div>
-                          )}
-                          {service.duration && (
-                            <div class="text-sm text-slate-500">
-                              {service.duration}
-                            </div>
-                          )}
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Contenido del servicio */}
-                    <div class="grow">
-                      <h3 class="text-2xl font-bold text-slate-800 mb-3">
-                        {service.title}
-                      </h3>
-                      <p class="text-slate-600 mb-6 leading-relaxed">
-                        {service.description}
-                      </p>
-
-                      {/* Características */}
-                      {service.features && service.features.length > 0 && (
-                        <div class="space-y-2 mb-6">
-                          {service.features.map((feature) => (
-                            <div class="flex items-center text-sm">
-                              <svg
-                                class={`w-4 h-4 ${checkColor} mr-3 shrink-0`}
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  stroke-width="2"
-                                  d="M5 13l4 4L19 7"
-                                />
-                              </svg>
-                              <span class="text-slate-600">{feature}</span>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Botón -> Enlace WhatsApp */}
-                    <a
-                      href={
-                        "https://wa.me/34682502960?text=" +
-                        encodeURIComponent(
-                          `solicito información sobre el servicio: ${service.title}`
-                        )
-                      }
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class={`w-full mt-auto ${buttonStyle} text-white py-3 rounded-lg font-bold transition-colors duration-300 shadow-lg text-center inline-block`}
-                    >
-                      {ui.cta.solicitarServicio}
-                    </a>
-                  </div>
-                </div>
-              );
-            })
-          }
-        </div>
-
-        {/* Notas */}
-        <div
-          class="bg-white/70 backdrop-blur-md rounded-xl p-6 mb-16 border border-emerald-500/20"
-        >
-          <div class="text-sm text-slate-600 space-y-1">
-            <p>{servicesData.notes.free}</p>
-            <p>{servicesData.notes.included}</p>
-          </div>
-        </div>
-
-        {/* Por qué elegirnos */}
-        <div class="mb-16">
-          <div class="text-center mb-12">
-            <h2
-              class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-800 mb-4 tracking-tight drop-shadow-lg"
-            >
-              {servicesData.benefits.title}
-            </h2>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {
-              servicesData.benefits.items.map((benefit: any) => (
-                <div class="text-center group">
-                  <div class="w-20 h-20 bg-linear-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl group-hover:scale-110 transition-transform duration-300">
-                    <svg
-                      class="w-10 h-10 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d={benefit.iconPath}
-                      />
-                    </svg>
-                  </div>
-                  <h3 class="text-xl font-bold text-slate-800 mb-3">
-                    {benefit.title}
-                  </h3>
-                  <p class="text-slate-600 leading-relaxed">
-                    {benefit.description}
-                  </p>
-                </div>
-              ))
-            }
-          </div>
-        </div>
-
-        {/* Call to Action */}
-        <div
-          class="bg-linear-to-r from-emerald-600 to-emerald-700 rounded-3xl p-8 sm:p-12 text-white shadow-2xl border border-emerald-500/40"
-        >
-          <div class="text-center">
-            <h2
-              class="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 tracking-tight drop-shadow-lg"
-            >
-              {servicesData.cta.title}
-            </h2>
-            <p
-              class="text-lg sm:text-xl mb-8 opacity-90 max-w-2xl mx-auto leading-relaxed"
-            >
-              {servicesData.cta.subtitle}
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-              {
-                servicesData.cta.buttons.map((button: any) =>
-                  button.type === "primary" ? (
-                    <a
-                      href={
-                        "https://wa.me/34682502960?text=" +
-                        encodeURIComponent("reservar cita")
-                      }
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class={`px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-xl bg-white text-emerald-700 hover:bg-gray-100 border border-gray-300`}
-                    >
-                      {button.text}
-                    </a>
-                  ) : (
-                    <a
-                      href="tel:933118706"
-                      class={`px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-xl bg-slate-900 border-2 border-white text-white hover:bg-slate-800`}
-                    >
-                      {button.text}
-                    </a>
-                  )
-                )
-              }
+  <!-- Llista de serveis -->
+  <section class="bg-crema-50 py-20 sm:py-24">
+    <div class="contenidor">
+      <h2 class="sr-only">{d.intro.sectionTitle}</h2>
+      <ol class="border-t border-bosc-900/10" data-reveal-stagger>
+        {services.map((sv, i) => (
+          <li class="servei group grid gap-5 border-b border-bosc-900/10 py-10 sm:grid-cols-12 sm:items-center sm:gap-8">
+            <div class="flex items-center gap-5 sm:col-span-4">
+              <span class="font-display text-2xl text-fusta-500 italic" style="font-weight:300">0{i + 1}</span>
+              <span class="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-crema-100 text-bosc-700 transition-colors duration-500 group-hover:bg-bosc-700 group-hover:text-crema-50">
+                <Icon name={sv.icon} size={28} />
+              </span>
+              <h3 class="text-3xl">{sv.title}</h3>
             </div>
-          </div>
-        </div>
+            <p class="text-lg text-tinta-suau sm:col-span-5">{sv.description}</p>
+            <div class="flex items-center justify-between gap-6 sm:col-span-3 sm:justify-end">
+              {sv.price && (
+                <span class="rounded-full bg-fusta-300/40 px-3 py-1 font-display text-lg text-bosc-900" style="font-weight:560">
+                  {sv.price}
+                </span>
+              )}
+              <a
+                href={`https://wa.me/${wa}?text=${encodeURIComponent(askText(sv.title))}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="enllac whitespace-nowrap"
+              >
+                {ui.cta.saberMas} <Icon name="fletxa" size={16} />
+              </a>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <div class="mt-6 space-y-1 text-sm text-tinta-suau">
+        <p>{d.notes.free}</p>
+        <p>{d.notes.included}</p>
       </div>
     </div>
   </section>
 
-  <!-- JSON-LD: Breadcrumbs -->
+  <!-- Enllaços a les pàgines especialitzades -->
+  <section class="bg-crema-100 py-20 sm:py-24">
+    <div class="contenidor grid gap-5 md:grid-cols-3" data-reveal-stagger>
+      {d.intro.blocks.map((b: any) => (
+        <a href={localizePath(b.path, locale)} class="group flex flex-col justify-between gap-10 rounded-[1.75rem] bg-crema-50 p-8 transition-colors duration-500 hover:bg-bosc-800">
+          <p class="text-tinta-suau transition-colors duration-500 group-hover:text-crema-200">{b.prefix}<strong class="font-semibold text-bosc-800 group-hover:text-crema-50">{b.linkText}</strong>{b.suffix}</p>
+          <span class="inline-flex h-12 w-12 items-center justify-center self-end rounded-full border border-bosc-700/20 text-bosc-700 transition-all duration-500 group-hover:-rotate-45 group-hover:border-fusta-300 group-hover:text-fusta-300">
+            <Icon name="fletxa" size={20} />
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Per què nosaltres -->
+  <section class="bg-bosc-900 py-24 text-crema-100 sm:py-28">
+    <div class="contenidor">
+      <Titol title={d.benefits.title} dark />
+      <ul class="mt-14 grid gap-10 md:grid-cols-3 md:gap-8" data-reveal-stagger>
+        {d.benefits.items.map((it: any) => (
+          <li class="border-t border-crema-50/15 pt-8">
+            <Icon name={it.icon} size={34} class="text-fusta-300" />
+            <h3 class="mt-5 text-2xl !text-crema-50">{it.title}</h3>
+            <p class="mt-3 text-crema-200">{it.description}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <div class="h-24 bg-crema-50 sm:h-28"></div>
+  <Crida title={d.cta.title} italic="" subtitle={d.cta.subtitle} />
+
   <script
     type="application/ld+json"
     is:inline
     set:html={JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Inicio', item: Astro.site ? new URL('/', Astro.site).toString() : '/' },
-        { '@type': 'ListItem', position: 2, name: 'Servicios', item: canonical },
-      ],
-    })}
-  ></script>
-  <!-- JSON-LD: Services (@graph) -->
-  <script
-    type="application/ld+json"
-    is:inline
-    set:html={JSON.stringify({
-      '@context': 'https://schema.org',
-      '@graph': services.map(s => {
-        const match = typeof s.price === 'string' ? s.price.replace(/\./g,'').match(/(\d+)/) : null;
-        const numPrice = match ? match[1] : null;
+      "@context": "https://schema.org",
+      "@graph": services.map((s) => {
+        const m = typeof s.price === "string" ? s.price.match(/(\d+)/) : null;
         return {
-          '@type': 'Service',
+          "@type": "Service",
           name: s.title,
           description: s.description,
           provider: {
-            '@type': 'LocalBusiness',
-            name: 'Òptica Guinart',
+            "@type": "LocalBusiness",
+            name: "Òptica Guinart",
             address: {
-              '@type': 'PostalAddress',
+              "@type": "PostalAddress",
               streetAddress: contactData.contactInfo.address.street,
-              addressLocality: contactData.contactInfo.address.city,
-              addressCountry: contactData.contactInfo.address.country
+              addressLocality: "Barcelona",
+              postalCode: "08030",
+              addressCountry: "ES",
             },
-            telephone: contactData.contactInfo.phone.display
+            telephone: contactData.contactInfo.phone.display,
           },
-          areaServed: { '@type': 'AdministrativeArea', name: 'Barcelona' },
-          ...(numPrice ? { offers: {
-            '@type': 'Offer',
-            price: numPrice,
-            priceCurrency: 'EUR',
-            availability: 'https://schema.org/InStoreOnly'
-          }} : {})
+          areaServed: { "@type": "City", name: "Barcelona" },
+          ...(m ? { offers: { "@type": "Offer", price: m[1], priceCurrency: "EUR", availability: "https://schema.org/InStoreOnly" } } : {}),
         };
-      })
+      }),
     })}
-  ></script>
+  />
 </Layout>

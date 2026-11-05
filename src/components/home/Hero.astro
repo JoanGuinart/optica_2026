@@ -1,0 +1,121 @@
+---
+import { Picture } from "astro:assets";
+import Icon from "@components/ui/Icon.astro";
+import { getLocaleFromPath, getLocalizedData, localizePath } from "@/utils/i18n";
+import facana from "@assets/fotos/rotul-entrada.webp";
+import interior from "@assets/fotos/interior-botiga.webp";
+
+const locale = getLocaleFromPath(Astro.url.pathname);
+const t = getLocalizedData<any>(locale, "inici").hero;
+const contact = getLocalizedData<any>(locale, "contact");
+const phone = contact.contactInfo.phone.display;
+const rating = String(contact.reviews.average).replace(".", ",");
+---
+
+<section data-hero class="paper relative overflow-hidden bg-crema-100">
+  <div class="contenidor grid min-h-[100svh] items-center gap-12 pt-28 pb-16 lg:grid-cols-12 lg:gap-8 lg:pt-24">
+    <div class="lg:col-span-7">
+      <p class="avantitol flex items-center gap-3" data-reveal>
+        <span class="inline-block h-px w-8 bg-bosc-600"></span>
+        {t.eyebrow}
+      </p>
+      <h1
+        class="mt-6 text-bosc-900"
+        style="font-size: clamp(2.75rem, 6.6vw, 6.4rem); font-weight: 560; letter-spacing: -0.025em; line-height: 0.98"
+        data-split
+      >
+        {t.title.before}
+        <span class="cursiva block" style="font-weight:380">{t.title.italic}</span>
+      </h1>
+      <p class="mt-8 max-w-xl text-lg text-tinta-suau sm:text-xl" data-reveal>{t.subtitle}</p>
+
+      <div class="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5" data-reveal>
+        <a href={localizePath("/contact", locale)} class="boto boto-primari">
+          {t.cta}
+          <Icon name="fletxa" size={18} class="fletxa" />
+        </a>
+        <a href={`tel:${phone.replace(/\s+/g, "")}`} class="group inline-flex items-center gap-3 font-semibold text-bosc-800">
+          <span class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-bosc-700/20 transition-colors group-hover:border-bosc-700 group-hover:bg-bosc-700 group-hover:text-crema-50">
+            <Icon name="telefon" size={20} />
+          </span>
+          <span class="flex flex-col leading-tight">
+            <span class="text-xs font-medium text-tinta-suau">{t.call}</span>
+            <span class="tabular-nums">{phone}</span>
+          </span>
+        </a>
+      </div>
+
+      <a
+        href={contact.socialMedia.google.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-12 inline-flex items-center gap-3 text-sm text-tinta-suau hover:text-bosc-700"
+        data-reveal
+      >
+        <span class="flex text-fusta-500" aria-hidden="true">
+          {[0, 1, 2, 3, 4].map(() => <Icon name="estrella" size={16} class="fill-current" />)}
+        </span>
+        <span><strong class="font-semibold text-tinta">{rating}</strong> {t.rating} · {contact.reviews.count} {t.reviews}</span>
+      </a>
+    </div>
+
+    <!-- Fotos: la façana dins d'un arc i l'interior dins d'una "lent" -->
+    <div class="relative mx-auto w-full max-w-md lg:col-span-5 lg:max-w-none">
+      <div class="relative ml-auto aspect-[4/5] w-[88%] overflow-hidden arc-4-5 bg-crema-200" data-lent>
+        <Picture
+          src={facana}
+          alt={t.photoAlt}
+          formats={["avif", "webp"]}
+          widths={[480, 720, 1000]}
+          sizes="(min-width: 1024px) 38vw, 88vw"
+          loading="eager"
+          fetchpriority="high"
+          class="h-full w-full"
+          pictureAttributes={{ class: "block h-full w-full" }}
+          style="object-fit: cover; object-position: 100% 0%; height: 100%; width: 100%"
+        />
+      </div>
+
+      <div class="absolute -bottom-6 -left-[4%] w-[46%] sm:-bottom-8 lg:-left-[10%]" data-parallax="0.25">
+        <div class="relative aspect-square overflow-hidden rounded-full border-[6px] border-crema-100 shadow-[0_30px_60px_-30px_rgba(18,51,35,0.55)]">
+          <Picture
+            src={interior}
+            alt={t.insetAlt}
+            formats={["avif", "webp"]}
+            widths={[300, 500]}
+            sizes="(min-width: 1024px) 18vw, 42vw"
+            loading="eager"
+            class="h-full w-full"
+            pictureAttributes={{ class: "block h-full w-full" }}
+            style="object-fit: cover; object-position: 60% 55%; height: 100%; width: 100%"
+          />
+        </div>
+        <!-- Text circular que gira lentament al voltant de la lent -->
+        <svg viewBox="0 0 200 200" class="roda pointer-events-none absolute -inset-[14%] h-[128%] w-[128%] text-bosc-700" aria-hidden="true">
+          <defs>
+            <path id="cercle-text" d="M100,100 m-88,0 a88,88 0 1,1 176,0 a88,88 0 1,1 -176,0"></path>
+          </defs>
+          <text class="fill-current font-sans text-[10.5px] font-semibold uppercase" style="letter-spacing:0.32em">
+            <textPath href="#cercle-text">Òptica Guinart · Sant Andreu · Barcelona ·</textPath>
+          </text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .roda {
+    animation: gira 40s linear infinite;
+  }
+  @keyframes gira {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .roda {
+      animation: none;
+    }
+  }
+</style>

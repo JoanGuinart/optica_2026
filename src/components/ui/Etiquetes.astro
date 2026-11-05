@@ -1,0 +1,87 @@
+---
+/**
+ * Promocions com a etiquetes de preu penjades d'una barra d'aparador.
+ * Es balancegen en entrar (GSAP, data-etiqueta) i pugen una mica en passar-hi el ratolí.
+ */
+import Icon from "./Icon.astro";
+
+export interface Etiqueta {
+  badge?: string;
+  title: string;
+  description?: string;
+  price?: string;
+  sub?: string;
+  note?: string;
+  href?: string;
+  cta?: string;
+  external?: boolean;
+}
+interface Props {
+  items: Etiqueta[];
+}
+const { items } = Astro.props;
+
+const looks = [
+  { bg: "bg-crema-50", text: "text-bosc-900", sub: "text-tinta-suau", accent: "text-bosc-700", rest: -2.5 },
+  { bg: "bg-bosc-700", text: "text-crema-50", sub: "text-crema-200", accent: "text-fusta-300", rest: 1.5 },
+  { bg: "bg-fusta-300", text: "text-bosc-950", sub: "text-bosc-900/70", accent: "text-bosc-800", rest: -1 },
+  { bg: "bg-crema-200", text: "text-bosc-900", sub: "text-tinta-suau", accent: "text-bosc-700", rest: 2 },
+];
+const cols = items.length >= 4 ? "md:grid-cols-2 lg:grid-cols-4" : "md:grid-cols-3";
+---
+
+<div class="relative">
+  <div class="absolute inset-x-0 top-0 hidden h-[3px] rounded-full bg-fusta-500/60 md:block" aria-hidden="true"></div>
+  <ul class={`grid gap-14 md:gap-8 ${cols}`}>
+    {items.map((o, i) => {
+      const l = looks[i % looks.length];
+      return (
+        <li class="flex flex-col items-center">
+          <div class="etiqueta-wrap flex w-full max-w-xs flex-col items-center" data-etiqueta={l.rest} style={`transform: rotate(${l.rest}deg)`}>
+            <span class="block h-10 w-px bg-tinta/40" aria-hidden="true"></span>
+            <article class={`etiqueta relative flex w-full flex-col px-7 pt-12 pb-8 ${l.bg} ${l.text}`}>
+              <span class="absolute top-4 left-1/2 h-3.5 w-3.5 -translate-x-1/2 rounded-full bg-crema-100 shadow-[inset_0_1px_2px_rgba(0,0,0,0.25)]" aria-hidden="true"></span>
+              {o.badge && <p class={`text-xs font-semibold tracking-[0.2em] uppercase ${l.accent}`}>{o.badge.toLowerCase()}</p>}
+              <h3 class="mt-3 text-[1.7rem] leading-tight" style="color: inherit">{o.title}</h3>
+              {o.description && <p class={`mt-3 text-base leading-relaxed ${l.sub}`}>{o.description}</p>}
+              {o.price && (
+                <div class="mt-6 border-t border-dashed border-current/25 pt-5">
+                  <p class="font-display text-4xl" style="font-weight:600">{o.price}</p>
+                  {o.sub && <p class={`mt-1 text-sm ${l.sub}`}>{o.sub}</p>}
+                </div>
+              )}
+              {o.note && <p class={`mt-3 text-xs ${l.sub}`}>{o.note}</p>}
+              {o.href && o.cta && (
+                <a
+                  href={o.href}
+                  target={o.external ? "_blank" : undefined}
+                  rel={o.external ? "noopener noreferrer" : undefined}
+                  class={`mt-6 inline-flex items-center gap-2 self-start border-b border-current pb-0.5 text-sm font-semibold ${l.accent}`}
+                >
+                  {o.cta} <Icon name="fletxa" size={16} />
+                </a>
+              )}
+            </article>
+          </div>
+        </li>
+      );
+    })}
+  </ul>
+</div>
+
+<style>
+  .etiqueta {
+    clip-path: polygon(18% 0, 82% 0, 100% 10%, 100% 100%, 0 100%, 0 10%);
+    border-radius: 0 0 1rem 1rem;
+    transition: transform 0.6s var(--ease-out-soft);
+  }
+  .etiqueta-wrap {
+    filter: drop-shadow(0 18px 22px rgba(18, 51, 35, 0.14));
+    transform-origin: 50% 0%;
+  }
+  @media (hover: hover) {
+    .etiqueta-wrap:hover .etiqueta {
+      transform: translateY(-6px);
+    }
+  }
+</style>

@@ -1,0 +1,66 @@
+---
+import { Picture } from "astro:assets";
+import Icon from "@components/ui/Icon.astro";
+import EstatBotiga from "@components/ui/EstatBotiga.astro";
+import { getLocaleFromPath, getLocalizedData, localizePath } from "@/utils/i18n";
+import taulell from "@assets/fotos/interior-taulell.webp";
+
+const locale = getLocaleFromPath(Astro.url.pathname);
+const t = getLocalizedData<any>(locale, "inici").visit;
+const site = getLocalizedData<any>(locale, "site");
+const info = getLocalizedData<any>(locale, "contact").contactInfo;
+---
+
+<section class="paper bg-crema-100 py-24 sm:py-32">
+  <div class="contenidor grid gap-14 lg:grid-cols-12 lg:items-center lg:gap-16">
+    <div class="lg:col-span-6">
+      <div class="relative aspect-[5/4] overflow-hidden arc-5-4 bg-crema-200" data-lent>
+        <Picture
+          src={taulell}
+          alt={t.photoAlt}
+          formats={["avif", "webp"]}
+          widths={[400, 655]}
+          sizes="(min-width: 1024px) 45vw, 100vw"
+          class="h-full w-full"
+          pictureAttributes={{ class: "block h-full w-full" }}
+          style="object-fit: cover; object-position: 45% 60%; height: 100%; width: 100%"
+        />
+      </div>
+    </div>
+
+    <div class="lg:col-span-6">
+      <p class="avantitol" data-reveal>{t.eyebrow}</p>
+      <h2 class="mt-5" style="font-size: clamp(2.3rem, 4.8vw, 4.25rem)" data-split>
+        {t.title.before} <span class="cursiva">{t.title.italic}</span>
+      </h2>
+      <p class="mt-6 max-w-lg text-lg text-tinta-suau" data-reveal>{t.text}</p>
+
+      <EstatBotiga class="mt-8" />
+
+      <dl class="mt-8 grid gap-6 border-t border-bosc-900/10 pt-8 sm:grid-cols-2" data-reveal-stagger>
+        <div class="flex gap-4">
+          <Icon name="ubicacio" size={24} class="mt-0.5 shrink-0 text-bosc-600" />
+          <div>
+            <dt class="sr-only">{site.footer.visit}</dt>
+            <dd>{info.address.street}<br /><span class="text-tinta-suau">{info.address.city}</span></dd>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <Icon name="rellotge" size={24} class="mt-0.5 shrink-0 text-bosc-600" />
+          <div>
+            <dt class="sr-only">{site.footer.hours}</dt>
+            {site.footer.hoursRows.slice(0, 2).map((r: any) => (
+              <dd><span class="text-tinta-suau">{r.d}</span><br />{r.h}</dd>
+            ))}
+          </div>
+        </div>
+      </dl>
+
+      <div class="mt-10 flex flex-wrap items-center gap-6" data-reveal>
+        <a href={localizePath("/contact", locale)} class="boto boto-primari">{t.cta} <Icon name="fletxa" size={18} class="fletxa" /></a>
+        <a href={info.address.googleMaps} target="_blank" rel="noopener noreferrer" class="enllac">{t.maps} <Icon name="fletxa-diag" size={16} /></a>
+      </div>
+    </div>
+  </div>
+</section>
+

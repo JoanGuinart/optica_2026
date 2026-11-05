@@ -1,0 +1,22 @@
+---
+import Monograma from "./Monograma.astro";
+
+interface Props {
+  href: string;
+  tone?: "bosc" | "crema";
+  class?: string;
+  label: string;
+  sub?: string;
+}
+const { href, tone = "bosc", class: className = "", label, sub: subText = "Òptica · Audiologia" } = Astro.props;
+const text = tone === "bosc" ? "text-bosc-800" : "text-crema-50";
+const sub = tone === "bosc" ? "text-tinta-suau" : "text-crema-200/80";
+---
+
+<a href={href} class={`group inline-flex items-center gap-3 ${className}`} aria-label={label}>
+  <Monograma tone={tone} class="h-10 w-auto transition-transform duration-500 ease-out-soft group-hover:-rotate-6" />
+  <span class="flex flex-col leading-none">
+    <span class={`font-display text-[1.6rem] tracking-[0.01em] ${text}`} style="font-weight: 650">Guinart</span>
+    <span class={`mt-1 text-[0.62rem] font-semibold uppercase tracking-[0.22em] ${sub}`}>{subText}</span>
+  </span>
+</a>

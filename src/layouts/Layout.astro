@@ -1,11 +1,14 @@
 ---
-import NavbarClient from "@/components/NavbarClient";
+import Navbar from "@/components/Navbar.astro";
+import Footer from "@/components/Footer.astro";
 import WhatsAppButton from "@/components/WhatsAppButton.astro";
 import "@styles/global.css";
+import fraunces from "@fontsource-variable/fraunces/files/fraunces-latin-wght-normal.woff2?url";
 import {
   getLocaleFromPath,
   getLocalizedData,
   localizePath,
+  stripLocalePrefix,
   type Locale,
 } from "@/utils/i18n";
 
@@ -14,6 +17,8 @@ export interface Props {
   description?: string;
   ogImage?: string;
   noindex?: boolean;
+  /** la primera secció va per sota de la capçalera (portada a pantalla completa) */
+  flush?: boolean;
 }
 
 const defaultTitle =
@@ -28,8 +33,10 @@ const {
   description = defaultDescription,
   ogImage = defaultImage,
   noindex = false,
+  flush = false,
 } = Astro.props as Props;
 const locale = getLocaleFromPath(Astro.url.pathname);
+const site = getLocalizedData<any>(locale, "site");
 const contactData = getLocalizedData<any>(locale, "contact");
 // Title template: añade el nombre del sitio si la página tiene título personalizado
 const siteName = "Óptica Guinart";
@@ -83,20 +90,25 @@ const siteRoot = Astro.site
     ? canonical
     : String(canonical);
 
-// Breadcrumbs (visible + JSON-LD)
-const path = Astro.url.pathname.replace(/\/$/, "");
-const segments =
-  path === "" || path === "/" ? [] : path.split("/").filter(Boolean);
+// Breadcrumbs (visible + JSON-LD), sense el prefix d'idioma i amb els noms del menú
+const navLabels: Record<string, string> = {
+  ...Object.fromEntries(
+    (getLocalizedData<any>(locale, "navbar").navigation.desktop as any[]).map((l) => [l.href.replace(/^\//, ""), l.label]),
+  ),
+  ...(site.pageNames ?? {}),
+};
+const cleanPath = stripLocalePrefix(Astro.url.pathname).replace(/\/$/, "");
+const segments = cleanPath.split("/").filter(Boolean);
 const breadcrumbs = [
-  { name: "Inicio", url: siteRoot },
+  { name: locale === "ca" ? "Inici" : "Inicio", url: new URL(localizePath("/", locale), siteRoot).toString() },
   ...segments.map((seg, i) => {
-    const name = decodeURIComponent(seg)
-      .replace(/-/g, " ")
-      .replace(/\b\w/g, (c) => c.toUpperCase());
-    const url = new URL(
-      "/" + segments.slice(0, i + 1).join("/") + "/",
-      siteRoot
-    ).toString();
+    const slug = segments.slice(0, i + 1).join("/");
+    const name =
+      navLabels[slug] ??
+      decodeURIComponent(seg)
+        .replace(/-/g, " ")
+        .replace(/^\w/, (c) => c.toUpperCase());
+    const url = new URL(localizePath("/" + slug + "/", locale), siteRoot).toString();
     return { name, url };
   }),
 ];
@@ -178,54 +190,28 @@ const breadcrumbs = [
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
     <!-- Apple / Safari pinned tab -->
-    <link rel="mask-icon" href="/favicon.svg" color="#065f46" />
+    <link rel="mask-icon" href="/favicon.svg" color="#1e5a3d" />
 
     <!-- Manifest PWA -->
-    <link rel="manifest" href="/manifest.webmanifest?v=4" />
-    <meta name="theme-color" content="#065f46" />
+    <link rel="manifest" href="/manifest.webmanifest?v=5" />
 
     <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#065f46" />
+    <meta name="theme-color" content="#fcfaf5" />
     <meta name="format-detection" content="telephone=no,address=no,email=no" />
     <link rel="alternate" hreflang="ca-ES" href={alternateCa} />
     <link rel="alternate" hreflang="es-ES" href={alternateEs} />
     <link rel="alternate" hreflang="x-default" href={alternateCa} />
 
-    <!-- Preload critical resources -->
-    <link
-      rel="preload"
-      href="/portada/portada_compressed_2.webp"
-      as="image"
-      fetchpriority="high"
-    />
-
-    <!-- Preload critical JavaScript modules -->
-    <!-- Los nombres de archivos se generan dinámicamente en desarrollo -->
-
-    <!-- DNS prefetch y preconnect para recursos externos -->
-    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Web App Manifest & Icons -->
-    <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
-    <link rel="icon" sizes="192x192" href="/icons/icon-192.png" />
-    <link rel="icon" sizes="512x512" href="/icons/icon-512.png" />
+    <link rel="preload" href={fraunces} as="font" type="font/woff2" crossorigin />
 
-    <!-- CSS crítico optimizado - Astro maneja el resto automáticamente -->
-
-    <!-- Solo CSS crítico mínimo inline -->
-    <style>
-      /* Evitar layout shift crítico */
-      main {
-        margin-top: 80px;
-      }
-      body {
-        scroll-behavior: smooth;
-      }
-      .navbar-height {
-        height: 80px;
-      }
-    </style>
+    <!-- Marca que hi ha JS (per amagar abans d'animar); si l'animació no arrenca, es mostra tot igualment -->
+    <script is:inline>
+      document.documentElement.classList.add("js");
+      setTimeout(function () {
+        if (!window.__moviment) document.documentElement.classList.remove("js");
+      }, 2500);
+    </script>
 
     <!-- Structured Data (JSON-LD) dinámico usando contactData -->
     <script
@@ -346,40 +332,34 @@ const breadcrumbs = [
       )
     }
   </head>
-  <body class="bg-white text-slate-900 transition-colors duration-300">
-    <!-- Navbar crítico carga inmediatamente para LCP -->
-    <NavbarClient client:load locale={locale} currentPath={Astro.url.pathname} />
-    {
-      breadcrumbs.length > 1 && (
-        <nav aria-label="Breadcrumb" class="px-4 py-2 text-sm text-slate-600">
-          <ol class="flex flex-wrap gap-1">
-            {breadcrumbs.map((b, i) => (
-              <li
-                class="flex items-center"
-                typeof="ListItem"
-                property="itemListElement"
-              >
-                <a
-                  href={b.url}
-                  class="hover:text-emerald-700 font-medium"
-                  property="item"
-                  typeof="WebPage"
-                >
-                  <span property="name">{b.name}</span>
-                </a>
-                <meta property="position" content={String(i + 1)} />
-                {i < breadcrumbs.length - 1 && <span class="mx-1">/</span>}
-              </li>
-            ))}
-          </ol>
-        </nav>
-      )
-    }
-    <main>
+  <body>
+    <a href="#contingut" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-60 focus:rounded-full focus:bg-bosc-700 focus:px-5 focus:py-3 focus:text-crema-50">{site.skip}</a>
+    <Navbar />
+    <main id="contingut" class={flush ? "" : "pt-24"}>
+      {
+        breadcrumbs.length > 1 && (
+          <nav aria-label="Breadcrumb" class="contenidor pt-4 pb-2 text-sm text-tinta-suau">
+            <ol class="flex flex-wrap items-center gap-1">
+              {breadcrumbs.map((b, i) => (
+                <li class="flex items-center">
+                  {i < breadcrumbs.length - 1 ? (
+                    <a href={b.url} class="hover:text-bosc-700">{b.name}</a>
+                  ) : (
+                    <span aria-current="page" class="text-tinta">{b.name}</span>
+                  )}
+                  {i < breadcrumbs.length - 1 && <span class="mx-2 text-crema-300">/</span>}
+                </li>
+              ))}
+            </ol>
+          </nav>
+        )
+      }
       <slot />
     </main>
-    
-    <!-- Botón flotante WhatsApp (solo móvil) -->
+    <Footer />
     <WhatsAppButton />
+    <script>
+      import "@scripts/moviment";
+    </script>
   </body>
 </html>

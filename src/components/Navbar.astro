@@ -1,0 +1,220 @@
+---
+import Logo from "@components/ui/Logo.astro";
+import Icon from "@components/ui/Icon.astro";
+import { getLocaleFromPath, getLocalizedData, localizePath } from "@/utils/i18n";
+
+const locale = getLocaleFromPath(Astro.url.pathname);
+const nav = getLocalizedData<any>(locale, "navbar");
+const site = getLocalizedData<any>(locale, "site");
+const contact = getLocalizedData<any>(locale, "contact");
+
+const links: { href: string; label: string }[] = nav.navigation.desktop.map((l: any) => ({
+  href: localizePath(l.href, locale),
+  label: l.label,
+}));
+const current = Astro.url.pathname.replace(/\/$/, "") || "/";
+const isCurrent = (href: string) => {
+  const h = href.replace(/\/$/, "") || "/";
+  return current === h || (h !== "/" && h !== "/es" && current.startsWith(h + "/"));
+};
+const langHref = localizePath(Astro.url.pathname, locale === "ca" ? "es" : "ca");
+const phone = contact.contactInfo.phone.display;
+---
+
+<header id="capcalera" class="capcalera fixed inset-x-0 top-0 z-50 transition-[transform,background-color,box-shadow] duration-500 ease-out-soft" data-state="top">
+  <div class="contenidor flex h-20 items-center justify-between gap-6">
+    <Logo href={localizePath("/", locale)} label={site.logoLabel} sub={site.logoSub} class="relative z-10" />
+
+    <nav aria-label="Principal" class="hidden lg:block">
+      <ul class="flex items-center gap-8 text-[0.95rem] font-medium">
+        {links.map((l) => (
+          <li>
+            <a
+              href={l.href}
+              class="nav-link relative py-2 text-tinta transition-colors hover:text-bosc-700"
+              aria-current={isCurrent(l.href) ? "page" : undefined}
+            >{l.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a
+        href={langHref}
+        hreflang={locale === "ca" ? "es" : "ca"}
+        class="hidden h-11 min-w-11 items-center justify-center rounded-full px-3 text-sm font-semibold uppercase text-tinta-suau transition-colors hover:text-bosc-700 sm:inline-flex"
+        aria-label={site.langSwitch.long}
+      >{site.langSwitch.short}</a>
+      <a href={localizePath("/contact", locale)} class="boto boto-primari hidden !py-2.5 text-sm md:inline-flex">
+        {site.cta}
+        <Icon name="fletxa" size={18} class="fletxa" />
+      </a>
+      <button
+        id="obre-menu"
+        type="button"
+        class="relative z-10 inline-flex h-11 w-11 items-center justify-center rounded-full text-bosc-800 lg:hidden"
+        aria-expanded="false"
+        aria-controls="menu-mobil"
+      >
+        <span class="sr-only">{site.menu}</span>
+        <Icon name="menu" size={26} class="icon-menu" />
+        <Icon name="tancar" size={24} class="icon-tancar hidden" />
+      </button>
+    </div>
+  </div>
+
+  <!-- Menú mòbil: s'obre com una lent des del botó -->
+  <div id="menu-mobil" class="menu-mobil fixed inset-0 bg-bosc-900 text-crema-50 lg:hidden" inert>
+    <div class="contenidor flex h-full flex-col pt-28 pb-10">
+      <ul class="flex flex-col gap-1">
+        {links.map((l, i) => (
+          <li class="menu-item" style={`--i:${i}`}>
+            <a href={l.href} class="flex items-baseline gap-4 py-2 font-display text-[2.1rem] leading-tight text-crema-50" style="font-weight:480">
+              <span class="font-sans text-xs tabular-nums text-fusta-300">0{i + 1}</span>
+              {l.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <div class="menu-item mt-auto space-y-4 text-crema-200" style={`--i:${links.length}`}>
+        <a href={localizePath("/contact", locale)} class="boto boto-clar w-full">{site.cta} <Icon name="fletxa" size={18} class="fletxa" /></a>
+        <div class="flex items-center justify-between text-sm">
+          <a href={`tel:${phone.replace(/\s+/g, "")}`} class="inline-flex items-center gap-2"><Icon name="telefon" size={18} /> {phone}</a>
+          <a href={langHref} class="font-semibold text-fusta-300">{site.langSwitch.long}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  .capcalera[data-state="scrolled"] {
+    background-color: color-mix(in oklab, var(--color-crema-50) 92%, transparent);
+    backdrop-filter: saturate(1.4) blur(10px);
+    box-shadow: 0 1px 0 color-mix(in oklab, var(--color-bosc-900) 10%, transparent);
+  }
+  .capcalera[data-state="hidden"] {
+    transform: translateY(-100%);
+  }
+  .capcalera.menu-obert {
+    transform: none;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+  .capcalera.menu-obert :global(a > span > span),
+  .capcalera.menu-obert :global(a > svg),
+  .capcalera.menu-obert #obre-menu {
+    color: var(--color-crema-50);
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0.15rem;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.45s var(--ease-out-soft);
+  }
+  .nav-link:hover::after,
+  .nav-link[aria-current="page"]::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  .nav-link[aria-current="page"] {
+    color: var(--color-bosc-700);
+  }
+
+  .menu-mobil {
+    clip-path: circle(0% at calc(100% - 2.6rem) 2.5rem);
+    visibility: hidden;
+    transition:
+      clip-path 0.7s var(--ease-out-soft),
+      visibility 0s linear 0.7s;
+  }
+  .menu-obert .menu-mobil {
+    clip-path: circle(150% at calc(100% - 2.6rem) 2.5rem);
+    visibility: visible;
+    transition: clip-path 0.8s var(--ease-out-soft);
+  }
+  .menu-item {
+    opacity: 0;
+    transform: translateY(1.25rem);
+    transition:
+      opacity 0.3s,
+      transform 0.3s;
+  }
+  .menu-obert .menu-item {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.6s var(--ease-out-soft) calc(0.15s + var(--i) * 0.05s),
+      transform 0.6s var(--ease-out-soft) calc(0.15s + var(--i) * 0.05s);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .menu-mobil,
+    .menu-obert .menu-mobil,
+    .menu-item,
+    .menu-obert .menu-item {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const header = document.getElementById("capcalera")!;
+  const btn = document.getElementById("obre-menu")!;
+  const panel = document.getElementById("menu-mobil")!;
+  const iconMenu = btn.querySelector(".icon-menu")!;
+  const iconTancar = btn.querySelector(".icon-tancar")!;
+
+  // Capçalera: fons en fer scroll, s'amaga baixant i torna pujant
+  let lastY = window.scrollY;
+  let ticking = false;
+  const update = () => {
+    const y = window.scrollY;
+    if (!header.classList.contains("menu-obert")) {
+      if (y < 24) header.dataset.state = "top";
+      else if (y > lastY && y > 320) header.dataset.state = "hidden";
+      else header.dataset.state = "scrolled";
+    }
+    lastY = y;
+    ticking = false;
+  };
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    },
+    { passive: true },
+  );
+  update();
+
+  const setOpen = (open: boolean) => {
+    header.classList.toggle("menu-obert", open);
+    btn.setAttribute("aria-expanded", String(open));
+    iconMenu.classList.toggle("hidden", open);
+    iconTancar.classList.toggle("hidden", !open);
+    panel.toggleAttribute("inert", !open);
+    document.documentElement.style.overflow = open ? "hidden" : "";
+    if (!open) update();
+  };
+  btn.addEventListener("click", () => setOpen(btn.getAttribute("aria-expanded") !== "true"));
+  panel.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setOpen(false)));
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && header.classList.contains("menu-obert")) {
+      setOpen(false);
+      btn.focus();
+    }
+  });
+  matchMedia("(min-width: 1024px)").addEventListener("change", (e) => e.matches && setOpen(false));
+  window.addEventListener("pagehide", () => setOpen(false));
+</script>

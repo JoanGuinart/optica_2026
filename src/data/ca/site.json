@@ -1,0 +1,94 @@
+{
+  "logoSub": "Òptica · Audiologia",
+  "logoLabel": "Òptica Guinart, inici",
+  "cta": "Demana cita",
+  "menu": "Menú",
+  "close": "Tancar",
+  "langSwitch": {
+    "short": "es",
+    "long": "Castellano"
+  },
+  "skip": "Salta al contingut",
+  "status": {
+    "open": "Obert ara",
+    "closed": "Tancat ara",
+    "opensAt": "Obrim a les"
+  },
+  "days": [
+    "Diumenge",
+    "Dilluns",
+    "Dimarts",
+    "Dimecres",
+    "Dijous",
+    "Divendres",
+    "Dissabte"
+  ],
+  "footer": {
+    "claim": "Cuidem la vista i l'oïda del barri des de fa més de 25 anys.",
+    "visit": "Vine a veure'ns",
+    "hours": "Horari",
+    "contact": "Parlem",
+    "explore": "La botiga",
+    "hoursRows": [
+      {
+        "d": "Dilluns – divendres",
+        "h": "9:30 – 13:30 · 17:00 – 20:30"
+      },
+      {
+        "d": "Dissabte",
+        "h": "10:00 – 13:30"
+      },
+      {
+        "d": "Diumenge",
+        "h": "Tancat"
+      }
+    ],
+    "rights": "Òptica i Audiologia Guinart",
+    "made": "Fet a Sant Andreu de Palomar"
+  },
+  "comu": {
+    "whatsapp": "Escriu-nos per WhatsApp",
+    "call": "Truca'ns",
+    "where": {
+      "eyebrow": "On som",
+      "title": "Carrer Gran de Sant Andreu,",
+      "italic": "308.",
+      "address": "Adreça",
+      "phone": "Telèfon",
+      "hours": "Horari",
+      "directions": "Com arribar",
+      "showMap": "Veure el mapa",
+      "mapNote": "El mapa es carrega des de Google Maps quan hi fas clic."
+    },
+    "faqEyebrow": "Dubtes",
+    "closing": {
+      "eyebrow": "Parlem",
+      "title": "T'esperem a la botiga,",
+      "italic": "sense pressa."
+    },
+    "notFound": {
+      "title": "Aquesta pàgina",
+      "italic": "s'ha perdut de vista.",
+      "text": "Potser l'enllaç ha canviat o la pàgina ja no existeix. Tornem a l'inici?",
+      "back": "Tornar a l'inici"
+    },
+    "form": {
+      "sent": "Missatge enviat! Et respondrem ben aviat.",
+      "required": "obligatori",
+      "channels": "Parla amb nosaltres",
+      "or": "o, si ho prefereixes, escriu-nos aquí"
+    },
+    "catalog": {
+      "eyebrow": "Catàleg",
+      "search": "Busca una marca o un model",
+      "empty": "No hem trobat cap model amb aquest nom. Pregunta'ns: segur que tenim alguna cosa per a tu a la botiga!",
+      "ask": "Hola! M'interessa",
+      "offersEyebrow": "Promocions",
+      "demo": "Veure el vídeo"
+    }
+  },
+  "pageNames": {
+    "optica-sant-andreu": "Òptica a Sant Andreu",
+    "audifonos-barcelona": "Audiòfons"
+  }
+}
