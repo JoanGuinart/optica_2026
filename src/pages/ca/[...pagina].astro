@@ -1,0 +1,29 @@
+---
+/**
+ * El català viu a l'arrel (/). Qui escrigui /ca o /ca/... és redirigit
+ * a la pàgina equivalent. Pàgines noindex, fora del sitemap.
+ */
+export function getStaticPaths() {
+  return [undefined, "products", "services", "audiologia-barcelona", "audifonos-barcelona", "optica-sant-andreu", "contact", "faq"].map(
+    (pagina) => ({ params: { pagina } }),
+  );
+}
+const { pagina } = Astro.params;
+const desti = pagina ? `/${pagina}/` : "/";
+const canonical = new URL(desti, Astro.site).toString();
+---
+
+<!doctype html>
+<html lang="ca">
+  <head>
+    <meta charset="utf-8" />
+    <title>Òptica Guinart</title>
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href={canonical} />
+    <meta http-equiv="refresh" content={`0; url=${desti}`} />
+    <script is:inline define:vars={{ desti }}>location.replace(desti + location.search + location.hash);</script>
+  </head>
+  <body>
+    <a href={desti}>Òptica Guinart</a>
+  </body>
+</html>

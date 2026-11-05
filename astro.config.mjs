@@ -10,7 +10,8 @@ const alias = (p) => fileURLToPath(new URL(p, import.meta.url));
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://opticaguinart.com",
+  // Domini principal a Vercel: el de www (opticaguinart.com hi redirigeix)
+  site: "https://www.opticaguinart.com",
   devToolbar: { enabled: false },
   // Totes les pàgines es generen en el build: es serveixen directament des del CDN.
   // (El formulari de contacte envia a formsubmit.co, no necessita servidor.)
@@ -36,5 +37,8 @@ export default defineConfig({
       },
     },
   },
-  integrations: [sitemap()],
+  integrations: [
+    // les pàgines /ca/... només redirigeixen: fora del sitemap
+    sitemap({ filter: (page) => !/\/ca(\/|$)/.test(new URL(page).pathname) }),
+  ],
 });
