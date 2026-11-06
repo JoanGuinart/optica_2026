@@ -19,6 +19,10 @@ export interface Props {
   noindex?: boolean;
   /** la primera secció va per sota de la capçalera (portada a pantalla completa) */
   flush?: boolean;
+  /** URL de la mateixa pàgina en cada idioma, quan no són iguals (p. ex. les guies) */
+  alternates?: { ca: string; es: string };
+  /** nom de l'última molla de pa (p. ex. el títol d'una guia) */
+  breadcrumbLast?: string;
 }
 
 const defaultTitle =
@@ -33,6 +37,8 @@ const {
   ogImage: ogImageProp,
   noindex = false,
   flush = false,
+  alternates,
+  breadcrumbLast,
 } = Astro.props as Props;
 const locale = getLocaleFromPath(Astro.url.pathname);
 const site = getLocalizedData<any>(locale, "site");
@@ -43,14 +49,10 @@ const ogImageAlt =
     ? "Òptica Guinart: la teva òptica de barri a Sant Andreu, Barcelona"
     : "Óptica Guinart: tu óptica de barrio en Sant Andreu, Barcelona";
 const contactData = getLocalizedData<any>(locale, "contact");
-// Title template: añade el nombre del sitio si la página tiene título personalizado
-const siteName = "Óptica Guinart";
-// Evitar duplicar la marca si ya está presente en el título
-const brandInTitle = title?.toLowerCase().includes(siteName.toLowerCase());
-const fullTitle =
-  title && title !== defaultTitle && !brandInTitle
-    ? `${title} | ${siteName}`
-    : title;
+// La marca s'afegeix al final només si el títol no la porta ja
+const siteName = locale === "ca" ? "Òptica Guinart" : "Óptica Guinart";
+const brandInTitle = title?.toLowerCase().includes("guinart");
+const fullTitle = title && !brandInTitle ? `${title} | ${siteName}` : title;
 // Asegurar que ogImage sea una URL absoluta cuando sea una ruta relativa y `Astro.site` esté definido
 const ogImageUrl =
   Astro.site && typeof ogImage === "string" && ogImage.startsWith("/")
@@ -73,12 +75,10 @@ const canonical = Astro.site
       .toString()
       .replace(/\/$/, Astro.url.pathname.endsWith("/") ? "/" : "")
   : Astro.url;
-const alternateCa = Astro.site
-  ? new URL(localizePath(Astro.url.pathname, "ca" as Locale), Astro.site).toString()
-  : localizePath(Astro.url.pathname, "ca" as Locale);
-const alternateEs = Astro.site
-  ? new URL(localizePath(Astro.url.pathname, "es" as Locale), Astro.site).toString()
-  : localizePath(Astro.url.pathname, "es" as Locale);
+const altPath = (l: Locale) => alternates?.[l] ?? localizePath(Astro.url.pathname, l);
+const alternateCa = Astro.site ? new URL(altPath("ca"), Astro.site).toString() : altPath("ca");
+const alternateEs = Astro.site ? new URL(altPath("es"), Astro.site).toString() : altPath("es");
+const langHref = altPath(locale === "ca" ? "es" : "ca");
 const robotsContent = noindex
   ? "noindex,nofollow"
   : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1";
@@ -103,16 +103,19 @@ const navLabels: Record<string, string> = {
 const cleanPath = stripLocalePrefix(Astro.url.pathname).replace(/\/$/, "");
 const segments = cleanPath.split("/").filter(Boolean);
 const breadcrumbs = [
-  { name: locale === "ca" ? "Inici" : "Inicio", url: new URL(localizePath("/", locale), siteRoot).toString() },
+  { name: locale === "ca" ? "Inici" : "Inicio", path: localizePath("/", locale), url: new URL(localizePath("/", locale), siteRoot).toString() },
   ...segments.map((seg, i) => {
     const slug = segments.slice(0, i + 1).join("/");
+    const isLast = i === segments.length - 1;
     const name =
-      navLabels[slug] ??
-      decodeURIComponent(seg)
-        .replace(/-/g, " ")
-        .replace(/^\w/, (c) => c.toUpperCase());
-    const url = new URL(localizePath("/" + slug + "/", locale), siteRoot).toString();
-    return { name, url };
+      (isLast && breadcrumbLast) ||
+      (navLabels[slug] ??
+        decodeURIComponent(seg)
+          .replace(/-/g, " ")
+          .replace(/^\w/, (c) => c.toUpperCase()));
+    const path = localizePath("/" + slug + "/", locale);
+    // path: per als enllaços visibles (funciona en local); url: absoluta per a Google
+    return { name, path, url: new URL(path, siteRoot).toString() };
   }),
 ];
 ---
@@ -339,7 +342,7 @@ const breadcrumbs = [
   </head>
   <body>
     <a href="#contingut" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-60 focus:rounded-full focus:bg-bosc-700 focus:px-5 focus:py-3 focus:text-crema-50">{site.skip}</a>
-    <Navbar />
+    <Navbar langHref={langHref} />
     <main id="contingut" class={flush ? "" : "pt-24"}>
       {
         breadcrumbs.length > 1 && (
@@ -348,7 +351,7 @@ const breadcrumbs = [
               {breadcrumbs.map((b, i) => (
                 <li class="flex items-center">
                   {i < breadcrumbs.length - 1 ? (
-                    <a href={b.url} class="hover:text-bosc-700">{b.name}</a>
+                    <a href={b.path} class="hover:text-bosc-700">{b.name}</a>
                   ) : (
                     <span aria-current="page" class="text-tinta">{b.name}</span>
                   )}

@@ -4,6 +4,7 @@ import CapPagina from "@components/ui/CapPagina.astro";
 import Icon from "@components/ui/Icon.astro";
 import Preguntes from "@components/ui/Preguntes.astro";
 import Crida from "@components/ui/Crida.astro";
+import GuiesRelacionades from "@components/guies/GuiesRelacionades.astro";
 import { getLocaleFromPath, getLocalizedData } from "@/utils/i18n";
 
 const locale = getLocaleFromPath(Astro.url.pathname);
@@ -60,6 +61,8 @@ const words = d.page.title.split(" ");
       </div>
     </div>
   </section>
+
+  <GuiesRelacionades bg="bg-crema-100" />
 
   <Crida title={d.page.cta.noAnswerTitle} italic="" subtitle={d.page.cta.noAnswerText} />
 

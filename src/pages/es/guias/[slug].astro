@@ -1,0 +1,10 @@
+---
+import PaginaGuia from "@components/guies/PaginaGuia.astro";
+import { getGuies } from "@/utils/guies";
+
+export async function getStaticPaths() {
+  return (await getGuies("es")).map((guia) => ({ params: { slug: guia.data.slug }, props: { guia } }));
+}
+---
+
+<PaginaGuia guia={Astro.props.guia} />

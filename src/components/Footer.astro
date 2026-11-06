@@ -2,6 +2,7 @@
 import Logo from "@components/ui/Logo.astro";
 import Icon from "@components/ui/Icon.astro";
 import { getLocaleFromPath, getLocalizedData, localizePath } from "@/utils/i18n";
+import { guiesBase } from "@/utils/guies";
 
 const locale = getLocaleFromPath(Astro.url.pathname);
 const site = getLocalizedData<any>(locale, "site");
@@ -84,6 +85,7 @@ const year = new Date().getFullYear();
             {nav.navigation.desktop.map((l: any) => (
               <li><a href={localizePath(l.href, locale)} class="hover:text-crema-50">{l.label}</a></li>
             ))}
+            <li><a href={guiesBase[locale]} class="hover:text-crema-50">{site.comu.guies.eyebrow}</a></li>
           </ul>
         </div>
       </div>

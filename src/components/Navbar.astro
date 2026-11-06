@@ -17,7 +17,7 @@ const isCurrent = (href: string) => {
   const h = href.replace(/\/$/, "") || "/";
   return current === h || (h !== "/" && h !== "/es" && current.startsWith(h + "/"));
 };
-const langHref = localizePath(Astro.url.pathname, locale === "ca" ? "es" : "ca");
+const langHref = Astro.props.langHref ?? localizePath(Astro.url.pathname, locale === "ca" ? "es" : "ca");
 const phone = contact.contactInfo.phone.display;
 ---
 

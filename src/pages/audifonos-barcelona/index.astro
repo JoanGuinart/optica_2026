@@ -5,6 +5,7 @@ import Titol from "@components/ui/Titol.astro";
 import Icon from "@components/ui/Icon.astro";
 import Preguntes from "@components/ui/Preguntes.astro";
 import Crida from "@components/ui/Crida.astro";
+import GuiesRelacionades from "@components/guies/GuiesRelacionades.astro";
 import { getLocaleFromPath, getLocalizedData } from "@/utils/i18n";
 
 const locale = getLocaleFromPath(Astro.url.pathname);
@@ -71,6 +72,8 @@ const tipusIcons = ["orella", "bateria", "bluetooth", "ones"];
       </ol>
     </div>
   </section>
+
+  <GuiesRelacionades category="audiologia" />
 
   <section class="bg-crema-100 py-24 sm:py-28">
     <div class="contenidor grid gap-12 lg:grid-cols-12">

@@ -1,0 +1,30 @@
+---
+/** Pàgina índex de les guies (s'usa des de /guies/ i /es/guias/) */
+import Layout from "@layouts/Layout.astro";
+import CapPagina from "@components/ui/CapPagina.astro";
+import Crida from "@components/ui/Crida.astro";
+import TargetaGuia from "./TargetaGuia.astro";
+import { getGuies, guiesBase } from "@/utils/guies";
+import { getLocalizedData, type Locale } from "@/utils/i18n";
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = getLocalizedData<any>(locale, "site").comu.guies;
+const guies = await getGuies(locale);
+---
+
+<Layout title={t.seoTitle} description={t.seoDescription} alternates={guiesBase}>
+  <CapPagina eyebrow={t.eyebrow} title={t.title} italic={t.italic} subtitle={t.subtitle} ctas={false} />
+
+  <section class="bg-crema-50 py-20 sm:py-24">
+    <ul class="contenidor grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-stagger>
+      {guies.map((g) => (
+        <li><TargetaGuia guia={g} /></li>
+      ))}
+    </ul>
+  </section>
+
+  <Crida />
+</Layout>

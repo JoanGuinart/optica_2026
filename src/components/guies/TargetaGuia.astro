@@ -1,0 +1,33 @@
+---
+import Icon from "@components/ui/Icon.astro";
+import { guiaUrl, minutsLectura, type Guia } from "@/utils/guies";
+import { getLocalizedData } from "@/utils/i18n";
+
+interface Props {
+  guia: Guia;
+  dark?: boolean;
+  /** la secció on va té fons crema fosc: la targeta va més clara */
+  onDark?: boolean;
+}
+const { guia, dark = false, onDark = false } = Astro.props;
+const t = getLocalizedData<any>(guia.data.lang, "site").comu.guies;
+const icon = guia.data.category === "audiologia" ? "orella" : "ulleres";
+---
+
+<a
+  href={guiaUrl(guia)}
+  class={`group flex h-full flex-col justify-between gap-10 rounded-[1.75rem] p-8 transition-colors duration-500 ${dark ? "bg-bosc-800 hover:bg-bosc-700" : onDark ? "bg-crema-50 hover:bg-bosc-800" : "bg-crema-100 hover:bg-bosc-800"}`}
+>
+  <div>
+    <p class={`flex items-center gap-2 text-sm font-semibold ${dark ? "text-fusta-300" : "text-bosc-600 group-hover:text-fusta-300"} transition-colors duration-500`}>
+      <Icon name={icon} size={18} />
+      {t.cats[guia.data.category]} · {minutsLectura(guia)} {t.read}
+    </p>
+    <h3 class={`mt-5 text-2xl leading-snug transition-colors duration-500 ${dark ? "!text-crema-50" : "group-hover:!text-crema-50"}`}>{guia.data.title}</h3>
+    <p class={`mt-3 text-[0.95rem] transition-colors duration-500 ${dark ? "text-crema-200" : "text-tinta-suau group-hover:text-crema-200"}`}>{guia.data.description}</p>
+  </div>
+  <span class={`inline-flex items-center gap-2 text-sm font-semibold transition-colors duration-500 ${dark ? "text-crema-50" : "text-bosc-700 group-hover:text-crema-50"}`}>
+    {t.more}
+    <Icon name="fletxa" size={16} class="transition-transform duration-500 ease-out-soft group-hover:translate-x-1" />
+  </span>
+</a>

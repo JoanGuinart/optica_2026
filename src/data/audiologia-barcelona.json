@@ -1,14 +1,19 @@
 {
   "seo": {
-    "title": "Audiología Barcelona | Audífonos y Audiometrías | Òptica Guinart",
-    "description": "Centro de audiología en Barcelona: audiometrías gratuitas, adaptación de audífonos digitales y revisiones auditivas. +25 años cuidando tu salud auditiva en Sant Andreu.",
+    "title": "Audiología en Barcelona (Sant Andreu) | Óptica Guinart",
+    "description": "Audiometría gratuita, adaptación de audífonos y revisiones auditivas en Sant Andreu, Barcelona. Más de 25 años cuidando el oído del barrio. Pide cita.",
     "ogImage": "/og/optica-guinart-es.jpg"
   },
   "hero": {
     "badge": "Audiología profesional en Barcelona",
     "title": {
-      "line1": { "text": "Audiología en", "highlight": "Barcelona" },
-      "line2": { "text": "Cuida tu audición" }
+      "line1": {
+        "text": "Audiología en",
+        "highlight": "Barcelona"
+      },
+      "line2": {
+        "text": "Cuida tu audición"
+      }
     },
     "subtitle": "+25 años de experiencia en Sant Andreu. Audiometrías gratuitas, adaptación de audífonos digitales y revisiones auditivas profesionales."
   },
@@ -88,20 +93,56 @@
     }
   ],
   "benefits": [
-    { "title": "Audiometría gratuita", "icon": "✓" },
-    { "title": "Audífonos recargables", "icon": "🔋" },
-    { "title": "Ajuste personalizado", "icon": "👂" },
-    { "title": "Garantía y seguimiento", "icon": "🛡️" },
-    { "title": "Tecnología Bluetooth", "icon": "📱" },
-    { "title": "Modelos discretos", "icon": "🔇" }
+    {
+      "title": "Audiometría gratuita",
+      "icon": "✓"
+    },
+    {
+      "title": "Audífonos recargables",
+      "icon": "🔋"
+    },
+    {
+      "title": "Ajuste personalizado",
+      "icon": "👂"
+    },
+    {
+      "title": "Garantía y seguimiento",
+      "icon": "🛡️"
+    },
+    {
+      "title": "Tecnología Bluetooth",
+      "icon": "📱"
+    },
+    {
+      "title": "Modelos discretos",
+      "icon": "🔇"
+    }
   ],
   "faqs": [
-    { "q": "¿La audiometría es gratuita?", "a": "Sí, realizamos audiometrías gratuitas sin compromiso para evaluar tu salud auditiva." },
-    { "q": "¿Cuánto cuestan los audífonos?", "a": "Disponemos de audífonos desde 600€ hasta modelos premium de 2.500€. El precio depende de la tecnología y prestaciones. Te asesoramos según tu caso." },
-    { "q": "¿Los audífonos son visibles?", "a": "Contamos con modelos intracanales prácticamente invisibles y retroauriculares muy discretos. Te mostramos todas las opciones." },
-    { "q": "¿Qué garantía tienen?", "a": "Los audífonos incluyen garantía del fabricante (2-5 años según modelo) y nuestro seguimiento profesional sin coste adicional." },
-    { "q": "¿Dónde estamos?", "a": "En Carrer Gran de Sant Andreu, 308, Barcelona (barrio de Sant Andreu). Metro: Sant Andreu." },
-    { "q": "¿Necesito cita previa?", "a": "Para audiometrías y adaptación de audífonos, recomendamos cita previa para asegurar atención personalizada." }
+    {
+      "q": "¿La audiometría es gratuita?",
+      "a": "Sí, realizamos audiometrías gratuitas sin compromiso para evaluar tu salud auditiva."
+    },
+    {
+      "q": "¿Cuánto cuestan los audífonos?",
+      "a": "Disponemos de audífonos desde 600€ hasta modelos premium de 2.500€. El precio depende de la tecnología y prestaciones. Te asesoramos según tu caso."
+    },
+    {
+      "q": "¿Los audífonos son visibles?",
+      "a": "Contamos con modelos intracanales prácticamente invisibles y retroauriculares muy discretos. Te mostramos todas las opciones."
+    },
+    {
+      "q": "¿Qué garantía tienen?",
+      "a": "Los audífonos incluyen garantía del fabricante (2-5 años según modelo) y nuestro seguimiento profesional sin coste adicional."
+    },
+    {
+      "q": "¿Dónde estamos?",
+      "a": "En Carrer Gran de Sant Andreu, 308, Barcelona (barrio de Sant Andreu). Metro: Sant Andreu."
+    },
+    {
+      "q": "¿Necesito cita previa?",
+      "a": "Para audiometrías y adaptación de audífonos, recomendamos cita previa para asegurar atención personalizada."
+    }
   ],
   "cta": {
     "title": "Cuida tu salud auditiva hoy",

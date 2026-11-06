@@ -6,6 +6,7 @@ import Icon from "@components/ui/Icon.astro";
 import Preguntes from "@components/ui/Preguntes.astro";
 import OnSom from "@components/ui/OnSom.astro";
 import Crida from "@components/ui/Crida.astro";
+import GuiesRelacionades from "@components/guies/GuiesRelacionades.astro";
 import { getLocaleFromPath, getLocalizedData, localizePath } from "@/utils/i18n";
 import taulell from "@assets/fotos/interior-taulell.webp";
 
@@ -83,6 +84,8 @@ const whyIcons = ["medalla", "cor", "precisio"];
       </ul>
     </div>
   </section>
+
+  <GuiesRelacionades category="audiologia" />
 
   <OnSom />
 

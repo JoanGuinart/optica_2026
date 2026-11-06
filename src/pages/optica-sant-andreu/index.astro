@@ -7,6 +7,7 @@ import Icon from "@components/ui/Icon.astro";
 import Preguntes from "@components/ui/Preguntes.astro";
 import OnSom from "@components/ui/OnSom.astro";
 import Crida from "@components/ui/Crida.astro";
+import GuiesRelacionades from "@components/guies/GuiesRelacionades.astro";
 import { getLocaleFromPath, getLocalizedData } from "@/utils/i18n";
 import facana from "@assets/fotos/rotul-entrada.webp";
 import botiga from "@assets/fotos/interior-botiga.webp";
@@ -68,6 +69,29 @@ const serviceIcons = ["ull", "ulleres", "lentilla", "audifon"];
             data-parallax="0.12"
           />
         </div>
+      </div>
+    </div>
+  </section>
+
+  <GuiesRelacionades category="optica" />
+
+  <!-- Com arribar -->
+  <section class="bg-bosc-900 py-20 text-crema-100 sm:py-24">
+    <div class="contenidor grid gap-12 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <Titol eyebrow={d.arribar.eyebrow} title={d.arribar.title} italic={d.arribar.italic} dark />
+      </div>
+      <div class="lg:col-span-7">
+        <p class="text-lg text-crema-200" data-reveal>{d.arribar.text}</p>
+        <dl class="mt-10 grid gap-8 sm:grid-cols-3" data-reveal-stagger>
+          {d.arribar.items.map((it: any) => (
+            <div class="border-t border-crema-50/15 pt-6">
+              <Icon name={it.icon} size={26} class="text-fusta-300" />
+              <dt class="mt-4 text-sm font-semibold text-fusta-300">{it.label}</dt>
+              <dd class="mt-1 text-crema-50">{it.value}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </div>
   </section>

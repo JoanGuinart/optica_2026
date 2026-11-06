@@ -1,0 +1,39 @@
+---
+/** Bloc amb les guies d'una categoria (o totes), per enllaçar-les des d'altres pàgines */
+import Icon from "@components/ui/Icon.astro";
+import Titol from "@components/ui/Titol.astro";
+import TargetaGuia from "./TargetaGuia.astro";
+import { getGuies, guiesBase } from "@/utils/guies";
+import { getLocaleFromPath, getLocalizedData } from "@/utils/i18n";
+
+interface Props {
+  category?: "optica" | "audiologia";
+  bg?: string;
+}
+const { category, bg = "bg-crema-50" } = Astro.props;
+const locale = getLocaleFromPath(Astro.url.pathname);
+const t = getLocalizedData<any>(locale, "site").comu.guies;
+const guies = (await getGuies(locale)).filter((g) => !category || g.data.category === category).slice(0, 3);
+---
+
+{
+  guies.length > 0 && (
+    <section class={`${bg} py-20 sm:py-24`}>
+      <div class="contenidor">
+        <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <Titol eyebrow={t.eyebrow} title={t.title} italic={t.italic} />
+          <a href={guiesBase[locale]} class="enllac self-start sm:self-auto" data-reveal>
+            {t.all} <Icon name="fletxa" size={16} />
+          </a>
+        </div>
+        <ul class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal-stagger>
+          {guies.map((g) => (
+            <li>
+              <TargetaGuia guia={g} onDark={bg.includes("crema-100")} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )
+}

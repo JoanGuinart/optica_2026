@@ -23,8 +23,8 @@
   },
   "whatsappMessagePrefix": "Quiero información sobre el producto:",
   "seo": {
-    "title": "Productos - Òptica Guinart",
-    "description": "Catálogo de productos: gafas de sol, graduadas, lentillas y gafas inteligentes en Óptica Guinart. Consulta precios y disponibilidad en Sant Andreu, Barcelona.",
+    "title": "Gafas graduadas y de sol en Sant Andreu | Óptica Guinart",
+    "description": "Gafas de sol, graduadas e inteligentes de Ray-Ban, Silhouette, Maui Jim, Tous y más marcas. Ven a probártelas en Sant Andreu, Barcelona.",
     "ogImage": "/og/optica-guinart-es.jpg"
   },
   "featuredProducts": {
@@ -154,7 +154,6 @@
         "src": "/productos/police-x-mercedes-amg-petronas-splr50-r22b.webp",
         "buttonText": "Saber más"
       }
-
     ]
   },
   "specialOffers": {

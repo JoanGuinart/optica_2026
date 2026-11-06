@@ -85,10 +85,31 @@
       "ask": "Hola! M'interessa",
       "offersEyebrow": "Promocions",
       "demo": "Veure el vídeo"
+    },
+    "guies": {
+      "eyebrow": "Guies",
+      "title": "Respostes clares,",
+      "italic": "sense lletra petita.",
+      "subtitle": "El que més ens pregunten a la botiga sobre la vista i l'oïda, explicat amb calma.",
+      "seoTitle": "Guies sobre la vista i l'audició | Òptica Guinart",
+      "seoDescription": "Cada quant revisar la vista, com saber si necessites audiòfon, què costen o com triar entre progressives i bifocals. Guies d'Òptica Guinart.",
+      "read": "min de lectura",
+      "updated": "Actualitzada el",
+      "related": "Altres guies",
+      "all": "Totes les guies",
+      "asideTitle": "Tens algun dubte?",
+      "asideText": "Pregunta'ns sense compromís. Et responem per WhatsApp o t'atenem a la botiga.",
+      "cats": {
+        "optica": "Òptica",
+        "audiologia": "Audiologia"
+      },
+      "author": "Equip d'Òptica Guinart",
+      "more": "Llegir la guia"
     }
   },
   "pageNames": {
     "optica-sant-andreu": "Òptica a Sant Andreu",
-    "audifonos-barcelona": "Audiòfons"
+    "audifonos-barcelona": "Audiòfons",
+    "guies": "Guies"
   }
 }

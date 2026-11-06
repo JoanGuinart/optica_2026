@@ -1,0 +1,113 @@
+---
+/** Pàgina d'una guia (s'usa des de /guies/[slug] i /es/guias/[slug]) */
+import { render } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Icon from "@components/ui/Icon.astro";
+import EstatBotiga from "@components/ui/EstatBotiga.astro";
+import TargetaGuia from "./TargetaGuia.astro";
+import { getGuies, guiaAlternates, guiaUrl, guiesBase, minutsLectura, type Guia } from "@/utils/guies";
+import { getLocalizedData } from "@/utils/i18n";
+
+interface Props {
+  guia: Guia;
+}
+const { guia } = Astro.props;
+const locale = guia.data.lang;
+const t = getLocalizedData<any>(locale, "site").comu.guies;
+const comu = getLocalizedData<any>(locale, "site").comu;
+const info = getLocalizedData<any>(locale, "contact").contactInfo;
+const { Content } = await render(guia);
+const alternates = await guiaAlternates(guia);
+
+// Relacionades: primer les de la mateixa categoria
+const altres = (await getGuies(locale))
+  .filter((g) => g.id !== guia.id)
+  .sort((a, b) => Number(b.data.category === guia.data.category) - Number(a.data.category === guia.data.category))
+  .slice(0, 3);
+
+const data = guia.data.updated ?? guia.data.date;
+const dataText = new Intl.DateTimeFormat(locale === "ca" ? "ca-ES" : "es-ES", { day: "numeric", month: "long", year: "numeric" }).format(data);
+const url = Astro.site ? new URL(guiaUrl(guia), Astro.site).toString() : guiaUrl(guia);
+const waText = `${comu.catalog.ask}: ${guia.data.title}`;
+---
+
+<Layout title={guia.data.title} description={guia.data.description} alternates={alternates} breadcrumbLast={guia.data.title}>
+  <article>
+    <header class="paper bg-crema-100" data-hero>
+      <div class="contenidor py-14 sm:py-20">
+        <p class="avantitol flex flex-wrap items-center gap-3" data-reveal>
+          <span class="inline-block h-px w-8 bg-bosc-600"></span>
+          <a href={guiesBase[locale]} class="hover:underline">{t.eyebrow}</a> · {t.cats[guia.data.category]}
+        </p>
+        <h1 class="mt-6 max-w-4xl" style="font-size: clamp(2.3rem, 5.2vw, 4.6rem); letter-spacing: -0.02em; line-height: 1.02" data-split>
+          {guia.data.title}
+        </h1>
+        <p class="mt-7 max-w-2xl text-lg text-tinta-suau sm:text-xl" data-reveal>{guia.data.description}</p>
+        <p class="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-tinta-suau" data-reveal>
+          <span class="inline-flex items-center gap-2"><Icon name="rellotge" size={16} /> {minutsLectura(guia)} {t.read}</span>
+          <span><time datetime={data.toISOString().slice(0, 10)}>{t.updated} {dataText}</time></span>
+        </p>
+      </div>
+    </header>
+
+    <div class="bg-crema-50 py-16 sm:py-20">
+      <div class="contenidor grid gap-14 lg:grid-cols-12">
+        <div class="prosa min-w-0 lg:col-span-7 lg:col-start-1">
+          <Content />
+        </div>
+
+        <aside class="lg:col-span-4 lg:col-start-9">
+          <div class="rounded-[1.75rem] bg-bosc-800 p-8 text-crema-100 lg:sticky lg:top-28">
+            <p class="font-display text-2xl text-crema-50" style="font-weight:500">{t.asideTitle}</p>
+            <p class="mt-3 text-crema-200">{t.asideText}</p>
+            <EstatBotiga class="mt-6 !bg-bosc-900 text-crema-50" />
+            <div class="mt-6 flex flex-col gap-3">
+              <a href={`https://wa.me/${info.phone.whatsapp}?text=${encodeURIComponent(waText)}`} target="_blank" rel="noopener noreferrer" class="boto boto-clar">
+                <Icon name="whatsapp" size={20} /> WhatsApp
+              </a>
+              <a href={`tel:${info.phone.display.replace(/\s+/g, "")}`} class="boto border border-crema-50/25 text-crema-50 hover:border-crema-50">
+                <Icon name="telefon" size={18} /> {info.phone.display}
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </article>
+
+  {altres.length > 0 && (
+    <section class="bg-crema-100 py-20 sm:py-24">
+      <div class="contenidor">
+        <div class="flex items-end justify-between gap-6">
+          <h2 style="font-size: clamp(1.9rem, 3.6vw, 3rem)" data-reveal>{t.related}</h2>
+          <a href={guiesBase[locale]} class="enllac shrink-0" data-reveal>{t.all} <Icon name="fletxa" size={16} /></a>
+        </div>
+        <ul class="mt-10 grid gap-5 md:grid-cols-3" data-reveal-stagger>
+          {altres.map((g) => <li><TargetaGuia guia={g} onDark /></li>)}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: guia.data.title,
+      description: guia.data.description,
+      inLanguage: locale === "ca" ? "ca-ES" : "es-ES",
+      datePublished: guia.data.date.toISOString().slice(0, 10),
+      dateModified: data.toISOString().slice(0, 10),
+      mainEntityOfPage: url,
+      image: Astro.site ? new URL(`/og/optica-guinart-${locale}.jpg`, Astro.site).toString() : undefined,
+      author: { "@type": "Organization", name: t.author, url: Astro.site?.toString() },
+      publisher: {
+        "@type": "Organization",
+        name: "Òptica Guinart",
+        logo: { "@type": "ImageObject", url: Astro.site ? new URL("/icons/icon-512.png", Astro.site).toString() : "/icons/icon-512.png" },
+      },
+    })}
+  />
+</Layout>

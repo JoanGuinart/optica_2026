@@ -1,12 +1,16 @@
 {
   "seo": {
-    "title": "Óptica en Sant Andreu (Barcelona) | Òptica Guinart",
-    "description": "Óptica y audiología en Sant Andreu (Barcelona). Revisiones visuales, gafas, lentillas y adaptación de audífonos. Más de 25 años de experiencia en el barrio.",
+    "title": "Óptica en Sant Andreu, Barcelona | Óptica Guinart",
+    "description": "Tu óptica en la calle Gran de Sant Andreu, 308: revisión visual, gafas, lentillas y audiología. Cerca de La Sagrera, Navas y el Congrés.",
     "ogImage": "/og/optica-guinart-es.jpg"
   },
   "hero": {
     "badge": "Tu óptica de confianza en Sant Andreu",
-    "title": { "main": "Óptica en", "highlight": "Sant Andreu", "suffix": " (Barcelona)" },
+    "title": {
+      "main": "Óptica en",
+      "highlight": "Sant Andreu",
+      "suffix": " (Barcelona)"
+    },
     "subtitle": "Revisiones visuales, gafas, lentillas y audiología. Atención cercana y profesional con más de 25 años de experiencia en el barrio."
   },
   "sections": {
@@ -43,8 +47,40 @@
     }
   ],
   "faqs": [
-    { "q": "¿Dónde estamos?", "a": "Carrer Gran de Sant Andreu, 308, Barcelona" },
-    { "q": "¿Horario?", "a": "Lunes a viernes: 9:30-13:30 y 17:00-20:30. Sábado: 10:00-13:30." },
-    { "q": "¿Cita previa?", "a": "Recomendable para revisiones visuales y audiometrías. Para compras rápidas, puedes venir sin cita." }
-  ]
+    {
+      "q": "¿Dónde estamos?",
+      "a": "Carrer Gran de Sant Andreu, 308, Barcelona"
+    },
+    {
+      "q": "¿Horario?",
+      "a": "Lunes a viernes: 9:30-13:30 y 17:00-20:30. Sábado: 10:00-13:30."
+    },
+    {
+      "q": "¿Cita previa?",
+      "a": "Recomendable para revisiones visuales y audiometrías. Para compras rápidas, puedes venir sin cita."
+    }
+  ],
+  "arribar": {
+    "eyebrow": "Cómo llegar",
+    "title": "A pie, en metro",
+    "italic": "o de paso.",
+    "text": "Estamos en la calle Gran de Sant Andreu, 308, la calle de toda la vida del barrio. En el distrito de Sant Andreu, que también incluye La Sagrera, Navas, el Congrés i els Indians, el Bon Pastor, Baró de Viver y la Trinitat Vella.",
+    "items": [
+      {
+        "icon": "ubicacio",
+        "label": "Dirección",
+        "value": "Calle Gran de Sant Andreu, 308 · 08030 Barcelona"
+      },
+      {
+        "icon": "fletxa",
+        "label": "Metro",
+        "value": "Estación Sant Andreu (L1)"
+      },
+      {
+        "icon": "rellotge",
+        "label": "Sin cita",
+        "value": "Para comprar o ajustar gafas, puedes venir cuando quieras dentro del horario."
+      }
+    ]
+  }
 }

@@ -1,14 +1,14 @@
 {
   "seo": {
-    "title": "Servicios - Òptica Guinart",
-    "description": "Servicios de óptica y audiología en Sant Andreu (Barcelona): optometría, audiología, adaptación de audífonos, lentillas y taller de reparación.",
+    "title": "Servicios de óptica y audiología en Sant Andreu | Guinart",
+    "description": "Revisión visual, lentillas, presión ocular, audiometría gratuita y taller de reparación de gafas en Sant Andreu, Barcelona. Pide cita.",
     "ogImage": "/og/optica-guinart-es.jpg"
   },
   "hero": {
     "title": {
-    "main": "Nuestros",
-    "highlight": "Servicios"
-  },
+      "main": "Nuestros",
+      "highlight": "Servicios"
+    },
     "subtitle": "Cuidamos tu salud visual y auditiva con la tecnología más avanzada y el mejor servicio profesional",
     "badge": {
       "text": "Profesionales cualificados",

@@ -179,3 +179,72 @@
     animation: none !important;
   }
 }
+
+/* Text llarg de les guies (Markdown) */
+.prosa {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: var(--color-tinta);
+}
+.prosa > * + * {
+  margin-top: 1.25em;
+}
+.prosa h2 {
+  margin-top: 2.2em;
+  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+  line-height: 1.15;
+}
+.prosa h3 {
+  margin-top: 1.8em;
+  font-size: 1.4rem;
+}
+.prosa h2 + *,
+.prosa h3 + * {
+  margin-top: 0.75em;
+}
+.prosa p:first-child {
+  font-size: 1.25rem;
+  color: var(--color-tinta-suau);
+}
+.prosa strong {
+  font-weight: 650;
+  color: var(--color-bosc-900);
+}
+.prosa em {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--color-bosc-700);
+}
+.prosa a {
+  color: var(--color-bosc-700);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.prosa a:hover {
+  color: var(--color-bosc-600);
+  text-decoration-thickness: 2px;
+}
+.prosa ul,
+.prosa ol {
+  padding-left: 0;
+  list-style: none;
+}
+.prosa li {
+  position: relative;
+  padding-left: 1.6em;
+}
+.prosa li + li {
+  margin-top: 0.6em;
+}
+.prosa ul > li::before {
+  content: "";
+  position: absolute;
+  left: 0.2em;
+  top: 0.68em;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 999px;
+  border: 1.5px solid var(--color-bosc-600);
+}

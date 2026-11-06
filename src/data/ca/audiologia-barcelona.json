@@ -1,14 +1,19 @@
 {
   "seo": {
-    "title": "Audiologia Barcelona | Audiòfons i Audiometries | Òptica Guinart",
-    "description": "Centre d'audiologia a Barcelona: audiometries gratuïtes, adaptació d'audiòfons digitals i revisions auditives. +25 anys cuidant la teva salut auditiva a Sant Andreu.",
+    "title": "Audiologia a Barcelona (Sant Andreu) | Òptica Guinart",
+    "description": "Audiometria gratuïta, adaptació d'audiòfons i revisions auditives a Sant Andreu, Barcelona. Més de 25 anys cuidant l'oïda del barri. Demana cita.",
     "ogImage": "/og/optica-guinart-ca.jpg"
   },
   "hero": {
     "badge": "Audiologia professional a Barcelona",
     "title": {
-      "line1": { "text": "Audiologia a", "highlight": "Barcelona" },
-      "line2": { "text": "Cuida la teva audició" }
+      "line1": {
+        "text": "Audiologia a",
+        "highlight": "Barcelona"
+      },
+      "line2": {
+        "text": "Cuida la teva audició"
+      }
     },
     "subtitle": "+25 anys d'experiència a Sant Andreu. Audiometries gratuïtes, adaptació d'audiòfons digitals i revisions auditives professionals."
   },
@@ -88,20 +93,56 @@
     }
   ],
   "benefits": [
-    { "title": "Audiometria gratuïta", "icon": "✓" },
-    { "title": "Audiòfons recarregables", "icon": "🔋" },
-    { "title": "Ajust personalitzat", "icon": "👂" },
-    { "title": "Garantia i seguiment", "icon": "🛡️" },
-    { "title": "Tecnologia Bluetooth", "icon": "📱" },
-    { "title": "Models discrets", "icon": "🔇" }
+    {
+      "title": "Audiometria gratuïta",
+      "icon": "✓"
+    },
+    {
+      "title": "Audiòfons recarregables",
+      "icon": "🔋"
+    },
+    {
+      "title": "Ajust personalitzat",
+      "icon": "👂"
+    },
+    {
+      "title": "Garantia i seguiment",
+      "icon": "🛡️"
+    },
+    {
+      "title": "Tecnologia Bluetooth",
+      "icon": "📱"
+    },
+    {
+      "title": "Models discrets",
+      "icon": "🔇"
+    }
   ],
   "faqs": [
-    { "q": "L'audiometria és gratuïta?", "a": "Sí, fem audiometries gratuïtes sense compromís per avaluar la teva salut auditiva." },
-    { "q": "Quant costen els audiòfons?", "a": "Disposem d'audiòfons des de 600€ fins a models premium de 2.500€. El preu depèn de la tecnologia i les prestacions. T'assessorem segons el teu cas." },
-    { "q": "Els audiòfons són visibles?", "a": "Comptem amb models intracanal pràcticament invisibles i retroauriculars molt discrets. T'ensenyem totes les opcions." },
-    { "q": "Quina garantia tenen?", "a": "Els audiòfons inclouen garantia del fabricant (2-5 anys segons el model) i el nostre seguiment professional sense cost addicional." },
-    { "q": "On som?", "a": "Al Carrer Gran de Sant Andreu, 308, Barcelona (barri de Sant Andreu). Metro: Sant Andreu." },
-    { "q": "Necessito cita prèvia?", "a": "Per a audiometries i adaptació d'audiòfons, recomanem cita prèvia per assegurar atenció personalitzada." }
+    {
+      "q": "L'audiometria és gratuïta?",
+      "a": "Sí, fem audiometries gratuïtes sense compromís per avaluar la teva salut auditiva."
+    },
+    {
+      "q": "Quant costen els audiòfons?",
+      "a": "Disposem d'audiòfons des de 600€ fins a models premium de 2.500€. El preu depèn de la tecnologia i les prestacions. T'assessorem segons el teu cas."
+    },
+    {
+      "q": "Els audiòfons són visibles?",
+      "a": "Comptem amb models intracanal pràcticament invisibles i retroauriculars molt discrets. T'ensenyem totes les opcions."
+    },
+    {
+      "q": "Quina garantia tenen?",
+      "a": "Els audiòfons inclouen garantia del fabricant (2-5 anys segons el model) i el nostre seguiment professional sense cost addicional."
+    },
+    {
+      "q": "On som?",
+      "a": "Al Carrer Gran de Sant Andreu, 308, Barcelona (barri de Sant Andreu). Metro: Sant Andreu."
+    },
+    {
+      "q": "Necessito cita prèvia?",
+      "a": "Per a audiometries i adaptació d'audiòfons, recomanem cita prèvia per assegurar atenció personalitzada."
+    }
   ],
   "cta": {
     "title": "Cuida la teva salut auditiva avui",
