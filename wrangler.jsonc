@@ -1,0 +1,10 @@
+// Cloudflare Workers: la web és estàtica, només se serveixen els fitxers del build (dist/).
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "optica-guinart",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  }
+}

@@ -29,3 +29,6 @@ pnpm-debug.log*
 # skills de Claude Code (només ús local)
 .claude/
 skills-lock.json
+
+# wrangler (Cloudflare) cache local
+.wrangler/
