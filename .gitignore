@@ -23,9 +23,6 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-# vercel output (do not commit)
-.vercel/
-
 # skills de Claude Code (només ús local)
 .claude/
 skills-lock.json

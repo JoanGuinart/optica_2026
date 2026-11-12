@@ -20,7 +20,6 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.12",
-    "@astrojs/vercel": "^11.0.20",
     "typescript": "^6.0.3"
   },
   "overrides": {

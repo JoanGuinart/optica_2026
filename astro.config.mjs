@@ -3,20 +3,18 @@ import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import { fileURLToPath, URL } from "node:url";
-import vercelAdapter from "@astrojs/vercel";
 
 /** @param {string} p */
 const alias = (p) => fileURLToPath(new URL(p, import.meta.url));
 
 // https://astro.build/config
 export default defineConfig({
-  // Domini principal a Vercel: el de www (opticaguinart.com hi redirigeix)
+  // Domini principal: el de www (opticaguinart.com hi redirigeix amb una Redirect Rule de Cloudflare)
   site: "https://www.opticaguinart.com",
   devToolbar: { enabled: false },
-  // Totes les pàgines es generen en el build: es serveixen directament des del CDN.
+  // Totes les pàgines es generen en el build i es publiquen a Cloudflare Workers (wrangler.jsonc).
   // (El formulari de contacte envia a formsubmit.co, no necessita servidor.)
   output: "static",
-  adapter: vercelAdapter(),
   build: { inlineStylesheets: "auto" },
   compressHTML: true,
   prefetch: { prefetchAll: true, defaultStrategy: "hover" },

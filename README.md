@@ -55,7 +55,7 @@ Para añadir o editar textos sólo actualiza el JSON correspondiente (mantén la
 - Cuando un texto depende de datos dinámicos (ej. dirección u horario) construye la cadena en la plantilla como se hace en `optica-sant-andreu`.
 
 ## 🚀 Despliegue
-El resultado tras `npm run build` es totalmente estático. Puedes desplegar en cualquier hosting de contenido estático (Netlify, Vercel, GitHub Pages, etc.).
+El resultado tras `npm run build` es totalmente estático (carpeta `dist/`). Se publica en **Cloudflare Workers** con `wrangler.jsonc`: cada push a `main` se construye y despliega automáticamente.
 
 ## 🤝 Contribuir
 1. Crea rama (`git checkout -b feature/nueva-seccion`).
@@ -134,7 +134,7 @@ npm run build
 ```
 
 ## 🌐 Canonical y redirecciones
-Se fuerza la versión sin `www` mediante configuración de despliegue (ej. `vercel.json`) para consolidar señales SEO.
+El dominio principal es `www.opticaguinart.com`. `opticaguinart.com` y `opticaguinart.es` redirigen a él (301) con Redirect Rules de Cloudflare, para consolidar señales SEO.
 
 ## 🧪 Checklist antes de desplegar
 - [ ] Cada página tiene bloque `seo`.
