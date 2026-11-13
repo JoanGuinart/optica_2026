@@ -1,0 +1,10 @@
+# Cloudflare Workers (static assets): cabeceres per ruta.
+# L'eina de posts d'Instagram (versió online) llegeix aquestes dades i imatges des del navegador.
+/posts-data.json
+  Access-Control-Allow-Origin: *
+
+/productos/*
+  Access-Control-Allow-Origin: *
+
+/_astro/*
+  Access-Control-Allow-Origin: *
