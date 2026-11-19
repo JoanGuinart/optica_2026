@@ -38,7 +38,7 @@
         "id": 1,
         "name": "Ray-Ban Meta",
         "description": "Gafas inteligentes con tecnología Meta, captura fotos y videos con estilo icónico Ray-Ban",
-        "price": "149€",
+        "price": "",
         "src": "/productos/rayban-meta.webp",
         "buttonText": "Saber más"
       },
@@ -46,7 +46,7 @@
         "id": 2,
         "name": "Silhouette Escondido",
         "description": "Ultraligeras sin montura austríacas, máxima comodidad y tecnología sin tornillos",
-        "price": "179€",
+        "price": "",
         "src": "/productos/silhouette-escondido.webp",
         "buttonText": "Saber más"
       },
@@ -54,7 +54,7 @@
         "id": 3,
         "name": "Maui Jim Paluna",
         "description": "Tecnología PolarizedPlus2® hawaiana, colores vibrantes y protección superior",
-        "price": "299€",
+        "price": "",
         "src": "/productos/maui-jim-paluna.webp",
         "buttonText": "Saber más"
       },
@@ -62,7 +62,7 @@
         "id": 4,
         "name": "Yalea SYA053V",
         "description": "Artesanía italiana en acetato de alta calidad, diseños únicos hechos a mano",
-        "price": "219€",
+        "price": "",
         "src": "/productos/yalea-SYA053V.webp",
         "buttonText": "Saber más"
       },
@@ -70,7 +70,7 @@
         "id": 5,
         "name": "Tous Daisy",
         "description": "Diseño barcelonés con detalles de osito icónico y elegancia mediterránea",
-        "price": "199€",
+        "price": "",
         "src": "/productos/tous-daisy.webp",
         "buttonText": "Saber más"
       },
@@ -78,7 +78,7 @@
         "id": 6,
         "name": "Vogue V05582S",
         "description": "Estilo y glamour con diseños femeninos únicos",
-        "price": "169€",
+        "price": "",
         "src": "/productos/vogue-V05582S.webp",
         "buttonText": "Saber más"
       },
@@ -86,7 +86,7 @@
         "id": 7,
         "name": "Ray-Ban Wayfarer",
         "description": "Icónicas gafas con estilo clásico y protección superior",
-        "price": "189€",
+        "price": "",
         "src": "/productos/rayban-wayfarer.webp",
         "buttonText": "Saber más"
       },
@@ -94,7 +94,7 @@
         "id": 8,
         "name": "Zadig & Voltaire ZV23H5",
         "description": "Diseño rebelde y sofisticado con acabados premium",
-        "price": "249€",
+        "price": "",
         "src": "/productos/zadig-voltaire-ZV23H5.webp",
         "buttonText": "Saber más"
       },
@@ -102,7 +102,7 @@
         "id": 9,
         "name": "Furla-VFU718-09MA",
         "description": "Elegancia italiana con detalles artesanales exclusivos",
-        "price": "229€",
+        "price": "",
         "src": "/productos/furla-VFU718-09MA.webp",
         "buttonText": "Saber más"
       },
@@ -110,7 +110,7 @@
         "id": 10,
         "name": "Pertegaz-55178550",
         "description": "Tradición española en moda y complementos de lujo",
-        "price": "159€",
+        "price": "",
         "src": "/productos/pertegaz-55178550.webp",
         "buttonText": "Saber más"
       },
@@ -118,7 +118,7 @@
         "id": 11,
         "name": "Polo Ralph Lauren ph2211",
         "description": "Estilo clásico americano con sofisticación atemporal",
-        "price": "219€",
+        "price": "",
         "src": "/productos/polo-ralph-lauren-ph2211.webp",
         "buttonText": "Saber más"
       },
@@ -126,7 +126,7 @@
         "id": 12,
         "name": "Ralph by Ralph Lauren",
         "description": "Deportividad y elegancia en diseños versátiles",
-        "price": "179€",
+        "price": "",
         "src": "/productos/ralph-by-ralph-lauren.webp",
         "buttonText": "Saber más"
       },
@@ -134,7 +134,7 @@
         "id": 13,
         "name": "Arnette Hot Shot AN4182-2149/81",
         "description": "Gafas juveniles con actitud urbana y deportiva",
-        "price": "129€",
+        "price": "",
         "src": "/productos/arnette-hot-shot-an4182-214981.webp",
         "buttonText": "Saber más"
       },
@@ -142,7 +142,7 @@
         "id": 14,
         "name": "Lacoste L2912-301",
         "description": "Espíritu deportivo francés con elegancia casual",
-        "price": "199€",
+        "price": "",
         "src": "/productos/lacoste-L2912-301.webp",
         "buttonText": "Saber más"
       },
@@ -150,7 +150,7 @@
         "id": 15,
         "name": "Police x Mercedes AMG Petronas SPLR50 R22B",
         "description": "Diseños audaces con personalidad urbana distintiva",
-        "price": "149€",
+        "price": "",
         "src": "/productos/police-x-mercedes-amg-petronas-splr50-r22b.webp",
         "buttonText": "Saber más"
       },
