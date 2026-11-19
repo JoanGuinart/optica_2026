@@ -153,6 +153,126 @@
         "price": "149€",
         "src": "/productos/police-x-mercedes-amg-petronas-splr50-r22b.webp",
         "buttonText": "Saber-ne més"
+      },
+      {
+        "id": 16,
+        "name": "Furla SFU971",
+        "description": "Ulleres de sol Furla, color 0700.",
+        "price": "",
+        "src": "/productos/furla-SFU971-0700.webp",
+        "buttonText": "Saber-ne més"
+      },
+      {
+        "id": 17,
+        "name": "Just Cavalli SJC039",
+        "description": "Ulleres de sol Just Cavalli, color 06NA.",
+        "price": "",
+        "src": "/productos/just-cavalli-SJC039-06NA.webp",
+        "buttonText": "Saber-ne més"
+      },
+      {
+        "id": 18,
+        "name": "Furla SFU348",
+        "description": "Ulleres de sol Furla, color 09FD.",
+        "price": "",
+        "src": "/productos/furla-SFU348-09FD.webp",
+        "buttonText": "Saber-ne més"
+      },
+      {
+        "id": 19,
+        "name": "Havaianas Sampa",
+        "description": "Ulleres de sol Havaianas, color 807/IR.",
+        "price": "",
+        "src": "/productos/havaianas-sampa-807-IR.webp",
+        "buttonText": "Saber-ne més"
+      },
+      {
+        "id": 20,
+        "name": "Just Cavalli JC320S",
+        "description": "Ulleres de sol Just Cavalli, color 05B.",
+        "price": "",
+        "src": "/productos/just-cavalli-JC320S-05B.webp",
+        "buttonText": "Saber-ne més"
+      },
+      {
+        "id": 21,
+        "name": "Guess GU7847",
+        "description": "Ulleres de sol Guess, color 08W.",
+        "price": "",
+        "src": "/productos/guess-GU7847-08W.webp",
+        "buttonText": "Saber-ne més"
+      },
+      {
+        "id": 22,
+        "name": "Yalea Frida SYA174V",
+        "description": "Ulleres de sol Yalea, color 0868.",
+        "price": "",
+        "src": "/productos/yalea-frida-SYA174V-0868.webp",
+        "buttonText": "Saber-ne més"
+      },
+      {
+        "id": 23,
+        "name": "Yalea SYA103",
+        "description": "Ulleres de sol Yalea, color 0XAP.",
+        "price": "",
+        "src": "/productos/yalea-SYA103-0XAP.webp",
+        "buttonText": "Saber-ne més"
+      },
+      {
+        "id": 24,
+        "name": "Yalea SYA120",
+        "description": "Ulleres de sol Yalea.",
+        "price": "",
+        "src": "/productos/yalea-SYA120.webp",
+        "buttonText": "Saber-ne més"
+      },
+      {
+        "id": 25,
+        "name": "Yalea SYA151V",
+        "description": "Ulleres de sol Yalea, color 700W.",
+        "price": "",
+        "src": "/productos/yalea-SYA151V-700W.webp",
+        "buttonText": "Saber-ne més"
+      },
+      {
+        "id": 26,
+        "name": "Yalea SYA081",
+        "description": "Ulleres de sol Yalea, color 94HX.",
+        "price": "",
+        "src": "/productos/yalea-SYA081-94HX.webp",
+        "buttonText": "Saber-ne més"
+      },
+      {
+        "id": 27,
+        "name": "Nina Ricci SNR317",
+        "description": "Ulleres de sol Nina Ricci, color 096N.",
+        "price": "",
+        "src": "/productos/nina-ricci-SNR317-096N.webp",
+        "buttonText": "Saber-ne més"
+      },
+      {
+        "id": 28,
+        "name": "Yalea SYA152V",
+        "description": "Ulleres de sol Yalea, color 0752.",
+        "price": "",
+        "src": "/productos/yalea-SYA152V-0752.webp",
+        "buttonText": "Saber-ne més"
+      },
+      {
+        "id": 29,
+        "name": "Furla SFU625",
+        "description": "Ulleres de sol Furla, color 05GQ.",
+        "price": "",
+        "src": "/productos/furla-SFU625-05GQ.webp",
+        "buttonText": "Saber-ne més"
+      },
+      {
+        "id": 30,
+        "name": "Yalea SYA104",
+        "description": "Ulleres de sol Yalea, color 0830.",
+        "price": "",
+        "src": "/productos/yalea-SYA104-0830.webp",
+        "buttonText": "Saber-ne més"
       }
     ]
   },
