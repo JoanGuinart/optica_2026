@@ -38,7 +38,7 @@
         "id": 1,
         "name": "Ray-Ban Meta",
         "description": "Gafas inteligentes con tecnología Meta, captura fotos y videos con estilo icónico Ray-Ban",
-        "price": "",
+        "price": "149€",
         "src": "/productos/rayban-meta.webp",
         "buttonText": "Saber más"
       },
@@ -46,7 +46,7 @@
         "id": 2,
         "name": "Silhouette Escondido",
         "description": "Ultraligeras sin montura austríacas, máxima comodidad y tecnología sin tornillos",
-        "price": "",
+        "price": "179€",
         "src": "/productos/silhouette-escondido.webp",
         "buttonText": "Saber más"
       },
@@ -54,7 +54,7 @@
         "id": 3,
         "name": "Maui Jim Paluna",
         "description": "Tecnología PolarizedPlus2® hawaiana, colores vibrantes y protección superior",
-        "price": "",
+        "price": "299€",
         "src": "/productos/maui-jim-paluna.webp",
         "buttonText": "Saber más"
       },
@@ -62,7 +62,7 @@
         "id": 4,
         "name": "Yalea SYA053V",
         "description": "Artesanía italiana en acetato de alta calidad, diseños únicos hechos a mano",
-        "price": "",
+        "price": "219€",
         "src": "/productos/yalea-SYA053V.webp",
         "buttonText": "Saber más"
       },
@@ -70,7 +70,7 @@
         "id": 5,
         "name": "Tous Daisy",
         "description": "Diseño barcelonés con detalles de osito icónico y elegancia mediterránea",
-        "price": "",
+        "price": "199€",
         "src": "/productos/tous-daisy.webp",
         "buttonText": "Saber más"
       },
@@ -78,7 +78,7 @@
         "id": 6,
         "name": "Vogue V05582S",
         "description": "Estilo y glamour con diseños femeninos únicos",
-        "price": "",
+        "price": "169€",
         "src": "/productos/vogue-V05582S.webp",
         "buttonText": "Saber más"
       },
@@ -86,7 +86,7 @@
         "id": 7,
         "name": "Ray-Ban Wayfarer",
         "description": "Icónicas gafas con estilo clásico y protección superior",
-        "price": "",
+        "price": "189€",
         "src": "/productos/rayban-wayfarer.webp",
         "buttonText": "Saber más"
       },
@@ -94,7 +94,7 @@
         "id": 8,
         "name": "Zadig & Voltaire ZV23H5",
         "description": "Diseño rebelde y sofisticado con acabados premium",
-        "price": "",
+        "price": "249€",
         "src": "/productos/zadig-voltaire-ZV23H5.webp",
         "buttonText": "Saber más"
       },
@@ -102,7 +102,7 @@
         "id": 9,
         "name": "Furla-VFU718-09MA",
         "description": "Elegancia italiana con detalles artesanales exclusivos",
-        "price": "",
+        "price": "229€",
         "src": "/productos/furla-VFU718-09MA.webp",
         "buttonText": "Saber más"
       },
@@ -110,7 +110,7 @@
         "id": 10,
         "name": "Pertegaz-55178550",
         "description": "Tradición española en moda y complementos de lujo",
-        "price": "",
+        "price": "159€",
         "src": "/productos/pertegaz-55178550.webp",
         "buttonText": "Saber más"
       },
@@ -118,7 +118,7 @@
         "id": 11,
         "name": "Polo Ralph Lauren ph2211",
         "description": "Estilo clásico americano con sofisticación atemporal",
-        "price": "",
+        "price": "219€",
         "src": "/productos/polo-ralph-lauren-ph2211.webp",
         "buttonText": "Saber más"
       },
@@ -126,7 +126,7 @@
         "id": 12,
         "name": "Ralph by Ralph Lauren",
         "description": "Deportividad y elegancia en diseños versátiles",
-        "price": "",
+        "price": "179€",
         "src": "/productos/ralph-by-ralph-lauren.webp",
         "buttonText": "Saber más"
       },
@@ -134,7 +134,7 @@
         "id": 13,
         "name": "Arnette Hot Shot AN4182-2149/81",
         "description": "Gafas juveniles con actitud urbana y deportiva",
-        "price": "",
+        "price": "129€",
         "src": "/productos/arnette-hot-shot-an4182-214981.webp",
         "buttonText": "Saber más"
       },
@@ -142,7 +142,7 @@
         "id": 14,
         "name": "Lacoste L2912-301",
         "description": "Espíritu deportivo francés con elegancia casual",
-        "price": "",
+        "price": "199€",
         "src": "/productos/lacoste-L2912-301.webp",
         "buttonText": "Saber más"
       },
@@ -150,7 +150,7 @@
         "id": 15,
         "name": "Police x Mercedes AMG Petronas SPLR50 R22B",
         "description": "Diseños audaces con personalidad urbana distintiva",
-        "price": "",
+        "price": "149€",
         "src": "/productos/police-x-mercedes-amg-petronas-splr50-r22b.webp",
         "buttonText": "Saber más"
       },
@@ -158,7 +158,7 @@
         "id": 16,
         "name": "Furla SFU971",
         "description": "Gafas de sol Furla, color 0700.",
-        "price": "",
+        "price": "154€",
         "src": "/productos/furla-SFU971-0700.webp",
         "buttonText": "Saber más"
       },
@@ -166,7 +166,7 @@
         "id": 17,
         "name": "Just Cavalli SJC039",
         "description": "Gafas de sol Just Cavalli, color 06NA.",
-        "price": "",
+        "price": "139€",
         "src": "/productos/just-cavalli-SJC039-06NA.webp",
         "buttonText": "Saber más"
       },
@@ -174,7 +174,7 @@
         "id": 18,
         "name": "Furla SFU348",
         "description": "Gafas de sol Furla, color 09FD.",
-        "price": "",
+        "price": "185€",
         "src": "/productos/furla-SFU348-09FD.webp",
         "buttonText": "Saber más"
       },
@@ -182,7 +182,7 @@
         "id": 19,
         "name": "Havaianas Sampa",
         "description": "Gafas de sol Havaianas, color 807/IR.",
-        "price": "",
+        "price": "50€",
         "src": "/productos/havaianas-sampa-807-IR.webp",
         "buttonText": "Saber más"
       },
@@ -190,7 +190,7 @@
         "id": 20,
         "name": "Just Cavalli JC320S",
         "description": "Gafas de sol Just Cavalli, color 05B.",
-        "price": "",
+        "price": "80€",
         "src": "/productos/just-cavalli-JC320S-05B.webp",
         "buttonText": "Saber más"
       },
@@ -198,7 +198,7 @@
         "id": 21,
         "name": "Guess GU7847",
         "description": "Gafas de sol Guess, color 08W.",
-        "price": "",
+        "price": "127€",
         "src": "/productos/guess-GU7847-08W.webp",
         "buttonText": "Saber más"
       },
@@ -206,7 +206,7 @@
         "id": 22,
         "name": "Yalea Frida SYA174V",
         "description": "Gafas de sol Yalea, color 0868.",
-        "price": "",
+        "price": "150€",
         "src": "/productos/yalea-frida-SYA174V-0868.webp",
         "buttonText": "Saber más"
       },
@@ -214,7 +214,7 @@
         "id": 23,
         "name": "Yalea SYA103",
         "description": "Gafas de sol Yalea, color 0XAP.",
-        "price": "",
+        "price": "136€",
         "src": "/productos/yalea-SYA103-0XAP.webp",
         "buttonText": "Saber más"
       },
@@ -222,7 +222,7 @@
         "id": 24,
         "name": "Yalea SYA120",
         "description": "Gafas de sol Yalea.",
-        "price": "",
+        "price": "136€",
         "src": "/productos/yalea-SYA120.webp",
         "buttonText": "Saber más"
       },
@@ -230,7 +230,7 @@
         "id": 25,
         "name": "Yalea SYA151V",
         "description": "Gafas de sol Yalea, color 700W.",
-        "price": "",
+        "price": "145€",
         "src": "/productos/yalea-SYA151V-700W.webp",
         "buttonText": "Saber más"
       },
@@ -238,7 +238,7 @@
         "id": 26,
         "name": "Yalea SYA081",
         "description": "Gafas de sol Yalea, color 94HX.",
-        "price": "",
+        "price": "149€",
         "src": "/productos/yalea-SYA081-94HX.webp",
         "buttonText": "Saber más"
       },
@@ -246,7 +246,7 @@
         "id": 27,
         "name": "Nina Ricci SNR317",
         "description": "Gafas de sol Nina Ricci, color 096N.",
-        "price": "",
+        "price": "142€",
         "src": "/productos/nina-ricci-SNR317-096N.webp",
         "buttonText": "Saber más"
       },
@@ -254,7 +254,7 @@
         "id": 28,
         "name": "Yalea SYA152V",
         "description": "Gafas de sol Yalea, color 0752.",
-        "price": "",
+        "price": "145€",
         "src": "/productos/yalea-SYA152V-0752.webp",
         "buttonText": "Saber más"
       },
@@ -262,7 +262,7 @@
         "id": 29,
         "name": "Furla SFU625",
         "description": "Gafas de sol Furla, color 05GQ.",
-        "price": "",
+        "price": "176€",
         "src": "/productos/furla-SFU625-05GQ.webp",
         "buttonText": "Saber más"
       },
@@ -270,7 +270,7 @@
         "id": 30,
         "name": "Yalea SYA104",
         "description": "Gafas de sol Yalea, color 0830.",
-        "price": "",
+        "price": "136€",
         "src": "/productos/yalea-SYA104-0830.webp",
         "buttonText": "Saber más"
       }

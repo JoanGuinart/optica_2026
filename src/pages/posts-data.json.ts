@@ -23,7 +23,7 @@ const pick = (items: unknown, keys: string[]) =>
     Object.fromEntries(keys.filter((k) => item[k] !== undefined).map((k) => [k, item[k]])),
   );
 
-const PRODUCT = ["id", "name", "description", "src"];
+const PRODUCT = ["id", "name", "description", "price", "src"];
 const OFFER = ["badge", "title", "description", "price_from", "price_or_gift", "subtitle", "conditions"];
 const SERVICE = ["id", "title", "description", "price"];
 
