@@ -1,6 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Hero from "@components/home/Hero.astro";
+import PromoTemporal from "@components/promo/PromoTemporal.astro";
 import Marques from "@components/home/Marques.astro";
 import Serveis from "@components/home/Serveis.astro";
 import Ofertes from "@components/home/Ofertes.astro";
@@ -15,6 +16,7 @@ const seo = getLocalizedData<any>(locale, "home").seo;
 
 <Layout title={seo?.title} description={seo?.description} ogImage={seo?.ogImage} flush>
   <Hero />
+  <PromoTemporal />
   <Marques />
   <Serveis />
   <Ofertes />

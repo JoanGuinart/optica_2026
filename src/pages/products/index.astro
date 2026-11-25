@@ -4,6 +4,8 @@ import Titol from "@components/ui/Titol.astro";
 import Icon from "@components/ui/Icon.astro";
 import Etiquetes from "@components/ui/Etiquetes.astro";
 import Crida from "@components/ui/Crida.astro";
+import PromoTemporal from "@components/promo/PromoTemporal.astro";
+import { promoActive, promoPrice, promoTexts } from "@/utils/promo";
 import { getLocaleFromPath, getLocalizedData, localizePath } from "@/utils/i18n";
 
 const locale = getLocaleFromPath(Astro.url.pathname);
@@ -39,6 +41,8 @@ const promos = (offersData.offers || []).filter(Boolean).map((o: any, i: number)
   };
 });
 const products: any[] = d.featuredProducts.products;
+const promoOn = promoActive();
+const promoT = promoTexts(locale);
 ---
 
 <Layout title={d.seo?.title} description={d.seo?.description} ogImage={d.seo?.ogImage}>
@@ -81,6 +85,8 @@ const products: any[] = d.featuredProducts.products;
     </div>
   </section>
 
+  <PromoTemporal variant="products" />
+
   <!-- Catàleg amb cercador -->
   <section class="bg-crema-50 py-24 sm:py-28">
     <div class="contenidor">
@@ -114,9 +120,23 @@ const products: any[] = d.featuredProducts.products;
                   decoding="async"
                   class="relative h-full w-full object-contain p-6 mix-blend-multiply transition-transform duration-700 ease-out-soft group-hover:-rotate-3 group-hover:scale-105"
                 />
-                {p.price && (
-                  <span class="absolute top-4 right-4 rounded-full bg-crema-50 px-3 py-1 font-display text-lg text-bosc-900" style="font-weight:560">{p.price}</span>
-                )}
+                {(() => {
+                  const offer = promoOn ? promoPrice(p.src, p.price) : null;
+                  const normal = p.price && (
+                    <span class="absolute top-4 right-4 rounded-full bg-crema-50 px-3 py-1 font-display text-lg text-bosc-900" style="font-weight:560" hidden={offer ? true : undefined} data-promo-off={offer ? "" : undefined}>{p.price}</span>
+                  );
+                  if (!offer) return normal;
+                  return (
+                    <>
+                      {normal}
+                      <span class="absolute top-4 left-4 rounded-full bg-bosc-950 px-3 py-1 text-sm font-semibold tracking-wide text-fusta-300" data-promo-on>{promoT.badge}</span>
+                      <span class="absolute top-4 right-4 flex items-baseline gap-2 rounded-full bg-crema-50 px-3 py-1" data-promo-on>
+                        <s class="text-sm text-tinta-suau tabular-nums">{offer.was}</s>
+                        <span class="font-display text-lg text-bosc-900 tabular-nums" style="font-weight:600">{offer.now}</span>
+                      </span>
+                    </>
+                  );
+                })()}
               </div>
               <h3 class="mt-5 text-2xl">{p.name}</h3>
               <p class="mt-2 line-clamp-2 text-[0.95rem] text-tinta-suau">{p.description}</p>

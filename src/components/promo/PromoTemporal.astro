@@ -1,0 +1,204 @@
+---
+/**
+ * Temporary promo (Black Friday): a dark band in the shop's green with the
+ * discount, a countdown and a slider with every frame on offer.
+ * Not rendered once the promo has ended; the browser also removes it by
+ * itself when the end date passes (no rebuild needed).
+ */
+import Icon from "@components/ui/Icon.astro";
+import { getLocaleFromPath, getLocalizedData, localizePath } from "@/utils/i18n";
+import { PROMO, promoActive, promoProducts, promoTexts } from "@/utils/promo";
+
+interface Props {
+  /** "home": button to the catalogue; "products": anchor target on the products page. */
+  variant?: "home" | "products";
+}
+const { variant = "home" } = Astro.props;
+
+const locale = getLocaleFromPath(Astro.url.pathname);
+const t = promoTexts(locale);
+const catalog: any[] = getLocalizedData<any>(locale, "products").featuredProducts.products;
+const items = promoProducts(catalog);
+const wa = getLocalizedData<any>(locale, "contact").contactInfo.phone.whatsapp;
+const waLink = (text: string) => `https://wa.me/${wa}?text=${encodeURIComponent(text)}`;
+const show = promoActive() && items.length > 0;
+---
+
+{show && (
+  <section
+    id="black-friday"
+    class="promo relative overflow-hidden bg-bosc-950 py-24 text-crema-50 sm:py-32"
+    data-promo-fins={PROMO.end}
+    aria-labelledby="promo-titol"
+  >
+    <span class="pointer-events-none absolute -top-40 -right-32 h-[34rem] w-[34rem] rounded-full bg-fusta-400/15 blur-3xl" aria-hidden="true"></span>
+    <span class="pointer-events-none absolute -bottom-48 -left-40 h-[30rem] w-[30rem] rounded-full bg-bosc-600/20 blur-3xl" aria-hidden="true"></span>
+
+    <div class="contenidor relative grid items-end gap-12 lg:grid-cols-12 lg:gap-8">
+      <div class="lg:col-span-7">
+        <p class="avantitol flex items-center gap-3 !text-fusta-300" data-reveal>
+          <span class="inline-block h-px w-8 bg-fusta-300"></span>
+          {t.eyebrow}
+        </p>
+        <h2 id="promo-titol" class="mt-6 !text-crema-50" style="font-size: clamp(3.2rem, 9vw, 8.5rem); letter-spacing: -0.03em; line-height: 0.9" data-split>
+          <span class="text-fusta-300" style="font-weight: 600">{t.figure}</span>
+          <span class="cursiva block !text-crema-100" style="font-size: 0.5em; font-weight: 380; line-height: 1.1">{t.titleItalic}</span>
+        </h2>
+        <p class="mt-8 max-w-xl text-lg text-crema-200/85 sm:text-xl" data-reveal>{t.subtitle}</p>
+      </div>
+
+      <div class="lg:col-span-5 lg:pl-6" data-reveal>
+        <p class="text-xs font-semibold tracking-[0.18em] text-crema-200/70 uppercase">{t.countdown}</p>
+        <div class="mt-4 grid max-w-md grid-cols-4 gap-3" data-compte data-unitats={JSON.stringify(t.units)}>
+          {t.units.map((u) => (
+            <div class="rounded-2xl border border-crema-50/12 bg-crema-50/[0.04] px-2 py-4 text-center backdrop-blur-sm">
+              <span class="block font-display text-4xl tabular-nums text-crema-50 sm:text-5xl" style="font-weight: 500" data-valor>–</span>
+              <span class="mt-1 block text-[0.7rem] tracking-[0.14em] text-crema-200/70 uppercase">{u}</span>
+            </div>
+          ))}
+        </div>
+        <div class="mt-8 flex flex-wrap items-center gap-x-7 gap-y-4">
+          {variant === "home" ? (
+            <a href={`${localizePath("/products", locale)}#black-friday`} class="boto boto-clar">
+              {t.cta} <Icon name="fletxa" size={18} class="fletxa" />
+            </a>
+          ) : null}
+          <a href={waLink(t.whatsappText)} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 font-semibold text-fusta-300 hover:text-fusta-300/80">
+            <Icon name="whatsapp" size={20} /> {t.ctaWhatsapp}
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative mt-16 sm:mt-20">
+      <div class="contenidor flex items-center justify-between">
+        <p class="text-sm text-crema-200/70">{t.note}</p>
+        <div class="hidden gap-3 sm:flex">
+          <button type="button" class="fletxa-promo" data-rail-prev aria-label={t.prev}>
+            <Icon name="fletxa" size={20} class="rotate-180" />
+          </button>
+          <button type="button" class="fletxa-promo" data-rail-next aria-label={t.next}>
+            <Icon name="fletxa" size={20} />
+          </button>
+        </div>
+      </div>
+
+      <div class="contenidor mt-8 !pr-0">
+        <ul class="rail-promo flex snap-x snap-mandatory gap-5 overflow-x-auto pr-5 pb-4 sm:gap-6 sm:pr-8 lg:pr-12" data-rail>
+          {items.map((p) => (
+            <li class="w-[74%] shrink-0 snap-start sm:w-[42%] lg:w-[23.5%]">
+              <article class="group flex h-full flex-col">
+                <div class="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] bg-crema-100">
+                  <span class="absolute inset-x-[12%] top-1/2 aspect-square -translate-y-1/2 rounded-full bg-crema-200/70 transition-transform duration-700 ease-out-soft group-hover:scale-110" aria-hidden="true"></span>
+                  <img
+                    src={p.src}
+                    alt={`${p.name} – Black Friday, Òptica Guinart Sant Andreu`}
+                    width="400"
+                    height="400"
+                    loading="lazy"
+                    decoding="async"
+                    class="relative h-full w-full object-contain p-6 mix-blend-multiply transition-transform duration-700 ease-out-soft group-hover:-rotate-3 group-hover:scale-105"
+                  />
+                  <span class="absolute top-4 left-4 rounded-full bg-bosc-950 px-3 py-1 text-sm font-semibold tracking-wide text-fusta-300">{t.badge}</span>
+                </div>
+                <h3 class="mt-5 text-2xl !text-crema-50">{p.name}</h3>
+                <p class="mt-2 flex items-baseline gap-3">
+                  <s class="text-crema-200/55 tabular-nums">{p.was}</s>
+                  <span class="font-display text-3xl tabular-nums text-fusta-300" style="font-weight: 560">{p.now}</span>
+                </p>
+                <a
+                  href={waLink(`${t.askText}: ${p.name} (${p.now})`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="enllac mt-3 self-start text-[0.95rem] !text-crema-50"
+                >
+                  {t.ask} <Icon name="fletxa" size={16} />
+                </a>
+              </article>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+)}
+
+<style>
+  .rail-promo {
+    scrollbar-width: none;
+  }
+  .rail-promo::-webkit-scrollbar {
+    display: none;
+  }
+  .fletxa-promo {
+    display: inline-flex;
+    height: 3rem;
+    width: 3rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    border: 1px solid rgb(252 250 245 / 0.2);
+    color: var(--color-crema-50);
+    transition:
+      background-color 0.3s var(--ease-out-soft),
+      border-color 0.3s var(--ease-out-soft),
+      opacity 0.3s;
+  }
+  .fletxa-promo:hover {
+    background-color: rgb(252 250 245 / 0.08);
+    border-color: rgb(252 250 245 / 0.5);
+  }
+  .fletxa-promo:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+</style>
+
+<script>
+  // Countdown, end of promo (removes it and restores normal prices) and slider arrows.
+  function init() {
+    const ends = document.querySelectorAll<HTMLElement>("[data-promo-fins]");
+    const end = ends.length ? new Date(ends[0].dataset.promoFins!) : null;
+
+    const finish = () => {
+      document.querySelectorAll("[data-promo-fins]").forEach((el) => el.remove());
+      document.querySelectorAll("[data-promo-on]").forEach((el) => el.remove());
+      document.querySelectorAll<HTMLElement>("[data-promo-off]").forEach((el) => el.removeAttribute("hidden"));
+    };
+
+    if (end) {
+      const boxes = document.querySelectorAll<HTMLElement>("[data-compte]");
+      const tick = () => {
+        const left = end.getTime() - Date.now();
+        if (left <= 0) {
+          finish();
+          return false;
+        }
+        const parts = [Math.floor(left / 864e5), Math.floor(left / 36e5) % 24, Math.floor(left / 6e4) % 60, Math.floor(left / 1e3) % 60];
+        boxes.forEach((box) =>
+          box.querySelectorAll<HTMLElement>("[data-valor]").forEach((v, i) => (v.textContent = String(parts[i]).padStart(2, "0"))),
+        );
+        return true;
+      };
+      if (tick()) {
+        const timer = setInterval(() => !tick() && clearInterval(timer), 1000);
+      }
+    }
+
+    document.querySelectorAll<HTMLElement>("[data-rail]").forEach((rail) => {
+      const section = rail.closest("section");
+      const prev = section?.querySelector<HTMLButtonElement>("[data-rail-prev]");
+      const next = section?.querySelector<HTMLButtonElement>("[data-rail-next]");
+      const step = () => (rail.querySelector("li")?.getBoundingClientRect().width ?? 300) + 24;
+      const update = () => {
+        if (prev) prev.disabled = rail.scrollLeft <= 4;
+        if (next) next.disabled = rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 4;
+      };
+      prev?.addEventListener("click", () => rail.scrollBy({ left: -step(), behavior: "smooth" }));
+      next?.addEventListener("click", () => rail.scrollBy({ left: step(), behavior: "smooth" }));
+      rail.addEventListener("scroll", update, { passive: true });
+      update();
+    });
+  }
+  init();
+</script>
